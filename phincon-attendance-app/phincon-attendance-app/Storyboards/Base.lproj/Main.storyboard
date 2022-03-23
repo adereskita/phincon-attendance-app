@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nAE-4Z-iEd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -493,7 +493,7 @@
         <!--Login View Controller-->
         <scene sceneID="kbr-M9-g9O">
             <objects>
-                <viewController id="MHL-90-eCy" customClass="LoginViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPage" id="MHL-90-eCy" customClass="LoginViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W9G-Ro-heH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -549,6 +549,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="Pap-ct-65N" kind="modal" modalPresentationStyle="fullScreen" id="Qm0-J1-NMA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaX-6P-Hg2">
                                         <rect key="frame" x="30" y="571" width="344" height="57"/>
@@ -564,6 +567,9 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" red="1" green="0.76470588240000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginButton:" destination="MHL-90-eCy" eventType="touchUpInside" id="ikF-05-JdJ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't Have Account? please" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVa-eQ-HnZ">
                                         <rect key="frame" x="79" y="640.5" width="154.5" height="17"/>
@@ -584,6 +590,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="nAE-4Z-iEd" kind="modal" modalPresentationStyle="fullScreen" id="7Mk-fV-50a"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -630,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ny-t7-kHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260.86956521739131" y="1475.8928571428571"/>
+            <point key="canvasLocation" x="622" y="1511"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mqP-t9-5IP">
@@ -718,6 +727,9 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" red="1" green="0.76470588240000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="nAE-4Z-iEd" eventType="touchUpInside" id="VFA-bN-4GX"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already Have Account? please" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPN-08-mKn">
                                         <rect key="frame" x="79" y="640.5" width="166" height="17"/>
@@ -738,6 +750,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="nAE-4Z-iEd" eventType="touchUpInside" id="jNv-Xb-nGR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -793,7 +808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJw-WE-5Gy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="1476"/>
+            <point key="canvasLocation" x="1422" y="1983"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="d8A-kA-ZfH">
@@ -869,6 +884,9 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" red="1" green="0.76470588240000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="Pap-ct-65N" eventType="touchUpInside" id="oeD-Ba-P9N"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already Have Account? please" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhg-9c-hKE">
                                         <rect key="frame" x="79" y="640.5" width="166" height="17"/>
@@ -889,6 +907,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="Pap-ct-65N" eventType="touchUpInside" id="4Sg-6l-4Hi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -935,10 +956,11 @@
                             <constraint firstItem="Gac-W1-jaQ" firstAttribute="top" secondItem="o9J-YC-jxu" secondAttribute="top" constant="74" id="mNX-bq-0bT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="C9i-Ti-E03"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntT-7I-Gd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="1476"/>
+            <point key="canvasLocation" x="1423" y="1315"/>
         </scene>
     </scenes>
     <resources>

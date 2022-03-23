@@ -12,8 +12,7 @@
 
 import UIKit
 
-protocol LoginDisplayLogic: class
-{
+protocol LoginDisplayLogic: AnyObject {
     func displaySomething(viewModel: Login.Something.ViewModel)
 }
 
@@ -75,6 +74,16 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
+    @IBAction func dismissButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    @IBAction func loginButton(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
+        //        self.definesPresentationContext = true
+        dashboardVC.modalPresentationStyle = .fullScreen
+        self.present(dashboardVC, animated:true, completion:nil)
+    }
     
     func doSomething()
     {

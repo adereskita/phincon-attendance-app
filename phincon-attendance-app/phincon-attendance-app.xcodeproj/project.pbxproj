@@ -47,6 +47,8 @@
 		E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33C27EB730F00D97493 /* ProfilModels.swift */; };
 		E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33D27EB730F00D97493 /* ProfilViewController.swift */; };
 		E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */; };
+		E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */; };
+		E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		E2FAE33C27EB730F00D97493 /* ProfilModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilModels.swift; sourceTree = "<group>"; };
 		E2FAE33D27EB730F00D97493 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilInteractor.swift; sourceTree = "<group>"; };
+		E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilTableViewCell.swift; sourceTree = "<group>"; };
+		E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2FAE34627EB742800D97493 /* Profil */,
 				36F0CE9327DFAA6A001469CC /* History */,
 				36F0CE8527DF80A2001469CC /* Dashboard */,
 				36DC385427DA548500EC4164 /* OnBoarding */,
@@ -344,6 +349,15 @@
 			path = Profil;
 			sourceTree = "<group>";
 		};
+		E2FAE34627EB742800D97493 /* Profil */ = {
+			isa = PBXGroup;
+			children = (
+				E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */,
+				E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */,
+			);
+			path = Profil;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -454,6 +468,7 @@
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
+				E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +496,7 @@
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
 				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
+				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
 				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,

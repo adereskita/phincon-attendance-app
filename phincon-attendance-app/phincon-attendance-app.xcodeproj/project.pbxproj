@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		362D593E27E88E1D0022C094 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D593C27E88E1D0022C094 /* ProfileTableViewCell.swift */; };
-		362D593F27E88E1D0022C094 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 362D593D27E88E1D0022C094 /* ProfileTableViewCell.xib */; };
-		362D594327E999520022C094 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594227E999520022C094 /* Profile.swift */; };
 		362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594427E9B7FF0022C094 /* HistoryPresenter.swift */; };
 		362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594527E9B7FF0022C094 /* HistoryWorker.swift */; };
 		362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594627E9B7FF0022C094 /* HistoryRouter.swift */; };
@@ -38,6 +35,12 @@
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
 		9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */; };
+		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
+		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
+		E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2527EB036B001BEE6D /* LoginRouter.swift */; };
+		E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2627EB036B001BEE6D /* LoginModels.swift */; };
+		E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2727EB036B001BEE6D /* LoginViewController.swift */; };
+		E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		362D593C27E88E1D0022C094 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		362D593D27E88E1D0022C094 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
-		362D594227E999520022C094 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		362D594427E9B7FF0022C094 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
 		362D594527E9B7FF0022C094 /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
 		362D594627E9B7FF0022C094 /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
@@ -95,6 +95,12 @@
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		E2A60F2527EB036B001BEE6D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		E2A60F2627EB036B001BEE6D /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		E2A60F2727EB036B001BEE6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,27 +128,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		362D593B27E88E010022C094 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				362D594027E88E280022C094 /* Cell */,
-				362D593C27E88E1D0022C094 /* ProfileTableViewCell.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		362D594027E88E280022C094 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				362D593D27E88E1D0022C094 /* ProfileTableViewCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		362D594127E9991C0022C094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				362D594227E999520022C094 /* Profile.swift */,
 				36F0CE9927DFAC56001469CC /* History.swift */,
 			);
 			path = Models;
@@ -151,7 +139,6 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				362D593B27E88E010022C094 /* Profile */,
 				36F0CE9327DFAA6A001469CC /* History */,
 				36F0CE8527DF80A2001469CC /* Dashboard */,
 				36DC385427DA548500EC4164 /* OnBoarding */,
@@ -299,6 +286,7 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E2A60F2227EB0341001BEE6D /* Login */,
 				9595053727D9C2AF005741CA /* Onboarding */,
 				36F0CE8227DF4C2A001469CC /* Dashboard */,
 				36F0CE8D27DFA245001469CC /* History */,
@@ -315,6 +303,19 @@
 				9595051227D9BE29005741CA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2A60F2227EB0341001BEE6D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */,
+				E2A60F2427EB036B001BEE6D /* LoginWorker.swift */,
+				E2A60F2527EB036B001BEE6D /* LoginRouter.swift */,
+				E2A60F2627EB036B001BEE6D /* LoginModels.swift */,
+				E2A60F2727EB036B001BEE6D /* LoginViewController.swift */,
+				E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,7 +426,6 @@
 				9595051127D9BE29005741CA /* Assets.xcassets in Resources */,
 				9595050C27D9BE25005741CA /* Main.storyboard in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
-				362D593F27E88E1D0022C094 /* ProfileTableViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
 			);
@@ -454,20 +454,24 @@
 			files = (
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
+				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
+				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
 				36F0CE9027DFA27B001469CC /* HistoryVC.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
+				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
+				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
 				36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */,
+				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
+				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
 				9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
-				362D594327E999520022C094 /* Profile.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
-				362D593E27E88E1D0022C094 /* ProfileTableViewCell.swift in Sources */,
 				36F0CE8C27DF8ACB001469CC /* DashboardModels.swift in Sources */,
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
 				36DC385F27DA630600EC4164 /* OnBoardingModels.swift in Sources */,

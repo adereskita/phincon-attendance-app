@@ -1,5 +1,5 @@
 //
-//  HistoryModel.swift
+//  History.swift
 //  phincon-attendance-app
 //
 //  Created by Ade on 3/15/22.

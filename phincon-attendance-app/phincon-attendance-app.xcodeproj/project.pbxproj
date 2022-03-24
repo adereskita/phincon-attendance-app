@@ -35,6 +35,7 @@
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
 		9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */; };
+		E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2094B4927ECB19F00A379D9 /* Profile.swift */; };
 		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
 		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
 		E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2527EB036B001BEE6D /* LoginRouter.swift */; };
@@ -103,6 +104,7 @@
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		E2A60F2527EB036B001BEE6D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				36F0CE9927DFAC56001469CC /* History.swift */,
+				E2094B4927ECB19F00A379D9 /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
 				36DC385F27DA630600EC4164 /* OnBoardingModels.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
+				E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,14 @@
 
 import UIKit
 
-class ProfilWorker
-{
-  func doSomeWork()
-  {
-  }
+class ProfilWorker {
+    var profilData = [Profile]()
+    
+    func fetchProfil() -> [Profile] {
+        profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")),
+                      Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")),
+                      Profile(titleData: "Change Password", descData: "**********", iconData: UIImage(named: "password"))
+        ]
+        return profilData
+    }
 }

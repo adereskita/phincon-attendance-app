@@ -14,7 +14,7 @@ import UIKit
 
 protocol ProfilPresentationLogic
 {
-  func presentSomething(response: Profil.Something.Response)
+  func presentSomething(response: ProfilModel.LoadProfil.Response)
 }
 
 class ProfilPresenter: ProfilPresentationLogic
@@ -23,9 +23,9 @@ class ProfilPresenter: ProfilPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Profil.Something.Response)
+  func presentSomething(response: ProfilModel.LoadProfil.Response)
   {
-    let viewModel = Profil.Something.ViewModel()
+    let viewModel = ProfilModel.LoadProfil.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }
 }

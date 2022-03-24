@@ -12,20 +12,17 @@
 
 import UIKit
 
-enum Profil
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum ProfilModel {
+    
+    enum LoadProfil {
+        struct Request {}
+        struct Response {
+            var ProfileData: [Profile]
+        }
+        struct ViewModel{
+            var titleData : String?
+            var imageData : UIImage?
+            var descDAta : String?
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

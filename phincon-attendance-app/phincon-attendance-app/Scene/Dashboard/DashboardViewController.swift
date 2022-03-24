@@ -76,6 +76,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     @IBOutlet var notifBtn: UIButton!
     @IBOutlet var circleBg: UIImageView!
     @IBOutlet var topCardView: UIView!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     let userDefault = UserDefaults.standard
     
@@ -129,6 +131,16 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         topCardView.layer.shadowOffset = CGSize.zero
         topCardView.layer.shadowOpacity = 0.2
         topCardView.layer.shadowRadius = 3.0
+        
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "dd MMM yyyy"
+        let dates = df.string(from: date)
+        df.dateFormat = "HH:mm"
+        let hour = df.string(from: date)
+        
+        dateLabel.text = dates
+        timeLabel.text = "Hour: \(hour)"
     }
     
     // MARK: Do something

@@ -23,7 +23,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupView(_ slide: OnboardingSlide) {
+    func setupView(_ slide: Onboarding) {
         self.lbOnBoardTitle.text = slide.title
         self.lbOnBoardDesc.text = slide.description
     }

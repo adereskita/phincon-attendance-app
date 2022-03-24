@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct DashboardModels {
+struct Checkin {
     let title: String
     let description: String
     let image: UIImage

@@ -14,20 +14,26 @@ import UIKit
 
 protocol HistoryBusinessLogic {
     func loadHistory(request: HistoryModel.LoadHistory.Request)
+    func getSafariLink(_ selectedHistory: String)
 }
 
 protocol HistoryDataStore {
-  //var name: String { get set }
+  var desc: String { get set }
 }
 
 class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
+    
     var presenter: HistoryPresentationLogic?
     var worker: HistoryWorker?
-//    var name: String = ""
+    var desc: String = ""
     
     var history = [History]()
   
   // MARK: Do something
+    
+    func getSafariLink(_ selectedHistory: String) {
+        desc = selectedHistory
+    }
   
     func loadHistory(request: HistoryModel.LoadHistory.Request) {
         worker = HistoryWorker()

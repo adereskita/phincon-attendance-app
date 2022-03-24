@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		362D593E27E88E1D0022C094 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D593C27E88E1D0022C094 /* ProfileTableViewCell.swift */; };
-		362D593F27E88E1D0022C094 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 362D593D27E88E1D0022C094 /* ProfileTableViewCell.xib */; };
-		362D594327E999520022C094 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594227E999520022C094 /* Profile.swift */; };
 		362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594427E9B7FF0022C094 /* HistoryPresenter.swift */; };
 		362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594527E9B7FF0022C094 /* HistoryWorker.swift */; };
 		362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594627E9B7FF0022C094 /* HistoryRouter.swift */; };
@@ -18,14 +15,19 @@
 		362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594927E9B7FF0022C094 /* HistoryInteractor.swift */; };
 		36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */; };
 		36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */; };
-		36DC385F27DA630600EC4164 /* OnBoardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* OnBoardingModels.swift */; };
+		36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* Onboarding.swift */; };
+		36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25BF27EC0F040094876E /* OnBoardingPresenter.swift */; };
+		36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C027EC0F040094876E /* OnBoardingWorker.swift */; };
+		36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C127EC0F040094876E /* OnBoardingRouter.swift */; };
+		36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C227EC0F040094876E /* OnBoardingModels.swift */; };
+		36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */; };
+		36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C927EC0F400094876E /* OnBoardingViewController.swift */; };
 		36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */; };
 		36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */; };
 		36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8327DF4C5D001469CC /* DashboardVC.swift */; };
 		36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8627DF8126001469CC /* DashboardTableCell.swift */; };
 		36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE8727DF8126001469CC /* DashboardTableCell.xib */; };
-		36F0CE8C27DF8ACB001469CC /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */; };
-		36F0CE9027DFA27B001469CC /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8F27DFA27B001469CC /* HistoryVC.swift */; };
+		36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* Checkin.swift */; };
 		36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */; };
 		36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */; };
 		36F0CE9A27DFAC56001469CC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9927DFAC56001469CC /* History.swift */; };
@@ -37,7 +39,6 @@
 		9595051427D9BE29005741CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595051227D9BE29005741CA /* LaunchScreen.storyboard */; };
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
-		9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		362D593C27E88E1D0022C094 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		362D593D27E88E1D0022C094 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
-		362D594227E999520022C094 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		362D594427E9B7FF0022C094 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
 		362D594527E9B7FF0022C094 /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
 		362D594627E9B7FF0022C094 /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
@@ -69,14 +67,19 @@
 		362D594927E9B7FF0022C094 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
 		36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
-		36DC385E27DA630600EC4164 /* OnBoardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModels.swift; sourceTree = "<group>"; };
+		36DC385E27DA630600EC4164 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		36EA25BF27EC0F040094876E /* OnBoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPresenter.swift; sourceTree = "<group>"; };
+		36EA25C027EC0F040094876E /* OnBoardingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingWorker.swift; sourceTree = "<group>"; };
+		36EA25C127EC0F040094876E /* OnBoardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingRouter.swift; sourceTree = "<group>"; };
+		36EA25C227EC0F040094876E /* OnBoardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModels.swift; sourceTree = "<group>"; };
+		36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingInteractor.swift; sourceTree = "<group>"; };
+		36EA25C927EC0F400094876E /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		36F0CE8327DF4C5D001469CC /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		36F0CE8627DF8126001469CC /* DashboardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableCell.swift; sourceTree = "<group>"; };
 		36F0CE8727DF8126001469CC /* DashboardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableCell.xib; sourceTree = "<group>"; };
-		36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
-		36F0CE8F27DFA27B001469CC /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		36F0CE8B27DF8ACB001469CC /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFilterCollViewCell.swift; sourceTree = "<group>"; };
 		36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFilterCollViewCell.xib; sourceTree = "<group>"; };
 		36F0CE9927DFAC56001469CC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -94,7 +97,6 @@
 		9595052527D9BE2A005741CA /* phincon-attendance-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "phincon-attendance-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,28 +124,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		362D593B27E88E010022C094 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				362D594027E88E280022C094 /* Cell */,
-				362D593C27E88E1D0022C094 /* ProfileTableViewCell.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		362D594027E88E280022C094 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				362D593D27E88E1D0022C094 /* ProfileTableViewCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		362D594127E9991C0022C094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				362D594227E999520022C094 /* Profile.swift */,
+				36DC385E27DA630600EC4164 /* Onboarding.swift */,
 				36F0CE9927DFAC56001469CC /* History.swift */,
+				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,7 +137,6 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				362D593B27E88E010022C094 /* Profile */,
 				36F0CE9327DFAA6A001469CC /* History */,
 				36F0CE8527DF80A2001469CC /* Dashboard */,
 				36DC385427DA548500EC4164 /* OnBoarding */,
@@ -180,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				36F0CE8327DF4C5D001469CC /* DashboardVC.swift */,
-				36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -205,12 +189,11 @@
 		36F0CE8D27DFA245001469CC /* History */ = {
 			isa = PBXGroup;
 			children = (
-				36F0CE8F27DFA27B001469CC /* HistoryVC.swift */,
+				362D594827E9B7FF0022C094 /* HistoryViewController.swift */,
 				362D594427E9B7FF0022C094 /* HistoryPresenter.swift */,
 				362D594527E9B7FF0022C094 /* HistoryWorker.swift */,
 				362D594627E9B7FF0022C094 /* HistoryRouter.swift */,
 				362D594727E9B7FF0022C094 /* HistoryModels.swift */,
-				362D594827E9B7FF0022C094 /* HistoryViewController.swift */,
 				362D594927E9B7FF0022C094 /* HistoryInteractor.swift */,
 			);
 			path = History;
@@ -290,8 +273,12 @@
 		9595053727D9C2AF005741CA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */,
-				36DC385E27DA630600EC4164 /* OnBoardingModels.swift */,
+				36EA25C927EC0F400094876E /* OnBoardingViewController.swift */,
+				36EA25BF27EC0F040094876E /* OnBoardingPresenter.swift */,
+				36EA25C027EC0F040094876E /* OnBoardingWorker.swift */,
+				36EA25C127EC0F040094876E /* OnBoardingRouter.swift */,
+				36EA25C227EC0F040094876E /* OnBoardingModels.swift */,
+				36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -425,7 +412,6 @@
 				9595051127D9BE29005741CA /* Assets.xcassets in Resources */,
 				9595050C27D9BE25005741CA /* Main.storyboard in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
-				362D593F27E88E1D0022C094 /* ProfileTableViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
 			);
@@ -454,24 +440,26 @@
 			files = (
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
-				36F0CE9027DFA27B001469CC /* HistoryVC.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
+				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
 				36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */,
+				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
-				9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
-				362D594327E999520022C094 /* Profile.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
+				36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
-				362D593E27E88E1D0022C094 /* ProfileTableViewCell.swift in Sources */,
-				36F0CE8C27DF8ACB001469CC /* DashboardModels.swift in Sources */,
+				36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */,
+				36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */,
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
-				36DC385F27DA630600EC4164 /* OnBoardingModels.swift in Sources */,
+				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
+				36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
+				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

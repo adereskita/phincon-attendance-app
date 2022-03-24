@@ -19,6 +19,12 @@ class HistoryTableViewCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "HistoryTableViewCell", bundle: nil)
     }
+    
+    override var isSelected: Bool {
+        didSet {
+            cardView.backgroundColor = isSelected ? .gray : .white
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

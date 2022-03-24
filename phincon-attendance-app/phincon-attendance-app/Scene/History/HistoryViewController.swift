@@ -15,9 +15,12 @@ import UIKit
 protocol HistoryDisplayLogic: AnyObject {
 //    func displayHistoryList(viewModel: HistoryModel.LoadHistory.ViewModel)
     func displayHistoryList(history: HistoryModel.LoadHistory.Response)
+    func fetchHistoyByWeek(history: HistoryModel.LoadHistory.Response)
+    func fetchHistoyByDay(history: HistoryModel.LoadHistory.Response)
 }
 
 class HistoryViewController: UIViewController, HistoryDisplayLogic {
+    
     var interactor: HistoryBusinessLogic?
     var router: (NSObjectProtocol & HistoryRoutingLogic & HistoryDataPassing)?
 
@@ -57,15 +60,28 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.filterCollView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
+        //for now use removeSubrange
+        historyDataList.removeSubrange(2...)
+        historyTableView.reloadData()
+    }
+    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         fetchHistoryList()
     }
   
     // MARK: Do something
     
-    var historydata: [History] = []
+    var historyDataStore: [History] = []
+    var historyDataList: [History] = []
     var historyFilter: [String] = []
   
     @IBOutlet var cardView: UIView!
@@ -89,14 +105,29 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         cardView.layer.shadowRadius = 3.0
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
+    
     func fetchHistoryList() {
         let request = HistoryModel.LoadHistory.Request()
         interactor?.loadHistory(request: request)
-        setupUI()
     }
+    
     func displayHistoryList(history: HistoryModel.LoadHistory.Response) {
-        historydata = history.HistoryData
+        historyDataStore = history.HistoryData
+        historyDataList = historyDataStore
         historyFilter = ["Day","Week","Month","Year"]
+    }
+    
+    func fetchHistoyByWeek(history: HistoryModel.LoadHistory.Response) {
+//        historyDataList.removeAll()
+        historyDataList = history.HistoryData
+        historyTableView.reloadData()
+    }
+
+    func fetchHistoyByDay(history: HistoryModel.LoadHistory.Response) {
+        //for now use removeSubrange
+        historyDataList = history.HistoryData
+        historyDataList.removeSubrange(2...)
+        historyTableView.reloadData()
     }
 }
 
@@ -104,25 +135,34 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
 // MARK: extension TABLEVIEW & COLLECTION
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historydata.count
+        return historyDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-        let historyObj = historydata[indexPath.row]
+        let historyObj = historyDataList[indexPath.row]
         cell.setHistoryView(with: historyObj)
+//        cell.selectionStyle = .none
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let historyObj = historyDataList[indexPath.row]
+        
+        interactor?.getSafariLink(historyObj.desc!)
+        router?.routeToSafariLink(segue: nil)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let tableViewHeight = tableView.frame.size.height / 6
+//        let tableViewHeight = tableView.frame.size.height / 6
         let heightRatio = UIScreen.main.bounds.height / 736
         return tableView.estimatedRowHeight * heightRatio
     }
 }
 
 extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return historyFilter.count
     }
@@ -137,13 +177,14 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if indexPath.row == 0 {
-//            fetchDayLists()
-//        } else if indexPath.row == 1 {
-//            fetchWeekLists()
-//        } else {
-//            fetchWeekLists()
-//        }
+        let response = HistoryModel.LoadHistory.Response(HistoryData: historyDataStore)
+        if indexPath.row == 0 {
+            fetchHistoyByDay(history: response)
+        } else if indexPath.row == 1 {
+            fetchHistoyByWeek(history: response)
+        } else {
+            fetchHistoyByWeek(history: response)
+        }
     }
     
     //MARK:- FlowLayout

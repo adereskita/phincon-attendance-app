@@ -22,9 +22,14 @@
 		36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C227EC0F040094876E /* OnBoardingModels.swift */; };
 		36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */; };
 		36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C927EC0F400094876E /* OnBoardingViewController.swift */; };
+		36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CB27EC45580094876E /* DashboardPresenter.swift */; };
+		36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CC27EC45580094876E /* DashboardWorker.swift */; };
+		36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CD27EC45580094876E /* DashboardRouter.swift */; };
+		36EA25D427EC45580094876E /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CE27EC45580094876E /* DashboardModels.swift */; };
+		36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CF27EC45580094876E /* DashboardViewController.swift */; };
+		36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25D027EC45580094876E /* DashboardInteractor.swift */; };
 		36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */; };
 		36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */; };
-		36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8327DF4C5D001469CC /* DashboardVC.swift */; };
 		36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8627DF8126001469CC /* DashboardTableCell.swift */; };
 		36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE8727DF8126001469CC /* DashboardTableCell.xib */; };
 		36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* Checkin.swift */; };
@@ -74,9 +79,14 @@
 		36EA25C227EC0F040094876E /* OnBoardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModels.swift; sourceTree = "<group>"; };
 		36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingInteractor.swift; sourceTree = "<group>"; };
 		36EA25C927EC0F400094876E /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		36EA25CB27EC45580094876E /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
+		36EA25CC27EC45580094876E /* DashboardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorker.swift; sourceTree = "<group>"; };
+		36EA25CD27EC45580094876E /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
+		36EA25CE27EC45580094876E /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
+		36EA25CF27EC45580094876E /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		36EA25D027EC45580094876E /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
 		36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
-		36F0CE8327DF4C5D001469CC /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		36F0CE8627DF8126001469CC /* DashboardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableCell.swift; sourceTree = "<group>"; };
 		36F0CE8727DF8126001469CC /* DashboardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableCell.xib; sourceTree = "<group>"; };
 		36F0CE8B27DF8ACB001469CC /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
@@ -164,7 +174,12 @@
 		36F0CE8227DF4C2A001469CC /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				36F0CE8327DF4C5D001469CC /* DashboardVC.swift */,
+				36EA25CF27EC45580094876E /* DashboardViewController.swift */,
+				36EA25CB27EC45580094876E /* DashboardPresenter.swift */,
+				36EA25CC27EC45580094876E /* DashboardWorker.swift */,
+				36EA25CD27EC45580094876E /* DashboardRouter.swift */,
+				36EA25CE27EC45580094876E /* DashboardModels.swift */,
+				36EA25D027EC45580094876E /* DashboardInteractor.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -439,18 +454,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
+				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
 				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
-				36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */,
+				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
+				36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
 				36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */,
+				36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
 				36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */,
@@ -459,8 +477,10 @@
 				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
 				36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
+				36EA25D427EC45580094876E /* DashboardModels.swift in Sources */,
 				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
+				36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

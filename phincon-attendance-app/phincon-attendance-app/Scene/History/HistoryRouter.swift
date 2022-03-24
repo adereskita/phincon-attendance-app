@@ -28,49 +28,18 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
     var dataStore: HistoryDataStore?
   
   // MARK: Routing
-    
     func routeToSafariLink(segue: UIStoryboardSegue?) {
         let urls = dataStore!.desc.replacingOccurrences(of: " ", with: "+")
         guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
 //        UIApplication.shared.open(url)
         
         let svc = SFSafariViewController(url: url)
-        viewController?.present(svc, animated: true, completion: nil)
-
-//        if let segue = segue {
-//            let destinationVC = segue.destination as! HistoryViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSafariLink(source: dataStore!)
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! UIApplication
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataSafariLink(source: dataStore!, destination: &destinationDS)
-//            navigateToSafariLink(source: viewController!, destination: destinationVC)
-//        }
+        navigateToSafariLink(source: viewController!, destination: svc)
     }
-  //func routeToSafariLink(segue: UIStoryboardSegue?) {
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
 
   // MARK: Navigation
-//    func navigateToSafariLink(source: HistoryViewController, destination: UIApplication) {
-//        source.show(destination, sender: nil)
-//    }
-  
-  // MARK: Passing data
-    
-//    func passDataToSafariLink(source: HistoryDataStore) {
-//    destination.name = source.name
-//    }
+    func navigateToSafariLink(source: HistoryViewController, destination: SFSafariViewController) {
+        source.show(destination, sender: nil)
+//        viewController?.present(svc, animated: true, completion: nil)
+    }
 }

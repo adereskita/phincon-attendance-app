@@ -106,13 +106,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		36DC385227DA542100EC4164 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				36DC385327DA547D00EC4164 /* Views */,
-				36DC385227DA542100EC4164 /* Services */,
 				9595054527D9C45B005741CA /* Storyboards */,
 				9595054427D9C448005741CA /* Scene */,
 				9595053727D9C2AF005741CA /* Onboarding */,

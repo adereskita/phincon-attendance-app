@@ -134,8 +134,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-<<<<<<< HEAD
-=======
 		362D594127E9991C0022C094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +144,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
->>>>>>> a61a79bf81f8495efa75f986d281726f81c1dcb9
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (

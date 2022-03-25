@@ -131,7 +131,7 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     }
     
     @IBAction func loginAction(_ sender: Any?) {
-        router?.routeToDashboard(segue: nil)
+         router?.routeToDashboard(segue: nil)
     }
   
     func displayOnboarding(OnboardingData: OnBoardingModels.LoadOnboarding.Response) {

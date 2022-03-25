@@ -18,8 +18,7 @@ import SafariServices
   func routeToSafariLink(segue: UIStoryboardSegue?)
 }
 
-protocol HistoryDataPassing
-{
+protocol HistoryDataPassing {
   var dataStore: HistoryDataStore? { get }
 }
 

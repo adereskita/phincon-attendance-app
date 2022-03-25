@@ -44,6 +44,22 @@
 		9595051427D9BE29005741CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595051227D9BE29005741CA /* LaunchScreen.storyboard */; };
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
+		E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2094B4927ECB19F00A379D9 /* Profile.swift */; };
+		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
+		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
+		E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2527EB036B001BEE6D /* LoginRouter.swift */; };
+		E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2627EB036B001BEE6D /* LoginModels.swift */; };
+		E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2727EB036B001BEE6D /* LoginViewController.swift */; };
+		E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */; };
+		E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33927EB730F00D97493 /* ProfilPresenter.swift */; };
+		E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33A27EB730F00D97493 /* ProfilWorker.swift */; };
+		E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33B27EB730F00D97493 /* ProfilRouter.swift */; };
+		E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33C27EB730F00D97493 /* ProfilModels.swift */; };
+		E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33D27EB730F00D97493 /* ProfilViewController.swift */; };
+		E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */; };
+		E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */; };
+		E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +123,22 @@
 		9595052527D9BE2A005741CA /* phincon-attendance-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "phincon-attendance-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		E2A60F2527EB036B001BEE6D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		E2A60F2627EB036B001BEE6D /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		E2A60F2727EB036B001BEE6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		E2FAE33927EB730F00D97493 /* ProfilPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilPresenter.swift; sourceTree = "<group>"; };
+		E2FAE33A27EB730F00D97493 /* ProfilWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilWorker.swift; sourceTree = "<group>"; };
+		E2FAE33B27EB730F00D97493 /* ProfilRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilRouter.swift; sourceTree = "<group>"; };
+		E2FAE33C27EB730F00D97493 /* ProfilModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilModels.swift; sourceTree = "<group>"; };
+		E2FAE33D27EB730F00D97493 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilInteractor.swift; sourceTree = "<group>"; };
+		E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilTableViewCell.swift; sourceTree = "<group>"; };
+		E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilTableViewCell.xib; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +169,7 @@
 		362D594127E9991C0022C094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2094B4927ECB19F00A379D9 /* Profile.swift */,
 				36DC385E27DA630600EC4164 /* Onboarding.swift */,
 				36F0CE9927DFAC56001469CC /* History.swift */,
 				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
@@ -147,6 +180,7 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2FAE34627EB742800D97493 /* Profil */,
 				36F0CE9327DFAA6A001469CC /* History */,
 				36F0CE8527DF80A2001469CC /* Dashboard */,
 				36DC385427DA548500EC4164 /* OnBoarding */,
@@ -301,6 +335,8 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E2FAE34527EB732000D97493 /* Profil */,
+				E2A60F2227EB0341001BEE6D /* Login */,
 				9595053727D9C2AF005741CA /* Onboarding */,
 				36F0CE8227DF4C2A001469CC /* Dashboard */,
 				36F0CE8D27DFA245001469CC /* History */,
@@ -317,6 +353,41 @@
 				9595051227D9BE29005741CA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2A60F2227EB0341001BEE6D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */,
+				E2A60F2427EB036B001BEE6D /* LoginWorker.swift */,
+				E2A60F2527EB036B001BEE6D /* LoginRouter.swift */,
+				E2A60F2627EB036B001BEE6D /* LoginModels.swift */,
+				E2A60F2727EB036B001BEE6D /* LoginViewController.swift */,
+				E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E2FAE34527EB732000D97493 /* Profil */ = {
+			isa = PBXGroup;
+			children = (
+				E2FAE33927EB730F00D97493 /* ProfilPresenter.swift */,
+				E2FAE33A27EB730F00D97493 /* ProfilWorker.swift */,
+				E2FAE33B27EB730F00D97493 /* ProfilRouter.swift */,
+				E2FAE33C27EB730F00D97493 /* ProfilModels.swift */,
+				E2FAE33D27EB730F00D97493 /* ProfilViewController.swift */,
+				E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */,
+			);
+			path = Profil;
+			sourceTree = "<group>";
+		};
+		E2FAE34627EB742800D97493 /* Profil */ = {
+			isa = PBXGroup;
+			children = (
+				E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */,
+				E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */,
+			);
+			path = Profil;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +500,7 @@
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
+				E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,14 +528,27 @@
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
+				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
+				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
+				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
+				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
+				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
+				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
+				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
 				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
+				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
+				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
+				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
+				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
+				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
+				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
 				36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
@@ -477,6 +562,7 @@
 				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
 				36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
+				E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */,
 				36EA25D427EC45580094876E /* DashboardModels.swift in Sources */,
 				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,

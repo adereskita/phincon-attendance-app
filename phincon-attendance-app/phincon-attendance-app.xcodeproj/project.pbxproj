@@ -22,7 +22,6 @@
 		36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8627DF8126001469CC /* DashboardTableCell.swift */; };
 		36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE8727DF8126001469CC /* DashboardTableCell.xib */; };
 		36F0CE8C27DF8ACB001469CC /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */; };
-		36F0CE9027DFA27B001469CC /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8F27DFA27B001469CC /* HistoryVC.swift */; };
 		36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */; };
 		36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */; };
 		36F0CE9A27DFAC56001469CC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9927DFAC56001469CC /* History.swift */; };
@@ -85,7 +84,6 @@
 		36F0CE8627DF8126001469CC /* DashboardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableCell.swift; sourceTree = "<group>"; };
 		36F0CE8727DF8126001469CC /* DashboardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableCell.xib; sourceTree = "<group>"; };
 		36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
-		36F0CE8F27DFA27B001469CC /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFilterCollViewCell.swift; sourceTree = "<group>"; };
 		36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFilterCollViewCell.xib; sourceTree = "<group>"; };
 		36F0CE9927DFAC56001469CC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 		36F0CE8D27DFA245001469CC /* History */ = {
 			isa = PBXGroup;
 			children = (
-				36F0CE8F27DFA27B001469CC /* HistoryVC.swift */,
 				362D594427E9B7FF0022C094 /* HistoryPresenter.swift */,
 				362D594527E9B7FF0022C094 /* HistoryWorker.swift */,
 				362D594627E9B7FF0022C094 /* HistoryRouter.swift */,
@@ -504,7 +501,6 @@
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
 				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
-				36F0CE9027DFA27B001469CC /* HistoryVC.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
 				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,

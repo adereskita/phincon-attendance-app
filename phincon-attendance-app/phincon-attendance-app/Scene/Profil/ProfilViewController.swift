@@ -11,14 +11,12 @@
 //
 
 import UIKit
-var profileData: [Profile] = []
 protocol ProfilDisplayLogic: AnyObject
 {
-    func displaySomething(viewModel: ProfilModel.LoadProfil.ViewModel)
+    func displaySomething(profile: ProfilModel.LoadProfil.Response)
 }
 
-class ProfilViewController: UIViewController, ProfilDisplayLogic
-{
+class ProfilViewController: UIViewController, ProfilDisplayLogic {
     var interactor: ProfilBusinessLogic?
     var router: (NSObjectProtocol & ProfilRoutingLogic & ProfilDataPassing)?
     
@@ -54,8 +52,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic
     
     // MARK: Routing
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
             if let router = router, router.responds(to: selector) {
@@ -70,47 +67,60 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
-        setupProfil()
+        fetchProfileData()
+        
     }
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
     
+    var profileData: [Profile] = []
+    
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     func setupProfil(){
+        cardView.layer.cornerRadius = 12
+        cardView.layer.shadowRadius = 3.0
+        cardView.layer.shadowOpacity = 0.2
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        
         profileImage.layer.cornerRadius = 10
-        profileImage.layer.borderColor = CGColor(red: 216, green: 216, blue: 216, alpha: 1)
-        profileImage.layer.borderWidth = 8
-        tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: "Profile")
+        profileImage.layer.borderColor = UIColor.lightGray.cgColor
+        
+        tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 72
     }
     
-    func doSomething()
+    func fetchProfileData()
     {
         let request = ProfilModel.LoadProfil.Request()
         interactor?.doSomething(request: request)
         setupProfil()
     }
     
-    func displaySomething(viewModel: ProfilModel.LoadProfil.ViewModel)
+    func displaySomething(profile: ProfilModel.LoadProfil.Response)
     {
-        //nameTextField.text = viewModel.name
+        profileData = profile.ProfileData
     }
 }
-extension ProfilTableViewCell : UITableViewDelegate, UITableViewDataSource {
+extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profileData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Profile", for: indexPath) as! ProfilTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
         let profilObject = profileData[indexPath.row]
         cell.setupProfilView(with: profilObject)
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let ratio = UIScreen.main.bounds.height / 736
+        return tableView.estimatedRowHeight * ratio
+    }
     
 }

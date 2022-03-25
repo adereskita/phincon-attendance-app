@@ -37,7 +37,7 @@ class DashboardTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setDashboardCellView(_ models: DashboardModels) {
+    func setDashboardCellView(_ models: Checkin) {
         self.backgroundColor = nil
         cardView.layer.cornerRadius = 10
         cardView.layer.shadowColor = UIColor.lightGray.cgColor

@@ -23,8 +23,10 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupView(_ slide: OnboardingSlide) {
-        self.lbOnBoardTitle.text = slide.title
+    func setupView(_ slide: Onboarding) {
+        self.lbOnBoardDesc.minimumScaleFactor = 0.5
+        self.lbOnBoardTitle.minimumScaleFactor = 0.5
+        self.lbOnBoardTitle.text = slide.title.uppercased()
         self.lbOnBoardDesc.text = slide.description
     }
 

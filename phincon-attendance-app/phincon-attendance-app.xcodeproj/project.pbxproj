@@ -15,13 +15,24 @@
 		362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594927E9B7FF0022C094 /* HistoryInteractor.swift */; };
 		36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */; };
 		36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */; };
-		36DC385F27DA630600EC4164 /* OnBoardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* OnBoardingModels.swift */; };
+		36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* Onboarding.swift */; };
+		36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25BF27EC0F040094876E /* OnBoardingPresenter.swift */; };
+		36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C027EC0F040094876E /* OnBoardingWorker.swift */; };
+		36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C127EC0F040094876E /* OnBoardingRouter.swift */; };
+		36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C227EC0F040094876E /* OnBoardingModels.swift */; };
+		36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */; };
+		36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25C927EC0F400094876E /* OnBoardingViewController.swift */; };
+		36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CB27EC45580094876E /* DashboardPresenter.swift */; };
+		36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CC27EC45580094876E /* DashboardWorker.swift */; };
+		36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CD27EC45580094876E /* DashboardRouter.swift */; };
+		36EA25D427EC45580094876E /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CE27EC45580094876E /* DashboardModels.swift */; };
+		36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25CF27EC45580094876E /* DashboardViewController.swift */; };
+		36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA25D027EC45580094876E /* DashboardInteractor.swift */; };
 		36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */; };
 		36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */; };
-		36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8327DF4C5D001469CC /* DashboardVC.swift */; };
 		36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8627DF8126001469CC /* DashboardTableCell.swift */; };
 		36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE8727DF8126001469CC /* DashboardTableCell.xib */; };
-		36F0CE8C27DF8ACB001469CC /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */; };
+		36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* Checkin.swift */; };
 		36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */; };
 		36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */; };
 		36F0CE9A27DFAC56001469CC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9927DFAC56001469CC /* History.swift */; };
@@ -33,7 +44,6 @@
 		9595051427D9BE29005741CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595051227D9BE29005741CA /* LaunchScreen.storyboard */; };
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
-		9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */; };
 		E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2094B4927ECB19F00A379D9 /* Profile.swift */; };
 		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
 		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
@@ -49,6 +59,7 @@
 		E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */; };
 		E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */; };
 		E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,13 +88,24 @@
 		362D594927E9B7FF0022C094 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
 		36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
-		36DC385E27DA630600EC4164 /* OnBoardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModels.swift; sourceTree = "<group>"; };
+		36DC385E27DA630600EC4164 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		36EA25BF27EC0F040094876E /* OnBoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPresenter.swift; sourceTree = "<group>"; };
+		36EA25C027EC0F040094876E /* OnBoardingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingWorker.swift; sourceTree = "<group>"; };
+		36EA25C127EC0F040094876E /* OnBoardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingRouter.swift; sourceTree = "<group>"; };
+		36EA25C227EC0F040094876E /* OnBoardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModels.swift; sourceTree = "<group>"; };
+		36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingInteractor.swift; sourceTree = "<group>"; };
+		36EA25C927EC0F400094876E /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		36EA25CB27EC45580094876E /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
+		36EA25CC27EC45580094876E /* DashboardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorker.swift; sourceTree = "<group>"; };
+		36EA25CD27EC45580094876E /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
+		36EA25CE27EC45580094876E /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
+		36EA25CF27EC45580094876E /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		36EA25D027EC45580094876E /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
 		36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
-		36F0CE8327DF4C5D001469CC /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		36F0CE8627DF8126001469CC /* DashboardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableCell.swift; sourceTree = "<group>"; };
 		36F0CE8727DF8126001469CC /* DashboardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableCell.xib; sourceTree = "<group>"; };
-		36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
+		36F0CE8B27DF8ACB001469CC /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFilterCollViewCell.swift; sourceTree = "<group>"; };
 		36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFilterCollViewCell.xib; sourceTree = "<group>"; };
 		36F0CE9927DFAC56001469CC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -101,7 +123,6 @@
 		9595052527D9BE2A005741CA /* phincon-attendance-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "phincon-attendance-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
@@ -117,6 +138,7 @@
 		E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilInteractor.swift; sourceTree = "<group>"; };
 		E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilTableViewCell.swift; sourceTree = "<group>"; };
 		E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilTableViewCell.xib; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +169,10 @@
 		362D594127E9991C0022C094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				36F0CE9927DFAC56001469CC /* History.swift */,
 				E2094B4927ECB19F00A379D9 /* Profile.swift */,
+				36DC385E27DA630600EC4164 /* Onboarding.swift */,
+				36F0CE9927DFAC56001469CC /* History.swift */,
+				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,8 +208,12 @@
 		36F0CE8227DF4C2A001469CC /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				36F0CE8327DF4C5D001469CC /* DashboardVC.swift */,
-				36F0CE8B27DF8ACB001469CC /* DashboardModels.swift */,
+				36EA25CF27EC45580094876E /* DashboardViewController.swift */,
+				36EA25CB27EC45580094876E /* DashboardPresenter.swift */,
+				36EA25CC27EC45580094876E /* DashboardWorker.swift */,
+				36EA25CD27EC45580094876E /* DashboardRouter.swift */,
+				36EA25CE27EC45580094876E /* DashboardModels.swift */,
+				36EA25D027EC45580094876E /* DashboardInteractor.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -210,11 +238,11 @@
 		36F0CE8D27DFA245001469CC /* History */ = {
 			isa = PBXGroup;
 			children = (
+				362D594827E9B7FF0022C094 /* HistoryViewController.swift */,
 				362D594427E9B7FF0022C094 /* HistoryPresenter.swift */,
 				362D594527E9B7FF0022C094 /* HistoryWorker.swift */,
 				362D594627E9B7FF0022C094 /* HistoryRouter.swift */,
 				362D594727E9B7FF0022C094 /* HistoryModels.swift */,
-				362D594827E9B7FF0022C094 /* HistoryViewController.swift */,
 				362D594927E9B7FF0022C094 /* HistoryInteractor.swift */,
 			);
 			path = History;
@@ -294,8 +322,12 @@
 		9595053727D9C2AF005741CA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				9595053C27D9C2CB005741CA /* OnBoardingViewController.swift */,
-				36DC385E27DA630600EC4164 /* OnBoardingModels.swift */,
+				36EA25C927EC0F400094876E /* OnBoardingViewController.swift */,
+				36EA25BF27EC0F040094876E /* OnBoardingPresenter.swift */,
+				36EA25C027EC0F040094876E /* OnBoardingWorker.swift */,
+				36EA25C127EC0F040094876E /* OnBoardingRouter.swift */,
+				36EA25C227EC0F040094876E /* OnBoardingModels.swift */,
+				36EA25C327EC0F050094876E /* OnBoardingInteractor.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -494,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
+				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
 				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
 				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
@@ -501,30 +534,39 @@
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
 				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
-				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
 				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
+				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
+				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
 				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
-				36F0CE8427DF4C5D001469CC /* DashboardVC.swift in Sources */,
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
+				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
+				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
 				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
-				9595054227D9C2CB005741CA /* OnBoardingViewController.swift in Sources */,
 				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
+				36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
+				36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */,
+				36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
-				36F0CE8C27DF8ACB001469CC /* DashboardModels.swift in Sources */,
+				36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */,
+				36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */,
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
-				36DC385F27DA630600EC4164 /* OnBoardingModels.swift in Sources */,
+				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
+				36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
 				E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */,
+				36EA25D427EC45580094876E /* DashboardModels.swift in Sources */,
+				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
+				36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

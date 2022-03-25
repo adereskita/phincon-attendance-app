@@ -28,12 +28,21 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
   
   // MARK: Routing
     func routeToSafariLink(segue: UIStoryboardSegue?) {
-        let urls = dataStore!.desc.replacingOccurrences(of: " ", with: "+")
-        guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
-//        UIApplication.shared.open(url)
         
-        let svc = SFSafariViewController(url: url)
-        navigateToSafariLink(source: viewController!, destination: svc)
+        if let historyDatas = dataStore {
+            let urls = historyDatas.desc.replacingOccurrences(of: " ", with: "+")
+            guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
+            
+            let svc = SFSafariViewController(url: url)
+            navigateToSafariLink(source: viewController!, destination: svc)
+        }
+        
+//        let urls = dataStore!.desc.replacingOccurrences(of: " ", with: "+")
+//        guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
+////        UIApplication.shared.open(url)
+//
+//        let svc = SFSafariViewController(url: url)
+//        navigateToSafariLink(source: viewController!, destination: svc)
     }
 
   // MARK: Navigation

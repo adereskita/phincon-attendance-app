@@ -69,11 +69,15 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     {
         super.viewDidLoad()
         doSomething()
+        setupUI()
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet var loginBtn: UIButton!
+    @IBOutlet var cardView: UIView!
+    
     @IBAction func dismissButton(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -83,6 +87,17 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         //        self.definesPresentationContext = true
         dashboardVC.modalPresentationStyle = .fullScreen
         self.present(dashboardVC, animated:true, completion:nil)
+    }
+    
+    func setupUI() {
+        loginBtn.layer.cornerRadius = 10
+        
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        cardView.layer.shadowOffset = CGSize.zero
+        cardView.layer.shadowOpacity = 0.2
+        cardView.layer.shadowRadius = 3.0
+        cardView.layer.cornerRadius = 25
+        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
     func doSomething()

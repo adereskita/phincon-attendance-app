@@ -131,12 +131,7 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     }
     
     @IBAction func loginAction(_ sender: Any?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
-//        self.definesPresentationContext = true
-        dashboardVC.modalPresentationStyle = .fullScreen
-        self.present(dashboardVC, animated:true, completion:nil)
-//         router?.routeToDashboard(segue: nil)
+         router?.routeToDashboard(segue: nil)
     }
   
     func displayOnboarding(OnboardingData: OnBoardingModels.LoadOnboarding.Response) {

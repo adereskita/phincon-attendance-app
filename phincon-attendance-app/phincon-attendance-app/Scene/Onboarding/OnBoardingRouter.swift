@@ -27,15 +27,17 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
   // MARK: Routing
     func routeToDashboard(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
+//        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
+        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
 //        self.definesPresentationContext = true
         dashboardVC.modalPresentationStyle = .fullScreen
-        navigateToSomewhere(source: viewController!, destination: dashboardVC as! UITabBarController)
+        navigateToSomewhere(source: viewController!, destination: dashboardVC as! LoginViewController)
+        
   }
 
   // MARK: Navigation
     
-    func navigateToSomewhere(source: OnBoardingViewController, destination: UITabBarController) {
+    func navigateToSomewhere(source: OnBoardingViewController, destination: LoginViewController) {
         source.show(destination, sender: nil)
 //        source.present(destination, animated:true, completion:nil)
 

@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol LoginRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToDashboardPage(segue: UIStoryboardSegue?)
 }
 
 protocol LoginDataPassing
@@ -24,8 +24,17 @@ protocol LoginDataPassing
 
 class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
 {
+    
   weak var viewController: LoginViewController?
   var dataStore: LoginDataStore?
+    
+    func routeToDashboardPage(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "DashboardVC")
+        dashBoardVC.modalPresentationStyle = .fullScreen
+        navigateToSomewhere(source: viewController!, destination: dashBoardVC as! DashboardViewController)
+    }
   
   // MARK: Routing
   
@@ -46,10 +55,10 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: LoginViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToSomewhere(source: LoginViewController, destination: DashboardViewController)
+  {
+    source.show(destination, sender: nil)
+  }
   
   // MARK: Passing data
   

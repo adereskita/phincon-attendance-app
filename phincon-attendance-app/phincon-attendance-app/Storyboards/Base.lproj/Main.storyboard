@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -22,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="596" width="414" height="300"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xVU-fW-DPt">
-                                        <rect key="frame" x="146.5" y="158.5" width="121.5" height="27.5"/>
+                                        <rect key="frame" x="149.5" y="160" width="115.5" height="26"/>
                                         <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
                                         <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -30,7 +31,7 @@
                                         </connections>
                                     </pageControl>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DsF-DV-uD6">
-                                        <rect key="frame" x="16" y="32" width="382" height="122.5"/>
+                                        <rect key="frame" x="16" y="32" width="382" height="124"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nhw-sd-Kdh">
                                             <size key="itemSize" width="128" height="128"/>
@@ -920,7 +921,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-2q-li0">
-                                <rect key="frame" x="0.0" y="531" width="414" height="282"/>
+                                <rect key="frame" x="24" y="531" width="366" height="282"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -929,18 +930,18 @@
                         <constraints>
                             <constraint firstItem="Pfc-Sk-gwJ" firstAttribute="top" secondItem="SEg-4p-hB2" secondAttribute="top" id="3v1-1P-asg"/>
                             <constraint firstItem="suH-d2-VA2" firstAttribute="top" secondItem="C5i-gS-ldt" secondAttribute="top" constant="120" id="62W-wS-9au"/>
-                            <constraint firstItem="LQL-2q-li0" firstAttribute="leading" secondItem="Pfc-Sk-gwJ" secondAttribute="leading" id="6bA-Ei-WaX"/>
+                            <constraint firstItem="LQL-2q-li0" firstAttribute="leading" secondItem="Pfc-Sk-gwJ" secondAttribute="leading" constant="24" id="6bA-Ei-WaX"/>
                             <constraint firstItem="C5i-gS-ldt" firstAttribute="bottom" secondItem="suH-d2-VA2" secondAttribute="bottom" constant="339" id="ORO-D0-ZTc"/>
                             <constraint firstItem="LQL-2q-li0" firstAttribute="centerX" secondItem="suH-d2-VA2" secondAttribute="centerX" id="RVd-jq-6yc"/>
                             <constraint firstItem="LQL-2q-li0" firstAttribute="bottom" secondItem="C5i-gS-ldt" secondAttribute="bottom" id="W6b-cs-8hw"/>
                             <constraint firstItem="suH-d2-VA2" firstAttribute="leading" secondItem="C5i-gS-ldt" secondAttribute="leading" constant="24" id="Xad-de-X12"/>
                             <constraint firstItem="sVf-Ha-3VU" firstAttribute="top" secondItem="suH-d2-VA2" secondAttribute="bottom" constant="27" id="aCv-kG-YEw"/>
-                            <constraint firstItem="LQL-2q-li0" firstAttribute="trailing" secondItem="Pfc-Sk-gwJ" secondAttribute="trailing" id="dq1-I0-C9u"/>
+                            <constraint firstItem="LQL-2q-li0" firstAttribute="trailing" secondItem="Pfc-Sk-gwJ" secondAttribute="trailing" constant="-24" id="dq1-I0-C9u"/>
                             <constraint firstItem="C5i-gS-ldt" firstAttribute="trailing" secondItem="suH-d2-VA2" secondAttribute="trailing" constant="24" id="gcj-Ud-y2g"/>
                             <constraint firstItem="LQL-2q-li0" firstAttribute="top" secondItem="sVf-Ha-3VU" secondAttribute="bottom" constant="12" id="glF-b5-N7z"/>
                             <constraint firstItem="C5i-gS-ldt" firstAttribute="trailing" secondItem="sVf-Ha-3VU" secondAttribute="trailing" constant="286" id="kia-Z8-Lfy"/>
                             <constraint firstAttribute="bottom" secondItem="Pfc-Sk-gwJ" secondAttribute="bottom" constant="598" id="o2X-eJ-BbD"/>
-                            <constraint firstItem="LQL-2q-li0" firstAttribute="leading" secondItem="SEg-4p-hB2" secondAttribute="leading" id="qzR-VS-bMA"/>
+                            <constraint firstItem="LQL-2q-li0" firstAttribute="leading" secondItem="SEg-4p-hB2" secondAttribute="leading" constant="24" id="qzR-VS-bMA"/>
                             <constraint firstItem="sVf-Ha-3VU" firstAttribute="leading" secondItem="C5i-gS-ldt" secondAttribute="leading" constant="24" id="usW-K2-Sxu"/>
                         </constraints>
                     </view>
@@ -953,7 +954,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fy5-Em-PQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5040" y="1350"/>
+            <point key="canvasLocation" x="5039.130434782609" y="1350"/>
         </scene>
     </scenes>
     <resources>

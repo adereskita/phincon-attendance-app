@@ -82,11 +82,13 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         dismiss(animated: true)
     }
     @IBAction func loginButton(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
-        //        self.definesPresentationContext = true
-        dashboardVC.modalPresentationStyle = .fullScreen
-        self.present(dashboardVC, animated:true, completion:nil)
+        router?.routeToDashboardPage(segue: nil)
+        
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
+//        //        self.definesPresentationContext = true
+//        dashboardVC.modalPresentationStyle = .fullScreen
+//        self.present(dashboardVC, animated:true, completion:nil)
     }
     
     func setupUI() {

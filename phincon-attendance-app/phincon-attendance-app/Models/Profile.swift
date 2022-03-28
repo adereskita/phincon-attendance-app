@@ -13,3 +13,9 @@ struct Profile {
     var descData : String?
     var iconData : UIImage?
 }
+
+struct ProfileImage {
+    var name : String?
+    var role : String?
+    var image : UIImage?
+}

@@ -18,11 +18,16 @@ enum ProfilModel {
         struct Request {}
         struct Response {
             var ProfileData: [Profile]
+            var ProfilePicture : [ProfileImage]
         }
         struct ViewModel{
             var titleData : String?
             var imageData : UIImage?
             var descDAta : String?
+            var name : String?
+            var role : String?
+            var image : UIImage
         }
+        
     }
 }

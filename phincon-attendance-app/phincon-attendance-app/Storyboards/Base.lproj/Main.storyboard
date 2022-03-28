@@ -883,20 +883,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suH-d2-VA2">
                                 <rect key="frame" x="24" y="133" width="366" height="310"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profil_picture" translatesAutoresizingMaskIntoConstraints="NO" id="yNh-ap-qHP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yNh-ap-qHP">
                                         <rect key="frame" x="108" y="32" width="159" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="7ct-3y-cnH"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NANANG SUPRATNA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkV-QO-jf5">
-                                        <rect key="frame" x="88" y="130" width="193.5" height="26"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkV-QO-jf5">
+                                        <rect key="frame" x="88" y="130" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROGRAMMER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arU-36-mJy">
-                                        <rect key="frame" x="121" y="165" width="124" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arU-36-mJy">
+                                        <rect key="frame" x="121" y="139" width="124" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -948,7 +948,9 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="profile-inactive" id="e6Z-iq-Usz"/>
                     <connections>
                         <outlet property="cardView" destination="suH-d2-VA2" id="UIb-p2-VNu"/>
-                        <outlet property="profileImage" destination="yNh-ap-qHP" id="TkD-CT-p9z"/>
+                        <outlet property="nameLabel" destination="LkV-QO-jf5" id="rK7-Ez-OoI"/>
+                        <outlet property="profilePicture" destination="yNh-ap-qHP" id="JpK-mU-l54"/>
+                        <outlet property="roleLabel" destination="arU-36-mJy" id="HCv-Xq-g5X"/>
                         <outlet property="tableView" destination="LQL-2q-li0" id="hFq-dY-PXs"/>
                     </connections>
                 </viewController>
@@ -964,7 +966,6 @@
         <image name="home-logo" width="25" height="24"/>
         <image name="notification-on" width="21" height="22"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="profil_picture" width="88" height="80"/>
         <image name="profile-inactive" width="21" height="22"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

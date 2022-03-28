@@ -14,6 +14,7 @@ import UIKit
 
 class ProfilWorker {
     var profilData = [Profile]()
+    var profileImage = [ProfileImage]()
     
     func fetchProfil() -> [Profile] {
         profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")),
@@ -22,4 +23,12 @@ class ProfilWorker {
         ]
         return profilData
     }
+    
+    func fetchProfileImage() -> [ProfileImage] {
+        profileImage = [ProfileImage(name: "SRI ENDAH RATMURTI", role: "CONSULTANT", image: UIImage(named: "profile_picture"))]
+                                     
+    return profileImage
+    }
+                                     
 }
+                                     

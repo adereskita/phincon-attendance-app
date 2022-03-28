@@ -25,7 +25,7 @@ class ProfilPresenter: ProfilPresentationLogic
   
   func presentSomething(response: ProfilModel.LoadProfil.Response)
   {
-      let response = ProfilModel.LoadProfil.Response(ProfileData: response.ProfileData)
+      let response = ProfilModel.LoadProfil.Response(ProfileData: response.ProfileData, ProfilePicture: response.ProfilePicture)
     viewController?.displaySomething(profile: response)
   }
 }

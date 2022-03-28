@@ -75,10 +75,13 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     
     
     var profileData: [Profile] = []
+    var profileImage : [ProfileImage] = []
     
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameLabel : UILabel!
+    @IBOutlet weak var roleLabel : UILabel!
     
     func setupProfil(){
         cardView.layer.cornerRadius = 12
@@ -86,25 +89,35 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         cardView.layer.shadowOpacity = 0.2
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
         
-        profileImage.layer.cornerRadius = 10
-        profileImage.layer.borderColor = UIColor.lightGray.cgColor
+        profilePicture.layer.cornerRadius = 10
+        profilePicture.layer.borderColor = UIColor.lightGray.cgColor
         
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 72
     }
+    func setup(with model : ProfileImage) {
+        nameLabel.text = model.name
+        roleLabel.text = model.role
+        profilePicture.image = model.image
+    }
+    
     
     func fetchProfileData()
     {
         let request = ProfilModel.LoadProfil.Request()
         interactor?.doSomething(request: request)
+        let data = profileImage[0]
+        setup(with: data)
         setupProfil()
+        
     }
     
     func displaySomething(profile: ProfilModel.LoadProfil.Response)
     {
         profileData = profile.ProfileData
+        profileImage = profile.ProfilePicture
     }
 }
 extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {

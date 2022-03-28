@@ -14,29 +14,32 @@ import UIKit
 
 protocol ProfilBusinessLogic
 {
-  func doSomething(request: ProfilModel.LoadProfil.Request)
+    func doSomething(request: ProfilModel.LoadProfil.Request)
 }
 
 protocol ProfilDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore
 {
-  var presenter: ProfilPresentationLogic?
-  var worker: ProfilWorker?
+    var presenter: ProfilPresentationLogic?
+    var worker: ProfilWorker?
     var profile = [Profile]()
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: ProfilModel.LoadProfil.Request)
-  {
-    worker = ProfilWorker()
-      profile = worker!.fetchProfil()
+    var profileImage = [ProfileImage]()
+    //var name: String = ""
     
-    let response = ProfilModel.LoadProfil.Response(ProfileData: profile)
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func doSomething(request: ProfilModel.LoadProfil.Request)
+    {
+        worker = ProfilWorker()
+        profile = worker!.fetchProfil()
+        profileImage = worker!.fetchProfileImage()
+        
+        let response = ProfilModel.LoadProfil.Response(ProfileData: profile, ProfilePicture: profileImage)
+        presenter?.presentSomething(response: response)
+        
+    }
 }

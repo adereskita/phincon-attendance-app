@@ -88,6 +88,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         cardView.layer.shadowRadius = 3.0
         cardView.layer.shadowOpacity = 0.2
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        cardView.backgroundColor = colorUtils.lightGrey
         
         profilePicture.layer.cornerRadius = 10
         profilePicture.layer.borderColor = UIColor.lightGray.cgColor

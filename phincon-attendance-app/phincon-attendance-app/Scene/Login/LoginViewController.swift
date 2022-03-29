@@ -16,29 +16,25 @@ protocol LoginDisplayLogic: AnyObject {
     func displaySomething(viewModel: Login.Something.ViewModel)
 }
 
-class LoginViewController: UIViewController, LoginDisplayLogic
-{
+class LoginViewController: UIViewController, LoginDisplayLogic {
     var interactor: LoginBusinessLogic?
     var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
     
     // MARK: Object lifecycle
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-    {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
     // MARK: Setup
     
-    private func setup()
-    {
+    private func setup() {
         let viewController = self
         let interactor = LoginInteractor()
         let presenter = LoginPresenter()
@@ -53,8 +49,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     
     // MARK: Routing
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
             if let router = router, router.responds(to: selector) {
@@ -65,8 +60,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     
     // MARK: View lifecycle
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()
         setupUI()
@@ -77,21 +71,17 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     //@IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var cardView: UIView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     @IBAction func dismissButton(_ sender: Any) {
         dismiss(animated: true)
     }
     @IBAction func loginButton(_ sender: Any) {
-        router?.routeToDashboardPage(segue: nil)
-        
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
-//        //        self.definesPresentationContext = true
-//        dashboardVC.modalPresentationStyle = .fullScreen
-//        self.present(dashboardVC, animated:true, completion:nil)
+        spinnerSetup()
     }
     
     func setupUI() {
+        spinner.isHidden = true
         loginBtn.layer.cornerRadius = 10
         
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
@@ -102,14 +92,26 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func doSomething()
-    {
+    func spinnerSetup() {
+        spinner.isHidden = false
+        spinner.style = .medium
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
+        spinner.layer.cornerRadius = 3.0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.router?.routeToDashboardPage(segue: nil)
+        }
+    }
+    
+    func doSomething() {
         let request = Login.Something.Request()
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: Login.Something.ViewModel)
-    {
+    func displaySomething(viewModel: Login.Something.ViewModel) {
         //nameTextField.text = viewModel.name
         // Test Pull Request
     }

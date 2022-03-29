@@ -33,7 +33,9 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
             guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
             
             let svc = SFSafariViewController(url: url)
-            navigateToSafariLink(source: viewController!, destination: svc)
+            if let vc = viewController {
+                navigateToSafariLink(source: vc, destination: svc)
+            }
         }
         
 //        let urls = dataStore!.desc.replacingOccurrences(of: " ", with: "+")
@@ -42,7 +44,7 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
     }
 
   // MARK: Navigation
-    func navigateToSafariLink(source: HistoryViewController, destination: SFSafariViewController) {
+    func navigateToSafariLink(source:  HistoryViewController, destination: SFSafariViewController) {
         source.show(destination, sender: nil)
 //        viewController?.present(svc, animated: true, completion: nil)
     }

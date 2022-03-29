@@ -53,7 +53,9 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
   // MARK: Navigation
   
   func navigateToSomewhere(source: LoginViewController, destination: UITabBarController) {
-    source.show(destination, sender: nil)
+//    source.show(destination, sender: nil)
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination)
+
   }
   
   // MARK: Passing data

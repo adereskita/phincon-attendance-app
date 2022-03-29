@@ -13,13 +13,12 @@
 import UIKit
 import SafariServices
 
-@objc protocol HistoryRoutingLogic
-{
-  func routeToSafariLink(segue: UIStoryboardSegue?)
+@objc protocol HistoryRoutingLogic {
+    func routeToSafariLink(segue: UIStoryboardSegue?)
 }
 
 protocol HistoryDataPassing {
-  var dataStore: HistoryDataStore? { get }
+    var dataStore: HistoryDataStore? { get }
 }
 
 class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
@@ -39,10 +38,7 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
         
 //        let urls = dataStore!.desc.replacingOccurrences(of: " ", with: "+")
 //        guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
-////        UIApplication.shared.open(url)
-//
-//        let svc = SFSafariViewController(url: url)
-//        navigateToSafariLink(source: viewController!, destination: svc)
+//        UIApplication.shared.open(url)
     }
 
   // MARK: Navigation

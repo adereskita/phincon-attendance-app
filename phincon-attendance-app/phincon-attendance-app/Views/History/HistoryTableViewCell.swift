@@ -19,12 +19,6 @@ class HistoryTableViewCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "HistoryTableViewCell", bundle: nil)
     }
-    
-    override var isSelected: Bool {
-        didSet {
-            cardView.backgroundColor = isSelected ? .gray : .white
-        }
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +27,14 @@ class HistoryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        self.selectedBackgroundView?.backgroundColor = .clear
+        cardView.backgroundColor = isSelected ? .systemGray4 : .white
         // Configure the view for the selected state
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        self.selectedBackgroundView?.backgroundColor = .clear
     }
     
     func setHistoryView(with model: History) {

@@ -20,12 +20,9 @@ class DashboardTableCell: UITableViewCell {
         return UINib(nibName: "DashboardTableCell", bundle: nil)
     }
     
-    override var isSelected: Bool {
-        didSet {
-            cardView.backgroundColor = isSelected ? .gray : .white
-        }
-    }
-
+    var selectedColor: UIColor = .gray
+    var selectedColorLbl: UIColor = .black
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 //        self.selectionStyle = .none
@@ -35,10 +32,16 @@ class DashboardTableCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+        cardView.backgroundColor = isSelected ? selectedColor : .white
+        titleLbl.textColor = isSelected ? selectedColorLbl : .black
+        descLbl.textColor = isSelected ? selectedColorLbl : .black
+        self.selectedBackgroundView?.backgroundColor = nil
+        
+//        cardView.layer.borderWidth = isSelected ? 1 : 0
+//        cardView.layer.borderColor = isSelected ? UIColor(red: 0.078, green: 0.173, blue: 0.392, alpha: 1).cgColor : nil
     }
     
     func setDashboardCellView(_ models: Checkin) {
-        self.backgroundColor = nil
         cardView.layer.cornerRadius = 10
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
         cardView.layer.shadowOffset = CGSize.zero

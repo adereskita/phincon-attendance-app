@@ -23,8 +23,7 @@ class ProfilPresenter: ProfilPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: ProfilModel.LoadProfil.Response)
-  {
+  func presentSomething(response: ProfilModel.LoadProfil.Response) {
       let response = ProfilModel.LoadProfil.Response(ProfileData: response.ProfileData, ProfilePicture: response.ProfilePicture)
     viewController?.displaySomething(profile: response)
   }

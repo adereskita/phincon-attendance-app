@@ -136,4 +136,8 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
         return tableView.estimatedRowHeight * ratio
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

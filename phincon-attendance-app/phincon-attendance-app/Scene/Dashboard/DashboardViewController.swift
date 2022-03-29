@@ -181,19 +181,22 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         if isCheckOut {
             let listObj = checkOutLists[indexPath.row]
             cell.setDashboardCellView(listObj)
+            cell.selectedColor = UIColor(red: 0.969, green: 0.71, blue: 0, alpha: 1)
+            cell.selectedColorLbl = .black
             
             return cell
         } else {
             let listObj = checkInLists[indexPath.row]
+            cell.selectedColor = UIColor(red: 0, green: 0.388, blue: 0.776, alpha: 1)
             cell.setDashboardCellView(listObj)
+            cell.selectedColorLbl = .white
             
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

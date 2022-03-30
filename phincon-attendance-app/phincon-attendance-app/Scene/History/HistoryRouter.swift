@@ -45,7 +45,7 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
 
   // MARK: Navigation
     func navigateToSafariLink(source:  HistoryViewController, destination: SFSafariViewController) {
-        source.show(destination, sender: nil)
-//        viewController?.present(svc, animated: true, completion: nil)
+        // safariVC should presented modally, use present not show
+        source.present(destination, animated: true, completion: nil)
     }
 }

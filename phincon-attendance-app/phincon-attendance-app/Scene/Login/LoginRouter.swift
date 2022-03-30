@@ -28,9 +28,9 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     func routeToDashboardPage(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
-        dashBoardVC.modalPresentationStyle = .fullScreen
-        navigateToSomewhere(source: viewController!, destination: dashBoardVC as! UITabBarController)
+        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+//        dashBoardVC.modalPresentationStyle = .fullScreen
+        navigateToSomewhere(source: viewController!, destination: dashBoardVC)
     }
   
   // MARK: Routing
@@ -54,7 +54,8 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
   
   func navigateToSomewhere(source: LoginViewController, destination: UITabBarController) {
 //    source.show(destination, sender: nil)
-    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination)
+    let navCon = UINavigationController(rootViewController: destination)
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)
 
   }
   

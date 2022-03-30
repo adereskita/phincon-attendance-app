@@ -82,12 +82,15 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var roleLabel : UILabel!
+    @IBOutlet weak var editButton : UIButton!
     
     func setupProfil(){
         cardView.layer.cornerRadius = 12
         cardView.layer.shadowRadius = 3.0
-        cardView.layer.shadowOpacity = 0.2
-        cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        cardView.layer.shadowOpacity = 0.25
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        cardView.layer.shadowOffset = CGSize.zero
+       
         
         profilePicture.layer.cornerRadius = 10
         profilePicture.layer.borderColor = UIColor.lightGray.cgColor
@@ -118,6 +121,10 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     {
         profileData = profile.ProfileData
         profileImage = profile.ProfilePicture
+    }
+    
+    @IBAction func editButton(_ sender: Any) {
+        router?.routeToEditProfilePage(segue: nil)
     }
 }
 extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {

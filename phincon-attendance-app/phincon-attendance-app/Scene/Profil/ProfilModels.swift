@@ -28,6 +28,5 @@ enum ProfilModel {
             var role : String?
             var image : UIImage
         }
-        
     }
 }

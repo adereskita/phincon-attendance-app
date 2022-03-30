@@ -54,12 +54,24 @@
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
 		E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2094B4927ECB19F00A379D9 /* Profile.swift */; };
+		E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DF2E227F3369100336B89 /* ColorUtils.swift */; };
 		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
 		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
 		E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2527EB036B001BEE6D /* LoginRouter.swift */; };
 		E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2627EB036B001BEE6D /* LoginModels.swift */; };
 		E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2727EB036B001BEE6D /* LoginViewController.swift */; };
 		E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */; };
+		E2D75EDC27F3E65B002F88A2 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75ED627F3E65B002F88A2 /* EditProfilePresenter.swift */; };
+		E2D75EDD27F3E65B002F88A2 /* EditProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75ED727F3E65B002F88A2 /* EditProfileWorker.swift */; };
+		E2D75EDE27F3E65B002F88A2 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75ED827F3E65B002F88A2 /* EditProfileRouter.swift */; };
+		E2D75EDF27F3E65B002F88A2 /* EditProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75ED927F3E65B002F88A2 /* EditProfileModels.swift */; };
+		E2D75EE027F3E65B002F88A2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75EDA27F3E65B002F88A2 /* EditProfileViewController.swift */; };
+		E2D75EE127F3E65B002F88A2 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75EDB27F3E65B002F88A2 /* EditProfileInteractor.swift */; };
+		E2D75EE427F3F79C002F88A2 /* ProfilePictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75EE227F3F79C002F88A2 /* ProfilePictureTableViewCell.swift */; };
+		E2D75EE527F3F79C002F88A2 /* ProfilePictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D75EE327F3F79C002F88A2 /* ProfilePictureTableViewCell.xib */; };
+		E2D75EEB27F40E62002F88A2 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75EE927F40E62002F88A2 /* EditProfileTableViewCell.swift */; };
+		E2D75EEC27F40E62002F88A2 /* EditProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D75EEA27F40E62002F88A2 /* EditProfileTableViewCell.xib */; };
+		E2D75EEE27F41379002F88A2 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D75EED27F41379002F88A2 /* EditProfile.swift */; };
 		E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33927EB730F00D97493 /* ProfilPresenter.swift */; };
 		E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33A27EB730F00D97493 /* ProfilWorker.swift */; };
 		E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33B27EB730F00D97493 /* ProfilRouter.swift */; };
@@ -141,12 +153,24 @@
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E22DF2E227F3369100336B89 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		E2A60F2527EB036B001BEE6D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		E2A60F2627EB036B001BEE6D /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 		E2A60F2727EB036B001BEE6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		E2D75ED627F3E65B002F88A2 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		E2D75ED727F3E65B002F88A2 /* EditProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileWorker.swift; sourceTree = "<group>"; };
+		E2D75ED827F3E65B002F88A2 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
+		E2D75ED927F3E65B002F88A2 /* EditProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModels.swift; sourceTree = "<group>"; };
+		E2D75EDA27F3E65B002F88A2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		E2D75EDB27F3E65B002F88A2 /* EditProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
+		E2D75EE227F3F79C002F88A2 /* ProfilePictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureTableViewCell.swift; sourceTree = "<group>"; };
+		E2D75EE327F3F79C002F88A2 /* ProfilePictureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilePictureTableViewCell.xib; sourceTree = "<group>"; };
+		E2D75EE927F40E62002F88A2 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
+		E2D75EEA27F40E62002F88A2 /* EditProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileTableViewCell.xib; sourceTree = "<group>"; };
+		E2D75EED27F41379002F88A2 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		E2FAE33927EB730F00D97493 /* ProfilPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilPresenter.swift; sourceTree = "<group>"; };
 		E2FAE33A27EB730F00D97493 /* ProfilWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilWorker.swift; sourceTree = "<group>"; };
 		E2FAE33B27EB730F00D97493 /* ProfilRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilRouter.swift; sourceTree = "<group>"; };
@@ -186,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E2094B4927ECB19F00A379D9 /* Profile.swift */,
+				E2D75EED27F41379002F88A2 /* EditProfile.swift */,
 				36DC385E27DA630600EC4164 /* Onboarding.swift */,
 				36F0CE9927DFAC56001469CC /* History.swift */,
 				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
@@ -219,6 +244,7 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2D75EE627F40E3D002F88A2 /* EditProfilr */,
 				3674EEE427F30B1200662D8F /* Notification */,
 				E2FAE34627EB742800D97493 /* Profil */,
 				36F0CE9327DFAA6A001469CC /* History */,
@@ -330,6 +356,7 @@
 		9595050327D9BE25005741CA /* phincon-attendance-app */ = {
 			isa = PBXGroup;
 			children = (
+				E22DF2E127F3368200336B89 /* Helper */,
 				362D594127E9991C0022C094 /* Models */,
 				36DC385327DA547D00EC4164 /* Views */,
 				9595054527D9C45B005741CA /* Storyboards */,
@@ -375,6 +402,7 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E2D75ED527F3E645002F88A2 /* EditProfile */,
 				3674EED727F3088300662D8F /* Notification */,
 				E2FAE34527EB732000D97493 /* Profil */,
 				E2A60F2227EB0341001BEE6D /* Login */,
@@ -396,6 +424,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		E22DF2E127F3368200336B89 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E22DF2E227F3369100336B89 /* ColorUtils.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		E2A60F2227EB0341001BEE6D /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +443,28 @@
 				E2A60F2827EB036B001BEE6D /* LoginInteractor.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		E2D75ED527F3E645002F88A2 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E2D75ED627F3E65B002F88A2 /* EditProfilePresenter.swift */,
+				E2D75ED727F3E65B002F88A2 /* EditProfileWorker.swift */,
+				E2D75ED827F3E65B002F88A2 /* EditProfileRouter.swift */,
+				E2D75ED927F3E65B002F88A2 /* EditProfileModels.swift */,
+				E2D75EDA27F3E65B002F88A2 /* EditProfileViewController.swift */,
+				E2D75EDB27F3E65B002F88A2 /* EditProfileInteractor.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		E2D75EE627F40E3D002F88A2 /* EditProfilr */ = {
+			isa = PBXGroup;
+			children = (
+				E2D75EE927F40E62002F88A2 /* EditProfileTableViewCell.swift */,
+				E2D75EEA27F40E62002F88A2 /* EditProfileTableViewCell.xib */,
+			);
+			path = EditProfilr;
 			sourceTree = "<group>";
 		};
 		E2FAE34527EB732000D97493 /* Profil */ = {
@@ -426,6 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */,
+				E2D75EE227F3F79C002F88A2 /* ProfilePictureTableViewCell.swift */,
+				E2D75EE327F3F79C002F88A2 /* ProfilePictureTableViewCell.xib */,
 				E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */,
 			);
 			path = Profil;
@@ -536,8 +596,10 @@
 			files = (
 				36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */,
 				9595051427D9BE29005741CA /* LaunchScreen.storyboard in Resources */,
+				E2D75EE527F3F79C002F88A2 /* ProfilePictureTableViewCell.xib in Resources */,
 				9595051127D9BE29005741CA /* Assets.xcassets in Resources */,
 				9595050C27D9BE25005741CA /* Main.storyboard in Resources */,
+				E2D75EEC27F40E62002F88A2 /* EditProfileTableViewCell.xib in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
@@ -580,6 +642,7 @@
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
 				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
 				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
+				E2D75EEB27F40E62002F88A2 /* EditProfileTableViewCell.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
 				3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */,
 				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
@@ -592,19 +655,27 @@
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
+				E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */,
+				E2D75EDF27F3E65B002F88A2 /* EditProfileModels.swift in Sources */,
 				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
+				E2D75EEE27F41379002F88A2 /* EditProfile.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
 				3674EEE327F3088F00662D8F /* NotificationInteractor.swift in Sources */,
 				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
+				E2D75EDE27F3E65B002F88A2 /* EditProfileRouter.swift in Sources */,
 				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
 				36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
+				E2D75EDC27F3E65B002F88A2 /* EditProfilePresenter.swift in Sources */,
 				36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */,
+				E2D75EE027F3E65B002F88A2 /* EditProfileViewController.swift in Sources */,
+				E2D75EE127F3E65B002F88A2 /* EditProfileInteractor.swift in Sources */,
 				3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */,
 				36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
+				E2D75EE427F3F79C002F88A2 /* ProfilePictureTableViewCell.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
 				36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */,
 				36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */,
@@ -616,6 +687,7 @@
 				36EA25D427EC45580094876E /* DashboardModels.swift in Sources */,
 				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
+				E2D75EDD27F3E65B002F88A2 /* EditProfileWorker.swift in Sources */,
 				36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

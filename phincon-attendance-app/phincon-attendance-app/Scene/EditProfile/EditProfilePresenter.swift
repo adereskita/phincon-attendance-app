@@ -14,7 +14,7 @@ import UIKit
 
 protocol EditProfilePresentationLogic
 {
-  func presentSomething(response: EditProfile.Something.Response)
+  func presentSomething(response: EditProfileModel.LoadEditProfile.Response)
 }
 
 class EditProfilePresenter: EditProfilePresentationLogic
@@ -23,9 +23,9 @@ class EditProfilePresenter: EditProfilePresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: EditProfile.Something.Response)
+  func presentSomething(response: EditProfileModel.LoadEditProfile.Response)
   {
-    let viewModel = EditProfile.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+      let response = EditProfileModel.LoadEditProfile.Response(Editdata: response.Editdata)
+    viewController?.displaySomething(viewModel: response)
   }
 }

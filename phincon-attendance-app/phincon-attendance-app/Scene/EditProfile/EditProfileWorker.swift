@@ -14,7 +14,14 @@ import UIKit
 
 class EditProfileWorker
 {
-  func doSomeWork()
-  {
-  }
+    var editProfile = [EditProfileData]()
+   
+    
+    func fetchEditProfile() -> [EditProfileData] {
+        editProfile = [EditProfileData(titleData: "New Address", descData: "Jakarta Selatan", iconData: UIImage(named: "book")),
+                       EditProfileData(titleData: "New Password", descData: "**********", iconData: UIImage(named: "password")),
+                       EditProfileData(titleData: "Repeat Password", descData: "**********", iconData: UIImage(named: "password"))
+        ]
+        return editProfile
+    }
 }

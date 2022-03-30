@@ -14,28 +14,29 @@ import UIKit
 
 protocol EditProfileBusinessLogic
 {
-  func doSomething(request: EditProfile.Something.Request)
+    func doSomething(request: EditProfileModel.LoadEditProfile.Request)
 }
 
 protocol EditProfileDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class EditProfileInteractor: EditProfileBusinessLogic, EditProfileDataStore
 {
-  var presenter: EditProfilePresentationLogic?
-  var worker: EditProfileWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: EditProfile.Something.Request)
-  {
-    worker = EditProfileWorker()
-    worker?.doSomeWork()
+    var presenter: EditProfilePresentationLogic?
+    var worker: EditProfileWorker?
+    var editProfile = [EditProfileData]()
+    //var name: String = ""
     
-    let response = EditProfile.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func doSomething(request: EditProfileModel.LoadEditProfile.Request)
+    {
+        worker = EditProfileWorker()
+        editProfile = worker!.fetchEditProfile()
+        
+        let response = EditProfileModel.LoadEditProfile.Response(Editdata: editProfile)
+        presenter?.presentSomething(response: response)
+    }
 }

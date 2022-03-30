@@ -12,20 +12,17 @@
 
 import UIKit
 
-enum EditProfile
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum EditProfileModel {
+    
+    enum LoadEditProfile {
+        struct Request {}
+        struct Response {
+            var Editdata : [EditProfileData]
+        }
+        struct ViewModel{
+            var title : String?
+            var desc : String?
+            var icon : UIImage?
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

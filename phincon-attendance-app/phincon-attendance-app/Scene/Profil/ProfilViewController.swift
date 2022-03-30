@@ -87,9 +87,10 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     func setupProfil(){
         cardView.layer.cornerRadius = 12
         cardView.layer.shadowRadius = 3.0
-        cardView.layer.shadowOpacity = 0.2
-        cardView.layer.shadowColor = UIColor.lightGray.cgColor
-        cardView.backgroundColor = colorUtils.lightGrey
+        cardView.layer.shadowOpacity = 0.25
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        cardView.layer.shadowOffset = CGSize.zero
+       
         
         profilePicture.layer.cornerRadius = 10
         profilePicture.layer.borderColor = UIColor.lightGray.cgColor

@@ -14,7 +14,7 @@ import UIKit
 
 protocol EditProfileDisplayLogic: class
 {
-  func displaySomething(viewModel: EditProfile.Something.ViewModel)
+  func displaySomething(viewModel: EditProfileModel.LoadEditProfile.Response)
 }
 
 class EditProfileViewController: UIViewController, EditProfileDisplayLogic
@@ -75,15 +75,44 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
-  
+    @IBOutlet weak var saveButton : UIButton!
+    @IBOutlet weak var tableView : UITableView!
+    var data : [EditProfileData] = []
+    
+    func setupView() {
+        saveButton.backgroundColor = colorUtils.darkBlue
+        saveButton.tintColor = UIColor.white
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.titleLabel?.textAlignment = .center
+        saveButton.layer.cornerRadius = 8
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(EditProfileTableViewCell.nib(), forCellReuseIdentifier: EditProfileTableViewCell.identifier)
+    }
+    
   func doSomething()
   {
-    let request = EditProfile.Something.Request()
+    let request = EditProfileModel.LoadEditProfile.Request()
     interactor?.doSomething(request: request)
+    setupView()
   }
   
-  func displaySomething(viewModel: EditProfile.Something.ViewModel)
+  func displaySomething(viewModel: EditProfileModel.LoadEditProfile.Response)
   {
     //nameTextField.text = viewModel.name
+      data = viewModel.Editdata
   }
+}
+
+extension EditProfileViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EditProfileTableViewCell.identifier, for: indexPath) as! EditProfileTableViewCell
+        let profilObject = data[indexPath.row]
+        cell.setupCell(with: profilObject)
+        return cell
+    }
 }

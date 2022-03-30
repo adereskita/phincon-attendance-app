@@ -82,6 +82,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var roleLabel : UILabel!
+    @IBOutlet weak var editButton : UIButton!
     
     func setupProfil(){
         cardView.layer.cornerRadius = 12
@@ -119,6 +120,10 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     {
         profileData = profile.ProfileData
         profileImage = profile.ProfilePicture
+    }
+    
+    @IBAction func editButton(_ sender: Any) {
+        router?.routeToEditProfilePage(segue: nil)
     }
 }
 extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {

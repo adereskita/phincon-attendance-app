@@ -95,14 +95,19 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     func spinnerSetup() {
         spinner.isHidden = false
         spinner.style = .medium
-        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
-        spinner.layer.cornerRadius = 3.0
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        spinner.layer.cornerRadius = 10.0
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
 
         // wait two seconds to simulate some work happening
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.router?.routeToDashboardPage(segue: nil)
+            self.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if let route = self.router {
+                    route.routeToDashboardPage(segue: nil)
+                }
+            }
         }
     }
     

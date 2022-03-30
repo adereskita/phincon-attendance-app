@@ -62,6 +62,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController!.setNavigationBarHidden(true, animated: false)
         isCheckOut = userDefault.bool(forKey: "isCheckOut")
     }
   
@@ -73,11 +74,11 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
       
     @IBOutlet var dashboardTableView: UITableView!
     @IBOutlet var checkInBtn: UIButton!
-    @IBOutlet var notifBtn: UIButton!
     @IBOutlet var circleBg: UIImageView!
     @IBOutlet var topCardView: UIView!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var notificationBtn: UIButton!
     
     let userDefault = UserDefaults.standard
     
@@ -152,6 +153,11 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     func displayDashboardListOut(response: DashboardModels.LoadCheckInOut.Response) {
     //nameTextField.text = viewModel.name
         checkOutLists = response.checkInData
+    }
+    
+    @IBAction func btnNotificationClicked(_ sender: Any) {
+        router?.routeToNotification(segue: nil)
+        
     }
     
     @IBAction func btnCheckPressed(_ sender: Any) {

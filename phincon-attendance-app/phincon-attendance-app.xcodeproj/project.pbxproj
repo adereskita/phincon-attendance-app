@@ -13,6 +13,15 @@
 		362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594727E9B7FF0022C094 /* HistoryModels.swift */; };
 		362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594827E9B7FF0022C094 /* HistoryViewController.swift */; };
 		362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594927E9B7FF0022C094 /* HistoryInteractor.swift */; };
+		3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED827F3088F00662D8F /* NotificationPresenter.swift */; };
+		3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED927F3088F00662D8F /* NotificationWorker.swift */; };
+		3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDA27F3088F00662D8F /* NotificationRouter.swift */; };
+		3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDB27F3088F00662D8F /* NotificationModels.swift */; };
+		3674EEE227F3088F00662D8F /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDC27F3088F00662D8F /* NotificationViewController.swift */; };
+		3674EEE327F3088F00662D8F /* NotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDD27F3088F00662D8F /* NotificationInteractor.swift */; };
+		3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */; };
+		3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */; };
+		3674EEEA27F3714B00662D8F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE927F3714B00662D8F /* Notification.swift */; };
 		36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */; };
 		36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */; };
 		36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* Onboarding.swift */; };
@@ -59,7 +68,6 @@
 		E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */; };
 		E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */; };
 		E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +94,15 @@
 		362D594727E9B7FF0022C094 /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
 		362D594827E9B7FF0022C094 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		362D594927E9B7FF0022C094 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
+		3674EED827F3088F00662D8F /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
+		3674EED927F3088F00662D8F /* NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
+		3674EEDA27F3088F00662D8F /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
+		3674EEDB27F3088F00662D8F /* NotificationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModels.swift; sourceTree = "<group>"; };
+		3674EEDC27F3088F00662D8F /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		3674EEDD27F3088F00662D8F /* NotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInteractor.swift; sourceTree = "<group>"; };
+		3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		3674EEE927F3714B00662D8F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		36DC385E27DA630600EC4164 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -138,7 +155,6 @@
 		E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilInteractor.swift; sourceTree = "<group>"; };
 		E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilTableViewCell.swift; sourceTree = "<group>"; };
 		E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilTableViewCell.xib; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,13 +189,37 @@
 				36DC385E27DA630600EC4164 /* Onboarding.swift */,
 				36F0CE9927DFAC56001469CC /* History.swift */,
 				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
+				3674EEE927F3714B00662D8F /* Notification.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3674EED727F3088300662D8F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				3674EED827F3088F00662D8F /* NotificationPresenter.swift */,
+				3674EED927F3088F00662D8F /* NotificationWorker.swift */,
+				3674EEDA27F3088F00662D8F /* NotificationRouter.swift */,
+				3674EEDB27F3088F00662D8F /* NotificationModels.swift */,
+				3674EEDC27F3088F00662D8F /* NotificationViewController.swift */,
+				3674EEDD27F3088F00662D8F /* NotificationInteractor.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		3674EEE427F30B1200662D8F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */,
+				3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3674EEE427F30B1200662D8F /* Notification */,
 				E2FAE34627EB742800D97493 /* Profil */,
 				36F0CE9327DFAA6A001469CC /* History */,
 				36F0CE8527DF80A2001469CC /* Dashboard */,
@@ -335,6 +375,7 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				3674EED727F3088300662D8F /* Notification */,
 				E2FAE34527EB732000D97493 /* Profil */,
 				E2A60F2227EB0341001BEE6D /* Login */,
 				9595053727D9C2AF005741CA /* Onboarding */,
@@ -501,6 +542,7 @@
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
 				E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */,
+				3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,9 +567,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3674EEE227F3088F00662D8F /* NotificationViewController.swift in Sources */,
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
+				3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */,
 				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
+				3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */,
 				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
 				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
 				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
@@ -536,9 +581,12 @@
 				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
 				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
+				3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */,
 				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
+				3674EEEA27F3714B00662D8F /* Notification.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
+				3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
 				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
@@ -546,6 +594,7 @@
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
+				3674EEE327F3088F00662D8F /* NotificationInteractor.swift in Sources */,
 				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
 				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
@@ -553,6 +602,7 @@
 				36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
 				36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */,
+				3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */,
 				36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,

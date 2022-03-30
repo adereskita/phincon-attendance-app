@@ -8,7 +8,7 @@
 import UIKit
 
 struct Checkin {
-    let title: String
-    let description: String
-    let image: UIImage
+    var title: String?
+    var description: String?
+    var image: UIImage?
 }

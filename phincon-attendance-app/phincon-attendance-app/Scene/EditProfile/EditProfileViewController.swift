@@ -85,7 +85,7 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic
         saveButton.setTitle("Save", for: .normal)
         saveButton.titleLabel?.textAlignment = .center
         saveButton.layer.cornerRadius = 8
-        
+            
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(EditProfileTableViewCell.nib(), forCellReuseIdentifier: EditProfileTableViewCell.identifier)
@@ -103,6 +103,12 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic
     //nameTextField.text = viewModel.name
       data = viewModel.Editdata
   }
+    @IBAction func backButton(_sender: Any){
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func saveButton(_sender: Any){
+        self.dismiss(animated: true)
+    }
 }
 
 extension EditProfileViewController : UITableViewDelegate, UITableViewDataSource {

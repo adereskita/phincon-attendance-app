@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol DashboardRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToNotification(segue: UIStoryboardSegue?)
 }
 
 protocol DashboardDataPassing
@@ -22,13 +22,19 @@ protocol DashboardDataPassing
   var dataStore: DashboardDataStore? { get }
 }
 
-class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing
-{
+class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
   weak var viewController: DashboardViewController?
   var dataStore: DashboardDataStore?
   
   // MARK: Routing
   
+    func routeToNotification(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let notificationVC = storyBoard.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationViewController
+//        dashBoardVC.modalPresentationStyle = .fullScreen
+        navigateToNotificationVC(source: viewController!, destination: notificationVC)
+    }
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
   //  if let segue = segue {
@@ -45,11 +51,9 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing
   //}
 
   // MARK: Navigation
-  
-  //func navigateToSomewhere(source: DashboardViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+    func navigateToNotificationVC(source: DashboardViewController, destination: NotificationViewController) {
+        source.show(destination, sender: nil)
+    }
   
   // MARK: Passing data
   

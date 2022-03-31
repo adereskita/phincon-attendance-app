@@ -14,11 +14,11 @@ class ProfilePictureTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var roleLabel : UILabel!
     
-    static let identifier = "ProfileImageTableViewCell"
+    static let identifier = "ProfilePictureTableViewCell"
     
     
     static func nib() -> UINib {
-        return UINib(nibName: "ProfileImageTableViewCell", bundle: nil)
+        return UINib(nibName: "ProfilePictureTableViewCell", bundle: nil)
     }
 
     override func awakeFromNib() {
@@ -40,7 +40,7 @@ class ProfilePictureTableViewCell: UITableViewCell {
         cardView.layer.cornerRadius = 21
         cardView.layer.shadowColor = colorUtils.lightGrey.cgColor
         cardView.layer.shadowRadius = 12
-        cardView.layer.shadowOpacity = 0.3
+        cardView.layer.shadowOpacity = 0.5
         cardView.layer.shadowOffset = CGSize.zero
     }
     

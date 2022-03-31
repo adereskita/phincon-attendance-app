@@ -129,6 +129,11 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         historyDataList.removeSubrange(2...)
         historyTableView.reloadData()
     }
+    
+    @IBAction func btnNotificationClicked(_ sender: Any) {
+        router?.routeToNotification(segue: nil)
+        
+    }
 }
 
 

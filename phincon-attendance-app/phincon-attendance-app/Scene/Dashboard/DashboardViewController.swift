@@ -187,13 +187,13 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         if isCheckOut {
             let listObj = checkOutLists[indexPath.row]
             cell.setDashboardCellView(listObj)
-            cell.selectedColor = UIColor(red: 0.969, green: 0.71, blue: 0, alpha: 1)
+            cell.selectedColor = colorUtils.yellowCheckout
             cell.selectedColorLbl = .black
             
             return cell
         } else {
             let listObj = checkInLists[indexPath.row]
-            cell.selectedColor = UIColor(red: 0, green: 0.388, blue: 0.776, alpha: 1)
+            cell.selectedColor = colorUtils.blueCheckout
             cell.setDashboardCellView(listObj)
             cell.selectedColorLbl = .white
             

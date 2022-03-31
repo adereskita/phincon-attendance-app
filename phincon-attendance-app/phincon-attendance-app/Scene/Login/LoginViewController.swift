@@ -75,6 +75,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     @IBAction func dismissButton(_ sender: Any) {
         dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func loginButton(_ sender: Any) {
         spinnerSetup()

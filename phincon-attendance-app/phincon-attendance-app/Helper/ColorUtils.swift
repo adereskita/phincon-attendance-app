@@ -20,6 +20,8 @@ class ColorUtils : NSObject {
     let green = UIColor(hex: "#11C04D")
     let yellow = UIColor(hex: "#F7B500")
     let lightGrey = UIColor(hex: "#DFE7F5")
+    let yellowCheckout = UIColor(red: 0.969, green: 0.71, blue: 0, alpha: 1)
+    let blueCheckout = UIColor(red: 0, green: 0.388, blue: 0.776, alpha: 1)
 }
 
 extension UIColor {

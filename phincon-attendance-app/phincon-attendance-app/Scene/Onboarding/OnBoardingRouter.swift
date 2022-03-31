@@ -13,7 +13,8 @@
 import UIKit
 
 @objc protocol OnBoardingRoutingLogic {
-    func routeToDashboard(segue: UIStoryboardSegue?)
+    func routeToLogin(segue: UIStoryboardSegue?)
+    func routeToSignUp(segue: UIStoryboardSegue?)
 }
 
 protocol OnBoardingDataPassing {
@@ -25,21 +26,35 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
     var dataStore: OnBoardingDataStore?
   
   // MARK: Routing
-    func routeToDashboard(segue: UIStoryboardSegue?) {
+    func routeToLogin(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
         let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
 //        self.definesPresentationContext = true
         dashboardVC.modalPresentationStyle = .fullScreen
         navigateToSomewhere(source: viewController!, destination: dashboardVC as! LoginViewController)
-        
-  }
+    }
+    
+    func routeToSignUp(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let destinationVC = storyBoard.instantiateViewController(identifier: "RegisterVC") as! LoginViewController
+            navigateToSignUp(source: viewController!, destination: destinationVC)
+    }
 
   // MARK: Navigation
     
     func navigateToSomewhere(source: OnBoardingViewController, destination: LoginViewController) {
         source.show(destination, sender: nil)
 //        source.present(destination, animated:true, completion:nil)
-
     }
+    
+    func navigateToSignUp(source: OnBoardingViewController, destination: LoginViewController) {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+//    func passDataToLogin(source: LoginDataStore, destination: inout SomewhereDataStore)
+//    {
+//      destination.name = source.name
+//    }
 }

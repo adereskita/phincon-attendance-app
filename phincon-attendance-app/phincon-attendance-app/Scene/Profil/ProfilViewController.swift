@@ -77,44 +77,23 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     var profileData: [Profile] = []
     var profileImage : [ProfileImage] = []
     
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nameLabel : UILabel!
-    @IBOutlet weak var roleLabel : UILabel!
     @IBOutlet weak var editButton : UIButton!
     
     func setupProfil(){
-        cardView.layer.cornerRadius = 12
-        cardView.layer.shadowRadius = 3.0
-        cardView.layer.shadowOpacity = 0.25
-        cardView.layer.shadowColor = UIColor.black.cgColor
-        cardView.layer.shadowOffset = CGSize.zero
-       
-        
-        profilePicture.layer.cornerRadius = 10
-        profilePicture.layer.borderColor = UIColor.lightGray.cgColor
-        
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
+        tableView.register(ProfilePictureTableViewCell.nib(), forCellReuseIdentifier: ProfilePictureTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 72
+        tableView.layer.cornerRadius = 18
     }
-    func setup(with model : ProfileImage) {
-        nameLabel.text = model.name
-        roleLabel.text = model.role
-        profilePicture.image = model.image
-    }
-    
     
     func fetchProfileData()
     {
         let request = ProfilModel.LoadProfil.Request()
         interactor?.doSomething(request: request)
-        let data = profileImage[0]
-        setup(with: data)
         setupProfil()
-        
     }
     
     func displaySomething(profile: ProfilModel.LoadProfil.Response)
@@ -126,21 +105,42 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     @IBAction func editButton(_ sender: Any) {
         router?.routeToEditProfilePage(segue: nil)
     }
+    
 }
 extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profileData.count
+        if section == 0 {
+            return profileImage.count
+        } else {
+            return profileData.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
-        let profilObject = profileData[indexPath.row]
-        cell.setupProfilView(with: profilObject)
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilePictureTableViewCell.identifier, for: indexPath) as! ProfilePictureTableViewCell
+            let profilObject = profileImage[indexPath.row]
+            cell.setupprofileImage(with: profilObject)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
+            let profilObject = profileData[indexPath.row]
+            cell.setupProfilView(with: profilObject)
+            return cell
+        }
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let ratio = UIScreen.main.bounds.height / 736
-        return tableView.estimatedRowHeight * ratio
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            let ratio = UIScreen.main.bounds.height / 736
+            return tableView.estimatedRowHeight * ratio
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

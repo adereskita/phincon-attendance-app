@@ -12,7 +12,7 @@ class EditProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var view : UIView!
     @IBOutlet weak var image1 : UIImageView!
     @IBOutlet weak var titleLabel : UILabel!
-    @IBOutlet weak var descLabebl : UILabel!
+    @IBOutlet weak var descField : UITextField!
     
     static let identifier = "EditProfileTableViewCell"
     
@@ -35,13 +35,13 @@ class EditProfileTableViewCell: UITableViewCell {
     func setupCell (with model: EditProfileData) {
         image1.image = model.iconData
         titleLabel.text = model.titleData
-        descLabebl.text = model.descData
+        descField.text = model.descData
         
         view.layer.cornerRadius = 10
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowRadius = 3.0
         view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOpacity = 0.2
     }
     
 }

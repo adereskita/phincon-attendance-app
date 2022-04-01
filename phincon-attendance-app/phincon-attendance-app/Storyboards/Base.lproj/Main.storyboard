@@ -487,7 +487,7 @@
                                             <color key="titleColor" name="AccentColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Pap-ct-65N" kind="modal" modalPresentationStyle="fullScreen" id="Qm0-J1-NMA"/>
+                                            <action selector="forgotPassButtonWith_sender:" destination="MHL-90-eCy" eventType="touchUpInside" id="Bnw-xf-Cmj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaX-6P-Hg2">
@@ -518,7 +518,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                                 <state key="normal" title="Register"/>
                                                 <connections>
-                                                    <segue destination="nAE-4Z-iEd" kind="modal" modalPresentationStyle="fullScreen" id="7Mk-fV-50a"/>
+                                                    <action selector="registerButtonWith_sender:" destination="MHL-90-eCy" eventType="touchUpInside" id="LSO-4z-zJx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -583,10 +583,10 @@
             </objects>
             <point key="canvasLocation" x="2319" y="1590"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="mqP-t9-5IP">
             <objects>
-                <viewController id="nAE-4Z-iEd" customClass="LoginViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" id="nAE-4Z-iEd" customClass="RegisterViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HEQ-fq-fjf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -678,7 +678,7 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissButton:" destination="nAE-4Z-iEd" eventType="touchUpInside" id="VFA-bN-4GX"/>
+                                            <action selector="registerButtonWith_sender:" destination="nAE-4Z-iEd" eventType="touchUpInside" id="NHD-Ka-qHV"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2cD-XF-U5x">
@@ -695,7 +695,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
-                                                    <action selector="dismissButton:" destination="nAE-4Z-iEd" eventType="touchUpInside" id="jNv-Xb-nGR"/>
+                                                    <action selector="registerButtonWith_sender:" destination="nAE-4Z-iEd" eventType="touchUpInside" id="I97-Zi-JZe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -762,20 +762,15 @@
                             <constraint firstItem="1Pd-9G-47a" firstAttribute="trailing" secondItem="K5z-mf-WWR" secondAttribute="trailing" constant="43" id="wTI-08-h8t"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="cardView" destination="B4u-KA-FO7" id="pkW-wl-TTN"/>
-                        <outlet property="loginBtn" destination="Ax9-Yg-KNa" id="TJK-7z-oJH"/>
-                        <outlet property="spinner" destination="TiF-Gr-6Ns" id="cmL-Zg-ENf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJw-WE-5Gy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3188" y="2144"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Forgot Password View Controller-->
         <scene sceneID="d8A-kA-ZfH">
             <objects>
-                <viewController id="Pap-ct-65N" customClass="LoginViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPassword" id="Pap-ct-65N" customClass="ForgotPasswordViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Wf-u4-ars">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -852,7 +847,7 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissButton:" destination="Pap-ct-65N" eventType="touchUpInside" id="oeD-Ba-P9N"/>
+                                            <action selector="loginButtonWith_sender:" destination="Pap-ct-65N" eventType="touchUpInside" id="QXW-dQ-T5w"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-ac-ZzD">
@@ -869,7 +864,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
-                                                    <action selector="dismissButton:" destination="Pap-ct-65N" eventType="touchUpInside" id="4Sg-6l-4Hi"/>
+                                                    <action selector="loginButtonWith_sender:" destination="Pap-ct-65N" eventType="touchUpInside" id="Fog-5E-0vr"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -930,11 +925,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C9i-Ti-E03"/>
-                    <connections>
-                        <outlet property="cardView" destination="kVo-Hy-pmj" id="kG9-PL-8Jf"/>
-                        <outlet property="loginBtn" destination="S0i-TG-k7d" id="WfZ-AO-Flw"/>
-                        <outlet property="spinner" destination="P7X-bH-k4h" id="Ese-jp-XYO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntT-7I-Gd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

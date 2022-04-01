@@ -22,11 +22,11 @@ class NotificationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -36,11 +36,12 @@ class NotificationTableViewCell: UITableViewCell {
         descLbl.text = viewModel.description
         
         let df = DateFormatter()
-        df.dateFormat = "dd MMM yyyy"
-//        let dates = df.string(from: viewModel.date as! Date)
+        df.dateFormat = "dd-MMM-yyyy"
+        let dates = df.date(from: viewModel.date!)
+        df.dateFormat = "dd MMMM yyyy"
+        df.locale = Locale(identifier: "ID")
+        let resDate = df.string(from: dates!)
         
-//        dateLbl.text = dates
-        
-        dateLbl.text = viewModel.date
+        dateLbl.text = resDate        
     }
 }

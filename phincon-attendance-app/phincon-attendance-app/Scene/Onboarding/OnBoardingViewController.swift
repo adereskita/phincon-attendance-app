@@ -56,6 +56,9 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
             if let router = router, router.responds(to: selector) {
                 router.perform(selector, with: segue)
             }
+            if scene == "RegisterSegue" {
+                router?.perform(selector)
+            }
         }
     }
   
@@ -131,7 +134,11 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     }
     
     @IBAction func loginAction(_ sender: Any?) {
-         router?.routeToDashboard(segue: nil)
+         router?.routeToLogin(segue: nil)
+    }
+     
+    @IBAction func signUpAction(_ sender: Any?) {
+        router?.routeToSignUp(segue: nil)
     }
   
     func displayOnboarding(OnboardingData: OnBoardingModels.LoadOnboarding.Response) {

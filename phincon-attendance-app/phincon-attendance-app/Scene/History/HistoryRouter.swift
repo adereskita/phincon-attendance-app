@@ -15,6 +15,7 @@ import SafariServices
 
 @objc protocol HistoryRoutingLogic {
     func routeToSafariLink(segue: UIStoryboardSegue?)
+    func routeToNotification(segue: UIStoryboardSegue?)
 }
 
 protocol HistoryDataPassing {
@@ -42,10 +43,23 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
 //        guard let url = URL(string: "https://www.google.com/maps/search/\(urls)") else { return }
 //        UIApplication.shared.open(url)
     }
+    
+    func routeToNotification(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let notificationVC = storyBoard.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationViewController
+        if let vc = viewController {
+            navigateToNotificationVC(source: vc, destination: notificationVC)
+        }
+    }
 
   // MARK: Navigation
     func navigateToSafariLink(source:  HistoryViewController, destination: SFSafariViewController) {
         // safariVC should presented modally, use present not show
         source.present(destination, animated: true, completion: nil)
+    }
+    
+    func navigateToNotificationVC(source: HistoryViewController, destination: NotificationViewController) {
+        source.show(destination, sender: nil)
     }
 }

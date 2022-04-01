@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_phincon_attendance_app_phincon_attendance_appUITests : NSObject
+@end
+@implementation PodsDummy_Pods_phincon_attendance_app_phincon_attendance_appUITests
+@end

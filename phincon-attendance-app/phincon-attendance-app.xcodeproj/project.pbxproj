@@ -57,6 +57,18 @@
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
 		E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2094B4927ECB19F00A379D9 /* Profile.swift */; };
 		E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DF2E227F3369100336B89 /* ColorUtils.swift */; };
+		E2673FEA27F6E69E006E3887 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */; };
+		E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */; };
+		E2673FEC27F6E69E006E3887 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE627F6E69E006E3887 /* ForgotPasswordRouter.swift */; };
+		E2673FED27F6E69E006E3887 /* ForgotPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE727F6E69E006E3887 /* ForgotPasswordModels.swift */; };
+		E2673FEE27F6E69E006E3887 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE827F6E69E006E3887 /* ForgotPasswordViewController.swift */; };
+		E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE927F6E69E006E3887 /* ForgotPasswordInteractor.swift */; };
+		E2673FF727F6E6E1006E3887 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF127F6E6E1006E3887 /* RegisterPresenter.swift */; };
+		E2673FF827F6E6E1006E3887 /* RegisterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF227F6E6E1006E3887 /* RegisterWorker.swift */; };
+		E2673FF927F6E6E1006E3887 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF327F6E6E1006E3887 /* RegisterRouter.swift */; };
+		E2673FFA27F6E6E1006E3887 /* RegisterModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF427F6E6E1006E3887 /* RegisterModels.swift */; };
+		E2673FFB27F6E6E1006E3887 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF527F6E6E1006E3887 /* RegisterViewController.swift */; };
+		E2673FFC27F6E6E1006E3887 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF627F6E6E1006E3887 /* RegisterInteractor.swift */; };
 		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
 		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
 		E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2527EB036B001BEE6D /* LoginRouter.swift */; };
@@ -165,6 +177,18 @@
 		CC20E7466C5C25EB98FD2F48 /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_app_phincon_attendance_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		E22DF2E227F3369100336B89 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
+		E2673FE627F6E69E006E3887 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
+		E2673FE727F6E69E006E3887 /* ForgotPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModels.swift; sourceTree = "<group>"; };
+		E2673FE827F6E69E006E3887 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E2673FE927F6E69E006E3887 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
+		E2673FF127F6E6E1006E3887 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		E2673FF227F6E6E1006E3887 /* RegisterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWorker.swift; sourceTree = "<group>"; };
+		E2673FF327F6E6E1006E3887 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		E2673FF427F6E6E1006E3887 /* RegisterModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModels.swift; sourceTree = "<group>"; };
+		E2673FF527F6E6E1006E3887 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E2673FF627F6E6E1006E3887 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		E2A60F2527EB036B001BEE6D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -443,6 +467,8 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E2673FF027F6E6A1006E3887 /* RegisterPage */,
+				E2673FE327F6E682006E3887 /* ForgottPassword */,
 				E2D75ED527F3E645002F88A2 /* EditProfile */,
 				3674EED727F3088300662D8F /* Notification */,
 				E2FAE34527EB732000D97493 /* Profil */,
@@ -471,6 +497,32 @@
 				E22DF2E227F3369100336B89 /* ColorUtils.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		E2673FE327F6E682006E3887 /* ForgottPassword */ = {
+			isa = PBXGroup;
+			children = (
+				E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */,
+				E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */,
+				E2673FE627F6E69E006E3887 /* ForgotPasswordRouter.swift */,
+				E2673FE727F6E69E006E3887 /* ForgotPasswordModels.swift */,
+				E2673FE827F6E69E006E3887 /* ForgotPasswordViewController.swift */,
+				E2673FE927F6E69E006E3887 /* ForgotPasswordInteractor.swift */,
+			);
+			path = ForgottPassword;
+			sourceTree = "<group>";
+		};
+		E2673FF027F6E6A1006E3887 /* RegisterPage */ = {
+			isa = PBXGroup;
+			children = (
+				E2673FF127F6E6E1006E3887 /* RegisterPresenter.swift */,
+				E2673FF227F6E6E1006E3887 /* RegisterWorker.swift */,
+				E2673FF327F6E6E1006E3887 /* RegisterRouter.swift */,
+				E2673FF427F6E6E1006E3887 /* RegisterModels.swift */,
+				E2673FF527F6E6E1006E3887 /* RegisterViewController.swift */,
+				E2673FF627F6E6E1006E3887 /* RegisterInteractor.swift */,
+			);
+			path = RegisterPage;
 			sourceTree = "<group>";
 		};
 		E2A60F2227EB0341001BEE6D /* Login */ = {
@@ -779,6 +831,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3674EEE227F3088F00662D8F /* NotificationViewController.swift in Sources */,
+				E2673FFB27F6E6E1006E3887 /* RegisterViewController.swift in Sources */,
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */,
 				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
@@ -788,6 +841,7 @@
 				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
 				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
+				E2673FF827F6E6E1006E3887 /* RegisterWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
 				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
 				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
@@ -796,21 +850,29 @@
 				3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */,
 				36EA25CA27EC0F400094876E /* OnBoardingViewController.swift in Sources */,
 				3674EEEA27F3714B00662D8F /* Notification.swift in Sources */,
+				E2673FEA27F6E69E006E3887 /* ForgotPasswordPresenter.swift in Sources */,
+				E2673FF927F6E6E1006E3887 /* RegisterRouter.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
+				E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */,
+				E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */,
 				3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */,
+				E2673FFC27F6E6E1006E3887 /* RegisterInteractor.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
 				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
+				E2673FF727F6E6E1006E3887 /* RegisterPresenter.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */,
+				E2673FED27F6E69E006E3887 /* ForgotPasswordModels.swift in Sources */,
 				E2D75EDF27F3E65B002F88A2 /* EditProfileModels.swift in Sources */,
 				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				E2D75EEE27F41379002F88A2 /* EditProfile.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
 				3674EEE327F3088F00662D8F /* NotificationInteractor.swift in Sources */,
 				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
+				E2673FEE27F6E69E006E3887 /* ForgotPasswordViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
 				E2D75EDE27F3E65B002F88A2 /* EditProfileRouter.swift in Sources */,
 				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
@@ -835,6 +897,8 @@
 				E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */,
 				36EA25D427EC45580094876E /* DashboardModels.swift in Sources */,
 				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
+				E2673FEC27F6E69E006E3887 /* ForgotPasswordRouter.swift in Sources */,
+				E2673FFA27F6E6E1006E3887 /* RegisterModels.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
 				E2D75EDD27F3E65B002F88A2 /* EditProfileWorker.swift in Sources */,
 				36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */,

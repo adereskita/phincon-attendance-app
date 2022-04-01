@@ -73,14 +73,20 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     @IBOutlet var cardView: UIView!
     @IBOutlet var spinner: UIActivityIndicatorView!
     
-    @IBAction func dismissButton(_ sender: Any) {
-        dismiss(animated: true)
-        self.navigationController?.popViewController(animated: true)
-    }
+//     @IBAction func dismissButton(_ sender: Any) {
+//         dismiss(animated: true)
+//         self.navigationController?.popViewController(animated: true)
+//     }
+  
     @IBAction func loginButton(_ sender: Any) {
         spinnerSetup()
     }
-    
+    @IBAction func forgotPassButton(_sender: Any) {
+        router?.routeToForgotPassword(segue: nil)
+    }
+    @IBAction func registerButton(_sender: Any){
+        router?.routeToRegister(segue: nil)
+    }
     func setupUI() {
         spinner.isHidden = true
         loginBtn.layer.cornerRadius = 10

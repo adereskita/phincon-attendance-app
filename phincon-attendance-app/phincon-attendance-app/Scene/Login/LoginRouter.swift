@@ -13,17 +13,19 @@
 import UIKit
 
 @objc protocol LoginRoutingLogic {
-  func routeToDashboardPage(segue: UIStoryboardSegue?)
+    func routeToDashboardPage(segue: UIStoryboardSegue?)
+    func routeToForgotPassword(segue: UIStoryboardSegue?)
+    func routeToRegister(segue: UIStoryboardSegue?)
 }
 
 protocol LoginDataPassing {
-  var dataStore: LoginDataStore? { get }
+    var dataStore: LoginDataStore? { get }
 }
 
 class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
-  weak var viewController: LoginViewController?
-  var dataStore: LoginDataStore?
+    weak var viewController: LoginViewController?
+    var dataStore: LoginDataStore?
     
     func routeToDashboardPage(segue: UIStoryboardSegue?) {
         
@@ -36,37 +38,60 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
             navigateToSomewhere(source: viewController!, destination: dashBoardVC)
           }
     }
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  func navigateToSomewhere(source: LoginViewController, destination: UITabBarController) {
-//    source.show(destination, sender: nil)
-    let navCon = UINavigationController(rootViewController: destination)
-    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)
-
-  }
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    func routeToForgotPassword(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "ForgotPassword") as! ForgotPasswordViewController
+        dashBoardVC.modalPresentationStyle = .fullScreen
+        navigateToForgotPass(source: viewController!, destination: dashBoardVC)
+    }
+    func routeToRegister(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "Register") as! RegisterViewController
+        dashBoardVC.modalPresentationStyle = .fullScreen
+        navigateToRegister(source: viewController!, destination: dashBoardVC)
+    }
+    
+    
+    // MARK: Routing
+    
+    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    //{
+    //  if let segue = segue {
+    //    let destinationVC = segue.destination as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //  } else {
+    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
+    //  }
+    //}
+    
+    // MARK: Navigation
+    
+    func navigateToSomewhere(source: LoginViewController, destination: UITabBarController) {
+        //    source.show(destination, sender: nil)
+        let navCon = UINavigationController(rootViewController: destination)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)
+        
+    }
+    func navigateToForgotPass(source: LoginViewController, destination: ForgotPasswordViewController)
+    {
+        source.show(destination, sender: nil)
+    }
+    func navigateToRegister(source: LoginViewController, destination: RegisterViewController)
+    {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+    //func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore)
+    //{
+    //  destination.name = source.name
+    //}
 }

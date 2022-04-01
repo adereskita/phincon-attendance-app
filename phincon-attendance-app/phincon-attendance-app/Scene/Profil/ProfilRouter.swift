@@ -14,18 +14,18 @@ import UIKit
 
 @objc protocol ProfilRoutingLogic
 {
-  func routeToEditProfilePage(segue: UIStoryboardSegue?)
+    func routeToEditProfilePage(segue: UIStoryboardSegue?)
 }
 
 protocol ProfilDataPassing
 {
-  var dataStore: ProfilDataStore? { get }
+    var dataStore: ProfilDataStore? { get }
 }
 
 class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing
 {
-  weak var viewController: ProfilViewController?
-  var dataStore: ProfilDataStore?
+    weak var viewController: ProfilViewController?
+    var dataStore: ProfilDataStore?
     
     func routeToEditProfilePage(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,35 +34,34 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing
         dashBoardVC.modalPresentationStyle = .fullScreen
         navigateToSomewhere(source: viewController!, destination: dashBoardVC as! EditProfileViewController)
     }
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  func navigateToSomewhere(source: ProfilViewController, destination: EditProfileViewController)
-  {
-    source.show(destination, sender: nil)
-  }
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: ProfilDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    // MARK: Routing
+    
+    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    //{
+    //  if let segue = segue {
+    //    let destinationVC = segue.destination as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //  } else {
+    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
+    //  }
+    //}
+    
+    // MARK: Navigation
+    
+    func navigateToSomewhere(source: ProfilViewController, destination: EditProfileViewController)
+    {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+    //func passDataToSomewhere(source: ProfilDataStore, destination: inout SomewhereDataStore)
+    //{
+    //  destination.name = source.name
+    //}
 }

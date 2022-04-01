@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="572.5" width="414" height="323.5"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xVU-fW-DPt">
-                                        <rect key="frame" x="149.5" y="183.5" width="115.5" height="26"/>
+                                        <rect key="frame" x="146.5" y="182" width="121.5" height="27.5"/>
                                         <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
                                         <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -30,7 +30,7 @@
                                         </connections>
                                     </pageControl>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DsF-DV-uD6">
-                                        <rect key="frame" x="16" y="32" width="382" height="147.5"/>
+                                        <rect key="frame" x="16" y="32" width="382" height="146"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nhw-sd-Kdh">
                                             <size key="itemSize" width="128" height="128"/>
@@ -283,7 +283,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-et-COD">
-                                <rect key="frame" x="16" y="60" width="65" height="22"/>
+                                <rect key="frame" x="16" y="60" width="64" height="22"/>
                                 <state key="normal" title="Back" image="arrow.left" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
@@ -1026,7 +1026,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZC-mE-zB7">
-                                        <rect key="frame" x="23" y="73" width="25" height="22"/>
+                                        <rect key="frame" x="23" y="73" width="24" height="22"/>
                                         <state key="normal" image="arrow.left" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>

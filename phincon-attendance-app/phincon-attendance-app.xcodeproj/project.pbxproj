@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3587141AE29D40DF48A6B9A8 /* Pods_phincon_attendance_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E22C749AE0EFD083BBC070A /* Pods_phincon_attendance_appTests.framework */; };
 		362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594427E9B7FF0022C094 /* HistoryPresenter.swift */; };
 		362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594527E9B7FF0022C094 /* HistoryWorker.swift */; };
 		362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594627E9B7FF0022C094 /* HistoryRouter.swift */; };
@@ -45,6 +46,7 @@
 		36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */; };
 		36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */; };
 		36F0CE9A27DFAC56001469CC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9927DFAC56001469CC /* History.swift */; };
+		5A343D0BE739D204ED5F7AAD /* Pods_phincon_attendance_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE6FC7CC5BDDB490048CE4F /* Pods_phincon_attendance_app.framework */; };
 		9595050527D9BE25005741CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595050427D9BE25005741CA /* AppDelegate.swift */; };
 		9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595050627D9BE25005741CA /* SceneDelegate.swift */; };
 		9595050C27D9BE25005741CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595050A27D9BE25005741CA /* Main.storyboard */; };
@@ -80,6 +82,7 @@
 		E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */; };
 		E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */; };
 		E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */; };
+		F1FD6F150B2F3C6169E3DF6E /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC20E7466C5C25EB98FD2F48 /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C6F4943F0B33986A066F3D1 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-app-phincon-attendance-appUITests/Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1EE6FC7CC5BDDB490048CE4F /* Pods_phincon_attendance_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		362D594427E9B7FF0022C094 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
 		362D594527E9B7FF0022C094 /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
 		362D594627E9B7FF0022C094 /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
@@ -138,6 +143,10 @@
 		36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFilterCollViewCell.swift; sourceTree = "<group>"; };
 		36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFilterCollViewCell.xib; sourceTree = "<group>"; };
 		36F0CE9927DFAC56001469CC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		46356B1AB73ACB42BF963D18 /* Pods-phincon-attendance-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-app.release.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-app/Pods-phincon-attendance-app.release.xcconfig"; sourceTree = "<group>"; };
+		4866A634656892B05CB5D80A /* Pods-phincon-attendance-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-app.debug.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-app/Pods-phincon-attendance-app.debug.xcconfig"; sourceTree = "<group>"; };
+		4E22C749AE0EFD083BBC070A /* Pods_phincon_attendance_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D252C13FB91BA3690ACA4C4 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-app-phincon-attendance-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-app-phincon-attendance-appUITests/Pods-phincon-attendance-app-phincon-attendance-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9595050127D9BE25005741CA /* phincon-attendance-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "phincon-attendance-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595050427D9BE25005741CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9595050627D9BE25005741CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +161,8 @@
 		9595052527D9BE2A005741CA /* phincon-attendance-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "phincon-attendance-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phincon_attendance_appUITests.swift; sourceTree = "<group>"; };
 		9595052B27D9BE2A005741CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA73072A46BE95F4DB57DFFF /* Pods-phincon-attendance-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-appTests.debug.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-appTests/Pods-phincon-attendance-appTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC20E7466C5C25EB98FD2F48 /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_app_phincon_attendance_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		E22DF2E227F3369100336B89 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -179,6 +190,7 @@
 		E2FAE33E27EB730F00D97493 /* ProfilInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilInteractor.swift; sourceTree = "<group>"; };
 		E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilTableViewCell.swift; sourceTree = "<group>"; };
 		E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilTableViewCell.xib; sourceTree = "<group>"; };
+		FF29A235BD904E76C98E2064 /* Pods-phincon-attendance-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-appTests.release.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-appTests/Pods-phincon-attendance-appTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A343D0BE739D204ED5F7AAD /* Pods_phincon_attendance_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3587141AE29D40DF48A6B9A8 /* Pods_phincon_attendance_appTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,12 +214,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FD6F150B2F3C6169E3DF6E /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20714FC19A420D725699E97E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4866A634656892B05CB5D80A /* Pods-phincon-attendance-app.debug.xcconfig */,
+				46356B1AB73ACB42BF963D18 /* Pods-phincon-attendance-app.release.xcconfig */,
+				7D252C13FB91BA3690ACA4C4 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.debug.xcconfig */,
+				1C6F4943F0B33986A066F3D1 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig */,
+				AA73072A46BE95F4DB57DFFF /* Pods-phincon-attendance-appTests.debug.xcconfig */,
+				FF29A235BD904E76C98E2064 /* Pods-phincon-attendance-appTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		362D594127E9991C0022C094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +362,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		8185DD3A483B7F6633050BED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EE6FC7CC5BDDB490048CE4F /* Pods_phincon_attendance_app.framework */,
+				CC20E7466C5C25EB98FD2F48 /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework */,
+				4E22C749AE0EFD083BBC070A /* Pods_phincon_attendance_appTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		959504F827D9BE25005741CA = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +379,8 @@
 				9595051D27D9BE2A005741CA /* phincon-attendance-appTests */,
 				9595052827D9BE2A005741CA /* phincon-attendance-appUITests */,
 				9595050227D9BE25005741CA /* Products */,
+				20714FC19A420D725699E97E /* Pods */,
+				8185DD3A483B7F6633050BED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -498,9 +539,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595052E27D9BE2A005741CA /* Build configuration list for PBXNativeTarget "phincon-attendance-app" */;
 			buildPhases = (
+				9498D2F0F0B4B64E5F0C35AD /* [CP] Check Pods Manifest.lock */,
 				959504FD27D9BE25005741CA /* Sources */,
 				959504FE27D9BE25005741CA /* Frameworks */,
 				959504FF27D9BE25005741CA /* Resources */,
+				814BAE4CC74CFB57CE392FAE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -515,6 +558,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595053127D9BE2A005741CA /* Build configuration list for PBXNativeTarget "phincon-attendance-appTests" */;
 			buildPhases = (
+				AE97F5BDBB1AEE39D4CE83A9 /* [CP] Check Pods Manifest.lock */,
 				9595051627D9BE2A005741CA /* Sources */,
 				9595051727D9BE2A005741CA /* Frameworks */,
 				9595051827D9BE2A005741CA /* Resources */,
@@ -533,9 +577,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595053427D9BE2A005741CA /* Build configuration list for PBXNativeTarget "phincon-attendance-appUITests" */;
 			buildPhases = (
+				4B437EDA7536B79B057BDBB2 /* [CP] Check Pods Manifest.lock */,
 				9595052127D9BE2A005741CA /* Sources */,
 				9595052227D9BE2A005741CA /* Frameworks */,
 				9595052327D9BE2A005741CA /* Resources */,
+				BAF6D0220EEA24004EA04370 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -623,6 +669,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B437EDA7536B79B057BDBB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-phincon-attendance-app-phincon-attendance-appUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		814BAE4CC74CFB57CE392FAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-phincon-attendance-app/Pods-phincon-attendance-app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-phincon-attendance-app/Pods-phincon-attendance-app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-phincon-attendance-app/Pods-phincon-attendance-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9498D2F0F0B4B64E5F0C35AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-phincon-attendance-app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE97F5BDBB1AEE39D4CE83A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-phincon-attendance-appTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAF6D0220EEA24004EA04370 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-phincon-attendance-app-phincon-attendance-appUITests/Pods-phincon-attendance-app-phincon-attendance-appUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-phincon-attendance-app-phincon-attendance-appUITests/Pods-phincon-attendance-app-phincon-attendance-appUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-phincon-attendance-app-phincon-attendance-appUITests/Pods-phincon-attendance-app-phincon-attendance-appUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		959504FD27D9BE25005741CA /* Sources */ = {
@@ -861,6 +1010,7 @@
 		};
 		9595052F27D9BE2A005741CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4866A634656892B05CB5D80A /* Pods-phincon-attendance-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -880,6 +1030,7 @@
 		};
 		9595053027D9BE2A005741CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46356B1AB73ACB42BF963D18 /* Pods-phincon-attendance-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -899,6 +1050,7 @@
 		};
 		9595053227D9BE2A005741CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA73072A46BE95F4DB57DFFF /* Pods-phincon-attendance-appTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -920,6 +1072,7 @@
 		};
 		9595053327D9BE2A005741CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF29A235BD904E76C98E2064 /* Pods-phincon-attendance-appTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -941,6 +1094,7 @@
 		};
 		9595053527D9BE2A005741CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D252C13FB91BA3690ACA4C4 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -960,6 +1114,7 @@
 		};
 		9595053627D9BE2A005741CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C6F4943F0B33986A066F3D1 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

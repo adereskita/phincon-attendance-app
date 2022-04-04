@@ -90,6 +90,8 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     @IBOutlet var btnSignup: UIButton!
     @IBOutlet var btnSkip: UIButton!
     
+    let userDefault = UserDefaults.standard
+    
     func setOnboarding() {
         SetupUI()
         let request = OnBoardingModels.LoadOnboarding.Request()
@@ -134,10 +136,12 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     }
     
     @IBAction func loginAction(_ sender: Any?) {
-         router?.routeToLogin(segue: nil)
+        userDefault.setValue(true, forKey: "isLogin")
+        router?.routeToLogin(segue: nil)
     }
      
     @IBAction func signUpAction(_ sender: Any?) {
+        userDefault.setValue(false, forKey: "isLogin")
         router?.routeToSignUp(segue: nil)
     }
   

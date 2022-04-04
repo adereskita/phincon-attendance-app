@@ -70,13 +70,56 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordDisplayLogic
   {
     super.viewDidLoad()
     doSomething()
+    setupUI()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet var cardView: UIView!
+    @IBOutlet weak var IDTextField: UITextField!
+    @IBOutlet weak var pass1TextField: UITextField!
+    @IBOutlet weak var pass2TextField: UITextField!
+    @IBOutlet var forgotPassBtn: UIButton!
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    
+    func setupUI() {
+        spinner.isHidden = true
+        forgotPassBtn.layer.cornerRadius = 10
+        
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        cardView.layer.shadowOffset = CGSize.zero
+        cardView.layer.shadowOpacity = 0.2
+        cardView.layer.shadowRadius = 3.0
+        cardView.layer.cornerRadius = 25
+        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
+    
+    func spinnerSetup() {
+        spinner.isHidden = false
+        spinner.style = .medium
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        spinner.layer.cornerRadius = 10.0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if let route = self.router {
+                    route.routeToLogin(segue: nil)
+                }
+            }
+        }
+    }
+    
+    
     @IBAction func loginButton(_sender: Any) {
         router?.routeToLogin(segue: nil)
+    }
+    @IBAction func resetButton(_sender: Any) {
+        spinnerSetup()
     }
   
   func doSomething()

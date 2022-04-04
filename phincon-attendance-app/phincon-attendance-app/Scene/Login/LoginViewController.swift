@@ -13,7 +13,8 @@
 import UIKit
 
 protocol LoginDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Login.Something.ViewModel)
+    func presenter(displayLoginSuccess viewModel: LoginModels.Post.ViewModel)
+    func presenter(didFailLogin message: String)
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic {
@@ -62,13 +63,13 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
         setupUI()
     }
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var cardView: UIView!
     @IBOutlet var spinner: UIActivityIndicatorView!
@@ -79,7 +80,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 //     }
   
     @IBAction func loginButton(_ sender: Any) {
-        spinnerSetup()
+        let request = LoginModels.Post.Request(username: usernameTextField.text!, password: passwordTextField.text!)
+        interactor?.login(request)
+//        spinnerSetup()
     }
     @IBAction func forgotPassButton(_sender: Any) {
         router?.routeToForgotPassword(segue: nil)
@@ -118,13 +121,13 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         }
     }
     
-    func doSomething() {
-        let request = Login.Something.Request()
-        interactor?.doSomething(request: request)
+    func presenter(displayLoginSuccess viewModel: LoginModels.Post.ViewModel) {
+        //nameTextField.text = viewModel.name
+        print("Return: \(viewModel.username)")
+        // Test Pull Request
     }
     
-    func displaySomething(viewModel: Login.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-        // Test Pull Request
+    func presenter(didFailLogin message: String) {
+        print("Return: \(message)")
     }
 }

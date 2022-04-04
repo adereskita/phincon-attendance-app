@@ -12,9 +12,35 @@
 
 import UIKit
 
-class LoginWorker
-{
-  func doSomeWork()
-  {
-  }
+protocol LoginWorkerProtocol: AnyObject {
+    func postLogin(username: String, password:String, success: @escaping(_ response: User) -> Void, fail:@escaping(_ message: String) -> Void)
+}
+
+class LoginWorker: LoginWorkerProtocol {
+    // MARK: - Private Properties
+    private var service: ClientAPIProtocol
+    
+    // MARK: - Init
+    init(_ service: ClientAPIProtocol = ClientAPI()) {
+        self.service = service
+    }
+    
+    func postLogin(username: String, password: String, success: @escaping (User) -> Void, fail: @escaping (String) -> Void) {
+        service.postLogin(username: username, password: password) { (result) in
+            
+            switch result {
+            case .success(_):
+                print(result)
+            case .failure(_):
+                print("fail return worker")
+            }
+//            let user = User(username: username, password: password)
+//            success(user)
+            
+            
+//        } fail: { (message) in
+//            print(message)
+//        }
+        }
+    }
 }

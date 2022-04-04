@@ -30,7 +30,6 @@ class ForgotPasswordRouter: NSObject, ForgotPasswordRoutingLogic, ForgotPassword
     func routeToLogin(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage") as! LoginViewController
-        loginVC.modalPresentationStyle = .fullScreen
         navigateToSomewhere(source: viewController!, destination: loginVC)
     }
   
@@ -55,7 +54,8 @@ class ForgotPasswordRouter: NSObject, ForgotPasswordRoutingLogic, ForgotPassword
   
   func navigateToSomewhere(source: ForgotPasswordViewController, destination: LoginViewController)
   {
-    source.show(destination, sender: nil)
+    source.navigationController?.popViewController(animated: true)
+//    source.show(destination, sender: nil)
   }
   
   // MARK: Passing data

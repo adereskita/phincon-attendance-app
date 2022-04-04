@@ -19,3 +19,10 @@ struct ProfileImage {
     var role : String?
     var image : UIImage?
 }
+
+struct User: Codable {
+    var username: String?
+    var password: String?
+    var fullname: String?
+    var idcardnumber: String?
+}

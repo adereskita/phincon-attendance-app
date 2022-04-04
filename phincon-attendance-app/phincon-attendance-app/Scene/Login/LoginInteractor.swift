@@ -12,30 +12,42 @@
 
 import UIKit
 
-protocol LoginBusinessLogic
-{
-  func doSomething(request: Login.Something.Request)
+protocol LoginBusinessLogic {
+    func login(_ request: LoginModels.Post.Request)
 }
 
-protocol LoginDataStore
-{
-  //var name: String { get set }
+protocol LoginDataStore {
+//    var username: String { get set }
+//    var password: String { get set }
 }
 
-class LoginInteractor: LoginBusinessLogic, LoginDataStore
-{
-  var presenter: LoginPresentationLogic?
-  var worker: LoginWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Login.Something.Request)
-  {
-    worker = LoginWorker()
-    worker?.doSomeWork()
+class LoginInteractor: LoginDataStore {
+    var presenter: LoginPresentationLogic?
+    var worker: LoginWorker?
     
-    let response = Login.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: - Init
+}
+
+extension LoginInteractor: LoginBusinessLogic {
+    // MARK: Do something
+    
+    func login(_ request: LoginModels.Post.Request) {
+        worker = LoginWorker()
+        worker?.postLogin(username: request.username, password: request.password, success: {(user) in
+            
+            var response: LoginModels.Post.Response?
+                        
+            //business logic here if any
+                        
+            if let response = response {
+                self.presenter?.interactor(didSuccessLogin: response)
+            }
+            
+        }, fail: { (message) in
+            self.presenter?.interactor(didFailLogin: message)
+        })
+      
+//        let response = LoginModels.Post.Response()
+//        self.presenter!.presentSomething(response: response)
+    }
 }

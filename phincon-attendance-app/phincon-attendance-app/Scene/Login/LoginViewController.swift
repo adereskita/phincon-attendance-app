@@ -80,9 +80,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 //     }
   
     @IBAction func loginButton(_ sender: Any) {
-        let request = LoginModels.Post.Request(username: usernameTextField.text!, password: passwordTextField.text!)
+        let request = LoginModels.Post.Request(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
         interactor?.login(request)
-//        spinnerSetup()
     }
     @IBAction func forgotPassButton(_sender: Any) {
         router?.routeToForgotPassword(segue: nil)
@@ -123,11 +122,12 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     func presenter(displayLoginSuccess viewModel: LoginModels.Post.ViewModel) {
         //nameTextField.text = viewModel.name
-        print("Return: \(viewModel.username)")
-        // Test Pull Request
+        if viewModel.token != nil {
+            spinnerSetup()
+        }
     }
     
     func presenter(didFailLogin message: String) {
-        print("Return: \(message)")
+        print("error message: \(message)")
     }
 }

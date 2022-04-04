@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 enum RouterAPI {
-    case getUser(username: String)
-    case postRegister(username: String)
+    case getUser(token: String)
+    case postRegister(username: String, password: String, fullname: String, idnumber: String)
     case postLogin(username: String, password: String)
 }
 
@@ -56,9 +56,13 @@ extension RouterAPI: TargetType {
     var task: Task {
         switch self {
         case .postLogin(let username, let password):
-            return .requestParameters(parameters: [RegisterModels.Post.Request.username: username, RegisterModels.Post.Request.password: password], encoding: JSONEncoding.default)
-        case .postRegister:
-            return .requestPlain
+            return .requestParameters(parameters: [ConstantAPI.Parameters.username: username, ConstantAPI.Parameters.password: password], encoding: JSONEncoding.default)
+        case .postRegister(let username, let password, let fullname, let idnumber):
+            return .requestParameters(parameters: [ConstantAPI.Parameters.username: username,
+                                                    ConstantAPI.Parameters.password: password,
+                                                    ConstantAPI.Parameters.fullname: fullname,
+                                                    ConstantAPI.Parameters.idcardnumber: idnumber],
+                                      encoding: JSONEncoding.default)
         case .getUser:
             return .requestPlain
         }
@@ -68,7 +72,6 @@ extension RouterAPI: TargetType {
         switch self {
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,
-//                    ConstantAPI.HttpHeaderField.acceptEncoding.rawValue: "gzip, deflate, br",
                     ConstantAPI.HttpHeaderField.apikey.rawValue: ConstantAPI.Server.apiKey
             ]
         }

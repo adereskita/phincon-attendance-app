@@ -18,18 +18,19 @@ enum RegisterModels {
     enum Post{
     // Request - parameters that need to be sent to the API request.
         struct Request {
-            static let username = "username"
-            static let password = "password"
-            static let fullname = "fullname"
-            static let idcardnumber = "idcardnumber"
-//            var username: String?
-//            var password: String?
-//            var fullname: String?
-//            var idcardnumber: String?
+            var username: String?
+            var password: String?
+            var fullname: String?
+            var idcardnumber: String?
         }
         struct Response {
+            let success: Success
+        }
+        struct ResponseFail {
+            var error: ErrorStatus?
         }
         struct ViewModel {
+            var message: String?
         }
     }
 }

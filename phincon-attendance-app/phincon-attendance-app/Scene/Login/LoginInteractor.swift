@@ -33,21 +33,29 @@ extension LoginInteractor: LoginBusinessLogic {
     
     func login(_ request: LoginModels.Post.Request) {
         worker = LoginWorker()
-        worker?.postLogin(username: request.username, password: request.password, success: {(user) in
+        worker?.postLogin(username: request.username!, password: request.password!, completionHandler: { (result) in
+//            print("interactor: \(response.success.status)")
             
-            var response: LoginModels.Post.Response?
-                        
-            //business logic here if any
-                        
-            if let response = response {
-                self.presenter?.interactor(didSuccessLogin: response)
+            switch result {
+            case .success(let value):
+                var respons: LoginModels.Post.Response?
+
+                //business logic here if any
+                if value != nil {
+                    print(value.success)
+                    respons = LoginModels.Post.Response(success: value.success)
+                }
+                if let respon = respons {
+                    self.presenter?.interactor(didSuccessLogin: respon)
+                }
+            case .failure(let error):
+                self.presenter?.interactor(didFailLogin: "error")
             }
             
-        }, fail: { (message) in
-            self.presenter?.interactor(didFailLogin: message)
         })
       
 //        let response = LoginModels.Post.Response()
+//
 //        self.presenter!.presentSomething(response: response)
     }
 }

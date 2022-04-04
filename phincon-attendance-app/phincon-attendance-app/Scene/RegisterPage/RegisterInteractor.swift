@@ -35,7 +35,7 @@ class RegisterInteractor: RegisterBusinessLogic, RegisterDataStore
     worker = RegisterWorker()
     worker?.postRegisterUser()
     
-    let response = RegisterModels.Post.Response()
-    presenter?.presentSomething(response: response)
+//    let response = RegisterModels.Post.Response()
+//    presenter?.presentSomething(response: response)
   }
 }

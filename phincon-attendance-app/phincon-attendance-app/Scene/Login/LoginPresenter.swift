@@ -23,16 +23,13 @@ class LoginPresenter: LoginPresentationLogic {
   
   // MARK: Do something
   
-    func interactor(didSuccessLogin response: LoginModels.Post.Response) {
-        let status = "\(response.success!.status) \(response.success!.message)"
-                
-        let viewModel = LoginModels.Post.ViewModel(username: "\(status)")
+    func interactor(didSuccessLogin response: LoginModels.Post.Response) {                
+        let viewModel = LoginModels.Post.ViewModel(token: response.success.token)
                 
         viewController?.presenter(displayLoginSuccess: viewModel)
     }
     
     func interactor(didFailLogin error: String) {
-        print("fail return presenter")
         viewController?.presenter(didFailLogin: error)
     }
 }

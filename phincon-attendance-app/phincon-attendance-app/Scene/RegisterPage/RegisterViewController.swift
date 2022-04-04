@@ -79,6 +79,7 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic
     @IBOutlet var cardView: UIView!
     @IBOutlet var registerBtn: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var fullnameTextField: UITextField!
     @IBOutlet weak var pass1TextField: UITextField!
     @IBOutlet weak var pass2TextField: UITextField!
@@ -125,8 +126,8 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic
     
   func doSomething()
   {
-    let request = RegisterModels.Post.Request()
-    interactor?.doSomething(request: request)
+//    let request = RegisterModels.Post.Request()
+//    interactor?.doSomething(request: request)
   }
   
   func displaySomething(viewModel: RegisterModels.Post.ViewModel)

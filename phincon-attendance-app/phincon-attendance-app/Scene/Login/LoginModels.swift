@@ -17,30 +17,18 @@ enum LoginModels {
   
     enum Post {
         struct Request {
-            let username: String
-            let password: String
+            var username: String?
+            var password: String?
         }
         // MARK: - Response
         struct Response: Codable {
-            var success: Success?
+            let success: Success
         }
-
-        // MARK: - Success
-        struct Success: Codable {
-            var status: Int?
-            var message, token: String?
-        }
-        
         struct ResponseError: Error {
             let error: ErrorStatus
         }
-        // MARK: - Error
-        struct ErrorStatus {
-            let status: Int
-            let message: String
-        }
         struct ViewModel {
-            let username: String
+            var token: String?
         }
     }
 }

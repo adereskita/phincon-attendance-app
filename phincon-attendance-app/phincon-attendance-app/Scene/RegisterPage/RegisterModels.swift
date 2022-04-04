@@ -12,20 +12,24 @@
 
 import UIKit
 
-enum Register
-{
+enum RegisterModels {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
+    enum Post{
+    // Request - parameters that need to be sent to the API request.
+        struct Request {
+            static let username = "username"
+            static let password = "password"
+            static let fullname = "fullname"
+            static let idcardnumber = "idcardnumber"
+//            var username: String?
+//            var password: String?
+//            var fullname: String?
+//            var idcardnumber: String?
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

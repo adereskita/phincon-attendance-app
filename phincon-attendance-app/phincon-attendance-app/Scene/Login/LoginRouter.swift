@@ -26,17 +26,14 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     weak var viewController: LoginViewController?
     var dataStore: LoginDataStore?
+    let userDefault = UserDefaults.standard
     
     func routeToDashboardPage(segue: UIStoryboardSegue?) {
         
-        if let segue = segue {
-            
-          } else {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-    //        dashBoardVC.modalPresentationStyle = .fullScreen
-            navigateToSomewhere(source: viewController!, destination: dashBoardVC)
-          }
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+//        dashBoardVC.modalPresentationStyle = .fullScreen
+        navigateToDashboard(source: viewController!, destination: dashBoardVC)
     }
     func routeToForgotPassword(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -48,7 +45,7 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     func routeToRegister(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "Register") as! RegisterViewController
+        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
         dashBoardVC.modalPresentationStyle = .fullScreen
         navigateToRegister(source: viewController!, destination: dashBoardVC)
     }
@@ -73,19 +70,22 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     // MARK: Navigation
     
-    func navigateToSomewhere(source: LoginViewController, destination: UITabBarController) {
+    func navigateToDashboard(source: LoginViewController, destination: UITabBarController) {
         //    source.show(destination, sender: nil)
         let navCon = UINavigationController(rootViewController: destination)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)
         
     }
-    func navigateToForgotPass(source: LoginViewController, destination: ForgotPasswordViewController)
-    {
+    func navigateToForgotPass(source: LoginViewController, destination: ForgotPasswordViewController) {
         source.show(destination, sender: nil)
     }
-    func navigateToRegister(source: LoginViewController, destination: RegisterViewController)
-    {
-        source.show(destination, sender: nil)
+    func navigateToRegister(source: LoginViewController, destination: RegisterViewController) {
+//        source.show(destination, sender: nil)
+        if userDefault.bool(forKey: "isLogin") == true {
+            source.show(destination, sender: nil)
+        } else {
+            source.navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: Passing data

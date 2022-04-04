@@ -14,7 +14,7 @@ import UIKit
 
 protocol RegisterPresentationLogic
 {
-  func presentSomething(response: Register.Something.Response)
+  func presentSomething(response: RegisterModels.Post.Response)
 }
 
 class RegisterPresenter: RegisterPresentationLogic
@@ -23,9 +23,9 @@ class RegisterPresenter: RegisterPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Register.Something.Response)
+  func presentSomething(response: RegisterModels.Post.Response)
   {
-    let viewModel = Register.Something.ViewModel()
+    let viewModel = RegisterModels.Post.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }
 }

@@ -14,7 +14,7 @@ import UIKit
 
 protocol RegisterBusinessLogic
 {
-  func doSomething(request: Register.Something.Request)
+  func doSomething(request: RegisterModels.Post.Request)
 }
 
 protocol RegisterDataStore
@@ -30,12 +30,12 @@ class RegisterInteractor: RegisterBusinessLogic, RegisterDataStore
   
   // MARK: Do something
   
-  func doSomething(request: Register.Something.Request)
+  func doSomething(request: RegisterModels.Post.Request)
   {
     worker = RegisterWorker()
-    worker?.doSomeWork()
+    worker?.postRegisterUser()
     
-    let response = Register.Something.Response()
+    let response = RegisterModels.Post.Response()
     presenter?.presentSomething(response: response)
   }
 }

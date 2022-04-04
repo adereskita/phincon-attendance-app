@@ -14,7 +14,8 @@ import UIKit
 
 @objc protocol RegisterRoutingLogic
 {
-  func routeToLogin(segue: UIStoryboardSegue?)
+    func routeToLogin(segue: UIStoryboardSegue?)
+    func routeDidRegister(segue: UIStoryboardSegue?)
 }
 
 protocol RegisterDataPassing
@@ -22,16 +23,24 @@ protocol RegisterDataPassing
   var dataStore: RegisterDataStore? { get }
 }
 
-class RegisterRouter: NSObject, RegisterRoutingLogic, RegisterDataPassing
-{
-  weak var viewController: RegisterViewController?
-  var dataStore: RegisterDataStore?
+class RegisterRouter: NSObject, RegisterRoutingLogic, RegisterDataPassing {
+    weak var viewController: RegisterViewController?
+    var dataStore: RegisterDataStore?
+    let userDefault = UserDefaults.standard
   
     func routeToLogin(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
-        loginVC.modalPresentationStyle = .fullScreen
+//        loginVC.modalPresentationStyle = .fullScreen
+        navigateToLogin(source: viewController!, destination: loginVC as! LoginViewController)
+    }
+    
+    func routeDidRegister(segue: UIStoryboardSegue?) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
+//        loginVC.modalPresentationStyle = .fullScreen
         navigateToLogin(source: viewController!, destination: loginVC as! LoginViewController)
     }
   // MARK: Routing
@@ -54,7 +63,11 @@ class RegisterRouter: NSObject, RegisterRoutingLogic, RegisterDataPassing
   
   func navigateToLogin(source: RegisterViewController, destination: LoginViewController)
   {
-    source.show(destination, sender: nil)
+    if userDefault.bool(forKey: "isLogin") == true {
+        source.navigationController?.popViewController(animated: true)
+    } else {
+        source.show(destination, sender: nil)
+    }
   }
   
   // MARK: Passing data

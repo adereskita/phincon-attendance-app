@@ -11,10 +11,14 @@
 //
 
 import UIKit
+import Alamofire
 
-class RegisterWorker
-{
-  func doSomeWork()
-  {
-  }
+class RegisterWorker {
+    let api: ClientAPIProtocol = ClientAPI()
+    
+    func postRegisterUser() {
+        
+    }
+    
+    
 }

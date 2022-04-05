@@ -23,7 +23,7 @@ enum RegisterModels {
             var fullname: String?
             var idcardnumber: String?
         }
-        struct Response {
+        struct Response: Codable {
             let success: Success
         }
         struct ResponseFail {

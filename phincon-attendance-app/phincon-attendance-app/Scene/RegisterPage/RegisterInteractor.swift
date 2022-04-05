@@ -12,30 +12,40 @@
 
 import UIKit
 
-protocol RegisterBusinessLogic
-{
-  func doSomething(request: RegisterModels.Post.Request)
+protocol RegisterBusinessLogic {
+    func register(_ request: RegisterModels.Post.Request)
 }
 
-protocol RegisterDataStore
-{
+protocol RegisterDataStore {
   //var name: String { get set }
 }
 
-class RegisterInteractor: RegisterBusinessLogic, RegisterDataStore
-{
-  var presenter: RegisterPresentationLogic?
-  var worker: RegisterWorker?
+class RegisterInteractor: RegisterBusinessLogic, RegisterDataStore {
+    var presenter: RegisterPresentationLogic?
+    var worker: RegisterWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: RegisterModels.Post.Request)
-  {
-    worker = RegisterWorker()
-    worker?.postRegisterUser()
-    
-//    let response = RegisterModels.Post.Response()
-//    presenter?.presentSomething(response: response)
-  }
+    func register(_ request: RegisterModels.Post.Request) {
+        worker = RegisterWorker()
+        worker?.postRegister(username: request.username!, password: request.password!, fullname: request.fullname!, idcardnumber: request.idcardnumber!, completionHandler: { (result) in
+            
+            switch result {
+            case .success(let value):
+                var response: RegisterModels.Post.Response?
+
+                //business logic here if any
+                if value != nil {
+                    print(value.success)
+                    response = RegisterModels.Post.Response(success: value.success)
+                }
+                if let respons = response {
+                    self.presenter?.interactor(didSuccessRegister: respons)
+                }
+            case .failure(let error):
+                self.presenter?.interactor(didFailRegister: "error")
+            }
+        })
+    }
 }

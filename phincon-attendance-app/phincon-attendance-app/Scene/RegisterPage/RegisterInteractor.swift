@@ -44,7 +44,7 @@ class RegisterInteractor: RegisterBusinessLogic, RegisterDataStore {
                     self.presenter?.interactor(didSuccessRegister: respons)
                 }
             case .failure(let error):
-                self.presenter?.interactor(didFailRegister: "error")
+                self.presenter?.interactor(didFailRegister: error.message!)
             }
         })
     }

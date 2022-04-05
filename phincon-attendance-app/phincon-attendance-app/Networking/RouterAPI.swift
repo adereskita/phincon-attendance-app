@@ -44,15 +44,6 @@ extension RouterAPI: TargetType {
         }
     }
     
-//    var encoding: ParameterEncoding = {
-//        switch method {
-//        case .get:
-//            return URLEncoding.default
-//        default:
-//            return JSONEncoding.default
-//        }
-//    }()
-    
     var task: Task {
         switch self {
         case .postLogin(let username, let password):

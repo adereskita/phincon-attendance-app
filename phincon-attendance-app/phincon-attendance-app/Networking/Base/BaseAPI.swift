@@ -10,7 +10,7 @@ import Alamofire
 
 class BaseAPI<T:TargetType> {
     
-    func fetchData<M: Codable>(target: T, responseClass: M.Type, completionHandler: @escaping (Result<M, NSError>)-> Void) {
+    func fetchData<M: Codable>(target: T, responseClass: M.Type, completionHandler: @escaping (Result<M, APIError>)-> Void) {
         let method = Alamofire.HTTPMethod(rawValue: target.method.rawValue)
         let headers = Alamofire.HTTPHeaders(target.headers ?? [:])
         let parameters = buildParams(task: target.task)
@@ -20,14 +20,14 @@ class BaseAPI<T:TargetType> {
             
             guard let statusCode = response.response?.statusCode else {
                 print("StatusCode not found")
-                completionHandler(.failure(NSError()))
+                completionHandler(.failure(APIError(status: 0, message: "StatusCode not found")))
                 return
             }
             
             if statusCode == 200 {
                 guard let jsonData = response.data else {
                     print("jsonResponse error")
-                    completionHandler(.failure(NSError()))
+                    completionHandler(.failure(APIError(status: statusCode, message: "jsonResponse error")))
                     return
                 }
                 do {
@@ -35,21 +35,19 @@ class BaseAPI<T:TargetType> {
                     completionHandler(.success(responseCodableObject))
                 } catch let error {
                     print("Parsing Error: \(error)")
-                    completionHandler(.failure(NSError()))
+                    completionHandler(.failure(APIError(status: statusCode, message: "Parsing Error: \(error)")))
                 }
-//                guard let responseObj = try? JSONDecoder().decode(M.self, from: jsonData) else {
-//                    print("responseObj Error")
-//                    completionHandler(.failure(NSError()))
-//                    return
-//                }
-//                completionHandler(.success(responseObj))
+                
             } else {
                 print("error statusCode: \(statusCode)")
                 if let data = response.data {
-                    let json = String(data: data, encoding: .utf8)
-                    print("Failure Response: \(json)")
+                    // MARK: Decode Api Error Response
+                    guard let responseJSON = try? JSONDecoder().decode(LoginModels.Post.ResponseError.self, from: data) else {
+                        print("Response JSON Failed")
+                        return
+                    }
+                    completionHandler(.failure(APIError(status: statusCode, message: responseJSON.error.message)))
                 }
-                completionHandler(.failure(NSError()))
             }
         }
     }

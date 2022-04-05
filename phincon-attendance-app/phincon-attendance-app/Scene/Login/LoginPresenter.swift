@@ -25,7 +25,6 @@ class LoginPresenter: LoginPresentationLogic {
   
     func interactor(didSuccessLogin response: LoginModels.Post.Response) {                
         let viewModel = LoginModels.Post.ViewModel(token: response.success.token)
-                
         viewController?.presenter(displayLoginSuccess: viewModel)
     }
     

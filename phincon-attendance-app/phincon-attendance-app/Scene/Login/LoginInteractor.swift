@@ -48,7 +48,7 @@ extension LoginInteractor: LoginBusinessLogic {
                     self.presenter?.interactor(didSuccessLogin: respon)
                 }
             case .failure(let error):
-                self.presenter?.interactor(didFailLogin: "error")
+                self.presenter?.interactor(didFailLogin: error.message!)
             }
             
         })

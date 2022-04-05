@@ -12,20 +12,28 @@
 
 import UIKit
 
-protocol RegisterPresentationLogic
-{
-  func presentSomething(response: RegisterModels.Post.Response)
+protocol RegisterPresentationLogic {
+    func interactor(didSuccessRegister response: RegisterModels.Post.Response)
+    func interactor(didFailRegister error: String)
 }
 
-class RegisterPresenter: RegisterPresentationLogic
-{
+class RegisterPresenter: RegisterPresentationLogic {
+    
   weak var viewController: RegisterDisplayLogic?
   
   // MARK: Do something
+    
+    func interactor(didSuccessRegister response: RegisterModels.Post.Response) {
+        let viewModel = RegisterModels.Post.ViewModel(message: response.success.message)
+        viewController?.presenter(displayRegisterSuccess: viewModel)
+    }
+    
+    func interactor(didFailRegister error: String) {
+        viewController?.presenter(didFailRegister: error)
+    }
   
-  func presentSomething(response: RegisterModels.Post.Response)
-  {
-    let viewModel = RegisterModels.Post.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+//  func presentSomething(response: RegisterModels.Post.Response) {
+//    let viewModel = RegisterModels.Post.ViewModel()
+//    viewController?.displaySomething(viewModel: viewModel)
+//  }
 }

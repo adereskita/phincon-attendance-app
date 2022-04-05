@@ -12,66 +12,61 @@
 
 import UIKit
 
-protocol RegisterDisplayLogic: AnyObject
-{
-  func displaySomething(viewModel: RegisterModels.Post.ViewModel)
+protocol RegisterDisplayLogic: AnyObject {
+    func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel)
+    func presenter(didFailRegister message: String)
+    func displaySomething(viewModel: RegisterModels.Post.ViewModel)
 }
 
-class RegisterViewController: UIViewController, RegisterDisplayLogic
-{
-  var interactor: RegisterBusinessLogic?
-  var router: (NSObjectProtocol & RegisterRoutingLogic & RegisterDataPassing)?
+class RegisterViewController: UIViewController, RegisterDisplayLogic {
+    
+    var interactor: RegisterBusinessLogic?
+    var router: (NSObjectProtocol & RegisterRoutingLogic & RegisterDataPassing)?
 
   // MARK: Object lifecycle
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
   
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
   
   // MARK: Setup
   
-  private func setup()
-  {
-    let viewController = self
-    let interactor = RegisterInteractor()
-    let presenter = RegisterPresenter()
-    let router = RegisterRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
+    private func setup() {
+        let viewController = self
+        let interactor = RegisterInteractor()
+        let presenter = RegisterPresenter()
+        let router = RegisterRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
   
   // MARK: Routing
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
     }
-  }
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-    setupUI()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
   
   // MARK: Do something
   
@@ -86,8 +81,10 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic
     @IBOutlet var spinner: UIActivityIndicatorView!
     
     @IBAction func registerButton(_sender: Any){
-        spinnerSetup()
-//        router?.routeToLogin(segue: nil)
+        if pass1TextField.text == pass2TextField.text {
+            let request = RegisterModels.Post.Request(username: usernameTextField.text!, password: pass2TextField.text!, fullname: fullnameTextField.text!, idcardnumber: idTextField.text!)
+            interactor?.register(request)
+        }
     }
     @IBAction func loginButton(_sender: Any){
         router?.routeToLogin(segue: nil)
@@ -123,15 +120,16 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic
             }
         }
     }
-    
-  func doSomething()
-  {
-//    let request = RegisterModels.Post.Request()
-//    interactor?.doSomething(request: request)
-  }
   
-  func displaySomething(viewModel: RegisterModels.Post.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    func displaySomething(viewModel: RegisterModels.Post.ViewModel) {
+        //nameTextField.text = viewModel.name
+    }
+    
+    func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel) {
+        spinnerSetup()
+    }
+    
+    func presenter(didFailRegister message: String) {
+        print("VC error: \(message)")
+    }
 }

@@ -34,7 +34,6 @@ extension LoginInteractor: LoginBusinessLogic {
     func login(_ request: LoginModels.Post.Request) {
         worker = LoginWorker()
         worker?.postLogin(username: request.username!, password: request.password!, completionHandler: { (result) in
-//            print("interactor: \(response.success.status)")
             
             switch result {
             case .success(let value):
@@ -55,7 +54,6 @@ extension LoginInteractor: LoginBusinessLogic {
         })
       
 //        let response = LoginModels.Post.Response()
-//
 //        self.presenter!.presentSomething(response: response)
     }
 }

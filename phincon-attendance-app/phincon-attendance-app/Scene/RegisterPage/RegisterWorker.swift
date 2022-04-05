@@ -13,11 +13,22 @@
 import UIKit
 import Alamofire
 
-class RegisterWorker {
-    let api: ClientAPIProtocol = ClientAPI()
+protocol RegisterWorkerProtocol: AnyObject {
+    func postRegister(username: String, password: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, NSError>) -> Void)
+}
+
+class RegisterWorker: RegisterWorkerProtocol {
+    // MARK: - Private Properties
+    private var service: ClientAPIProtocol
     
-    func postRegisterUser() {
-        
+    // MARK: - Init
+    init(_ service: ClientAPIProtocol = ClientAPI()) {
+        self.service = service
+    }
+    func postRegister(username: String, password: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, NSError>) -> Void) {
+        service.postRegister(username: username, fullname: fullname, password: password, idnumber: idcardnumber, completionHandler: { result in
+            completionHandler(result)
+        })
     }
     
     

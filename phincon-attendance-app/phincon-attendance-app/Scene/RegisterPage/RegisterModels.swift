@@ -27,7 +27,7 @@ enum RegisterModels {
             let success: Success
         }
         struct ResponseFail {
-            var error: ErrorStatus?
+            var error: Error?
         }
         struct ViewModel {
             var message: String?

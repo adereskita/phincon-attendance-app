@@ -13,7 +13,7 @@
 import UIKit
 
 protocol LoginWorkerProtocol: AnyObject {
-    func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, NSError>) -> Void)
+    func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, APIError>) -> Void)
 //    func postLogin(username: String, password:String, success: @escaping(_ response: LoginModels.Post.Response) -> Void, fail:@escaping(_ message: String) -> Void)
 }
 
@@ -27,9 +27,15 @@ class LoginWorker: LoginWorkerProtocol {
         self.service = service
     }
     
-    func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, NSError>) -> Void) {    
+    func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, APIError>) -> Void) {
         service.postLogin(username: username, password: password) { (result) in
-                completionHandler(result)
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+//                completionHandler(result)
         }
     }
 }

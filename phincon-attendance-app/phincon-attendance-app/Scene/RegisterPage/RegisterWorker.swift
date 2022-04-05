@@ -14,7 +14,7 @@ import UIKit
 import Alamofire
 
 protocol RegisterWorkerProtocol: AnyObject {
-    func postRegister(username: String, password: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, NSError>) -> Void)
+    func postRegister(username: String, password: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void)
 }
 
 class RegisterWorker: RegisterWorkerProtocol {
@@ -25,9 +25,16 @@ class RegisterWorker: RegisterWorkerProtocol {
     init(_ service: ClientAPIProtocol = ClientAPI()) {
         self.service = service
     }
-    func postRegister(username: String, password: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, NSError>) -> Void) {
+    func postRegister(username: String, password: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void) {
         service.postRegister(username: username, fullname: fullname, password: password, idnumber: idcardnumber, completionHandler: { result in
-            completionHandler(result)
+            
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+                
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
         })
     }
     

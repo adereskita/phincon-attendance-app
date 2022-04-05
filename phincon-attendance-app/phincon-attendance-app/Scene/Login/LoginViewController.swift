@@ -89,6 +89,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     @IBAction func registerButton(_sender: Any){
         router?.routeToRegister(segue: nil)
     }
+    
     func setupUI() {
         spinner.isHidden = true
         loginBtn.layer.cornerRadius = 10
@@ -101,7 +102,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func spinnerSetup() {
+    func spinnerSetup(isLogin: Bool, message: String?) {
         spinner.isHidden = false
         spinner.style = .medium
         spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
@@ -114,20 +115,30 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
             self.spinner.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if let route = self.router {
-                    route.routeToDashboardPage(segue: nil)
+                    if isLogin == true {
+                        route.routeToDashboardPage(segue: nil)
+                    } else {
+                        self.alertSetup(error: message)
+                    }
                 }
             }
         }
     }
     
+    func alertSetup(error message: String?) {
+        let alert = UIAlertController(title: "Error Occured", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func presenter(displayLoginSuccess viewModel: LoginModels.Post.ViewModel) {
         //nameTextField.text = viewModel.name
         if viewModel.token != nil {
-            spinnerSetup()
+            spinnerSetup(isLogin: true, message: nil)
         }
     }
     
     func presenter(didFailLogin message: String) {
-        print("error message: \(message)")
+        spinnerSetup(isLogin: false, message: message)
     }
 }

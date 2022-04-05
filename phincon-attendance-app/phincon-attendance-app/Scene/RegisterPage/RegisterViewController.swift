@@ -15,7 +15,6 @@ import UIKit
 protocol RegisterDisplayLogic: AnyObject {
     func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel)
     func presenter(didFailRegister message: String)
-    func displaySomething(viewModel: RegisterModels.Post.ViewModel)
 }
 
 class RegisterViewController: UIViewController, RegisterDisplayLogic {
@@ -102,7 +101,7 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func spinnerSetup() {
+    func spinnerSetup(isLogin: Bool, message: String?) {
         spinner.isHidden = false
         spinner.style = .medium
         spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
@@ -115,21 +114,27 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
             self.spinner.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if let route = self.router {
-                    route.routeToLogin(segue: nil)
+                    if isLogin == true {
+                        route.routeToLogin(segue: nil)
+                    } else {
+                        self.alertSetup(error: message)
+                    }
                 }
             }
         }
     }
-  
-    func displaySomething(viewModel: RegisterModels.Post.ViewModel) {
-        //nameTextField.text = viewModel.name
+    
+    func alertSetup(error message: String?) {
+        let alert = UIAlertController(title: "Error Occured", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel) {
-        spinnerSetup()
+        spinnerSetup(isLogin: true, message: nil)
     }
     
     func presenter(didFailRegister message: String) {
-        print("VC error: \(message)")
+        spinnerSetup(isLogin: false, message: message)
     }
 }

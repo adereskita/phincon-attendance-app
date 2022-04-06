@@ -61,6 +61,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     // MARK: View lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        errorLbl.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -73,6 +77,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var cardView: UIView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var errorLbl: UILabel!
     
 //     @IBAction func dismissButton(_ sender: Any) {
 //         dismiss(animated: true)
@@ -118,7 +123,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
                     if isLogin == true {
                         route.routeToDashboardPage(segue: nil)
                     } else {
-                        self.alertSetup(error: message)
+                        self.errorLbl.isHidden = false
+                        self.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
+//                        self.alertSetup(error: message)
                     }
                 }
             }

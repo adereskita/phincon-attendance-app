@@ -61,6 +61,10 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
     }
   
   // MARK: View lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        errorLbl.isHidden = true
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +82,7 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
     @IBOutlet weak var pass1TextField: UITextField!
     @IBOutlet weak var pass2TextField: UITextField!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var errorLbl: UILabel!
     
     @IBAction func registerButton(_sender: Any){
         if pass1TextField.text == pass2TextField.text {
@@ -117,17 +122,12 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
                     if isLogin == true {
                         route.routeToLogin(segue: nil)
                     } else {
-                        self.alertSetup(error: message)
+                        self.errorLbl.isHidden = false
+                        self.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
                     }
                 }
             }
         }
-    }
-    
-    func alertSetup(error message: String?) {
-        let alert = UIAlertController(title: "Error Occured", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
     func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel) {

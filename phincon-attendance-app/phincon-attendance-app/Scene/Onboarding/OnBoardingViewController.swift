@@ -64,6 +64,10 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
   
   // MARK: View lifecycle
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setOnboarding()
@@ -147,6 +151,19 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
   
     func displayOnboarding(OnboardingData: OnBoardingModels.LoadOnboarding.Response) {
         onboardSlide = OnboardingData.OnboardingData
+    }
+}
+
+extension OnBoardingViewController: UIGestureRecognizerDelegate {
+//    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        if gestureRecognizer.isEqual(navigationController?.interactivePopGestureRecognizer) {
+//            navigationController?.popViewController(animated: true)
+//        }
+//        return false
+//    }
+    // MARK: Without this code below, the interactive swipe popVC still works
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 

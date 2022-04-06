@@ -70,10 +70,15 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
         super.viewDidLoad()
         setupUI()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
+    }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var cardView: UIView!
     @IBOutlet var registerBtn: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!

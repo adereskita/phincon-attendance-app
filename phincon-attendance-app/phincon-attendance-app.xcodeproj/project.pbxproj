@@ -29,6 +29,7 @@
 		3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */; };
 		3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */; };
 		3674EEEA27F3714B00662D8F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE927F3714B00662D8F /* Notification.swift */; };
+		36AF818427FD4CE2009D84A2 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF818327FD4CE1009D84A2 /* ImageUtils.swift */; };
 		36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */; };
 		36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */; };
 		36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* Onboarding.swift */; };
@@ -144,6 +145,7 @@
 		3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		3674EEE927F3714B00662D8F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		36AF818327FD4CE1009D84A2 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		36DC385E27DA630600EC4164 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 			children = (
 				E22DF2E227F3369100336B89 /* ColorUtils.swift */,
 				362497CE27F8293000CD04FF /* ConstantAPI.swift */,
+				36AF818327FD4CE1009D84A2 /* ImageUtils.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */,
 				E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */,
 				3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */,
+				36AF818427FD4CE2009D84A2 /* ImageUtils.swift in Sources */,
 				362497D727F84DE000CD04FF /* RouterAPI.swift in Sources */,
 				E2673FFC27F6E6E1006E3887 /* RegisterInteractor.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,

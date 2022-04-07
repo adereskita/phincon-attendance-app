@@ -99,6 +99,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         spinner.isHidden = true
         loginBtn.layer.cornerRadius = 10
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+         //Add this tap gesture recognizer to the parent view
+         view.addGestureRecognizer(tap)
+        
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
         cardView.layer.shadowOffset = CGSize.zero
         cardView.layer.shadowOpacity = 0.2
@@ -130,6 +134,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
                 }
             }
         }
+    }
+    
+    @objc func dismissMyKeyboard() {
+        view.endEditing(true)
     }
     
     func alertSetup(error message: String?) {

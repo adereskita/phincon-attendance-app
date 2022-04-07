@@ -61,6 +61,11 @@ extension RouterAPI: TargetType {
     
     var headers: [String : String]? {
         switch self {
+        case .getUser(let token):
+            return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,
+                   ConstantAPI.HttpHeaderField.apikey.rawValue: ConstantAPI.Server.apiKey,
+                   ConstantAPI.HttpHeaderField.authentication.rawValue: "Bearer " + token // space after Bearer important
+           ]
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,
                     ConstantAPI.HttpHeaderField.apikey.rawValue: ConstantAPI.Server.apiKey

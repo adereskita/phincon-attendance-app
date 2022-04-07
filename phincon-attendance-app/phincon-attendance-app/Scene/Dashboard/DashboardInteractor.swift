@@ -15,34 +15,50 @@ import UIKit
 protocol DashboardBusinessLogic {
     func loadDashboardListIn(request: DashboardModels.LoadCheckInOut.Request)
     func loadDashboardListOut(request: DashboardModels.LoadCheckInOut.Request)
+    func checkLoginSession(request: DashboardModels.IsLogin.Request)
 }
 
 protocol DashboardDataStore {
-  //var name: String { get set }
+  var token: String { get set }
 }
 
 class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
+    
     var presenter: DashboardPresentationLogic?
-    var worker: DashboardWorker?
+    var worker = DashboardWorker()
+    let userDefault = UserDefaults.standard
     
     var checkInList = [Checkin]()
     var checkOutList = [Checkin]()
-  //var name: String = ""
-  
+    var token: String = ""
+
   // MARK: Do something
     func loadDashboardListIn(request: DashboardModels.LoadCheckInOut.Request) {
-        worker = DashboardWorker()
-        checkInList = worker!.fetchDashboardListIn()
+        checkInList = worker.fetchDashboardListIn()
         
         let response = DashboardModels.LoadCheckInOut.Response(checkInData: checkInList)
         presenter?.presentDashboardListIn(response: response)
     }
     
     func loadDashboardListOut(request: DashboardModels.LoadCheckInOut.Request) {
-        worker = DashboardWorker()
-        checkOutList = worker!.fetchDashboardListOut()
+        checkOutList = worker.fetchDashboardListOut()
         
         let response = DashboardModels.LoadCheckInOut.Response(checkInData: checkOutList)
         presenter?.presentDashboardListOut(response: response)
+    }
+    
+    func checkLoginSession(request: DashboardModels.IsLogin.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker.loginSession(token: token, completionHandler: { (result) in
+            
+            switch result {
+            case .success(let value):
+                print("value") // remove " character to print decoded value
+                
+            case .failure(let error):
+                self.presenter?.interactor(didExpiredSession: error.status, message: error.message!)
+            }
+            
+        })
     }
 }

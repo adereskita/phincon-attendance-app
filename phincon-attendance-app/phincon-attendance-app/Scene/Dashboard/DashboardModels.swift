@@ -15,6 +15,19 @@ import UIKit
 enum DashboardModels {
   // MARK: Use cases
   
+    enum IsLogin {
+        struct Request {
+            
+        }
+        struct Response: Codable {
+            let success: DashboardModels.IsLogin.Success
+        }
+        struct Success: Codable {
+            var status: Int?
+            var message: String?
+            var result: Users?
+        }
+    }
     enum LoadCheckInOut {
         struct Request {}
         struct Response {

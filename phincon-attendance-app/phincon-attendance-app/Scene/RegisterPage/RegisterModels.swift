@@ -26,9 +26,6 @@ enum RegisterModels {
         struct Response: Codable {
             let success: Success
         }
-        struct ResponseFail {
-            var error: Error?
-        }
         struct ViewModel {
             var message: String?
         }

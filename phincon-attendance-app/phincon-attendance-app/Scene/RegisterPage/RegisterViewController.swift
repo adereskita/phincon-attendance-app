@@ -103,6 +103,10 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
         spinner.isHidden = true
         registerBtn.layer.cornerRadius = 10
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+         //Add this tap gesture recognizer to the parent view
+         view.addGestureRecognizer(tap)
+        
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
         cardView.layer.shadowOffset = CGSize.zero
         cardView.layer.shadowOpacity = 0.2
@@ -133,6 +137,10 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
                 }
             }
         }
+    }
+    
+    @objc func dismissMyKeyboard() {
+        view.endEditing(true)
     }
     
     func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel) {

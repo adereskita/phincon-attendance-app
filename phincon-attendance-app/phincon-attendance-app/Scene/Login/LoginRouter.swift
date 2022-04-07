@@ -28,12 +28,15 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     var dataStore: LoginDataStore?
     let userDefault = UserDefaults.standard
     
+    // MARK: Routing
+    
     func routeToDashboardPage(segue: UIStoryboardSegue?) {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
 //        dashBoardVC.modalPresentationStyle = .fullScreen
         navigateToDashboard(source: viewController!, destination: dashBoardVC)
+        //    passDataToDashboard(source: dataStore!, destination: &destinationDS)
     }
     func routeToForgotPassword(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -50,28 +53,12 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
         navigateToRegister(source: viewController!, destination: dashBoardVC)
     }
     
-    
-    // MARK: Routing
-    
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-    
     // MARK: Navigation
     
     func navigateToDashboard(source: LoginViewController, destination: UITabBarController) {
-        //    source.show(destination, sender: nil)
+        if let token = dataStore?.token {
+            userDefault.set(token, forKey: "user_token")      
+        }
         let navCon = UINavigationController(rootViewController: destination)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)
         
@@ -80,7 +67,6 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
         source.show(destination, sender: nil)
     }
     func navigateToRegister(source: LoginViewController, destination: RegisterViewController) {
-//        source.show(destination, sender: nil)
         if userDefault.bool(forKey: "isLogin") == true {
             source.show(destination, sender: nil)
         } else {
@@ -90,8 +76,7 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+//    func passDataToDashboard(source: LoginDataStore, destination: inout SomewhereDataStore) {
+//      destination.name = source.name
+//    }
 }

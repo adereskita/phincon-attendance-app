@@ -10,10 +10,23 @@ import Foundation
 protocol ClientAPIProtocol {
     func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, APIError>) -> Void)
     func postRegister(username: String, fullname: String, password: String, idnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void)
+    func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void)
 //    func postLogin(username: String, password: String, completionHandler: @escaping (Result<[LoginModels.Post.Success], NSError>) -> Void)
 }
 
 class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
+    
+    func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void) {
+        self.fetchData(target: .getUser(token: token), responseClass: DashboardModels.IsLogin.Response.self, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        })
+    }
+    
     func postRegister(username: String, fullname: String, password: String, idnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void) {
         self.fetchData(target: .postRegister(username: username, password: password, fullname: fullname, idnumber: idnumber), responseClass: RegisterModels.Post.Response.self, completionHandler: { result in
             completionHandler(result)

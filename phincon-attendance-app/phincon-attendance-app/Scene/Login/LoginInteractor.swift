@@ -17,14 +17,13 @@ protocol LoginBusinessLogic {
 }
 
 protocol LoginDataStore {
-//    var username: String { get set }
-//    var password: String { get set }
+    var token: String { get set }
 }
 
 class LoginInteractor: LoginDataStore {
     var presenter: LoginPresentationLogic?
     var worker: LoginWorker?
-    
+    var token: String = ""
     // MARK: - Init
 }
 
@@ -43,6 +42,7 @@ extension LoginInteractor: LoginBusinessLogic {
                 if value != nil {
                     print(value.success)
                     respons = LoginModels.Post.Response(success: value.success)
+                    self.token = value.success.token!
                 }
                 if let respon = respons {
                     self.presenter?.interactor(didSuccessLogin: respon)

@@ -24,9 +24,6 @@ enum LoginModels {
         struct Response: Codable {
             let success: Success
         }
-        struct ResponseError: Decodable {
-            let error: APIError
-        }
         struct ViewModel {
             var token: String?
         }

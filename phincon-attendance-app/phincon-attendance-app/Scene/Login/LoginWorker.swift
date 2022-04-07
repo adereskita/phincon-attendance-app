@@ -35,7 +35,6 @@ class LoginWorker: LoginWorkerProtocol {
             case .failure(let error):
                 completionHandler(.failure(APIError(status: error.status, message: error.message)))
             }
-//                completionHandler(result)
         }
     }
 }

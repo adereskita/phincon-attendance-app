@@ -8,6 +8,10 @@
 import Foundation
 
 // MARK: - Error handling
+struct ResponseError: Error, Decodable {
+    let error: APIError
+}
+
 struct APIError: Error, Decodable {
     let status: Int
     var message: String?

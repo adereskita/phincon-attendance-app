@@ -30,6 +30,7 @@
 		3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */; };
 		3674EEEA27F3714B00662D8F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE927F3714B00662D8F /* Notification.swift */; };
 		36AF818427FD4CE2009D84A2 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF818327FD4CE1009D84A2 /* ImageUtils.swift */; };
+		36C584C127FEF20200442181 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C584C027FEF20200442181 /* Users.swift */; };
 		36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */; };
 		36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */; };
 		36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385E27DA630600EC4164 /* Onboarding.swift */; };
@@ -146,6 +147,7 @@
 		3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		3674EEE927F3714B00662D8F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		36AF818327FD4CE1009D84A2 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		36C584C027FEF20200442181 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		36DC385B27DA553600EC4164 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		36DC385E27DA630600EC4164 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
 				3674EEE927F3714B00662D8F /* Notification.swift */,
 				360B0F8527FBCE9000CB9CEC /* ResponseServer.swift */,
+				36C584C027FEF20200442181 /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */,
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
 				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
+				36C584C127FEF20200442181 /* Users.swift in Sources */,
 				36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
 				E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */,

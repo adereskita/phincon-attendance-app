@@ -13,12 +13,13 @@
 import UIKit
 
 protocol DashboardDisplayLogic: AnyObject {
-//    func displayDashboardList(viewModel: Dashboard.Something.ViewModel)
     func displayDashboardListIn(response: DashboardModels.LoadCheckInOut.Response)
     func displayDashboardListOut(response: DashboardModels.LoadCheckInOut.Response)
+    func presenter(expiredLoginSession status: Int, message: String)
 }
 
 class DashboardViewController: UIViewController, DashboardDisplayLogic {
+    
     var interactor: DashboardBusinessLogic?
     var router: (NSObjectProtocol & DashboardRoutingLogic & DashboardDataPassing)?
 
@@ -64,6 +65,12 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         super.viewWillAppear(animated)
         self.navigationController!.setNavigationBarHidden(true, animated: false)
         isCheckOut = userDefault.bool(forKey: "isCheckOut")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let request = DashboardModels.IsLogin.Request()
+        interactor?.checkLoginSession(request: request)
     }
   
   // MARK: View lifecycle
@@ -120,7 +127,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
 //        checkInBtn.titleEdgeInsets = UIEdgeInsets(top: 0,left: 4,bottom: 0,right: 4)
         checkInBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         checkInBtn.titleLabel?.minimumScaleFactor = 0.5
-//        isCheckOut = boolValue
         
         circleBg.layer.shadowColor = UIColor.lightGray.cgColor
         circleBg.layer.shadowOffset = CGSize.zero
@@ -146,18 +152,24 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     
     // MARK: Do something
     func displayDashboardListIn(response: DashboardModels.LoadCheckInOut.Response) {
-    //nameTextField.text = viewModel.name
         checkInLists.append(contentsOf: response.checkInData)
     }
     
     func displayDashboardListOut(response: DashboardModels.LoadCheckInOut.Response) {
-    //nameTextField.text = viewModel.name
         checkOutLists = response.checkInData
     }
     
+    func presenter(expiredLoginSession status: Int, message: String) {
+        userDefault.set(nil, forKey: "user_token")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
+    }
+    
+    // MARK: Button Action
     @IBAction func btnNotificationClicked(_ sender: Any) {
         router?.routeToNotification(segue: nil)
-        
     }
     
     @IBAction func btnCheckPressed(_ sender: Any) {

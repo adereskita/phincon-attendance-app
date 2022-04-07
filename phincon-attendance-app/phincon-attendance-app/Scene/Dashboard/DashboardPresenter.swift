@@ -15,9 +15,11 @@ import UIKit
 protocol DashboardPresentationLogic {
     func presentDashboardListIn(response: DashboardModels.LoadCheckInOut.Response)
     func presentDashboardListOut(response: DashboardModels.LoadCheckInOut.Response)
+    func interactor(didExpiredSession status: Int, message: String)
 }
 
 class DashboardPresenter: DashboardPresentationLogic {
+    
   weak var viewController: DashboardDisplayLogic?
   
   // MARK: Do something
@@ -31,5 +33,9 @@ class DashboardPresenter: DashboardPresentationLogic {
     func presentDashboardListOut(response: DashboardModels.LoadCheckInOut.Response) {
         let response = DashboardModels.LoadCheckInOut.Response(checkInData: response.checkInData)
         viewController?.displayDashboardListOut(response: response)
+    }
+    
+    func interactor(didExpiredSession status: Int, message: String) {
+        viewController?.presenter(expiredLoginSession: status, message: message)
     }
 }

@@ -13,8 +13,8 @@
 import UIKit
 
 protocol DashboardDisplayLogic: AnyObject {
-    func displayDashboardListIn(response: DashboardModels.LoadCheckInOut.Response)
-    func displayDashboardListOut(response: DashboardModels.LoadCheckInOut.Response)
+    func presenter(didLoadCheckOutLoc response: DashboardModels.IsLogin.location.Response)
+    func presenter(didLoadCheckInLoc response: DashboardModels.IsLogin.location.Response)
     func presenter(expiredLoginSession status: Int, message: String)
 }
 
@@ -102,18 +102,29 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
             }
         }
     }
-    var checkInLists: [Checkin] = []
-    var checkOutLists: [Checkin] = []
-    
+    var checkInLists: [Location] = [Location]() {
+        // to get data on start
+        didSet {
+//            DispatchQueue.main.async {
+                self.dashboardTableView.reloadData()
+//            }
+        }
+    }
+    var checkOutLists: [Location] = [Location]() {
+        // to get data on start
+        didSet {
+            self.dashboardTableView.reloadData()
+        }
+    }
     override var preferredStatusBarStyle: UIStatusBarStyle {
           return .lightContent
     }
   
     func setDashboard() {
+        let request = DashboardModels.IsLogin.location.Request()
+        interactor?.loadCheckInList(request: request)
+        interactor?.loadCheckOutList(request: request)
         setupUI()
-        let request = DashboardModels.LoadCheckInOut.Request()
-        interactor?.loadDashboardListIn(request: request)
-        interactor?.loadDashboardListOut(request: request)
     }
     
     func setupUI() {
@@ -151,12 +162,13 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     // MARK: Do something
-    func displayDashboardListIn(response: DashboardModels.LoadCheckInOut.Response) {
-        checkInLists.append(contentsOf: response.checkInData)
+    
+    func presenter(didLoadCheckInLoc response: DashboardModels.IsLogin.location.Response) {
+        checkInLists.append(contentsOf: response.success.result!)
     }
     
-    func displayDashboardListOut(response: DashboardModels.LoadCheckInOut.Response) {
-        checkOutLists = response.checkInData
+    func presenter(didLoadCheckOutLoc response: DashboardModels.IsLogin.location.Response) {
+        checkOutLists.append(contentsOf: response.success.result!)
     }
     
     func presenter(expiredLoginSession status: Int, message: String) {
@@ -211,10 +223,6 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

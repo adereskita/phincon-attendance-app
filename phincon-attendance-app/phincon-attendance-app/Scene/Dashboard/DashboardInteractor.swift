@@ -13,8 +13,8 @@
 import UIKit
 
 protocol DashboardBusinessLogic {
-    func loadDashboardListIn(request: DashboardModels.LoadCheckInOut.Request)
-    func loadDashboardListOut(request: DashboardModels.LoadCheckInOut.Request)
+    func loadCheckInList(request: DashboardModels.IsLogin.location.Request)
+    func loadCheckOutList(request: DashboardModels.IsLogin.location.Request)
     func checkLoginSession(request: DashboardModels.IsLogin.Request)
 }
 
@@ -23,28 +23,37 @@ protocol DashboardDataStore {
 }
 
 class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
-    
+
     var presenter: DashboardPresentationLogic?
     var worker = DashboardWorker()
     let userDefault = UserDefaults.standard
     
-    var checkInList = [Checkin]()
-    var checkOutList = [Checkin]()
     var token: String = ""
 
   // MARK: Do something
-    func loadDashboardListIn(request: DashboardModels.LoadCheckInOut.Request) {
-        checkInList = worker.fetchDashboardListIn()
-        
-        let response = DashboardModels.LoadCheckInOut.Response(checkInData: checkInList)
-        presenter?.presentDashboardListIn(response: response)
+    func loadCheckInList(request: DashboardModels.IsLogin.location.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker.getLocation(token: token, completionHandler: { (result) in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(CheckInLoc: value)
+                
+            case .failure(let error):
+                print(error.status, error.message)
+            }
+        })
     }
     
-    func loadDashboardListOut(request: DashboardModels.LoadCheckInOut.Request) {
-        checkOutList = worker.fetchDashboardListOut()
-        
-        let response = DashboardModels.LoadCheckInOut.Response(checkInData: checkOutList)
-        presenter?.presentDashboardListOut(response: response)
+    func loadCheckOutList(request: DashboardModels.IsLogin.location.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker.getLocation(token: token, completionHandler: { (result) in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(CheckOutLoc: value)
+            case .failure(let error):
+                print(error.status, error.message)
+            }
+        })
     }
     
     func checkLoginSession(request: DashboardModels.IsLogin.Request) {
@@ -52,13 +61,13 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
         worker.loginSession(token: token, completionHandler: { (result) in
             
             switch result {
-            case .success(let value):
-                print("value") // remove " character to print decoded value
+            case .success(_):
+                print("logged in")
                 
             case .failure(let error):
+                print("not log in")
                 self.presenter?.interactor(didExpiredSession: error.status, message: error.message!)
             }
-            
         })
     }
 }

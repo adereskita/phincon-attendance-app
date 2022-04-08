@@ -11,10 +11,33 @@ protocol ClientAPIProtocol {
     func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, APIError>) -> Void)
     func postRegister(username: String, fullname: String, password: String, idnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void)
     func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void)
+    func checkIn(location: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void)
+    func checkOut(location: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void)
+    func getLocation(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.location.Response, APIError>) -> Void)
+
 //    func postLogin(username: String, password: String, completionHandler: @escaping (Result<[LoginModels.Post.Success], NSError>) -> Void)
 }
 
 class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
+    func getLocation(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.location.Response, APIError>) -> Void) {
+        self.fetchData(target: .getLocation(token: token), responseClass: DashboardModels.IsLogin.location.Response.self, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        })
+    }
+    
+    func checkIn(location: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void) {
+        
+    }
+    
+    func checkOut(location: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void) {
+        
+    }
+    
     
     func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void) {
         self.fetchData(target: .getUser(token: token), responseClass: DashboardModels.IsLogin.Response.self, completionHandler: { result in

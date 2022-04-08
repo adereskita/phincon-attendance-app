@@ -13,8 +13,8 @@
 import UIKit
 
 protocol DashboardPresentationLogic {
-    func presentDashboardListIn(response: DashboardModels.LoadCheckInOut.Response)
-    func presentDashboardListOut(response: DashboardModels.LoadCheckInOut.Response)
+    func interactor(CheckInLoc response: DashboardModels.IsLogin.location.Response)
+    func interactor(CheckOutLoc response: DashboardModels.IsLogin.location.Response)
     func interactor(didExpiredSession status: Int, message: String)
 }
 
@@ -24,15 +24,13 @@ class DashboardPresenter: DashboardPresentationLogic {
   
   // MARK: Do something
   
-    func presentDashboardListIn(response: DashboardModels.LoadCheckInOut.Response) {
+    func interactor(CheckInLoc response: DashboardModels.IsLogin.location.Response) {
 //        let viewModel = DashboardModels.LoadCheckInOut.ViewModel()
-        let response = DashboardModels.LoadCheckInOut.Response(checkInData: response.checkInData)
-        viewController?.displayDashboardListIn(response: response)
+        viewController?.presenter(didLoadCheckInLoc: response)
     }
     
-    func presentDashboardListOut(response: DashboardModels.LoadCheckInOut.Response) {
-        let response = DashboardModels.LoadCheckInOut.Response(checkInData: response.checkInData)
-        viewController?.displayDashboardListOut(response: response)
+    func interactor(CheckOutLoc response: DashboardModels.IsLogin.location.Response) {
+        viewController?.presenter(didLoadCheckOutLoc: response)
     }
     
     func interactor(didExpiredSession status: Int, message: String) {

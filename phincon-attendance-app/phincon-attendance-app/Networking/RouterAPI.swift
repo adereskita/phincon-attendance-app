@@ -12,6 +12,9 @@ enum RouterAPI {
     case getUser(token: String)
     case postRegister(username: String, password: String, fullname: String, idnumber: String)
     case postLogin(username: String, password: String)
+    case checkIn(location: String, token: String)
+    case checkOut(location: String, token: String)
+    case getLocation(token: String)
 }
 
 extension RouterAPI: TargetType {
@@ -30,6 +33,12 @@ extension RouterAPI: TargetType {
             return "/user-profile"
         case .postRegister:
             return "/registration"
+        case .checkIn:
+            return "/check-in"
+        case .checkOut:
+            return "/check-out"
+        case .getLocation:
+            return "/user-location"
         }
     }
     
@@ -41,6 +50,12 @@ extension RouterAPI: TargetType {
             return .post
         case .postRegister:
             return .post
+        case .checkIn:
+            return .post
+        case .checkOut:
+            return .post
+        case .getLocation:
+            return .get
         }
     }
     
@@ -56,21 +71,36 @@ extension RouterAPI: TargetType {
                                       encoding: JSONEncoding.default)
         case .getUser:
             return .requestPlain
+        case .checkIn(_, let location):
+            return .requestParameters(parameters: [ConstantAPI.Parameters.location: location], encoding: JSONEncoding.default)
+        case .checkOut(_, let location):
+            return .requestParameters(parameters: [ConstantAPI.Parameters.location: location], encoding: JSONEncoding.default)
+        case .getLocation:
+            return .requestPlain
         }
+    }
+    
+    func headerWithToken(token: String) -> [String : String] {
+        return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,
+                ConstantAPI.HttpHeaderField.apikey.rawValue: ConstantAPI.Server.apiKey,
+                ConstantAPI.HttpHeaderField.authentication.rawValue: "Bearer " + token // space after Bearer important
+        ]
     }
     
     var headers: [String : String]? {
         switch self {
         case .getUser(let token):
-            return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,
-                   ConstantAPI.HttpHeaderField.apikey.rawValue: ConstantAPI.Server.apiKey,
-                   ConstantAPI.HttpHeaderField.authentication.rawValue: "Bearer " + token // space after Bearer important
-           ]
+            return headerWithToken(token: token)
+        case .checkIn(_, let token):
+            return headerWithToken(token: token)
+        case .checkOut(_, let token):
+            return headerWithToken(token: token)
+        case .getLocation(let token):
+            return headerWithToken(token: token)
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,
                     ConstantAPI.HttpHeaderField.apikey.rawValue: ConstantAPI.Server.apiKey
             ]
         }
     }
-    
 }

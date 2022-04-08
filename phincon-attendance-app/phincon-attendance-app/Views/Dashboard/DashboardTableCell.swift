@@ -41,16 +41,16 @@ class DashboardTableCell: UITableViewCell {
 //        cardView.layer.borderColor = isSelected ? UIColor(red: 0.078, green: 0.173, blue: 0.392, alpha: 1).cgColor : nil
     }
     
-    func setDashboardCellView(_ models: Checkin) {
+    func setDashboardCellView(_ models: Location) {
         cardView.layer.cornerRadius = 10
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
         cardView.layer.shadowOffset = CGSize.zero
         cardView.layer.shadowOpacity = 0.2
         cardView.layer.shadowRadius = 3.0
         
-        titleLbl.text = models.title
-        descLbl.text = models.description
-        ivCell.image = models.image
+        titleLbl.text = models.name
+        descLbl.text = models.address
+        ivCell.image = UIImage(named: models.image!)
         
     }
     

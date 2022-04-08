@@ -22,3 +22,11 @@ struct Success: Codable {
     var status: Int?
     var message, token: String?
 }
+
+enum LoggedIn {
+    struct Success<T: Codable>: Codable {
+        var status: Int?
+        var message: String?
+        var result: T?
+    }
+}

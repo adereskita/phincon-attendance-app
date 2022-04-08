@@ -16,16 +16,16 @@ enum DashboardModels {
   // MARK: Use cases
   
     enum IsLogin {
-        struct Request {
-            
-        }
+        struct Request {}
         struct Response: Codable {
-            let success: DashboardModels.IsLogin.Success
+            let success: LoggedIn.Success<Users>
         }
-        struct Success: Codable {
-            var status: Int?
-            var message: String?
-            var result: Users?
+        
+        enum location {
+            struct Request {}
+            struct Response: Codable {
+                let success: LoggedIn.Success<[Location]> // user [ ] since the data api is array
+            }
         }
     }
     enum LoadCheckInOut {

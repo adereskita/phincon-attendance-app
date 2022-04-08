@@ -14,16 +14,29 @@ import UIKit
 
 protocol DashboardWorkerProtocol: AnyObject {
     func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void)
+    func getLocation(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.location.Response, APIError>) -> Void)
 //    func postLogin(username: String, password:String, success: @escaping(_ response: LoginModels.Post.Response) -> Void, fail:@escaping(_ message: String) -> Void)
 }
 
 class DashboardWorker: DashboardWorkerProtocol {
+    
     // MARK: - Private Properties
     private var service: ClientAPIProtocol
     
     // MARK: - Init
     init(_ service: ClientAPIProtocol = ClientAPI()) {
         self.service = service
+    }
+    
+    func getLocation(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.location.Response, APIError>) -> Void) {
+        service.getLocation(token: token, completionHandler: {result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        })
     }
     
     func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void) {

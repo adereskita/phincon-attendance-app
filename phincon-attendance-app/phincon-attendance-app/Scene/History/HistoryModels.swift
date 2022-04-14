@@ -13,6 +13,16 @@
 import UIKit
 
 enum HistoryModel {
+    
+    enum FetchHistory {
+        struct Request{
+            var logs: String?
+        }
+        struct Response: Codable {
+            let success: LoggedIn.Success<Location>
+        }
+    }
+    
     enum LoadHistory {
         struct Request {}
         struct Response {

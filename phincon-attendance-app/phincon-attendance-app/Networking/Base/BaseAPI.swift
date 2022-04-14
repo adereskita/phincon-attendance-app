@@ -44,6 +44,7 @@ class BaseAPI<T:TargetType> {
                     // MARK: Decode Api Error Response
                     guard let responseJSON = try? JSONDecoder().decode(ResponseError.self, from: data) else {
                         print("Response JSON Failed")
+                        completionHandler(.failure(APIError(status: statusCode, message: "Error \(statusCode)")))
                         return
                     }
                     completionHandler(.failure(APIError(status: statusCode, message: responseJSON.error.message)))

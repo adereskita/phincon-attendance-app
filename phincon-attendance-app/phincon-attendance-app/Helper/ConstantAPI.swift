@@ -20,6 +20,7 @@ struct ConstantAPI {
         static let fullname = "fullname"
         static let idcardnumber = "idcardnumber"
         static let location = "location"
+        static let logs = "logs"
     }
        
     enum HttpHeaderField: String {

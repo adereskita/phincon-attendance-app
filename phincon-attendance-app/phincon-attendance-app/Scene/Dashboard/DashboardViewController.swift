@@ -13,8 +13,11 @@
 import UIKit
 
 protocol DashboardDisplayLogic: AnyObject {
-    func presenter(didLoadCheckOutLoc response: DashboardModels.IsLogin.location.Response)
-    func presenter(didLoadCheckInLoc response: DashboardModels.IsLogin.location.Response)
+    func presenter(didLoadCheckOutLoc response: DashboardModels.GetLocation.Response)
+    func presenter(didLoadCheckInLoc response: DashboardModels.GetLocation.Response)
+    func presenter(didCheckIn response: DashboardModels.CheckLocation.Response)
+    func presenter(didCheckOut response: DashboardModels.CheckLocation.Response)
+
     func presenter(expiredLoginSession status: Int, message: String)
 }
 
@@ -85,10 +88,13 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     @IBOutlet var topCardView: UIView!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet var notificationBtn: UIButton!
     
+    var timer = Timer()
     let userDefault = UserDefaults.standard
     
+    var locationID: String?
     var isCheckOut: Bool = false {
         didSet {
             if isCheckOut {
@@ -121,7 +127,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
   
     func setDashboard() {
-        let request = DashboardModels.IsLogin.location.Request()
+        let request = DashboardModels.GetLocation.Request()
         interactor?.loadCheckInList(request: request)
         interactor?.loadCheckOutList(request: request)
         setupUI()
@@ -135,7 +141,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         dashboardTableView.estimatedRowHeight = 76
         
         checkInBtn.titleLabel?.textAlignment = .center
-//        checkInBtn.titleEdgeInsets = UIEdgeInsets(top: 0,left: 4,bottom: 0,right: 4)
         checkInBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         checkInBtn.titleLabel?.minimumScaleFactor = 0.5
         
@@ -149,25 +154,72 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         topCardView.layer.shadowOffset = CGSize.zero
         topCardView.layer.shadowOpacity = 0.2
         topCardView.layer.shadowRadius = 3.0
-        
+    
         let date = Date()
         let df = DateFormatter()
         df.dateFormat = "dd MMM yyyy"
         let dates = df.string(from: date)
-        df.dateFormat = "HH:mm"
-        let hour = df.string(from: date)
-        
         dateLabel.text = dates
-        timeLabel.text = "Hour: \(hour)"
+
+        getCurrentTime()
     }
     
-    // MARK: Do something
+    private func getCurrentTime() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.currentTime) , userInfo: nil, repeats: true)
+    }
     
-    func presenter(didLoadCheckInLoc response: DashboardModels.IsLogin.location.Response) {
+    @objc func currentTime() {
+//        df.dateFormat = "HH:mm"
+//        let hour = df.string(from: date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm"
+        timeLabel.text = "Hour: \(formatter.string(from: Date()))"
+    }
+    
+    func spinnerSetup(isSucces: Bool, message: String?) {
+        spinner.isHidden = false
+        spinner.style = .medium
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        spinner.layer.cornerRadius = 10.0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.alertSetup(isSucces: isSucces, error: message)
+            }
+        }
+    }
+    func alertSetup(isSucces: Bool, error message: String?) {
+        if isSucces {
+            let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error Occured", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: Update from Presenter
+    func presenter(didCheckOut response: DashboardModels.CheckLocation.Response) {
+        let msg = "Check-Out was successful"
+        spinnerSetup(isSucces: true, message: msg)
+    }
+    
+    func presenter(didCheckIn response: DashboardModels.CheckLocation.Response) {
+        let msg = "Check-in was successful"
+        spinnerSetup(isSucces: true, message: msg)
+    }
+    
+    func presenter(didLoadCheckInLoc response: DashboardModels.GetLocation.Response) {
         checkInLists.append(contentsOf: response.success.result!)
     }
     
-    func presenter(didLoadCheckOutLoc response: DashboardModels.IsLogin.location.Response) {
+    func presenter(didLoadCheckOutLoc response: DashboardModels.GetLocation.Response) {
         checkOutLists.append(contentsOf: response.success.result!)
     }
     
@@ -185,13 +237,25 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     @IBAction func btnCheckPressed(_ sender: Any) {
-        if isCheckOut {
-            userDefault.set(false, forKey: "isCheckOut")
-            isCheckOut = userDefault.bool(forKey: "isCheckOut")
+        // TODO: Get Location ID from tableview
+        var request: DashboardModels.CheckLocation.Request?
+        if locationID != nil {
+            request = DashboardModels.CheckLocation.Request(location: locationID) //62376f4985300ba0b97505fas
+            
+            if isCheckOut {
+                self.interactor?.checkIn(request: request!)
+                userDefault.set(false, forKey: "isCheckOut")
+                isCheckOut = userDefault.bool(forKey: "isCheckOut")
+            } else {
+                self.interactor?.checkIn(request: request!)
+                userDefault.set(true, forKey: "isCheckOut")
+                isCheckOut = userDefault.bool(forKey: "isCheckOut")
+            }
         } else {
-            userDefault.set(true, forKey: "isCheckOut")
-            isCheckOut = userDefault.bool(forKey: "isCheckOut")
+            let errMsg = "Please choose your location first"
+            spinnerSetup(isSucces: false, message: errMsg)
         }
+        
     }
 }
 
@@ -223,6 +287,11 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let listObj = checkInLists[indexPath.row]
+        self.locationID = listObj.id!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

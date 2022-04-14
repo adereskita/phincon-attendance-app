@@ -13,8 +13,10 @@
 import UIKit
 
 protocol DashboardPresentationLogic {
-    func interactor(CheckInLoc response: DashboardModels.IsLogin.location.Response)
-    func interactor(CheckOutLoc response: DashboardModels.IsLogin.location.Response)
+    func interactor(CheckIn response: DashboardModels.CheckLocation.Response)
+    func interactor(CheckOut response: DashboardModels.CheckLocation.Response)
+    func interactor(CheckInList response: DashboardModels.GetLocation.Response)
+    func interactor(CheckOutList response: DashboardModels.GetLocation.Response)
     func interactor(didExpiredSession status: Int, message: String)
 }
 
@@ -23,13 +25,20 @@ class DashboardPresenter: DashboardPresentationLogic {
   weak var viewController: DashboardDisplayLogic?
   
   // MARK: Do something
+    func interactor(CheckOut response: DashboardModels.CheckLocation.Response) {
+        viewController?.presenter(didCheckOut: response)
+    }
+    
+    func interactor(CheckIn response: DashboardModels.CheckLocation.Response) {
+        viewController?.presenter(didCheckIn: response)
+    }
   
-    func interactor(CheckInLoc response: DashboardModels.IsLogin.location.Response) {
+    func interactor(CheckInList response: DashboardModels.GetLocation.Response) {
 //        let viewModel = DashboardModels.LoadCheckInOut.ViewModel()
         viewController?.presenter(didLoadCheckInLoc: response)
     }
     
-    func interactor(CheckOutLoc response: DashboardModels.IsLogin.location.Response) {
+    func interactor(CheckOutList response: DashboardModels.GetLocation.Response) {
         viewController?.presenter(didLoadCheckOutLoc: response)
     }
     

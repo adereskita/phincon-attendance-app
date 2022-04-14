@@ -17,6 +17,7 @@ protocol HistoryDisplayLogic: AnyObject {
     func displayHistoryList(history: HistoryModel.LoadHistory.Response)
     func fetchHistoyByWeek(history: HistoryModel.LoadHistory.Response)
     func fetchHistoyByDay(history: HistoryModel.LoadHistory.Response)
+    func presenter(LoadHistory response: HistoryModel.FetchHistory.Response)
 }
 
 class HistoryViewController: UIViewController, HistoryDisplayLogic {
@@ -106,9 +107,15 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
+    func presenter(LoadHistory response: HistoryModel.FetchHistory.Response) {
+        
+    }
+    
     func fetchHistoryList() {
         let request = HistoryModel.LoadHistory.Request()
+        let requestFetch = HistoryModel.FetchHistory.Request()
         interactor?.loadHistory(request: request)
+//        interactor?.loadHistorys(request: requestFetch)
     }
     
     func displayHistoryList(history: HistoryModel.LoadHistory.Response) {

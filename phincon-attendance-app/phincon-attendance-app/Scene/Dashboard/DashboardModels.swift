@@ -20,23 +20,31 @@ enum DashboardModels {
         struct Response: Codable {
             let success: LoggedIn.Success<Users>
         }
-        
-        enum location {
-            struct Request {}
-            struct Response: Codable {
-                let success: LoggedIn.Success<[Location]> // user [ ] since the data api is array
-            }
+    }
+    enum CheckLocation {
+        struct Request {
+            var location: String?
+        }
+        struct Response: Codable {
+            let success: LoggedIn.Success<Location>
         }
     }
-    enum LoadCheckInOut {
+    
+    enum GetLocation {
         struct Request {}
-        struct Response {
-            var checkInData: [Checkin]
-        }
-        struct ViewModel {
-            let title: String
-            let description: String
-            let image: UIImage
+        struct Response: Codable {
+            let success: LoggedIn.Success<[Location]> // user [ ] since the data api is array
         }
     }
+//    enum LoadCheckInOut {
+//        struct Request {}
+//        struct Response {
+//            var checkInData: [Checkin]
+//        }
+//        struct ViewModel {
+//            let title: String
+//            let description: String
+//            let image: UIImage
+//        }
+//    }
 }

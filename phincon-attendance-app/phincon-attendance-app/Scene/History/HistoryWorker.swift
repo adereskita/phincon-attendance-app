@@ -12,19 +12,30 @@
 
 import UIKit
 
-class HistoryWorker {
+protocol HistoryWorkerProtocol: AnyObject {
+    func getHistory(logs: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void)
+}
+
+class HistoryWorker: HistoryWorkerProtocol {
     
-    let json = """
-        [
-            {
-                "title": "PT. Phincon",
-                "desc": "Office. 88 @Kasablanka Office Tower 18th Floor",
-                "type": "Check In",
-                "time": "9:00 AM",
-                "image": "https://avatars.githubusercontent.com/u/60510709?v=4"
+    // MARK: - Private Properties
+    private var service: ClientAPIHistoryProtocol
+    
+    // MARK: - Init
+    init(_ service: ClientAPIHistoryProtocol = ClientAPI()) {
+        self.service = service
+    }
+    
+    func getHistory(logs: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void) {
+        service.getHistory(logs: logs, token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
             }
-        ]
-    """
+        })
+    }
     
     var history = [History]()
     
@@ -41,6 +52,19 @@ class HistoryWorker {
         ]
         return history
     }
+    
+    
+    let json = """
+        [
+            {
+                "title": "PT. Phincon",
+                "desc": "Office. 88 @Kasablanka Office Tower 18th Floor",
+                "type": "Check In",
+                "time": "9:00 AM",
+                "image": "https://avatars.githubusercontent.com/u/60510709?v=4"
+            }
+        ]
+    """
     func fetchUserHistory() {
 //        let decoder = JSONDecoder()
 //        let jsonData = json.data(using: .utf8)

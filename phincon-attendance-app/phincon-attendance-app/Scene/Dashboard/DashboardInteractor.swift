@@ -13,9 +13,11 @@
 import UIKit
 
 protocol DashboardBusinessLogic {
-    func loadCheckInList(request: DashboardModels.IsLogin.location.Request)
-    func loadCheckOutList(request: DashboardModels.IsLogin.location.Request)
+    func loadCheckInList(request: DashboardModels.GetLocation.Request)
+    func loadCheckOutList(request: DashboardModels.GetLocation.Request)
     func checkLoginSession(request: DashboardModels.IsLogin.Request)
+    func checkIn(request: DashboardModels.CheckLocation.Request)
+    func checkOut(request: DashboardModels.CheckLocation.Request)
 }
 
 protocol DashboardDataStore {
@@ -31,27 +33,43 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
     var token: String = ""
 
   // MARK: Do something
-    func loadCheckInList(request: DashboardModels.IsLogin.location.Request) {
+    func checkOut(request: DashboardModels.CheckLocation.Request) {
         token = userDefault.string(forKey: "user_token")!
-        worker.getLocation(token: token, completionHandler: { (result) in
+    }
+    
+    func checkIn(request: DashboardModels.CheckLocation.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker.checkIn(location: request.location!, token: token, completionHandler: { result in
             switch result {
             case .success(let value):
-                self.presenter?.interactor(CheckInLoc: value)
-                
+                self.presenter?.interactor(CheckIn: value)
             case .failure(let error):
-                print(error.status, error.message)
+                print(error.status, error.message!)
             }
         })
     }
     
-    func loadCheckOutList(request: DashboardModels.IsLogin.location.Request) {
+    func loadCheckInList(request: DashboardModels.GetLocation.Request) {
         token = userDefault.string(forKey: "user_token")!
         worker.getLocation(token: token, completionHandler: { (result) in
             switch result {
             case .success(let value):
-                self.presenter?.interactor(CheckOutLoc: value)
+                self.presenter?.interactor(CheckInList: value)
+                
             case .failure(let error):
-                print(error.status, error.message)
+                print(error.status, error.message!)
+            }
+        })
+    }
+    
+    func loadCheckOutList(request: DashboardModels.GetLocation.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker.getLocation(token: token, completionHandler: { (result) in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(CheckOutList: value)
+            case .failure(let error):
+                print(error.status, error.message!)
             }
         })
     }

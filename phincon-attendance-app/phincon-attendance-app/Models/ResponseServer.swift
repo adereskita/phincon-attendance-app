@@ -11,7 +11,6 @@ import Foundation
 struct ResponseError: Error, Decodable {
     let error: APIError
 }
-
 struct APIError: Error, Decodable {
     let status: Int
     var message: String?
@@ -22,7 +21,6 @@ struct Success: Codable {
     var status: Int?
     var message, token: String?
 }
-
 enum LoggedIn {
     struct Success<T: Codable>: Codable {
         var status: Int?

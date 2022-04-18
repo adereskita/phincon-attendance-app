@@ -234,8 +234,12 @@
                                 <color key="textColor" red="0.015686274509803921" green="0.17254901960784313" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VCn-vh-8ey">
-                                <rect key="frame" x="188.5" y="410" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VCn-vh-8ey">
+                                <rect key="frame" x="181" y="402.5" width="52" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VCn-vh-8ey" secondAttribute="height" multiplier="1:1" id="0cE-dv-fhS"/>
+                                    <constraint firstAttribute="height" constant="52" id="LPv-KD-onI"/>
+                                </constraints>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vrz-nn-BkK"/>
@@ -1043,38 +1047,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="298"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raA-pA-g3f">
-                                        <rect key="frame" x="24" y="68" width="61" height="27.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="raA-pA-g3f" secondAttribute="height" multiplier="20:9" id="RSV-le-65e"/>
-                                        </constraints>
+                                        <rect key="frame" x="32" y="76" width="60.5" height="44"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNi-wZ-aor">
-                                        <rect key="frame" x="360" y="73" width="22" height="22"/>
+                                        <rect key="frame" x="338" y="76" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="4o3-9X-New"/>
+                                            <constraint firstAttribute="width" secondItem="JNi-wZ-aor" secondAttribute="height" multiplier="1:1" id="bU4-Gg-BOw"/>
+                                        </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="line.horizontal.3" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="editButton:" destination="PZ5-PI-xTu" eventType="touchUpInside" id="geU-cz-tva"/>
+                                            <action selector="profileMenu:" destination="PZ5-PI-xTu" eventType="touchUpInside" id="mgH-Q1-zQZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15316852929999999" green="0.36964827779999998" blue="0.80788463349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Pfc-Sk-gwJ" secondAttribute="height" multiplier="207:149" id="01O-zt-wgt"/>
-                                    <constraint firstItem="raA-pA-g3f" firstAttribute="top" secondItem="Pfc-Sk-gwJ" secondAttribute="top" constant="68" id="Voo-xd-MQ4"/>
-                                    <constraint firstItem="JNi-wZ-aor" firstAttribute="top" secondItem="Pfc-Sk-gwJ" secondAttribute="top" constant="73" id="b3R-q2-soP"/>
-                                    <constraint firstItem="raA-pA-g3f" firstAttribute="leading" secondItem="Pfc-Sk-gwJ" secondAttribute="leading" constant="24" id="b5O-8W-L7D"/>
+                                    <constraint firstItem="raA-pA-g3f" firstAttribute="centerY" secondItem="JNi-wZ-aor" secondAttribute="centerY" id="UXb-QX-ouo"/>
+                                    <constraint firstItem="raA-pA-g3f" firstAttribute="leading" secondItem="Pfc-Sk-gwJ" secondAttribute="leading" constant="32" id="b5O-8W-L7D"/>
                                     <constraint firstAttribute="trailing" secondItem="JNi-wZ-aor" secondAttribute="trailing" constant="32" id="sBJ-6I-trA"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-2q-li0">
-                                <rect key="frame" x="24" y="164" width="366" height="619"/>
+                                <rect key="frame" x="24" y="144" width="366" height="639"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -1087,7 +1091,9 @@
                             <constraint firstItem="Pfc-Sk-gwJ" firstAttribute="top" secondItem="SEg-4p-hB2" secondAttribute="top" id="GYU-tU-JNy"/>
                             <constraint firstItem="LQL-2q-li0" firstAttribute="centerX" secondItem="Pfc-Sk-gwJ" secondAttribute="centerX" id="Ia0-f1-rej"/>
                             <constraint firstItem="Pfc-Sk-gwJ" firstAttribute="leading" secondItem="C5i-gS-ldt" secondAttribute="leading" id="RgC-04-zdn"/>
-                            <constraint firstItem="LQL-2q-li0" firstAttribute="top" secondItem="C5i-gS-ldt" secondAttribute="top" constant="120" id="nnl-DN-dv8"/>
+                            <constraint firstItem="raA-pA-g3f" firstAttribute="top" secondItem="C5i-gS-ldt" secondAttribute="top" constant="32" id="Soz-WE-CVv"/>
+                            <constraint firstItem="LQL-2q-li0" firstAttribute="top" secondItem="raA-pA-g3f" secondAttribute="bottom" constant="24" id="acH-Lw-tK6"/>
+                            <constraint firstItem="JNi-wZ-aor" firstAttribute="top" secondItem="C5i-gS-ldt" secondAttribute="top" constant="32" id="bcB-P7-tA0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile-inactive" id="e6Z-iq-Usz"/>
@@ -1189,8 +1195,8 @@
         <image name="history-active" width="27" height="22"/>
         <image name="history-inactive" width="27" height="22"/>
         <image name="home-logo" width="25" height="24"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="notification-on" width="21" height="22"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="profile-inactive" width="21" height="22"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

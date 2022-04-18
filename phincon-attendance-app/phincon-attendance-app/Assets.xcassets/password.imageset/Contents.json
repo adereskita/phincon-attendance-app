@@ -1,7 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "password.png",
+      "filename" : "password.pdf",
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x"
     },

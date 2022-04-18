@@ -134,6 +134,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     func setupUI() {
+        spinner.isHidden = true
         dashboardTableView.register(DashboardTableCell.nib(), forCellReuseIdentifier: DashboardTableCell.identifier)
         dashboardTableView.separatorStyle = .none
         dashboardTableView.delegate = self
@@ -195,11 +196,11 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     func alertSetup(isSucces: Bool, error message: String?) {
         if isSucces {
             let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Error Occured", message: message, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -251,6 +252,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
                 userDefault.set(true, forKey: "isCheckOut")
                 isCheckOut = userDefault.bool(forKey: "isCheckOut")
             }
+            
         } else {
             let errMsg = "Please choose your location first"
             spinnerSetup(isSucces: false, message: errMsg)

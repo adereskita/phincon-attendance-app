@@ -1,7 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "id_card.png",
+      "filename" : "business-card.pdf",
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x"
     },

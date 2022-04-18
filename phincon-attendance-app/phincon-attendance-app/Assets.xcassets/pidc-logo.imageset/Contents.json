@@ -2,6 +2,9 @@
   "images" : [
     {
       "filename" : "pidc-logo.pdf",
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x"
     },

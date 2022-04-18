@@ -41,12 +41,12 @@ class HistoryWorker: HistoryWorkerProtocol {
     
     func fetchHistory() -> [History]{
         history = [
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-1")),
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "dashboard-list-1")),
+            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "default_office")),
+            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "default_office")),
             History(title: "TSO", desc: "The Telkom Hub, Jl. Gatot Subroto No.Kav. 52, Kota Jakarta Selatan", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2")),
             History(title: "TSO", desc: "The Telkom Hub, Jl. Gatot Subroto No.Kav. 52, Kota Jakarta Selatan", type: "Check Out", time: "20:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2")),
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-1")),
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "dashboard-list-1")),
+            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "default_office")),
+            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "default_office")),
             History(title: "Telkomsel Smart Office", desc: "Jl. Jend. Gatot Subroto Kav. 52. Jakarta Selatan", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2"))
 
         ]

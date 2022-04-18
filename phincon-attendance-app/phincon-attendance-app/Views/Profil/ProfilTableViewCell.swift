@@ -37,8 +37,7 @@ class ProfilTableViewCell: UITableViewCell {
         titleLabel.text = model.titleData
         descLabel.text = model.descData
         icon.image = model.iconData
-        
-        
+        icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10
         view1.layer.shadowColor = UIColor.lightGray.cgColor

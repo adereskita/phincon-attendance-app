@@ -1,7 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "book.png",
+      "filename" : "book.pdf",
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x"
     },

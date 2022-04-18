@@ -87,6 +87,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     @IBAction func loginButton(_ sender: Any) {
         let request = LoginModels.Post.Request(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
         interactor?.login(request)
+//        spinnerSetup(isLogin: true, message: nil)
     }
     @IBAction func forgotPassButton(_sender: Any) {
         router?.routeToForgotPassword(segue: nil)

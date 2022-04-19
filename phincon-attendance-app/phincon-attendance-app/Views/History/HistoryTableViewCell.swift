@@ -38,7 +38,6 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     func setHistoryView(with model: History) {
-        titleLbl.text = "Check " + model.activity! + " - " + model.locationName! + " - " + model.createdAt!
         descLbl.text = model.locationAddress
         imgView.image = UIImage(named: model.locationImage!)
         
@@ -47,6 +46,16 @@ class HistoryTableViewCell: UITableViewCell {
         cardView.layer.shadowOffset = CGSize.zero
         cardView.layer.shadowOpacity = 0.2
         cardView.layer.shadowRadius = 3.0
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z"
+        let dates = df.date(from: model.createdAt!)!
+        df.dateFormat = "h:mm a 'on' MMMM dd, yyyy"
+        df.amSymbol = "AM"
+        df.pmSymbol = "PM"
+        let date = df.string(from: dates)
+        
+        titleLbl.text = "Check " + model.activity!.capitalized + " - " + model.locationName! + " - " + date
     }
     
 }

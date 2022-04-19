@@ -13,10 +13,7 @@
 import UIKit
 
 protocol HistoryDisplayLogic: AnyObject {
-//    func displayHistoryList(viewModel: HistoryModel.LoadHistory.ViewModel)
-    func displayHistoryList(history: HistoryModel.LoadHistory.Response)
-    func fetchHistoyByWeek(history: HistoryModel.LoadHistory.Response)
-    func fetchHistoyByDay(history: HistoryModel.LoadHistory.Response)
+    func presenter(LoadHistory response: HistoryModel.FetchHistory.Response)
 }
 
 class HistoryViewController: UIViewController, HistoryDisplayLogic {
@@ -66,22 +63,22 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     
     override func viewWillAppear(_ animated: Bool) {
         self.filterCollView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
-        //for now use removeSubrange
-        historyDataList.removeSubrange(2...)
-        historyTableView.reloadData()
+        fetchHistoryList(logs: historyFilter.first!)
     }
     
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchHistoryList()
+//        fetchHistoryList(logs: historyFilter.first!)
     }
   
     // MARK: Do something
-    
-    var historyDataStore: [History] = []
-    var historyDataList: [History] = []
+    var historyDataList: [History] = [History]() {
+        didSet {
+            self.historyTableView.reloadData()
+        }
+    }
     var historyFilter: [String] = []
   
     @IBOutlet var cardView: UIView!
@@ -89,6 +86,7 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     @IBOutlet var historyTableView: UITableView!
     
     func setupUI() {
+        historyFilter = ["Day","Week","Month","Year"]
         historyTableView.register(HistoryTableViewCell.nib(), forCellReuseIdentifier: HistoryTableViewCell.identifier)
         historyTableView.delegate = self
         historyTableView.dataSource = self
@@ -106,33 +104,18 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func fetchHistoryList() {
-        let request = HistoryModel.LoadHistory.Request()
-        interactor?.loadHistory(request: request)
+    func presenter(LoadHistory response: HistoryModel.FetchHistory.Response) {
+        historyDataList.removeAll()
+        historyDataList.append(contentsOf: response.success.result!)
     }
     
-    func displayHistoryList(history: HistoryModel.LoadHistory.Response) {
-        historyDataStore = history.HistoryData
-        historyDataList = historyDataStore
-        historyFilter = ["Day","Week","Month","Year"]
-    }
-    
-    func fetchHistoyByWeek(history: HistoryModel.LoadHistory.Response) {
-//        historyDataList.removeAll()
-        historyDataList = history.HistoryData
-        historyTableView.reloadData()
-    }
-
-    func fetchHistoyByDay(history: HistoryModel.LoadHistory.Response) {
-        //for now use removeSubrange
-        historyDataList = history.HistoryData
-        historyDataList.removeSubrange(2...)
-        historyTableView.reloadData()
+    func fetchHistoryList(logs: String) {
+        let requestFetch = HistoryModel.FetchHistory.Request(log: logs)
+        interactor?.loadHistory(request: requestFetch)
     }
     
     @IBAction func btnNotificationClicked(_ sender: Any) {
         router?.routeToNotification(segue: nil)
-        
     }
 }
 
@@ -155,7 +138,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let historyObj = historyDataList[indexPath.row]
         
-        interactor?.getSafariLink(historyObj.desc!)
+        interactor?.getSafariLink(historyObj.locationAddress!)
         router?.routeToSafariLink(segue: nil)
     }
     
@@ -182,13 +165,15 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let response = HistoryModel.LoadHistory.Response(HistoryData: historyDataStore)
+        let logsDay = historyFilter[indexPath.row]
         if indexPath.row == 0 {
-            fetchHistoyByDay(history: response)
+            fetchHistoryList(logs: logsDay.lowercased())
         } else if indexPath.row == 1 {
-            fetchHistoyByWeek(history: response)
+            fetchHistoryList(logs: logsDay.lowercased())
+        } else if indexPath.row == 2 {
+            fetchHistoryList(logs: logsDay.lowercased())
         } else {
-            fetchHistoyByWeek(history: response)
+            fetchHistoryList(logs: logsDay)
         }
     }
     

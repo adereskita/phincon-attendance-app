@@ -18,3 +18,11 @@ extension UIImageView{
         }, completion: nil)
     }
 }
+
+extension UIImage {
+    func addPadding(_ padding: CGFloat) -> UIImage {
+        let alignmentInset = UIEdgeInsets(top: -padding, left: -padding,
+                                          bottom: -padding, right: -padding)
+        return withAlignmentRectInsets(alignmentInset)
+    }
+}

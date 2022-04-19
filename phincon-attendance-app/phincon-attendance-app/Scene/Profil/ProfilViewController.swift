@@ -72,7 +72,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     }
     
     // MARK: Do something
-    
+    let userDefault = UserDefaults.standard
     
     var profileData: [Profile] = []
     var profileImage : [ProfileImage] = []
@@ -102,8 +102,26 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         profileImage = profile.ProfilePicture
     }
     
-    @IBAction func editButton(_ sender: Any) {
-        router?.routeToEditProfilePage(segue: nil)
+    @IBAction func profileMenu(_ sender:Any) {
+        let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+
+        let editProfile = UIAlertAction(title: "Edit Profile", style: .default) { (action: UIAlertAction) in
+            self.router?.routeToEditProfilePage(segue: nil)
+        }
+        let logoutUser = UIAlertAction(title: "Logout", style: .destructive) { (action: UIAlertAction) in
+            self.userDefault.set(nil, forKey: "user_token")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        menuAlert.addAction(editProfile)
+        menuAlert.addAction(logoutUser)
+        menuAlert.addAction(cancelAction)
+        self.present(menuAlert, animated: true, completion: nil)
     }
     
 }

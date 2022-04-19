@@ -13,17 +13,13 @@
 import UIKit
 
 enum HistoryModel {
-    enum LoadHistory {
-        struct Request {}
-        struct Response {
-            var HistoryData: [History]
+    
+    enum FetchHistory {
+        struct Request{
+            var log: String?
         }
-        struct ViewModel {
-            var title: String?
-            var desc: String?
-            var type: String?
-            var time: String?
-            var image: UIImage?
+        struct Response: Codable {
+            let success: HistoryResponse.Success<[History]>
         }
     }
 }

@@ -15,6 +15,7 @@ enum RouterAPI {
     case checkIn(location: String, token: String)
     case checkOut(location: String, token: String)
     case getLocation(token: String)
+    case getHistory(logs: String, token: String)
 }
 
 extension RouterAPI: TargetType {
@@ -39,6 +40,9 @@ extension RouterAPI: TargetType {
             return "/check-out"
         case .getLocation:
             return "/user-location"
+        case .getHistory(let logs,_):
+//            return "/history"
+            return "/history?log=\(logs)"
         }
     }
     
@@ -56,10 +60,12 @@ extension RouterAPI: TargetType {
             return .post
         case .getLocation:
             return .get
+        case .getHistory:
+            return .get
         }
     }
     
-    var task: Task {
+    var task: Task { //parameter
         switch self {
         case .postLogin(let username, let password):
             return .requestParameters(parameters: [ConstantAPI.Parameters.username: username, ConstantAPI.Parameters.password: password], encoding: JSONEncoding.default)
@@ -71,12 +77,15 @@ extension RouterAPI: TargetType {
                                       encoding: JSONEncoding.default)
         case .getUser:
             return .requestPlain
-        case .checkIn(_, let location):
+        case .checkIn(let location, _):
             return .requestParameters(parameters: [ConstantAPI.Parameters.location: location], encoding: JSONEncoding.default)
-        case .checkOut(_, let location):
+        case .checkOut(let location, _):
             return .requestParameters(parameters: [ConstantAPI.Parameters.location: location], encoding: JSONEncoding.default)
         case .getLocation:
             return .requestPlain
+        case .getHistory:
+            return .requestPlain
+//            return .requestParameters(parameters: [ConstantAPI.Parameters.babi: log], encoding: JSONEncoding.default)
         }
     }
     
@@ -96,6 +105,8 @@ extension RouterAPI: TargetType {
         case .checkOut(_, let token):
             return headerWithToken(token: token)
         case .getLocation(let token):
+            return headerWithToken(token: token)
+        case .getHistory(_, let token):
             return headerWithToken(token: token)
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,

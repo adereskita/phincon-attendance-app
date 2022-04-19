@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol EditProfileDisplayLogic: class
+protocol EditProfileDisplayLogic: AnyObject
 {
   func displaySomething(viewModel: EditProfileModel.LoadEditProfile.Response)
 }

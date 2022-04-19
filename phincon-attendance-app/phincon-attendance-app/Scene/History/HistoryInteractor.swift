@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HistoryBusinessLogic {
-    func loadHistory(request: HistoryModel.LoadHistory.Request)
+    func loadHistory(request: HistoryModel.FetchHistory.Request)
     func getSafariLink(_ selectedHistory: String)
 }
 
@@ -24,8 +24,12 @@ protocol HistoryDataStore {
 class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
     
     var presenter: HistoryPresentationLogic?
-    var worker: HistoryWorker?
+//    var worker: HistoryWorker?
+    var worker = HistoryWorker()
+    let userDefault = UserDefaults.standard
+
     var desc: String = ""
+    var token: String = ""
     
     var history = [History]()
   
@@ -34,12 +38,16 @@ class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
     func getSafariLink(_ selectedHistory: String) {
         desc = selectedHistory
     }
-  
-    func loadHistory(request: HistoryModel.LoadHistory.Request) {
-        worker = HistoryWorker()
-        history = worker!.fetchHistory()
-        
-        let response = HistoryModel.LoadHistory.Response(HistoryData: history)
-        presenter?.presentHistory(response: response)
+    
+    func loadHistory(request: HistoryModel.FetchHistory.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker.getHistory(log: request.log!, token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(LoadHistory: value)
+            case .failure(let error):
+                print(error.status, error.message!)
+            }
+        })
     }
 }

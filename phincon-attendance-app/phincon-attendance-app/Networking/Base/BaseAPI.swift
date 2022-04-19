@@ -14,7 +14,7 @@ class BaseAPI<T:TargetType> {
         let method = Alamofire.HTTPMethod(rawValue: target.method.rawValue)
         let headers = Alamofire.HTTPHeaders(target.headers ?? [:])
         let parameters = buildParams(task: target.task)
-                
+                                        
         AF.request(target.baseURL + target.path, method: method, parameters: parameters.0, encoding: parameters.1, headers: headers).responseData {
             (response) in
             
@@ -44,6 +44,7 @@ class BaseAPI<T:TargetType> {
                     // MARK: Decode Api Error Response
                     guard let responseJSON = try? JSONDecoder().decode(ResponseError.self, from: data) else {
                         print("Response JSON Failed")
+                        completionHandler(.failure(APIError(status: statusCode, message: "Error \(statusCode)")))
                         return
                     }
                     completionHandler(.failure(APIError(status: statusCode, message: responseJSON.error.message)))

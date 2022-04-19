@@ -17,9 +17,9 @@ class ProfilWorker {
     var profileImage = [ProfileImage]()
     
     func fetchProfil() -> [Profile] {
-        profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")),
-                      Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")),
-                      Profile(titleData: "Change Password", descData: "**********", iconData: UIImage(named: "password"))
+        profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")?.withRenderingMode(.alwaysTemplate)),
+                      Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")?.withRenderingMode(.alwaysTemplate)),
+                      Profile(titleData: "Change Password", descData: "**********", iconData: UIImage(named: "password")?.withRenderingMode(.alwaysTemplate))
         ]
         return profilData
     }

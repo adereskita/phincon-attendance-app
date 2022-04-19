@@ -21,7 +21,7 @@ protocol ClientAPIDashboardProtocol {
 }
 
 protocol ClientAPIHistoryProtocol {
-    func getHistory(logs: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void)
+    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void)
 }
 
 protocol ClientAPIProfileProtocol {
@@ -100,8 +100,8 @@ extension ClientAPI: ClientAPIDashboardProtocol {
 // MARK: ClientAPIHistoryProtocol
 extension ClientAPI: ClientAPIHistoryProtocol {
     
-    func getHistory(logs: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void) {
-        self.fetchData(target: .getHistory(logs: logs, token: token), responseClass: HistoryModel.FetchHistory.Response.self, completionHandler: { result in
+    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void) {
+        self.fetchData(target: .getHistory(logs: log, token: token), responseClass: HistoryModel.FetchHistory.Response.self, completionHandler: { result in
             switch result {
             case .success(let value):
                 completionHandler(.success(value))

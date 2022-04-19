@@ -38,9 +38,9 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     func setHistoryView(with model: History) {
-        titleLbl.text = model.type! + " - " + model.title! + " - " + model.time!
-        descLbl.text = model.desc
-        imgView.image = model.image
+        titleLbl.text = "Check " + model.activity! + " - " + model.locationName! + " - " + model.createdAt!
+        descLbl.text = model.locationAddress
+        imgView.image = UIImage(named: model.locationImage!)
         
         cardView.layer.cornerRadius = 10
         cardView.layer.shadowColor = UIColor.lightGray.cgColor

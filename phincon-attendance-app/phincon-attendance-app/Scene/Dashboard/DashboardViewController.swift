@@ -18,6 +18,7 @@ protocol DashboardDisplayLogic: AnyObject {
     func presenter(didCheckIn response: DashboardModels.CheckLocation.Response)
     func presenter(didCheckOut response: DashboardModels.CheckLocation.Response)
 
+    func presenter(didFailedCheck status: Int, message: String)
     func presenter(expiredLoginSession status: Int, message: String)
 }
 
@@ -94,7 +95,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     var timer = Timer()
     let userDefault = UserDefaults.standard
     
-    var locationID: String?
+    var locationID  = ""
     var isCheckOut: Bool = false {
         didSet {
             if isCheckOut {
@@ -178,6 +179,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     func spinnerSetup(isSucces: Bool, message: String?) {
+        self.view.isUserInteractionEnabled = false
         spinner.isHidden = false
         spinner.style = .medium
         spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
@@ -186,9 +188,10 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         spinner.startAnimating()
 
         // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.spinner.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.isUserInteractionEnabled = true
                 self.alertSetup(isSucces: isSucces, error: message)
             }
         }
@@ -224,6 +227,18 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         checkOutLists.append(contentsOf: response.success.result!)
     }
     
+    func presenter(didFailedCheck status: Int, message: String) {
+        if isCheckOut {
+            spinnerSetup(isSucces: false, message: "There is problem with your Location.")
+            userDefault.set(false, forKey: "isCheckOut")
+            isCheckOut = userDefault.bool(forKey: "isCheckOut")
+        } else {
+            spinnerSetup(isSucces: false, message: "There is problem with your Location.")
+            userDefault.set(true, forKey: "isCheckOut")
+            isCheckOut = userDefault.bool(forKey: "isCheckOut")
+        }
+    }
+    
     func presenter(expiredLoginSession status: Int, message: String) {
         userDefault.set(nil, forKey: "user_token")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -239,18 +254,18 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     
     @IBAction func btnCheckPressed(_ sender: Any) {
         // TODO: Get Location ID from tableview
-        var request: DashboardModels.CheckLocation.Request?
-        if locationID != nil {
-            request = DashboardModels.CheckLocation.Request(location: locationID) //62376f4985300ba0b97505fas
-            
+        let request = DashboardModels.CheckLocation.Request(location: self.locationID)
+        if self.locationID != "" {
             if isCheckOut {
-                self.interactor?.checkIn(request: request!)
+                self.interactor?.checkOut(request: request)
                 userDefault.set(false, forKey: "isCheckOut")
                 isCheckOut = userDefault.bool(forKey: "isCheckOut")
+                locationID = ""
             } else {
-                self.interactor?.checkIn(request: request!)
+                self.interactor?.checkIn(request: request)
                 userDefault.set(true, forKey: "isCheckOut")
                 isCheckOut = userDefault.bool(forKey: "isCheckOut")
+                locationID = ""
             }
             
         } else {

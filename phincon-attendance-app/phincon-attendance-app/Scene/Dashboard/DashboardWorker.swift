@@ -31,7 +31,7 @@ class DashboardWorker: DashboardWorkerProtocol {
     }
     
     func checkOut(location: String, token: String, completionHandler: @escaping (Result<DashboardModels.CheckLocation.Response, APIError>) -> Void) {
-        service.checkIn(location: location, token: token, completionHandler: { result in
+        service.checkOut(location: location, token: token, completionHandler: { result in
             switch result {
             case .success(let value):
                 completionHandler(.success(value))
@@ -72,26 +72,5 @@ class DashboardWorker: DashboardWorkerProtocol {
                 completionHandler(.failure(APIError(status: error.status, message: error.message)))
             }
         })
-    }
-    
-    var checkInLists = [Checkin]()
-    var checkOutLists = [Checkin]()
-
-    func fetchDashboardListIn() -> [Checkin] {
-        checkInLists = [
-            Checkin(title: "PT. Phincon",
-                            description: "Office. 88 @Kasablanka Office Tower 18th Floor", image: #imageLiteral(resourceName: "dashboard-list-1")),
-            Checkin(title: "Telkomsel Smart Office", description: "Jl. Jend. Gatot Subroto Kav. 52. Jakarta Selatan", image: #imageLiteral(resourceName: "dashboard-list-2")),
-            Checkin(title: "Rumah", description: "Jakarta", image: #imageLiteral(resourceName: "dashboard-list-3"))
-        ]
-        return checkInLists
-    }
-    
-    func fetchDashboardListOut() ->[Checkin] {
-        checkOutLists = [
-            Checkin(title: "PT. Phincon",
-                            description: "Office. 88 @Kasablanka Office Tower 18th Floor", image: #imageLiteral(resourceName: "dashboard-list-1"))
-        ]
-        return checkOutLists
     }
 }

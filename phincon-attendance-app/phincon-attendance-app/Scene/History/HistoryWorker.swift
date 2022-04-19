@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HistoryWorkerProtocol: AnyObject {
-    func getHistory(logs: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void)
+    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void)
 }
 
 class HistoryWorker: HistoryWorkerProtocol {
@@ -26,8 +26,8 @@ class HistoryWorker: HistoryWorkerProtocol {
         self.service = service
     }
     
-    func getHistory(logs: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void) {
-        service.getHistory(logs: logs, token: token, completionHandler: { result in
+    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void) {
+        service.getHistory(log: log, token: token, completionHandler: { result in
             switch result {
             case .success(let value):
                 completionHandler(.success(value))
@@ -37,46 +37,20 @@ class HistoryWorker: HistoryWorkerProtocol {
         })
     }
     
-    var history = [History]()
-    
-    func fetchHistory() -> [History]{
-        history = [
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "default_office")),
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "default_office")),
-            History(title: "TSO", desc: "The Telkom Hub, Jl. Gatot Subroto No.Kav. 52, Kota Jakarta Selatan", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2")),
-            History(title: "TSO", desc: "The Telkom Hub, Jl. Gatot Subroto No.Kav. 52, Kota Jakarta Selatan", type: "Check Out", time: "20:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2")),
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "default_office")),
-            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "default_office")),
-            History(title: "Telkomsel Smart Office", desc: "Jl. Jend. Gatot Subroto Kav. 52. Jakarta Selatan", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2"))
-
-        ]
-        return history
-    }
-    
-    
-    let json = """
-        [
-            {
-                "title": "PT. Phincon",
-                "desc": "Office. 88 @Kasablanka Office Tower 18th Floor",
-                "type": "Check In",
-                "time": "9:00 AM",
-                "image": "https://avatars.githubusercontent.com/u/60510709?v=4"
-            }
-        ]
-    """
-    func fetchUserHistory() {
-//        let decoder = JSONDecoder()
-//        let jsonData = json.data(using: .utf8)
-//        let historyData = try! decoder.decode(History.self, from: jsonData!)
-//        return historyData
-        
-//        let encoder = JSONEncoder()
-//        if let jsonData = try? encoder.encode(history) {
-//            if let jsonString = String(data: jsonData, encoding: .utf8) {
-//                print(jsonString)
-//            }
-//        }
-    }
+//    var history = [History]()
+//
+//    func fetchHistory() -> [History]{
+//        history = [
+//            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "default_office")),
+//            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "default_office")),
+//            History(title: "TSO", desc: "The Telkom Hub, Jl. Gatot Subroto No.Kav. 52, Kota Jakarta Selatan", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2")),
+//            History(title: "TSO", desc: "The Telkom Hub, Jl. Gatot Subroto No.Kav. 52, Kota Jakarta Selatan", type: "Check Out", time: "20:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2")),
+//            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "default_office")),
+//            History(title: "PT. Phincon", desc: "Office. 88 @Kasablanka Office Tower 18th Floor", type: "Check Out", time: "18:00 AM", image: #imageLiteral(resourceName: "default_office")),
+//            History(title: "Telkomsel Smart Office", desc: "Jl. Jend. Gatot Subroto Kav. 52. Jakarta Selatan", type: "Check In", time: "9:00 AM", image: #imageLiteral(resourceName: "dashboard-list-2"))
+//
+//        ]
+//        return history
+//    }
         
 }

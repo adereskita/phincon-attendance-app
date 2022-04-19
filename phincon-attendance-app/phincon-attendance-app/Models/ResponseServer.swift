@@ -28,3 +28,11 @@ enum LoggedIn {
         var result: T?
     }
 }
+enum HistoryResponse {
+    struct Success<T: Codable>: Codable {
+        var status: Int?
+        var message: String?
+        var count: Int?
+        var result: T?
+    }
+}

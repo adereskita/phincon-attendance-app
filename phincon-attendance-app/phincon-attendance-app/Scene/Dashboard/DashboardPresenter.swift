@@ -17,6 +17,7 @@ protocol DashboardPresentationLogic {
     func interactor(CheckOut response: DashboardModels.CheckLocation.Response)
     func interactor(CheckInList response: DashboardModels.GetLocation.Response)
     func interactor(CheckOutList response: DashboardModels.GetLocation.Response)
+    func interactor(didFailedCheck status: Int, message: String)
     func interactor(didExpiredSession status: Int, message: String)
 }
 
@@ -40,6 +41,10 @@ class DashboardPresenter: DashboardPresentationLogic {
     
     func interactor(CheckOutList response: DashboardModels.GetLocation.Response) {
         viewController?.presenter(didLoadCheckOutLoc: response)
+    }
+    
+    func interactor(didFailedCheck status: Int, message: String) {
+        viewController?.presenter(didFailedCheck: status, message: message)
     }
     
     func interactor(didExpiredSession status: Int, message: String) {

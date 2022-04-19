@@ -35,6 +35,15 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
   // MARK: Do something
     func checkOut(request: DashboardModels.CheckLocation.Request) {
         token = userDefault.string(forKey: "user_token")!
+        worker.checkOut(location: request.location!, token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(CheckOut: value)
+            case .failure(let error):
+                print(error.status, error.message!)
+                self.presenter?.interactor(didFailedCheck: error.status, message: error.message!)
+            }
+        })
     }
     
     func checkIn(request: DashboardModels.CheckLocation.Request) {
@@ -45,6 +54,7 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
                 self.presenter?.interactor(CheckIn: value)
             case .failure(let error):
                 print(error.status, error.message!)
+                self.presenter?.interactor(didFailedCheck: error.status, message: error.message!)
             }
         })
     }

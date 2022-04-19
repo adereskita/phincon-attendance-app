@@ -26,7 +26,7 @@ enum DashboardModels {
             var location: String?
         }
         struct Response: Codable {
-            let success: LoggedIn.Success<Location>
+            let success: Success
         }
     }
     

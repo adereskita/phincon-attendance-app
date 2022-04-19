@@ -16,24 +16,10 @@ enum HistoryModel {
     
     enum FetchHistory {
         struct Request{
-            var logs: String?
+            var log: String?
         }
         struct Response: Codable {
-            let success: LoggedIn.Success<Location>
-        }
-    }
-    
-    enum LoadHistory {
-        struct Request {}
-        struct Response {
-            var HistoryData: [History]
-        }
-        struct ViewModel {
-            var title: String?
-            var desc: String?
-            var type: String?
-            var time: String?
-            var image: UIImage?
+            let success: HistoryResponse.Success<[History]>
         }
     }
 }

@@ -77,14 +77,15 @@ extension RouterAPI: TargetType {
                                       encoding: JSONEncoding.default)
         case .getUser:
             return .requestPlain
-        case .checkIn(_, let location):
+        case .checkIn(let location, _):
             return .requestParameters(parameters: [ConstantAPI.Parameters.location: location], encoding: JSONEncoding.default)
-        case .checkOut(_, let location):
+        case .checkOut(let location, _):
             return .requestParameters(parameters: [ConstantAPI.Parameters.location: location], encoding: JSONEncoding.default)
         case .getLocation:
             return .requestPlain
-        case .getHistory(let logs, _):
-            return .requestParameters(parameters: [ConstantAPI.Parameters.logs: logs], encoding: JSONEncoding.default)
+        case .getHistory:
+            return .requestPlain
+//            return .requestParameters(parameters: [ConstantAPI.Parameters.babi: log], encoding: JSONEncoding.default)
         }
     }
     

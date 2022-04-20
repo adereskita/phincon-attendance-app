@@ -12,23 +12,41 @@
 
 import UIKit
 
-class ProfilWorker {
-    var profilData = [Profile]()
-    var profileImage = [ProfileImage]()
+protocol ProfileWorkerProtocol: AnyObject {
+    func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void)
+}
+
+class ProfilWorker : ProfileWorkerProtocol {
     
-    func fetchProfil() -> [Profile] {
-        profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")?.withRenderingMode(.alwaysTemplate)),
-                      Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")?.withRenderingMode(.alwaysTemplate)),
-                      Profile(titleData: "Change Password", descData: "**********", iconData: UIImage(named: "password")?.withRenderingMode(.alwaysTemplate))
-        ]
-        return profilData
+    private var service : ClientAPIProfileProtocol
+    
+    init(_ service: ClientAPIProfileProtocol = ClientAPI()) {
+        self.service = service
     }
     
-    func fetchProfileImage() -> [ProfileImage] {
-        profileImage = [ProfileImage(name: "SRI ENDAH RATMURTI", role: "CONSULTANT", image: UIImage(named: "profile_picture"))]
-                                     
-    return profileImage
+    func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void) {
+        service.getProfile(token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case.failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        })
     }
+//    func fetchProfil() -> [Profile] {
+//        profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")?.withRenderingMode(.alwaysTemplate)),
+//                      Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")?.withRenderingMode(.alwaysTemplate)),
+//                      Profile(titleData: "Change Password", descData: "**********", iconData: UIImage(named: "password")?.withRenderingMode(.alwaysTemplate))
+//        ]
+//        return profilData
+//    }
+//
+//    func fetchProfileImage() -> [ProfileImage] {
+//        profileImage = [ProfileImage(name: "SRI ENDAH RATMURTI", role: "CONSULTANT", image: UIImage(named: "profile_picture"))]
+//
+//    return profileImage
+//    }
                                      
 }
                                      

@@ -11,12 +11,12 @@
 //
 
 import UIKit
-protocol ProfilDisplayLogic: AnyObject
-{
-    func displaySomething(profile: ProfilModel.LoadProfil.Response)
+protocol ProfilDisplayLogic: AnyObject {
+    func presenter(getProfile response: ProfilModels.LoadProfil.Response)
 }
 
 class ProfilViewController: UIViewController, ProfilDisplayLogic {
+    
     var interactor: ProfilBusinessLogic?
     var router: (NSObjectProtocol & ProfilRoutingLogic & ProfilDataPassing)?
     
@@ -63,9 +63,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     
     // MARK: View lifecycle
     
-    
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         fetchProfileData()
         
@@ -74,11 +72,14 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     // MARK: Do something
     let userDefault = UserDefaults.standard
     
-    var profileData: [Profile] = []
-    var profileImage : [ProfileImage] = []
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton : UIButton!
+    
+    var getProfile: [Users] = [Users]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     func setupProfil(){
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
@@ -89,17 +90,14 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         tableView.layer.cornerRadius = 18
     }
     
-    func fetchProfileData()
-    {
-        let request = ProfilModel.LoadProfil.Request()
-        interactor?.doSomething(request: request)
+    func fetchProfileData() {
+        let request = ProfilModels.LoadProfil.Request()
+        interactor?.loadProfile(request: request)
         setupProfil()
     }
     
-    func displaySomething(profile: ProfilModel.LoadProfil.Response)
-    {
-        profileData = profile.ProfileData
-        profileImage = profile.ProfilePicture
+    func presenter(getProfile response: ProfilModels.LoadProfil.Response) {
+        print(response.success)
     }
     
     @IBAction func profileMenu(_ sender:Any) {
@@ -130,26 +128,17 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return profileImage.count
-        } else {
-            return profileData.count
-        }
+        return getProfile.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilePictureTableViewCell.identifier, for: indexPath) as! ProfilePictureTableViewCell
-            let profilObject = profileImage[indexPath.row]
-            cell.setupprofileImage(with: profilObject)
-            return cell
-        } else {
+       
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
-            let profilObject = profileData[indexPath.row]
+            let profilObject = getProfile[indexPath.row]
             cell.setupProfilView(with: profilObject)
             return cell
-        }
+        
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

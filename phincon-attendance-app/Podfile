@@ -7,6 +7,7 @@ target 'phincon-attendance-app' do
 
   pod 'SDWebImage', '~> 5.11'
   pod 'Alamofire', '~> 5.4'
+  pod 'SkeletonView'
   # pod 'RxSwift', '~> 6.2'
   # pod 'RxCocoa', '~> 6.2'
 

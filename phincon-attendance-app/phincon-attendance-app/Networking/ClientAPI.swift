@@ -25,7 +25,7 @@ protocol ClientAPIHistoryProtocol {
 }
 
 protocol ClientAPIProfileProtocol {
-    
+    func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModel.LoadProfil.Response, APIError>) -> Void)
 }
 
 class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
@@ -110,4 +110,19 @@ extension ClientAPI: ClientAPIHistoryProtocol {
             }
         })
     }
+}
+
+extension ClientAPI : ClientAPIProfileProtocol {
+    func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModel.LoadProfil.Response, APIError>) -> Void) {
+        self.fetchData(target: .getProfile(token: token), responseClass: ProfilModel.LoadProfil.Response.self, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        })
+    }
+    
+    
 }

@@ -12,10 +12,30 @@
 
 import UIKit
 
-class ProfilWorker {
+protocol ProfileWorkerProtocol: AnyObject {
+    func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModel.LoadProfil.Response, APIError>) -> Void)
+}
+
+class ProfilWorker : ProfileWorkerProtocol {
+    
+    private var service : ClientAPIProfileProtocol
+    
+    init(_ service: ClientAPIProfileProtocol = ClientAPI()) {
+        self.service = service
+    }
     var profilData = [Profile]()
     var profileImage = [ProfileImage]()
     
+    func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModel.LoadProfil.Response, APIError>) -> Void) {
+        service.loadProfile(token: token, completionHandler: { result in
+            switch result {
+            case .success(let value ):
+                completionHandler(.success(value))
+            case.failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        })
+    }
     func fetchProfil() -> [Profile] {
         profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")?.withRenderingMode(.alwaysTemplate)),
                       Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")?.withRenderingMode(.alwaysTemplate)),

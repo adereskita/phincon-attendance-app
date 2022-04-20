@@ -13,10 +13,15 @@
 import UIKit
 protocol ProfilDisplayLogic: AnyObject
 {
-    func displaySomething(profile: ProfilModel.LoadProfil.Response)
+   // func displaySomething(profile: ProfilModel.LoadProfil.Response)
+    func presenter(getProfile response: ProfilModel.LoadProfil.Response)
 }
 
 class ProfilViewController: UIViewController, ProfilDisplayLogic {
+    func presenter(getProfile response: ProfilModel.LoadProfil.Response) {
+        print("Okee")
+    }
+    
     var interactor: ProfilBusinessLogic?
     var router: (NSObjectProtocol & ProfilRoutingLogic & ProfilDataPassing)?
     
@@ -74,11 +79,14 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     // MARK: Do something
     let userDefault = UserDefaults.standard
     
-    var profileData: [Profile] = []
-    var profileImage : [ProfileImage] = []
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton : UIButton!
+    
+    var getProfile: [Users] = [Users]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     func setupProfil(){
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
@@ -92,15 +100,11 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     func fetchProfileData()
     {
         let request = ProfilModel.LoadProfil.Request()
-        interactor?.doSomething(request: request)
+        interactor?.loadProfile(request: request)
         setupProfil()
     }
     
-    func displaySomething(profile: ProfilModel.LoadProfil.Response)
-    {
-        profileData = profile.ProfileData
-        profileImage = profile.ProfilePicture
-    }
+    
     
     @IBAction func profileMenu(_ sender:Any) {
         let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
@@ -130,26 +134,17 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return profileImage.count
-        } else {
-            return profileData.count
-        }
+        return getProfile.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilePictureTableViewCell.identifier, for: indexPath) as! ProfilePictureTableViewCell
-            let profilObject = profileImage[indexPath.row]
-            cell.setupprofileImage(with: profilObject)
-            return cell
-        } else {
+       
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
-            let profilObject = profileData[indexPath.row]
+            let profilObject = getProfile[indexPath.row]
             cell.setupProfilView(with: profilObject)
             return cell
-        }
+        
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

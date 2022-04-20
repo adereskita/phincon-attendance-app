@@ -33,10 +33,10 @@ class ProfilTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func setupProfilView(with model: Profile){
-        titleLabel.text = model.titleData
-        descLabel.text = model.descData
-        icon.image = model.iconData
+    func setupProfilView(with model: Users){
+        titleLabel.text = model.fullname
+        descLabel.text = model.address
+      //  icon.image = model.iconData
         icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10

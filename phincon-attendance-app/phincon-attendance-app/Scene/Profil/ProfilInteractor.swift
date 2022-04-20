@@ -12,9 +12,9 @@
 
 import UIKit
 
-protocol ProfilBusinessLogic
-{
-    func doSomething(request: ProfilModel.LoadProfil.Request)
+protocol ProfilBusinessLogic {
+    // func doSomething(request: ProfilModel.LoadProfil.Request)
+    func loadProfile(request: ProfilModel.LoadProfil.Request)
 }
 
 protocol ProfilDataStore
@@ -22,24 +22,25 @@ protocol ProfilDataStore
     //var name: String { get set }
 }
 
-class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore
-{
+class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
+    
     var presenter: ProfilPresentationLogic?
     var worker: ProfilWorker?
+    let userDefault = UserDefaults.standard
     var profile = [Profile]()
     var profileImage = [ProfileImage]()
-    //var name: String = ""
+    var token: String = ""
     
     // MARK: Do something
-    
-    func doSomething(request: ProfilModel.LoadProfil.Request)
-    {
-        worker = ProfilWorker()
-        profile = worker!.fetchProfil()
-        profileImage = worker!.fetchProfileImage()
-        
-        let response = ProfilModel.LoadProfil.Response(ProfileData: profile, ProfilePicture: profileImage)
-        presenter?.presentSomething(response: response)
-        
+    func loadProfile(request: ProfilModel.LoadProfil.Request) {
+        token = userDefault.string(forKey: "user_token")!
+        worker?.loadProfile(token: token, completionHandler: { result in
+            switch result {
+            case .success(_):
+                print("success profile")
+            case .failure(_):
+                print("failed")
+            }
+        })
     }
 }

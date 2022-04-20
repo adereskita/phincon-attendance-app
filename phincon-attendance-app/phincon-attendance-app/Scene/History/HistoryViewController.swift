@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 protocol HistoryDisplayLogic: AnyObject {
     func presenter(LoadHistory response: HistoryModel.FetchHistory.Response)
@@ -91,6 +92,8 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         historyTableView.delegate = self
         historyTableView.dataSource = self
         historyTableView.estimatedRowHeight = 72
+        historyTableView.refreshControl = UIRefreshControl()
+        historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
         filterCollView.register(DayFilterCollViewCell.nib(), forCellWithReuseIdentifier: DayFilterCollViewCell.identifier)
         filterCollView.delegate = self
@@ -116,6 +119,13 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     
     @IBAction func btnNotificationClicked(_ sender: Any) {
         router?.routeToNotification(segue: nil)
+    }
+    
+    @objc func didPullToRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.historyTableView.reloadData()
+            self.historyTableView.refreshControl?.endRefreshing()
+        }
     }
 }
 

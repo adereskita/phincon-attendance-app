@@ -12,17 +12,15 @@
 
 import UIKit
 
-protocol ProfilPresentationLogic
-{
-    func interactor(response: ProfilModel.LoadProfil.Response)
+protocol ProfilPresentationLogic {
+    func interactor(loadProfile response: ProfilModels.LoadProfil.Response)
 }
 
-class ProfilPresenter: ProfilPresentationLogic
-{
+class ProfilPresenter: ProfilPresentationLogic {
     weak var viewController: ProfilDisplayLogic?
     
     // MARK: Do something
-    func interactor(response: ProfilModel.LoadProfil.Response) {
+    func interactor(loadProfile response: ProfilModels.LoadProfil.Response) {
         viewController?.presenter(getProfile: response)
     }
     

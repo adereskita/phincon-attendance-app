@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HistoryTableViewCell: UITableViewCell {
     
@@ -56,6 +57,20 @@ class HistoryTableViewCell: UITableViewCell {
         let date = df.string(from: dates)
         
         titleLbl.text = "Check " + model.activity!.capitalized + " - " + model.locationName! + " - " + date
+        
+        titleLbl.isSkeletonable = true
+        descLbl.isSkeletonable = true
+        imgView.isSkeletonable = true
+        
+        titleLbl.showAnimatedSkeleton()
+        descLbl.showAnimatedSkeleton()
+        imgView.showAnimatedSkeleton()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+            self.titleLbl.hideSkeleton()
+            self.descLbl.hideSkeleton()
+            self.imgView.hideSkeleton()
+        })
     }
     
 }

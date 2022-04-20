@@ -11,16 +11,11 @@
 //
 
 import UIKit
-protocol ProfilDisplayLogic: AnyObject
-{
-   // func displaySomething(profile: ProfilModel.LoadProfil.Response)
-    func presenter(getProfile response: ProfilModel.LoadProfil.Response)
+protocol ProfilDisplayLogic: AnyObject {
+    func presenter(getProfile response: ProfilModels.LoadProfil.Response)
 }
 
 class ProfilViewController: UIViewController, ProfilDisplayLogic {
-    func presenter(getProfile response: ProfilModel.LoadProfil.Response) {
-        print("Okee")
-    }
     
     var interactor: ProfilBusinessLogic?
     var router: (NSObjectProtocol & ProfilRoutingLogic & ProfilDataPassing)?
@@ -68,9 +63,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     
     // MARK: View lifecycle
     
-    
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         fetchProfileData()
         
@@ -97,14 +90,15 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         tableView.layer.cornerRadius = 18
     }
     
-    func fetchProfileData()
-    {
-        let request = ProfilModel.LoadProfil.Request()
+    func fetchProfileData() {
+        let request = ProfilModels.LoadProfil.Request()
         interactor?.loadProfile(request: request)
         setupProfil()
     }
     
-    
+    func presenter(getProfile response: ProfilModels.LoadProfil.Response) {
+        print(response.success)
+    }
     
     @IBAction func profileMenu(_ sender:Any) {
         let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)

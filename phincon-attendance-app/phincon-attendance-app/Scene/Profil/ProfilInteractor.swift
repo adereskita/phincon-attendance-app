@@ -13,8 +13,7 @@
 import UIKit
 
 protocol ProfilBusinessLogic {
-    // func doSomething(request: ProfilModel.LoadProfil.Request)
-    func loadProfile(request: ProfilModel.LoadProfil.Request)
+    func loadProfile(request: ProfilModels.LoadProfil.Request)
 }
 
 protocol ProfilDataStore
@@ -27,19 +26,19 @@ class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
     var presenter: ProfilPresentationLogic?
     var worker: ProfilWorker?
     let userDefault = UserDefaults.standard
-    var profile = [Profile]()
-    var profileImage = [ProfileImage]()
     var token: String = ""
     
     // MARK: Do something
-    func loadProfile(request: ProfilModel.LoadProfil.Request) {
+    func loadProfile(request: ProfilModels.LoadProfil.Request) {
+        worker = ProfilWorker()
         token = userDefault.string(forKey: "user_token")!
         worker?.loadProfile(token: token, completionHandler: { result in
             switch result {
-            case .success(_):
+            case .success(let value):
+                self.presenter?.interactor(loadProfile: value) //<<< harus lakukan ini biar update data ke VC
                 print("success profile")
-            case .failure(_):
-                print("failed")
+            case .failure(let error):
+                print(error.status, error.message!)
             }
         })
     }

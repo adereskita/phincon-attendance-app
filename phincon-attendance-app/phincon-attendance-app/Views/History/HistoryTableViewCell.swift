@@ -66,7 +66,7 @@ class HistoryTableViewCell: UITableViewCell {
         descLbl.showAnimatedSkeleton()
         imgView.showAnimatedSkeleton()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
             self.titleLbl.hideSkeleton()
             self.descLbl.hideSkeleton()
             self.imgView.hideSkeleton()

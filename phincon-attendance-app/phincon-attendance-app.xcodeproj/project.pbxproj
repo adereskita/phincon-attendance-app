@@ -20,6 +20,7 @@
 		362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594727E9B7FF0022C094 /* HistoryModels.swift */; };
 		362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594827E9B7FF0022C094 /* HistoryViewController.swift */; };
 		362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594927E9B7FF0022C094 /* HistoryInteractor.swift */; };
+		364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B5E61281156D90019B3C5 /* Connectivity.swift */; };
 		3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED827F3088F00662D8F /* NotificationPresenter.swift */; };
 		3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED927F3088F00662D8F /* NotificationWorker.swift */; };
 		3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDA27F3088F00662D8F /* NotificationRouter.swift */; };
@@ -137,6 +138,7 @@
 		362D594727E9B7FF0022C094 /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
 		362D594827E9B7FF0022C094 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		362D594927E9B7FF0022C094 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
+		364B5E61281156D90019B3C5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		3674EED827F3088F00662D8F /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		3674EED927F3088F00662D8F /* NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
 		3674EEDA27F3088F00662D8F /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				362497D027F830B800CD04FF /* BaseAPI.swift */,
 				362497D427F845E800CD04FF /* TargetType.swift */,
+				364B5E61281156D90019B3C5 /* Connectivity.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
 				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
 				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
+				364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */,
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
 				E2673FF827F6E6E1006E3887 /* RegisterWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,

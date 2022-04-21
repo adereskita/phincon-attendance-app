@@ -81,6 +81,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDashboard()
+//        let request = DashboardModels.IsLogin.Request()
+//        interactor?.checkLoginSession(request: request)
     }
       
     @IBOutlet var dashboardTableView: UITableView!
@@ -141,6 +143,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         dashboardTableView.delegate = self
         dashboardTableView.dataSource = self
         dashboardTableView.estimatedRowHeight = 76
+        dashboardTableView.refreshControl = UIRefreshControl()
+        dashboardTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
         checkInBtn.titleLabel?.textAlignment = .center
         checkInBtn.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -228,23 +232,42 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     func presenter(didFailedCheck status: Int, message: String) {
+        let alert = UIAlertController(title: "Network Problem", message: "No Connection", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
         if isCheckOut {
-            spinnerSetup(isSucces: false, message: "There is problem with your Location.")
             userDefault.set(false, forKey: "isCheckOut")
             isCheckOut = userDefault.bool(forKey: "isCheckOut")
+            if !Connectivity.isConnectedToInternet {
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                spinnerSetup(isSucces: false, message: "There is problem with your Location.")
+            }
         } else {
-            spinnerSetup(isSucces: false, message: "There is problem with your Location.")
             userDefault.set(true, forKey: "isCheckOut")
             isCheckOut = userDefault.bool(forKey: "isCheckOut")
+            if !Connectivity.isConnectedToInternet {
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                spinnerSetup(isSucces: false, message: "There is problem with your Location.")
+            }
         }
     }
     
     func presenter(expiredLoginSession status: Int, message: String) {
-        userDefault.set(nil, forKey: "user_token")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+        if status == 403 {
+            userDefault.set(nil, forKey: "user_token")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
 
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
+        } else {
+            if !Connectivity.isConnectedToInternet {
+                let alert = UIAlertController(title: "Network Problem", message: "No Connection", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: Button Action
@@ -272,7 +295,21 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
             let errMsg = "Please choose your location first"
             spinnerSetup(isSucces: false, message: errMsg)
         }
-        
+    }
+    
+    @objc func didPullToRefresh() {
+        let request = DashboardModels.GetLocation.Request()
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            if self.isCheckOut {
+                self.checkOutLists.removeAll()
+                self.interactor?.loadCheckOutList(request: request)
+            } else {
+                self.checkInLists.removeAll()
+                self.interactor?.loadCheckInList(request: request)
+            }
+//            self.dashboardTableView.reloadData()
+            self.dashboardTableView.refreshControl?.endRefreshing()
+        }
     }
 }
 

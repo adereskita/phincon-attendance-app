@@ -14,6 +14,7 @@ import UIKit
 
 protocol ProfilPresentationLogic {
     func interactor(loadProfile response: ProfilModels.LoadProfil.Response)
+    func interactor(loadProfileBio response: ProfilModels.LoadProfil.Response)
 }
 
 class ProfilPresenter: ProfilPresentationLogic {
@@ -23,5 +24,9 @@ class ProfilPresenter: ProfilPresentationLogic {
     func interactor(loadProfile response: ProfilModels.LoadProfil.Response) {
         viewController?.presenter(getProfile: response)
     }
+
     
+    func interactor(loadProfileBio response: ProfilModels.LoadProfil.Response) {
+        viewController?.presenter(getProfileBio: response)
+    }
 }

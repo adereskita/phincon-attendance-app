@@ -13,6 +13,7 @@
 import UIKit
 protocol ProfilDisplayLogic: AnyObject {
     func presenter(getProfile response: ProfilModels.LoadProfil.Response)
+    func presenter(getProfileBio response: ProfilModels.LoadProfil.Response)
 }
 
 class ProfilViewController: UIViewController, ProfilDisplayLogic {
@@ -98,13 +99,16 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     func fetchProfileData() {
         let request = ProfilModels.LoadProfil.Request()
         interactor?.loadProfile(request: request)
+        interactor?.loadProfileBio(request: request)
         setupProfil()
     }
     
     func presenter(getProfile response: ProfilModels.LoadProfil.Response) {
         getProfile.append(_ : response.success.result!)
     }
-    
+    func presenter(getProfileBio response: ProfilModels.LoadProfil.Response) {
+        getProfileBio.append(_ : response.success.result!)
+    }
     @IBAction func profileMenu(_ sender:Any) {
         let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
 
@@ -149,7 +153,7 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
-            let profilObject = getProfile[indexPath.row]
+            let profilObject = getProfileBio[indexPath.row]
             cell.setupProfilView(with: profilObject)
             return cell
         }
@@ -159,8 +163,7 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             return UITableView.automaticDimension
         } else {
-            let ratio = UIScreen.main.bounds.height / 736
-            return tableView.estimatedRowHeight * ratio
+            return UITableView.automaticDimension
         }
     }
     

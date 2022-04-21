@@ -96,6 +96,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         router?.routeToRegister(segue: nil)
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func setupUI() {
         spinner.isHidden = true
         loginBtn.layer.cornerRadius = 10

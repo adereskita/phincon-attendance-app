@@ -77,7 +77,7 @@
                 <outlet property="titleLabel" destination="zzW-Qb-y0T" id="bPc-xz-Pzn"/>
                 <outlet property="view1" destination="D3g-iU-kJo" id="RT3-th-WMu"/>
             </connections>
-            <point key="canvasLocation" x="148.55072463768118" y="145.64732142857142"/>
+            <point key="canvasLocation" x="54" y="146"/>
         </tableViewCell>
     </objects>
     <resources>

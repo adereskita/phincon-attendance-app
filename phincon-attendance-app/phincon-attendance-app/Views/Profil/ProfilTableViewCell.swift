@@ -14,6 +14,9 @@ class ProfilTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
+    var label: [String] = []
+    var picture: [String] = []
+    
     static let identifier = "ProfilTableViewCell"
     
     
@@ -34,9 +37,11 @@ class ProfilTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setupProfilView(with model: Users){
-        titleLabel.text = model.fullname
-        descLabel.text = model.address
-      //  icon.image = model.iconData
+        label = ["Id Number", "Address", "Change Password"]
+        picture = ["id_card", "book", "password"]
+        titleLabel.text = label.first
+        descLabel.text = model.id
+        icon.image = UIImage(named: picture.first!)
         icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10

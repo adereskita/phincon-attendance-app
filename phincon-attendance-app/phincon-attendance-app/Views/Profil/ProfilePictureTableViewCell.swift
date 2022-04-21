@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ProfilePictureTableViewCell: UITableViewCell {
     
@@ -32,10 +33,10 @@ class ProfilePictureTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupprofileImage(with model : ProfileImage) {
-        profilePicture.image = model.image
-        nameLabel.text = model.name
-        roleLabel.text = model.role
+    func setupprofileImage(with model : Users) {
+        profilePicture.image = UIImage(named: model.image!)
+        nameLabel.text = model.fullname
+        roleLabel.text = model.username
         
         cardView.layer.cornerRadius = 21
         cardView.layer.shadowColor = colorUtils.lightGrey.cgColor

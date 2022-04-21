@@ -81,6 +81,11 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         }
     }
     
+    var getProfileBio: [Users] = [Users]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     func setupProfil(){
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
         tableView.register(ProfilePictureTableViewCell.nib(), forCellReuseIdentifier: ProfilePictureTableViewCell.identifier)
@@ -97,7 +102,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     }
     
     func presenter(getProfile response: ProfilModels.LoadProfil.Response) {
-        print(response.success)
+        getProfile.append(_ : response.success.result!)
     }
     
     @IBAction func profileMenu(_ sender:Any) {
@@ -128,17 +133,26 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getProfile.count
+        if section == 0 {
+            return getProfile.count
+        }else {
+            return getProfileBio.count
+        }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilePictureTableViewCell.identifier, for: indexPath) as! ProfilePictureTableViewCell
+            let profilObject = getProfile[indexPath.row]
+            cell.setupprofileImage(with: profilObject)
+            return cell
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
             let profilObject = getProfile[indexPath.row]
             cell.setupProfilView(with: profilObject)
             return cell
-        
+        }
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

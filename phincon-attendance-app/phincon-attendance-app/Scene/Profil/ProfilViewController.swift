@@ -146,23 +146,22 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellHeader = tableView.dequeueReusableCell(withIdentifier: ProfilePictureTableViewCell.identifier, for: indexPath) as! ProfilePictureTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
+
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilePictureTableViewCell.identifier, for: indexPath) as! ProfilePictureTableViewCell
             let profilObject = getProfile[indexPath.row]
-            cell.setupprofileImage(with: profilObject)
-            return cell
+            cellHeader.setupprofileImage(with: profilObject)
+            return cellHeader
         } else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
             let profilObject = getProfileBio[indexPath.row]
             cell.setupProfilView(with: profilObject)
             return cell
         } else if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
             let profilObject = getProfileBio[indexPath.row]
             cell.setupAddress(with: profilObject)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
             let profilObject = getProfileBio[indexPath.row]
             cell.setupPassword(with: profilObject)
             return cell

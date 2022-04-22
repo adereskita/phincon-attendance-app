@@ -62,10 +62,11 @@ class HistoryTableViewCell: UITableViewCell {
         descLbl.isSkeletonable = true
         imgView.isSkeletonable = true
         
+        imgView.skeletonCornerRadius = 5
+
         titleLbl.showAnimatedSkeleton()
         descLbl.showAnimatedSkeleton()
         imgView.showAnimatedSkeleton()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
             self.titleLbl.hideSkeleton()
             self.descLbl.hideSkeleton()

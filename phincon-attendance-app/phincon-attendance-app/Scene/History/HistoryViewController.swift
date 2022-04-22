@@ -71,13 +71,20 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        fetchHistoryList(logs: historyFilter.first!)
     }
   
     // MARK: Do something
     var historyDataList: [History] = [History]() {
         didSet {
             self.historyTableView.reloadData()
+            if historyDataList.count > 0 {
+                emptyLbl.isHidden = true
+                historyTableView.refreshControl = UIRefreshControl()
+                historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+            } else {
+                historyTableView.refreshControl = nil
+                emptyLbl.isHidden = false
+            }
         }
     }
     var historyFilter: [String] = []
@@ -85,6 +92,7 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     @IBOutlet var cardView: UIView!
     @IBOutlet var filterCollView: UICollectionView!
     @IBOutlet var historyTableView: UITableView!
+    @IBOutlet var emptyLbl: UILabel!
     
     func setupUI() {
         historyFilter = ["Day","Week","Month","Year"]
@@ -92,12 +100,12 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         historyTableView.delegate = self
         historyTableView.dataSource = self
         historyTableView.estimatedRowHeight = 72
-        historyTableView.refreshControl = UIRefreshControl()
-        historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
         filterCollView.register(DayFilterCollViewCell.nib(), forCellWithReuseIdentifier: DayFilterCollViewCell.identifier)
         filterCollView.delegate = self
         filterCollView.dataSource = self
+        
+        emptyLbl.isHidden = true
         
         cardView.layer.cornerRadius = 20
         cardView.layer.shadowColor = UIColor.lightGray.cgColor

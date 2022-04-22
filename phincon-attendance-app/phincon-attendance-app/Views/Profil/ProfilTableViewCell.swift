@@ -39,9 +39,9 @@ class ProfilTableViewCell: UITableViewCell {
     func setupProfilView(with model: Users){
         label = ["Id Number", "Address", "Change Password"]
         picture = ["id_card", "book", "password"]
-        titleLabel.text = label.first
-        descLabel.text = model.id
-        icon.image = UIImage(named: picture.first!)
+        titleLabel.text = label[0]
+        descLabel.text = String(describing: model.idcardnumber!)
+        icon.image = UIImage(named: picture[0])
         icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10
@@ -51,5 +51,34 @@ class ProfilTableViewCell: UITableViewCell {
         view1.layer.shadowOpacity = 0.2
         
     }
-    
+    func setupAddress(with model: Users) {
+        label = ["Id Number", "Address", "Change Password"]
+        picture = ["id_card", "book", "password"]
+        titleLabel.text = label[1]
+        descLabel.text = model.address
+        icon.image = UIImage(named: picture[1])
+        icon.layer.cornerRadius = 8
+        
+        view1.layer.cornerRadius = 10
+        view1.layer.shadowColor = UIColor.lightGray.cgColor
+        view1.layer.shadowRadius = 3.0
+        view1.layer.shadowOffset = CGSize.zero
+        view1.layer.shadowOpacity = 0.2
+        
+    }
+    func setupPassword(with model: Users) {
+        label = ["Id Number", "Address", "Change Password"]
+        picture = ["id_card", "book", "password"]
+        titleLabel.text = label[2]
+        descLabel.text = "**********"
+        icon.image = UIImage(named: picture[2])
+        icon.layer.cornerRadius = 8
+        
+        view1.layer.cornerRadius = 10
+        view1.layer.shadowColor = UIColor.lightGray.cgColor
+        view1.layer.shadowRadius = 3.0
+        view1.layer.shadowOffset = CGSize.zero
+        view1.layer.shadowOpacity = 0.2
+        
+    }
 }

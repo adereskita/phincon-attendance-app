@@ -69,6 +69,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         super.viewWillAppear(animated)
         self.navigationController!.setNavigationBarHidden(true, animated: false)
         isCheckOut = userDefault.bool(forKey: "isCheckOut")
+        self.locationID = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -347,7 +348,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         let listObj = checkInLists[indexPath.row]
         self.locationID = listObj.id!
     }
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        let heightRatio = UIScreen.main.bounds.height / 736
 //        let tableViewHeight = tableView.frame.size.height

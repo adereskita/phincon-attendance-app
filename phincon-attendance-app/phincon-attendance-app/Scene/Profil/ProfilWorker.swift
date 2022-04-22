@@ -14,6 +14,7 @@ import UIKit
 
 protocol ProfileWorkerProtocol: AnyObject {
     func loadProfile(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void)
+    func loadProfileBio(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void)
 }
 
 class ProfilWorker : ProfileWorkerProtocol {
@@ -34,6 +35,18 @@ class ProfilWorker : ProfileWorkerProtocol {
             }
         })
     }
+    func loadProfileBio(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void) {
+        service.getProfile(token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case.failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        })
+    }
+    
+    
 //    func fetchProfil() -> [Profile] {
 //        profilData = [Profile(titleData: "No.Karyawan", descData: "NIK-0909090909", iconData: UIImage(named: "id_card")?.withRenderingMode(.alwaysTemplate)),
 //                      Profile(titleData: "Alamat", descData: "Jakarta Selatan", iconData: UIImage(named: "book")?.withRenderingMode(.alwaysTemplate)),

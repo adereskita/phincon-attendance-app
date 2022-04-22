@@ -13,6 +13,7 @@
 import UIKit
 protocol ProfilDisplayLogic: AnyObject {
     func presenter(getProfile response: ProfilModels.LoadProfil.Response)
+    func presenter(getProfileBio response: ProfilModels.LoadProfil.Response)
 }
 
 class ProfilViewController: UIViewController, ProfilDisplayLogic {
@@ -98,16 +99,19 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     func fetchProfileData() {
         let request = ProfilModels.LoadProfil.Request()
         interactor?.loadProfile(request: request)
+        interactor?.loadProfileBio(request: request)
         setupProfil()
     }
     
     func presenter(getProfile response: ProfilModels.LoadProfil.Response) {
         getProfile.append(_ : response.success.result!)
     }
-    
+    func presenter(getProfileBio response: ProfilModels.LoadProfil.Response) {
+        getProfileBio.append(_ : response.success.result!)
+    }
     @IBAction func profileMenu(_ sender:Any) {
         let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-
+        
         let editProfile = UIAlertAction(title: "Edit Profile", style: .default) { (action: UIAlertAction) in
             self.router?.routeToEditProfilePage(segue: nil)
         }
@@ -115,12 +119,12 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
             self.userDefault.set(nil, forKey: "user_token")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
-
+            
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
         }
-
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
+        
         menuAlert.addAction(editProfile)
         menuAlert.addAction(logoutUser)
         menuAlert.addAction(cancelAction)
@@ -130,7 +134,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
 }
 extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -147,21 +151,26 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
             let profilObject = getProfile[indexPath.row]
             cell.setupprofileImage(with: profilObject)
             return cell
+        } else if indexPath.section == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
+            let profilObject = getProfileBio[indexPath.row]
+            cell.setupProfilView(with: profilObject)
+            return cell
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
+            let profilObject = getProfileBio[indexPath.row]
+            cell.setupAddress(with: profilObject)
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfilTableViewCell.identifier, for: indexPath) as! ProfilTableViewCell
-            let profilObject = getProfile[indexPath.row]
-            cell.setupProfilView(with: profilObject)
+            let profilObject = getProfileBio[indexPath.row]
+            cell.setupPassword(with: profilObject)
             return cell
         }
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UITableView.automaticDimension
-        } else {
-            let ratio = UIScreen.main.bounds.height / 736
-            return tableView.estimatedRowHeight * ratio
-        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

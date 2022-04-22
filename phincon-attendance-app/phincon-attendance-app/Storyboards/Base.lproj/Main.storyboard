@@ -402,6 +402,12 @@
                                     <constraint firstItem="Q9P-fw-dhX" firstAttribute="top" secondItem="6xV-08-Tpn" secondAttribute="top" constant="28" id="yEd-Iy-NaE"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing here.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARY-9S-FgU">
+                                <rect key="frame" x="152.5" y="526" width="109.5" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cgd-Yr-jhW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -411,7 +417,9 @@
                             <constraint firstItem="6xV-08-Tpn" firstAttribute="leading" secondItem="cgd-Yr-jhW" secondAttribute="leading" constant="12" id="7hE-GH-c2G"/>
                             <constraint firstItem="cgd-Yr-jhW" firstAttribute="trailing" secondItem="6xV-08-Tpn" secondAttribute="trailing" constant="12" id="9eI-3E-2eu"/>
                             <constraint firstItem="cgd-Yr-jhW" firstAttribute="bottom" secondItem="6xV-08-Tpn" secondAttribute="bottom" id="DjI-UL-z4V"/>
+                            <constraint firstItem="ARY-9S-FgU" firstAttribute="centerY" secondItem="35I-jV-OpG" secondAttribute="centerY" id="MPg-hM-jle"/>
                             <constraint firstItem="p39-Xj-yG9" firstAttribute="top" secondItem="cgd-Yr-jhW" secondAttribute="top" constant="32" id="R3A-wH-YiG"/>
+                            <constraint firstItem="ARY-9S-FgU" firstAttribute="centerX" secondItem="35I-jV-OpG" secondAttribute="centerX" id="UC4-DX-MRM"/>
                             <constraint firstItem="6xV-08-Tpn" firstAttribute="top" secondItem="p39-Xj-yG9" secondAttribute="bottom" constant="32" id="VWo-2u-tKj"/>
                             <constraint firstItem="lX8-qI-pTr" firstAttribute="leading" secondItem="cgd-Yr-jhW" secondAttribute="leading" id="e5V-1g-oTC"/>
                         </constraints>
@@ -420,6 +428,7 @@
                     <navigationItem key="navigationItem" id="HSA-jn-9Bn"/>
                     <connections>
                         <outlet property="cardView" destination="6xV-08-Tpn" id="kmY-8b-Kau"/>
+                        <outlet property="emptyLbl" destination="ARY-9S-FgU" id="KQQ-E3-6NB"/>
                         <outlet property="filterCollView" destination="b21-Bg-bKo" id="K6k-2S-QEF"/>
                         <outlet property="historyTableView" destination="35I-jV-OpG" id="mms-Gk-n7J"/>
                     </connections>

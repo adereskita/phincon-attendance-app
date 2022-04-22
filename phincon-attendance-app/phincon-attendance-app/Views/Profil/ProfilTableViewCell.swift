@@ -41,7 +41,7 @@ class ProfilTableViewCell: UITableViewCell {
         picture = ["id_card", "book", "password"]
         titleLabel.text = label[0]
         descLabel.text = String(describing: model.idcardnumber!)
-        icon.image = UIImage(named: picture[0])
+        icon.image = UIImage(named: picture[0])!.withRenderingMode(.alwaysTemplate)
         icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10
@@ -56,7 +56,7 @@ class ProfilTableViewCell: UITableViewCell {
         picture = ["id_card", "book", "password"]
         titleLabel.text = label[1]
         descLabel.text = model.address
-        icon.image = UIImage(named: picture[1])
+        icon.image = UIImage(named: picture[1])!.withRenderingMode(.alwaysTemplate)
         icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10
@@ -71,7 +71,7 @@ class ProfilTableViewCell: UITableViewCell {
         picture = ["id_card", "book", "password"]
         titleLabel.text = label[2]
         descLabel.text = "**********"
-        icon.image = UIImage(named: picture[2])
+        icon.image = UIImage(named: picture[2])!.withRenderingMode(.alwaysTemplate)
         icon.layer.cornerRadius = 8
         
         view1.layer.cornerRadius = 10

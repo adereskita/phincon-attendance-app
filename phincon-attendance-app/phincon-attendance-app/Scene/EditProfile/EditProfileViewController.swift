@@ -94,8 +94,8 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic
     
   func doSomething()
   {
-    let request = EditProfileModel.LoadEditProfile.Request()
-    interactor?.doSomething(request: request)
+    let request = EditProfileModel.Put.Request()
+    interactor?.editProfile(request)
     setupView()
   }
   

@@ -14,7 +14,8 @@ import UIKit
 
 protocol EditProfileDisplayLogic: AnyObject
 {
-  func displaySomething(viewModel: EditProfileModel.LoadEditProfile.Response)
+    func presenter(didChange response: EditProfileModel.Put.Response)
+    func presenter(didFailedChange message: String)
 }
 
 class EditProfileViewController: UIViewController, EditProfileDisplayLogic

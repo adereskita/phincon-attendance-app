@@ -70,7 +70,7 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
+        setupView()
     }
     
     // MARK: Do something
@@ -90,17 +90,17 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
         saveButton.setTitle("Save", for: .normal)
         saveButton.titleLabel?.textAlignment = .center
         saveButton.layer.cornerRadius = 8
-        
+
     }
     
-    func doSomething() {
-        let request = EditProfileModel.Put.Request()
+    @IBAction func saveButton(_ sender: Any) {
+        let request = EditProfileModel.Put.Request(fullname: fullnameTextField.text ?? "", address: addressTextField.text ?? "", idcardnumber: idCardTextField.text ?? "")
         interactor?.editProfile(request)
-        setupView()
     }
     
     func presenter(didChange response: EditProfileModel.Put.Response) {
         updateProfile.append(_ : response.success.result!)
+        
     }
     
     func presenter(didFailedChange message: String) {
@@ -110,8 +110,4 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     @IBAction func backButton(_sender: Any){
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func saveButton(_sender: Any){
-        self.dismiss(animated: true)
-    }
 }
-

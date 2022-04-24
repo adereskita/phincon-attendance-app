@@ -13,7 +13,7 @@
 import UIKit
 
 protocol EditProfileWorkerProtocol: AnyObject {
-    func putEditProfile(username: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void)
+    func putEditProfile(address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void)
 }
 class EditProfileWorker : EditProfileWorkerProtocol {
     private var service: ClientAPIProtocol
@@ -22,8 +22,8 @@ class EditProfileWorker : EditProfileWorkerProtocol {
         self.service = service
     }
     
-    func putEditProfile(username: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void) {
-        service.putEditProfile(username: username, fullname: fullname, idcardnumber: idcardnumber) {
+    func putEditProfile(address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void) {
+        service.putEditProfile(address: address, fullname: fullname, idcardnumber: idcardnumber) {
             (result) in
             switch result {
             case .success(let value):

@@ -1165,12 +1165,8 @@
                                     <constraint firstAttribute="width" secondItem="nbh-N5-S2M" secondAttribute="height" multiplier="69:50" id="zPd-Ua-eHe"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wdB-r0-sYr">
-                                <rect key="frame" x="0.0" y="185" width="414" height="541"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDU-t0-ntE">
-                                <rect key="frame" x="96" y="789" width="222" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDU-t0-ntE">
+                                <rect key="frame" x="96" y="790" width="222" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
@@ -1178,21 +1174,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nbh-N5-S2M" firstAttribute="leading" secondItem="lXz-wu-Kgl" secondAttribute="leading" id="0U2-DK-ylj"/>
-                            <constraint firstItem="vDU-t0-ntE" firstAttribute="top" secondItem="wdB-r0-sYr" secondAttribute="bottom" constant="63" id="CDt-uu-NHz"/>
-                            <constraint firstItem="vDU-t0-ntE" firstAttribute="width" secondItem="wdB-r0-sYr" secondAttribute="width" multiplier="0.593583" constant="-23.743361999999991" id="KGF-bS-RUo"/>
                             <constraint firstItem="nbh-N5-S2M" firstAttribute="top" secondItem="bpy-S5-mJ1" secondAttribute="top" id="Ku8-1U-mot"/>
-                            <constraint firstItem="wdB-r0-sYr" firstAttribute="width" secondItem="nbh-N5-S2M" secondAttribute="width" multiplier="0.903382" constant="39.999851999999976" id="OC8-lO-8LA"/>
-                            <constraint firstItem="lXz-wu-Kgl" firstAttribute="bottom" secondItem="wdB-r0-sYr" secondAttribute="bottom" constant="136" id="W0b-VZ-8Qt"/>
                             <constraint firstItem="nbh-N5-S2M" firstAttribute="trailing" secondItem="lXz-wu-Kgl" secondAttribute="trailing" id="doz-wr-pZR"/>
                             <constraint firstItem="lXz-wu-Kgl" firstAttribute="bottom" secondItem="vDU-t0-ntE" secondAttribute="bottom" constant="42" id="fCH-c5-BUZ"/>
-                            <constraint firstItem="vDU-t0-ntE" firstAttribute="centerX" secondItem="wdB-r0-sYr" secondAttribute="centerX" id="ozj-61-Qk2"/>
-                            <constraint firstItem="wdB-r0-sYr" firstAttribute="centerX" secondItem="nbh-N5-S2M" secondAttribute="centerX" id="war-Ju-M5s"/>
-                            <constraint firstItem="wdB-r0-sYr" firstAttribute="top" secondItem="nbh-N5-S2M" secondAttribute="bottom" constant="-115" id="wcf-MG-T0m"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="saveButton" destination="vDU-t0-ntE" id="QTf-1e-j7B"/>
-                        <outlet property="tableView" destination="wdB-r0-sYr" id="kbs-0M-Bp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUo-24-bhP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

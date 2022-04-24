@@ -18,8 +18,8 @@ protocol EditProfileDisplayLogic: AnyObject
     func presenter(didFailedChange message: String)
 }
 
-class EditProfileViewController: UIViewController, EditProfileDisplayLogic
-{
+class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
+    
   var interactor: EditProfileBusinessLogic?
   var router: (NSObjectProtocol & EditProfileRoutingLogic & EditProfileDataPassing)?
 
@@ -99,11 +99,14 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic
     setupView()
   }
   
-  func displaySomething(viewModel: EditProfileModel.LoadEditProfile.Response)
-  {
-    //nameTextField.text = viewModel.name
-      data = viewModel.Editdata
-  }
+    func presenter(didChange response: EditProfileModel.Put.Response) {
+        <#code#>
+    }
+    
+    func presenter(didFailedChange message: String) {
+        <#code#>
+    }
+    
     @IBAction func backButton(_sender: Any){
         self.navigationController?.popViewController(animated: true)
     }

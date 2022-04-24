@@ -32,12 +32,13 @@ class EditProfileInteractor: EditProfileBusinessLogic, EditProfileDataStore
     // MARK: Do something
     func editProfile(_ request: EditProfileModel.Put.Request) {
         worker = EditProfileWorker()
-        worker?.putEditProfile(username: request.username!, fullname: request.fullname!, idcardnumber: request.idcardnumber!, completionHandler: { (result) in
+        worker?.putEditProfile(username: request.username ?? "", fullname: request.fullname ?? "", idcardnumber: request.idcardnumber ?? "", completionHandler: { (result) in
             switch result {
             case .success(let value):
                 self.presenter?.interactor(didChange: value)
                 print("Success Edit Profile")
             case .failure(let error):
+                print("Failed Edit Profile")
                 print(error.status, error.message)
                 
             }

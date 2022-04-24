@@ -81,7 +81,8 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     @IBOutlet weak var idCardTextField : UITextField!
     @IBOutlet weak var addressTextField : UITextField!
     @IBOutlet weak var cardView : UIView!
-    var data : [EditProfileData] = []
+    
+    var updateProfile : [Users] = []
     
     func setupView() {
         saveButton.backgroundColor = colorUtils.darkBlue
@@ -99,11 +100,11 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     }
     
     func presenter(didChange response: EditProfileModel.Put.Response) {
-        <#code#>
+        updateProfile.append(_ : response.success.result!)
     }
     
     func presenter(didFailedChange message: String) {
-        <#code#>
+        print("Failed to update profile")
     }
     
     @IBAction func backButton(_sender: Any){

@@ -21,7 +21,10 @@ enum EditProfileModel {
             var idcardnumber: String?
         }
         struct Response : Codable{
-            var success: LoggedIn.Success<Users>
+            var success: Success
+        }
+        struct ViewModel {
+            var message: String?
         }
         
     }

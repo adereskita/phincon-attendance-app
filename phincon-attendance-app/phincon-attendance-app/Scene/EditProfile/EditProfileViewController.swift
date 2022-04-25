@@ -14,7 +14,7 @@ import UIKit
 
 protocol EditProfileDisplayLogic: AnyObject
 {
-    func presenter(didChange response: EditProfileModel.Put.Response)
+    func presenter(didChange viewModel: EditProfileModel.Put.ViewModel)
     func presenter(didFailedChange message: String)
 }
 
@@ -98,8 +98,8 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
         interactor?.editProfile(request)
     }
     
-    func presenter(didChange response: EditProfileModel.Put.Response) {
-        updateProfile.append(_ : response.success.result!)
+    func presenter(didChange response: EditProfileModel.Put.ViewModel) {
+       print("Oke")
         
     }
     

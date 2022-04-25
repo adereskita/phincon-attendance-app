@@ -25,7 +25,8 @@ class EditProfilePresenter: EditProfilePresentationLogic
   
   // MARK: Do something
     func interactor(didChange response: EditProfileModel.Put.Response) {
-        viewController?.presenter(didChange: response)
+        let viewModel = EditProfileModel.Put.ViewModel(message: response.success.message)
+        viewController?.presenter(didChange: viewModel)
     }
     
     func interactor(didFailedChange error: String) {

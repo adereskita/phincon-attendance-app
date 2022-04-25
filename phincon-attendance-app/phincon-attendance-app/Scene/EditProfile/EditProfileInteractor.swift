@@ -35,8 +35,16 @@ class EditProfileInteractor: EditProfileBusinessLogic, EditProfileDataStore
         worker?.putEditProfile(address: request.address!, fullname: request.fullname!, idcardnumber: request.idcardnumber!, completionHandler: { (result) in
             switch result {
             case .success(let value):
-                self.presenter?.interactor(didChange: value)
-                print("Success Edit Profile")
+                var response: EditProfileModel.Put.Response?
+                
+                if value != nil {
+                    print(value.success)
+                    response = EditProfileModel.Put.Response(success: value.success)
+                }
+                if let respons = response {
+                    self.presenter?.interactor(didChange: respons)
+                    print("Success Edit Profile")
+                }
             case .failure(let error):
                 print("Failed Edit Profile")
                 print(error.status, error.message)

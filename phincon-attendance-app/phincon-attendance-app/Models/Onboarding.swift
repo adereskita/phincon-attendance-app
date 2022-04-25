@@ -7,8 +7,19 @@
 
 import UIKit
 
-struct Onboarding {
-    let title: String
-    let description: String
-    let image: UIImage
+// MARK: - Onboarding
+struct Onboarding: Codable {
+    var id, image, title, onboardingDescription: String?
+    var createdAt, updatedAt: String?
+    var v: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case image, title
+        case onboardingDescription = "description"
+        case createdAt, updatedAt
+        case v = "__v"
+    }
 }
+
+

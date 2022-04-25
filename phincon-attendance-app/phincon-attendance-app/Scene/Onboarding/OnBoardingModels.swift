@@ -12,18 +12,12 @@
 
 import UIKit
 
-enum OnBoardingModels
-{
+enum OnBoardingModels {
   // MARK: Use cases
-    enum LoadOnboarding {
-        struct Request {}
-        struct Response {
-            var OnboardingData: [Onboarding]
-        }
-        struct ViewModel {
-            var title: String?
-            var description: String?
-            var image: UIImage?
+    enum FetchOnBoarding {
+        struct Request{}
+        struct Response: Codable{
+            var success: GenericSuccess.Success<[Onboarding]>
         }
     }
 }

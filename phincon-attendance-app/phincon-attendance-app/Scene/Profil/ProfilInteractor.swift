@@ -29,7 +29,7 @@ class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
     let userDefault = UserDefaults.standard
     var token: String = ""
     
-    // MARK: Do something
+    // MARK: Do xsomething
     func loadProfile(request: ProfilModels.LoadProfil.Request) {
         worker = ProfilWorker()
         token = userDefault.string(forKey: "user_token")!

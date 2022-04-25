@@ -13,6 +13,14 @@ protocol ClientAPIProtocol {
     //    func postLogin(username: String, password: String, completionHandler: @escaping (Result<[LoginModels.Post.Success], NSError>) -> Void)
 }
 
+protocol ClientAPISplashScreenProtocol {
+    func getSplashScreen(completionHandler: @escaping (Result<SplashScreenModels.Fetch.Response, APIError>) -> Void)
+}
+
+protocol ClientAPIOnboardingProtocol {
+    func getOnboarding(completionHandler: @escaping (Result<OnBoardingModels.FetchOnBoarding.Response, APIError>) -> Void)
+}
+
 protocol ClientAPIDashboardProtocol {
     func loginSession(token: String, completionHandler: @escaping (Result<DashboardModels.IsLogin.Response, APIError>) -> Void)
     func checkIn(location: String, token: String, completionHandler: @escaping (Result<DashboardModels.CheckLocation.Response, APIError>) -> Void)
@@ -42,6 +50,35 @@ class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
                 completionHandler(.failure(APIError(status: -1, message: "Username or Password is required")))
             } else {
                 completionHandler(result)
+            }
+        })
+    }
+}
+
+// MARK: ClientAPISplashScreenProtocol
+extension ClientAPI: ClientAPISplashScreenProtocol {
+    func getSplashScreen(completionHandler: @escaping (Result<SplashScreenModels.Fetch.Response, APIError>) -> Void) {
+        self.fetchData(target: .getSplashScreen, responseClass: SplashScreenModels.Fetch.Response.self, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        })
+    }
+    
+}
+
+// MARK: ClientAPIOnboardingProtocol
+extension ClientAPI: ClientAPIOnboardingProtocol {
+    func getOnboarding(completionHandler: @escaping (Result<OnBoardingModels.FetchOnBoarding.Response, APIError>) -> Void) {
+        self.fetchData(target: .onBoarding, responseClass: OnBoardingModels.FetchOnBoarding.Response.self, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
         })
     }
@@ -123,6 +160,4 @@ extension ClientAPI : ClientAPIProfileProtocol {
             }
         })
     }
-    
-    
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol OnBoardingBusinessLogic {
-    func getOnboardingData(request: OnBoardingModels.LoadOnboarding.Request)
+    func loadOnboard(request: OnBoardingModels.FetchOnBoarding.Request)
 }
 
 protocol OnBoardingDataStore {
@@ -21,18 +21,20 @@ protocol OnBoardingDataStore {
 }
 
 class OnBoardingInteractor: OnBoardingBusinessLogic, OnBoardingDataStore {
+    
     var presenter: OnBoardingPresentationLogic?
-    var worker: OnBoardingWorker?
+    var worker = OnBoardingWorker()
   //var name: String = ""
-    var onBoarding = [Onboarding]()
   
   // MARK: Do something
-  
-    func getOnboardingData(request: OnBoardingModels.LoadOnboarding.Request) {
-        worker = OnBoardingWorker()
-        onBoarding = worker!.fetchOnBoard()
-    
-        let response = OnBoardingModels.LoadOnboarding.Response(OnboardingData: onBoarding)
-        presenter?.presentOnboardingData(response: response)
+    func loadOnboard(request: OnBoardingModels.FetchOnBoarding.Request) {
+        worker.getOnboarding(completionHandler: { result in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(displayOnboard: value)
+            case .failure(let error):
+                print(error.status, error.message!)
+            }
+        })
     }
 }

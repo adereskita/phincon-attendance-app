@@ -90,7 +90,7 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
                 return r
             }
             if currentPage == 0 {
-                let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/1650857372580.png")
+                let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/1650868246659.png")
                 imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
                 imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
             } else {

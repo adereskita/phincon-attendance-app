@@ -12,30 +12,29 @@
 
 import UIKit
 
-protocol SplashScreenBusinessLogic
-{
-  func doSomething(request: SplashScreen.Something.Request)
+protocol SplashScreenBusinessLogic {
+    func loadSplashScreen(request: SplashScreenModels.Fetch.Request)
 }
 
-protocol SplashScreenDataStore
-{
+protocol SplashScreenDataStore {
   //var name: String { get set }
 }
 
-class SplashScreenInteractor: SplashScreenBusinessLogic, SplashScreenDataStore
-{
-  var presenter: SplashScreenPresentationLogic?
-  var worker: SplashScreenWorker?
+class SplashScreenInteractor: SplashScreenBusinessLogic, SplashScreenDataStore {
+      var presenter: SplashScreenPresentationLogic?
+      var worker = SplashScreenWorker()
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: SplashScreen.Something.Request)
-  {
-    worker = SplashScreenWorker()
-    worker?.doSomeWork()
-    
-    let response = SplashScreen.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func loadSplashScreen(request: SplashScreenModels.Fetch.Request) {
+        worker.getSplashScreen(completionHandler: { result in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(displaySplashScreen: value)
+            case .failure(let error):
+                print(error.status, error.message!)
+            }
+        })
+    }
 }

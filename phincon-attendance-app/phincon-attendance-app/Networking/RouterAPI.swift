@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 enum RouterAPI {
+    case getSplashScreen
     case onBoarding
     case getUser(token: String)
     case postRegister(username: String, password: String, fullname: String, idnumber: String)
@@ -29,6 +30,8 @@ extension RouterAPI: TargetType {
     
     var path: String {
         switch self {
+        case .getSplashScreen:
+            return "/splashscreen"
         case .onBoarding:
             return "/onboarding"
         case .postLogin:
@@ -50,6 +53,8 @@ extension RouterAPI: TargetType {
     
     var method: HTTPMethod {
         switch self {
+        case .getSplashScreen:
+            return .get
         case .onBoarding:
             return .get
         case .getUser:
@@ -71,6 +76,8 @@ extension RouterAPI: TargetType {
     
     var task: Task { //parameter
         switch self {
+        case .getSplashScreen:
+            return .requestPlain
         case .onBoarding:
             return .requestPlain
         case .postLogin(let username, let password):

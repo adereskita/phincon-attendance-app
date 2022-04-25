@@ -12,9 +12,28 @@
 
 import UIKit
 
-class SplashScreenWorker
-{
-  func doSomeWork()
-  {
-  }
+protocol SplashScreenWorkerProtocol {
+    func getSplashScreen(completionHandler: @escaping (Result<SplashScreenModels.Fetch.Response, APIError>) -> Void)
+}
+
+class SplashScreenWorker: SplashScreenWorkerProtocol {
+    
+    // MARK: - Private Properties
+    private var service: ClientAPISplashScreenProtocol
+    
+    // MARK: - Init
+    init(_ service: ClientAPISplashScreenProtocol = ClientAPI()) {
+        self.service = service
+    }
+    
+    func getSplashScreen(completionHandler: @escaping (Result<SplashScreenModels.Fetch.Response, APIError>) -> Void) {
+        service.getSplashScreen(completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        })
+    }
 }

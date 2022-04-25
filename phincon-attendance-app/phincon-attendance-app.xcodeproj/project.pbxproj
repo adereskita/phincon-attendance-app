@@ -13,8 +13,9 @@
 		36174EBB281678A400F538B3 /* SplashScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB5281678A400F538B3 /* SplashScreenWorker.swift */; };
 		36174EBC281678A400F538B3 /* SplashScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB6281678A400F538B3 /* SplashScreenRouter.swift */; };
 		36174EBD281678A400F538B3 /* SplashScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB7281678A400F538B3 /* SplashScreenModels.swift */; };
-		36174EBE281678A400F538B3 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB8281678A400F538B3 /* SplashScreenViewController.swift */; };
+		36174EBE281678A400F538B3 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB8281678A400F538B3 /* SplashScreenVC.swift */; };
 		36174EBF281678A400F538B3 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB9281678A400F538B3 /* SplashScreenInteractor.swift */; };
+		36174EC128167BFC00F538B3 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EC028167BFC00F538B3 /* SplashScreen.swift */; };
 		362497CF27F8293000CD04FF /* ConstantAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362497CE27F8293000CD04FF /* ConstantAPI.swift */; };
 		362497D127F830B800CD04FF /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362497D027F830B800CD04FF /* BaseAPI.swift */; };
 		362497D527F845E800CD04FF /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362497D427F845E800CD04FF /* TargetType.swift */; };
@@ -137,8 +138,9 @@
 		36174EB5281678A400F538B3 /* SplashScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenWorker.swift; sourceTree = "<group>"; };
 		36174EB6281678A400F538B3 /* SplashScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenRouter.swift; sourceTree = "<group>"; };
 		36174EB7281678A400F538B3 /* SplashScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenModels.swift; sourceTree = "<group>"; };
-		36174EB8281678A400F538B3 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		36174EB8281678A400F538B3 /* SplashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
 		36174EB9281678A400F538B3 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
+		36174EC028167BFC00F538B3 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		362497CE27F8293000CD04FF /* ConstantAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantAPI.swift; sourceTree = "<group>"; };
 		362497D027F830B800CD04FF /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		362497D427F845E800CD04FF /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
@@ -295,7 +297,7 @@
 				36174EB5281678A400F538B3 /* SplashScreenWorker.swift */,
 				36174EB6281678A400F538B3 /* SplashScreenRouter.swift */,
 				36174EB7281678A400F538B3 /* SplashScreenModels.swift */,
-				36174EB8281678A400F538B3 /* SplashScreenViewController.swift */,
+				36174EB8281678A400F538B3 /* SplashScreenVC.swift */,
 				36174EB9281678A400F538B3 /* SplashScreenInteractor.swift */,
 			);
 			path = SplashScreen;
@@ -332,6 +334,7 @@
 				3674EEE927F3714B00662D8F /* Notification.swift */,
 				360B0F8527FBCE9000CB9CEC /* ResponseServer.swift */,
 				36C584C027FEF20200442181 /* Users.swift */,
+				36174EC028167BFC00F538B3 /* SplashScreen.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -937,7 +940,7 @@
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
 				E2673FF727F6E6E1006E3887 /* RegisterPresenter.swift in Sources */,
-				36174EBE281678A400F538B3 /* SplashScreenViewController.swift in Sources */,
+				36174EBE281678A400F538B3 /* SplashScreenVC.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */,
 				E2673FED27F6E69E006E3887 /* ForgotPasswordModels.swift in Sources */,
@@ -970,6 +973,7 @@
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
 				36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */,
 				36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */,
+				36174EC128167BFC00F538B3 /* SplashScreen.swift in Sources */,
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
 				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
 				36C584C127FEF20200442181 /* Users.swift in Sources */,

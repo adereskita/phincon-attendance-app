@@ -24,7 +24,7 @@ protocol SplashScreenDataPassing
 
 class SplashScreenRouter: NSObject, SplashScreenRoutingLogic, SplashScreenDataPassing
 {
-  weak var viewController: SplashScreenViewController?
+  weak var viewController: SplashScreenVC?
   var dataStore: SplashScreenDataStore?
   
   // MARK: Routing

@@ -12,20 +12,13 @@
 
 import UIKit
 
-enum SplashScreen
-{
+enum SplashScreenModels {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
+  enum Fetch {
+    struct Request {}
+      struct Response: Codable {
+          var success: GenericSuccess.Success<SplashScreen>
     }
   }
 }

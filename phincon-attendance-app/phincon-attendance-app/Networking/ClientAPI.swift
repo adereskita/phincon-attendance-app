@@ -13,6 +13,10 @@ protocol ClientAPIProtocol {
     //    func postLogin(username: String, password: String, completionHandler: @escaping (Result<[LoginModels.Post.Success], NSError>) -> Void)
 }
 
+protocol ClientAPISplashScreenProtocol {
+    func getSplashScreen(completionHandler: @escaping (Result<SplashScreenModels.Fetch.Response, APIError>) -> Void)
+}
+
 protocol ClientAPIOnboardingProtocol {
     func getOnboarding(completionHandler: @escaping (Result<OnBoardingModels.FetchOnBoarding.Response, APIError>) -> Void)
 }
@@ -49,6 +53,21 @@ class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
             }
         })
     }
+}
+
+// MARK: ClientAPISplashScreenProtocol
+extension ClientAPI: ClientAPISplashScreenProtocol {
+    func getSplashScreen(completionHandler: @escaping (Result<SplashScreenModels.Fetch.Response, APIError>) -> Void) {
+        self.fetchData(target: .getSplashScreen, responseClass: SplashScreenModels.Fetch.Response.self, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        })
+    }
+    
 }
 
 // MARK: ClientAPIOnboardingProtocol

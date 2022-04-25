@@ -5,7 +5,7 @@ target 'phincon-attendance-app' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'SDWebImage', '~> 5.11'
+  pod 'Kingfisher', '~> 7.0'
   pod 'Alamofire', '~> 5.4'
   pod 'SkeletonView'
   # pod 'RxSwift', '~> 6.2'

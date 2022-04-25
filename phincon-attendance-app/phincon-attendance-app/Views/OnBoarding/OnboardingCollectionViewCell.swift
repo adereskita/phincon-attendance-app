@@ -26,8 +26,8 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     func setupView(_ slide: Onboarding) {
         self.lbOnBoardDesc.minimumScaleFactor = 0.5
         self.lbOnBoardTitle.minimumScaleFactor = 0.5
-        self.lbOnBoardTitle.text = slide.title.uppercased()
-        self.lbOnBoardDesc.text = slide.description
+        self.lbOnBoardTitle.text = slide.title!.uppercased()
+        self.lbOnBoardDesc.text = slide.onboardingDescription
     }
 
 }

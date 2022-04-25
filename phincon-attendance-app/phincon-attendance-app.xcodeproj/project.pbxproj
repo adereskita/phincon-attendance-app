@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		3587141AE29D40DF48A6B9A8 /* Pods_phincon_attendance_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E22C749AE0EFD083BBC070A /* Pods_phincon_attendance_appTests.framework */; };
 		360B0F8627FBCE9000CB9CEC /* ResponseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B0F8527FBCE9000CB9CEC /* ResponseServer.swift */; };
+		36174EBA281678A400F538B3 /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB4281678A400F538B3 /* SplashScreenPresenter.swift */; };
+		36174EBB281678A400F538B3 /* SplashScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB5281678A400F538B3 /* SplashScreenWorker.swift */; };
+		36174EBC281678A400F538B3 /* SplashScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB6281678A400F538B3 /* SplashScreenRouter.swift */; };
+		36174EBD281678A400F538B3 /* SplashScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB7281678A400F538B3 /* SplashScreenModels.swift */; };
+		36174EBE281678A400F538B3 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB8281678A400F538B3 /* SplashScreenViewController.swift */; };
+		36174EBF281678A400F538B3 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36174EB9281678A400F538B3 /* SplashScreenInteractor.swift */; };
 		362497CF27F8293000CD04FF /* ConstantAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362497CE27F8293000CD04FF /* ConstantAPI.swift */; };
 		362497D127F830B800CD04FF /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362497D027F830B800CD04FF /* BaseAPI.swift */; };
 		362497D527F845E800CD04FF /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362497D427F845E800CD04FF /* TargetType.swift */; };
@@ -127,6 +133,12 @@
 		1C6F4943F0B33986A066F3D1 /* Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-app-phincon-attendance-appUITests/Pods-phincon-attendance-app-phincon-attendance-appUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1EE6FC7CC5BDDB490048CE4F /* Pods_phincon_attendance_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		360B0F8527FBCE9000CB9CEC /* ResponseServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseServer.swift; sourceTree = "<group>"; };
+		36174EB4281678A400F538B3 /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
+		36174EB5281678A400F538B3 /* SplashScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenWorker.swift; sourceTree = "<group>"; };
+		36174EB6281678A400F538B3 /* SplashScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenRouter.swift; sourceTree = "<group>"; };
+		36174EB7281678A400F538B3 /* SplashScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenModels.swift; sourceTree = "<group>"; };
+		36174EB8281678A400F538B3 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		36174EB9281678A400F538B3 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
 		362497CE27F8293000CD04FF /* ConstantAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantAPI.swift; sourceTree = "<group>"; };
 		362497D027F830B800CD04FF /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		362497D427F845E800CD04FF /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
@@ -274,6 +286,19 @@
 				FF29A235BD904E76C98E2064 /* Pods-phincon-attendance-appTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		36174EB32816788300F538B3 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				36174EB4281678A400F538B3 /* SplashScreenPresenter.swift */,
+				36174EB5281678A400F538B3 /* SplashScreenWorker.swift */,
+				36174EB6281678A400F538B3 /* SplashScreenRouter.swift */,
+				36174EB7281678A400F538B3 /* SplashScreenModels.swift */,
+				36174EB8281678A400F538B3 /* SplashScreenViewController.swift */,
+				36174EB9281678A400F538B3 /* SplashScreenInteractor.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		362497D227F8459B00CD04FF /* Networking */ = {
@@ -507,6 +532,7 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				36174EB32816788300F538B3 /* SplashScreen */,
 				E2673FF027F6E6A1006E3887 /* RegisterPage */,
 				E2673FE327F6E682006E3887 /* ForgotPassword */,
 				E2D75ED527F3E645002F88A2 /* EditProfile */,
@@ -875,9 +901,11 @@
 				362497D527F845E800CD04FF /* TargetType.swift in Sources */,
 				3674EEE227F3088F00662D8F /* NotificationViewController.swift in Sources */,
 				E2673FFB27F6E6E1006E3887 /* RegisterViewController.swift in Sources */,
+				36174EBA281678A400F538B3 /* SplashScreenPresenter.swift in Sources */,
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */,
 				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
+				36174EBF281678A400F538B3 /* SplashScreenInteractor.swift in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
 				3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */,
 				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
@@ -909,6 +937,7 @@
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
 				E2673FF727F6E6E1006E3887 /* RegisterPresenter.swift in Sources */,
+				36174EBE281678A400F538B3 /* SplashScreenViewController.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */,
 				E2673FED27F6E69E006E3887 /* ForgotPasswordModels.swift in Sources */,
@@ -918,10 +947,12 @@
 				362497D127F830B800CD04FF /* BaseAPI.swift in Sources */,
 				362D594B27E9B7FF0022C094 /* HistoryWorker.swift in Sources */,
 				3674EEE327F3088F00662D8F /* NotificationInteractor.swift in Sources */,
+				36174EBC281678A400F538B3 /* SplashScreenRouter.swift in Sources */,
 				E2A60F2D27EB036B001BEE6D /* LoginViewController.swift in Sources */,
 				E2673FEE27F6E69E006E3887 /* ForgotPasswordViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
 				E2D75EDE27F3E65B002F88A2 /* EditProfileRouter.swift in Sources */,
+				36174EBB281678A400F538B3 /* SplashScreenWorker.swift in Sources */,
 				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
 				362497CF27F8293000CD04FF /* ConstantAPI.swift in Sources */,
@@ -942,6 +973,7 @@
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,
 				36DC385F27DA630600EC4164 /* Onboarding.swift in Sources */,
 				36C584C127FEF20200442181 /* Users.swift in Sources */,
+				36174EBD281678A400F538B3 /* SplashScreenModels.swift in Sources */,
 				36EA25C827EC0F050094876E /* OnBoardingInteractor.swift in Sources */,
 				36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */,
 				E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */,

@@ -8,6 +8,7 @@ target 'phincon-attendance-app' do
   pod 'Kingfisher', '~> 7.0'
   pod 'Alamofire', '~> 5.4'
   pod 'SkeletonView'
+  pod 'SwiftKeychainWrapper'
   # pod 'RxSwift', '~> 6.2'
   # pod 'RxCocoa', '~> 6.2'
 

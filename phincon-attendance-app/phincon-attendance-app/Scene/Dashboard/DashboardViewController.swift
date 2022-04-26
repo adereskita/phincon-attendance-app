@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 protocol DashboardDisplayLogic: AnyObject {
     func presenter(didLoadCheckOutLoc response: DashboardModels.GetLocation.Response)
@@ -97,6 +98,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     
     var timer = Timer()
     let userDefault = UserDefaults.standard
+    let keyChainWrapper = KeychainWrapper.standard
     
     var locationID  = ""
     var isCheckOut: Bool = false {
@@ -257,7 +259,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     
     func presenter(expiredLoginSession status: Int, message: String) {
         if status == 403 {
-            userDefault.set(nil, forKey: "user_token")
+            keyChainWrapper.removeObject(forKey: "user_token")
+//            userDefault.set(nil, forKey: "user_token")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
 

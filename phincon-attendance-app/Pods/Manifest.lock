@@ -2,23 +2,27 @@ PODS:
   - Alamofire (5.5.0)
   - Kingfisher (7.2.1)
   - SkeletonView (1.29.2)
+  - SwiftKeychainWrapper (4.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - Kingfisher (~> 7.0)
   - SkeletonView
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
     - SkeletonView
+    - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 057b6d26a332511d1cdf3589b578a3883abd252a
+PODFILE CHECKSUM: bdb87671f94a0d3f88489e1be1c5d0be24d39b1f
 
 COCOAPODS: 1.11.2

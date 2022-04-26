@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 protocol HistoryBusinessLogic {
     func loadHistory(request: HistoryModel.FetchHistory.Request)
@@ -24,9 +25,9 @@ protocol HistoryDataStore {
 class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
     
     var presenter: HistoryPresentationLogic?
-//    var worker: HistoryWorker?
     var worker = HistoryWorker()
-    let userDefault = UserDefaults.standard
+//    let userDefault = UserDefaults.standard
+    let keyChainWrapper = KeychainWrapper.standard
 
     var desc: String = ""
     var token: String = ""
@@ -40,7 +41,7 @@ class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
     }
     
     func loadHistory(request: HistoryModel.FetchHistory.Request) {
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker.getHistory(log: request.log!, token: token, completionHandler: { result in
             switch result {
             case .success(let value):

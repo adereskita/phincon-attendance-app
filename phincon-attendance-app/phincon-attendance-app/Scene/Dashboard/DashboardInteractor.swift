@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 protocol DashboardBusinessLogic {
     func loadCheckInList(request: DashboardModels.GetLocation.Request)
@@ -28,13 +29,14 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
 
     var presenter: DashboardPresentationLogic?
     var worker = DashboardWorker()
-    let userDefault = UserDefaults.standard
+//    let userDefault = UserDefaults.standard
+    let keyChainWrapper = KeychainWrapper.standard
     
     var token: String = ""
 
   // MARK: Do something
     func checkOut(request: DashboardModels.CheckLocation.Request) {
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker.checkOut(location: request.location!, token: token, completionHandler: { result in
             switch result {
             case .success(let value):
@@ -47,7 +49,7 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
     }
     
     func checkIn(request: DashboardModels.CheckLocation.Request) {
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker.checkIn(location: request.location!, token: token, completionHandler: { result in
             switch result {
             case .success(let value):
@@ -60,7 +62,7 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
     }
     
     func loadCheckInList(request: DashboardModels.GetLocation.Request) {
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker.getLocation(token: token, completionHandler: { (result) in
             switch result {
             case .success(let value):
@@ -73,7 +75,7 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
     }
     
     func loadCheckOutList(request: DashboardModels.GetLocation.Request) {
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker.getLocation(token: token, completionHandler: { (result) in
             switch result {
             case .success(let value):
@@ -85,7 +87,7 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
     }
     
     func checkLoginSession(request: DashboardModels.IsLogin.Request) {
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker.loginSession(token: token, completionHandler: { (result) in
             
             switch result {

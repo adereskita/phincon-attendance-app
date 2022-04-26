@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 protocol ProfilBusinessLogic {
     func loadProfile(request: ProfilModels.LoadProfil.Request)
@@ -26,13 +27,15 @@ class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
    
     var presenter: ProfilPresentationLogic?
     var worker: ProfilWorker?
-    let userDefault = UserDefaults.standard
+//    let userDefault = UserDefaults.standard
+    let keyChainWrapper = KeychainWrapper.standard
+    
     var token: String = ""
     
     // MARK: Do xsomething
     func loadProfile(request: ProfilModels.LoadProfil.Request) {
         worker = ProfilWorker()
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker?.loadProfile(token: token, completionHandler: { result in
             switch result {
             case .success(let value):
@@ -45,7 +48,7 @@ class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
     }
     func loadProfileBio(request: ProfilModels.LoadProfil.Request) {
         worker = ProfilWorker()
-        token = userDefault.string(forKey: "user_token")!
+        token = keyChainWrapper.string(forKey: "user_token")!
         worker?.loadProfileBio(token: token, completionHandler: { result in
             switch result {
             case .success(let value):

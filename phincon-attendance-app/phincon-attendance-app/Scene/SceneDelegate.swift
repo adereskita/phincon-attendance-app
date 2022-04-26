@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -30,11 +31,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // MARK: Code below to give session alike.
         // if user has logged in previously, present the DashboardVC
+        let keyChainWrapper = KeychainWrapper.standard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // if user is logged in before
 //        if let loggedUsername = UserDefaults.standard.string(forKey: "username")
-        if UserDefaults.standard.string(forKey: "user_token") != nil {
+        if keyChainWrapper.string(forKey: "user_token") != nil {
+//        if UserDefaults.standard.string(forKey: "user_token") != nil {
             
             let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
             let navDashboard = UINavigationController(rootViewController: dashBoardVC)

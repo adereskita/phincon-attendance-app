@@ -82,22 +82,16 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
         }
     }
     
-    var currentPage = 0 {
+    var currentPage: Int! {
         didSet {
             let modifier = AnyModifier { request in
                 var r = request
                 r.setValue(ConstantAPI.Server.apiKey, forHTTPHeaderField: ConstantAPI.HttpHeaderField.apikey.rawValue)
                 return r
             }
-            if currentPage == 0 {
-                let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/1650868246659.png")
-                imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
-                imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
-            } else {
-                let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/\(onboardSlide[currentPage].image!)")
-                self.imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
-                imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
-            }
+            let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/\(onboardSlide[currentPage].image!)")
+            self.imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
+            imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
         }
     }
   
@@ -134,17 +128,17 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
         self.collView.register(OnboardingCollectionViewCell.nib(), forCellWithReuseIdentifier: OnboardingCollectionViewCell.identifier)
         collView.delegate = self
         collView.dataSource = self
-        currentPage = 0
     }
     
     func presenter(displayOnboard response: OnBoardingModels.FetchOnBoarding.Response) {
         if let onboard = response.success.result {
             onboardSlide.append(contentsOf: onboard)
+            currentPage = 0
         }
     }
     
     @IBAction func onClickbBtnSkip(_ sender: Any?) {
-        currentPage = 2
+        currentPage = onboardSlide.count - 1
         pageControl.currentPage = currentPage
         var frame: CGRect = self.collView.frame
         frame.origin.x = frame.size.width * CGFloat(currentPage ?? 0)

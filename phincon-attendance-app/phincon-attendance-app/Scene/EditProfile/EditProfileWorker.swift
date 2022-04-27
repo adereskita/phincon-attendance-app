@@ -12,16 +12,36 @@
 
 import UIKit
 
-class EditProfileWorker
-{
-    var editProfile = [EditProfileData]()
-   
+protocol EditProfileWorkerProtocol: AnyObject {
+    func putEditProfile(token: String, address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void)
+}
+class EditProfileWorker : EditProfileWorkerProtocol {
+    private var service: ClientAPIProtocol
     
-    func fetchEditProfile() -> [EditProfileData] {
-        editProfile = [EditProfileData(titleData: "New Address", descData: "Jakarta Selatan", iconData: UIImage(named: "book")),
-                       EditProfileData(titleData: "New Password", descData: "**********", iconData: UIImage(named: "password")),
-                       EditProfileData(titleData: "Repeat Password", descData: "**********", iconData: UIImage(named: "password"))
-        ]
-        return editProfile
+    init(_ service: ClientAPIProtocol = ClientAPI()) {
+        self.service = service
     }
+    
+    func putEditProfile(token: String, address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void) {
+        service.putEditProfile(token: token, address: address, fullname: fullname, idcardnumber: idcardnumber) {
+            (result) in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        }
+    }
+    
+//    var editProfile = [EditProfileData]()
+//
+//
+//    func fetchEditProfile() -> [EditProfileData] {
+//        editProfile = [EditProfileData(titleData: "New Address", descData: "Jakarta Selatan", iconData: UIImage(named: "book")),
+//                       EditProfileData(titleData: "New Password", descData: "**********", iconData: UIImage(named: "password")),
+//                       EditProfileData(titleData: "Repeat Password", descData: "**********", iconData: UIImage(named: "password"))
+//        ]
+//        return editProfile
+//    }
 }

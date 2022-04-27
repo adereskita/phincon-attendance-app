@@ -14,7 +14,7 @@ import UIKit
 
 protocol EditProfileBusinessLogic
 {
-    func doSomething(request: EditProfileModel.LoadEditProfile.Request)
+    func editProfile(_ request: EditProfileModel.Put.Request)
 }
 
 protocol EditProfileDataStore
@@ -24,19 +24,29 @@ protocol EditProfileDataStore
 
 class EditProfileInteractor: EditProfileBusinessLogic, EditProfileDataStore
 {
+    
     var presenter: EditProfilePresentationLogic?
     var worker: EditProfileWorker?
-    var editProfile = [EditProfileData]()
-    //var name: String = ""
+    let userDefault = UserDefaults.standard
+    var token : String = ""
+    
     
     // MARK: Do something
-    
-    func doSomething(request: EditProfileModel.LoadEditProfile.Request)
-    {
+    func editProfile(_ request: EditProfileModel.Put.Request) {
         worker = EditProfileWorker()
-        editProfile = worker!.fetchEditProfile()
-        
-        let response = EditProfileModel.LoadEditProfile.Response(Editdata: editProfile)
-        presenter?.presentSomething(response: response)
+        token = userDefault.string(forKey: "user_token")!
+        worker?.putEditProfile(token: token, address: request.address!, fullname: request.fullname!, idcardnumber: request.idcardnumber!, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(didChange: value)
+                print("Success Edit Profile")
+            case .failure(let error):
+                print("Failed Edit Profile")
+                print(error.status, error.message)
+                
+            }
+        })
     }
+    
+    
 }

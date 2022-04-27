@@ -319,7 +319,7 @@
 		474387812CD5F74F0FD740613D83C1E2 /* Kingfisher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.debug.xcconfig; sourceTree = "<group>"; };
 		4DDDEE994FCDFFCFD66C635E017C1190 /* Recursive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Recursive.swift; path = SkeletonViewCore/Sources/Internal/Helpers/Recursive.swift; sourceTree = "<group>"; };
 		4F04C633136D075C03F80E0D5077E758 /* UIView+AssociatedObjects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+AssociatedObjects.swift"; path = "SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+AssociatedObjects.swift"; sourceTree = "<group>"; };
-		5069D199AB328CCD047E61C632CD7C32 /* SwiftKeychainWrapper */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftKeychainWrapper; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5069D199AB328CCD047E61C632CD7C32 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B5B367E8F9960115082C926232B389 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		50FF92E773B9E4D7750677283620DE0B /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/Cache/ImageCache.swift; sourceTree = "<group>"; };
 		50FF95B551F4E3FF66190C0961709F91 /* SkeletonView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkeletonView-dummy.m"; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 		59603BBB6486C78E3FC35A10C958C5C1 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/Utility/Result.swift; sourceTree = "<group>"; };
 		5A0A426A38DC8FE9CC794275A1DAC2B1 /* UIView+AppLifecycleNotifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+AppLifecycleNotifications.swift"; path = "SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+AppLifecycleNotifications.swift"; sourceTree = "<group>"; };
 		5A6293FC5C9F5865D4425D2FF5C9B79E /* UILabel+SKExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+SKExtensions.swift"; path = "SkeletonViewCore/Sources/API/UIKitExtensions/UILabel+SKExtensions.swift"; sourceTree = "<group>"; };
-		5AA61389E7B27FAD3598B1701BEF70E9 /* Pods-phincon-attendance-app */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-phincon-attendance-app"; path = Pods_phincon_attendance_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AA61389E7B27FAD3598B1701BEF70E9 /* Pods_phincon_attendance_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4C6422B0CC4F75E5F80A5D8895F922 /* Pods-phincon-attendance-appTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-phincon-attendance-appTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5C54256BEB8EC53E3C1551E31FA1DEE9 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,7 +404,7 @@
 		9C64039DA3044F224FDDA59F6EB0DF03 /* SkeletonView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkeletonView-umbrella.h"; sourceTree = "<group>"; };
 		9CE7CCA8172D88D689A835910E098775 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Views/Indicator.swift; sourceTree = "<group>"; };
 		9D159FA11885127DD6EAF68DDDFF0E13 /* TVMonogramView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TVMonogramView+Kingfisher.swift"; path = "Sources/Extensions/TVMonogramView+Kingfisher.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA730095B40BDCB884A450A44BB303C /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		A0E1E47FF8EE6B9B36F8026FBE2F40B2 /* GIFAnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFAnimatedImage.swift; path = Sources/Image/GIFAnimatedImage.swift; sourceTree = "<group>"; };
 		A12113E45480B472F0D8D7585B6901D3 /* Pods-phincon-attendance-appTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-phincon-attendance-appTests-dummy.m"; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 		BF1B9C1172ECBA361F168E6EF46C4D96 /* Pods-phincon-attendance-app-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-phincon-attendance-app-umbrella.h"; sourceTree = "<group>"; };
 		BF57BE6FEEA74558F5A4AE336024D06F /* SkeletonView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkeletonView-Info.plist"; sourceTree = "<group>"; };
 		C379ACB66C6D1349BA547ABF039387DF /* Delegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = Sources/Utility/Delegate.swift; sourceTree = "<group>"; };
-		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4329053F5D2C1F46F9B10B97996E664 /* URLRequest+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLRequest+Alamofire.swift"; path = "Source/URLRequest+Alamofire.swift"; sourceTree = "<group>"; };
 		C6548DCF19E1AFE14E46F7A177BFF674 /* Pods-phincon-attendance-app-phincon-attendance-appUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-phincon-attendance-app-phincon-attendance-appUITests-umbrella.h"; sourceTree = "<group>"; };
 		C738EE207CE80D09C3B26F762805EC2D /* Kingfisher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.release.xcconfig; sourceTree = "<group>"; };
@@ -670,7 +670,6 @@
 				7992CF116586BC6D84E6E3909B216A1B /* WKInterfaceImage+Kingfisher.swift */,
 				E2D00E0EEF78BEABAC00C4B2135B7EB0 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -741,7 +740,6 @@
 				CCE90F2853D12FC97FB2A743CDB2306F /* SwiftKeychainWrapper.h */,
 				84766BD545DC0D05871524C84A05D890 /* Support Files */,
 			);
-			name = SwiftKeychainWrapper;
 			path = SwiftKeychainWrapper;
 			sourceTree = "<group>";
 		};
@@ -811,7 +809,6 @@
 				DEC7E94673C257FDADD630898F1EF369 /* UIView+Transitions.swift */,
 				38F11788B205A401C490737F1E3F3B0A /* Support Files */,
 			);
-			name = SkeletonView;
 			path = SkeletonView;
 			sourceTree = "<group>";
 		};
@@ -819,12 +816,12 @@
 			isa = PBXGroup;
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
-				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
-				5AA61389E7B27FAD3598B1701BEF70E9 /* Pods-phincon-attendance-app */,
+				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */,
+				5AA61389E7B27FAD3598B1701BEF70E9 /* Pods_phincon_attendance_app.framework */,
 				6871E7C932286BA77D34A179DF4EC738 /* Pods-phincon-attendance-app-phincon-attendance-appUITests */,
 				44AAD15E242C903D603A391D0B36A92E /* Pods-phincon-attendance-appTests */,
 				CDC8C1E54D1F3A8B5CAC89FFFF6A3F80 /* SkeletonView */,
-				5069D199AB328CCD047E61C632CD7C32 /* SwiftKeychainWrapper */,
+				5069D199AB328CCD047E61C632CD7C32 /* SwiftKeychainWrapper.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -881,7 +878,6 @@
 				2A36E903332E5593EC23D6A2B46976BD /* Validation.swift */,
 				844D0551B0A72BF9FC319F83ADBA917E /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1063,7 +1059,7 @@
 			);
 			name = SwiftKeychainWrapper;
 			productName = SwiftKeychainWrapper;
-			productReference = 5069D199AB328CCD047E61C632CD7C32 /* SwiftKeychainWrapper */;
+			productReference = 5069D199AB328CCD047E61C632CD7C32 /* SwiftKeychainWrapper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E8022D22FAA6690B5E1C379C1BCE1491 /* Kingfisher */ = {
@@ -1081,7 +1077,7 @@
 			);
 			name = Kingfisher;
 			productName = Kingfisher;
-			productReference = C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */;
+			productReference = C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E95E2AB5DAA5AE401E25F90D75A6E1D8 /* Pods-phincon-attendance-app */ = {
@@ -1103,7 +1099,7 @@
 			);
 			name = "Pods-phincon-attendance-app";
 			productName = Pods_phincon_attendance_app;
-			productReference = 5AA61389E7B27FAD3598B1701BEF70E9 /* Pods-phincon-attendance-app */;
+			productReference = 5AA61389E7B27FAD3598B1701BEF70E9 /* Pods_phincon_attendance_app.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {

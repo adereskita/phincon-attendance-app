@@ -14,15 +14,18 @@ import UIKit
 
 enum EditProfileModel {
     
-    enum LoadEditProfile {
-        struct Request {}
-        struct Response {
-            var Editdata : [EditProfileData]
+    enum Put {
+        struct Request {
+            var fullname: String?
+            var address: String?
+            var idcardnumber: String?
         }
-        struct ViewModel{
-            var title : String?
-            var desc : String?
-            var icon : UIImage?
+        struct Response : Codable{
+            var success: LoggedIn.Success<Users>
         }
+        struct ViewModel {
+            var message: String?
+        }
+        
     }
 }

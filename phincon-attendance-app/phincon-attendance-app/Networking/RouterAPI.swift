@@ -128,7 +128,7 @@ extension RouterAPI: TargetType {
             return headerWithToken(token: token)
         case .getHistory(_, let token):
             return headerWithToken(token: token)
-        case .putEditProfile(_, _, _, let token):
+        case .putEditProfile(let token, _, _, _):
             return headerWithToken(token: token)
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,

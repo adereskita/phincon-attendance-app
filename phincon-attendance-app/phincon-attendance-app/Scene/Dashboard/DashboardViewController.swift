@@ -276,7 +276,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
 
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController, animated: false)
         } else {
             if !Connectivity.isConnectedToInternet {
                 let alert = UIAlertController(title: "Network Problem", message: "No Connection", preferredStyle: UIAlertController.Style.alert)

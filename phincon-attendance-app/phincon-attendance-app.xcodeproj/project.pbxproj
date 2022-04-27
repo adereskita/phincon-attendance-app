@@ -58,7 +58,6 @@
 		36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */; };
 		36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8627DF8126001469CC /* DashboardTableCell.swift */; };
 		36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE8727DF8126001469CC /* DashboardTableCell.xib */; };
-		36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE8B27DF8ACB001469CC /* Checkin.swift */; };
 		36F0CE9627DFAAD5001469CC /* DayFilterCollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */; };
 		36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */; };
 		36F0CE9A27DFAC56001469CC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0CE9927DFAC56001469CC /* History.swift */; };
@@ -183,7 +182,6 @@
 		36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		36F0CE8627DF8126001469CC /* DashboardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableCell.swift; sourceTree = "<group>"; };
 		36F0CE8727DF8126001469CC /* DashboardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableCell.xib; sourceTree = "<group>"; };
-		36F0CE8B27DF8ACB001469CC /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFilterCollViewCell.swift; sourceTree = "<group>"; };
 		36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFilterCollViewCell.xib; sourceTree = "<group>"; };
 		36F0CE9927DFAC56001469CC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 				E2D75EED27F41379002F88A2 /* EditProfile.swift */,
 				36DC385E27DA630600EC4164 /* Onboarding.swift */,
 				36F0CE9927DFAC56001469CC /* History.swift */,
-				36F0CE8B27DF8ACB001469CC /* Checkin.swift */,
 				3674EEE927F3714B00662D8F /* Notification.swift */,
 				360B0F8527FBCE9000CB9CEC /* ResponseServer.swift */,
 				36C584C027FEF20200442181 /* Users.swift */,
@@ -971,7 +968,6 @@
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,
 				E2D75EE427F3F79C002F88A2 /* ProfilePictureTableViewCell.swift in Sources */,
 				362D594D27E9B7FF0022C094 /* HistoryModels.swift in Sources */,
-				36F0CE8C27DF8ACB001469CC /* Checkin.swift in Sources */,
 				36EA25C627EC0F050094876E /* OnBoardingRouter.swift in Sources */,
 				36174EC128167BFC00F538B3 /* SplashScreen.swift in Sources */,
 				9595050727D9BE25005741CA /* SceneDelegate.swift in Sources */,

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HistoryWorkerProtocol: AnyObject {
-    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void)
+    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModels.FetchHistory.Response, APIError>) -> Void)
 }
 
 class HistoryWorker: HistoryWorkerProtocol {
@@ -26,7 +26,7 @@ class HistoryWorker: HistoryWorkerProtocol {
         self.service = service
     }
     
-    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModel.FetchHistory.Response, APIError>) -> Void) {
+    func getHistory(log: String, token: String, completionHandler: @escaping (Result<HistoryModels.FetchHistory.Response, APIError>) -> Void) {
         service.getHistory(log: log, token: token, completionHandler: { result in
             switch result {
             case .success(let value):

@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum HistoryModel {
+enum HistoryModels {
     
     enum FetchHistory {
         struct Request{

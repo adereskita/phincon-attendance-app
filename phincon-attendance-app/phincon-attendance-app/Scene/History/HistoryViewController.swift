@@ -14,7 +14,7 @@ import UIKit
 import SkeletonView
 
 protocol HistoryDisplayLogic: AnyObject {
-    func presenter(LoadHistory response: HistoryModel.FetchHistory.Response)
+    func presenter(LoadHistory response: HistoryModels.FetchHistory.Response)
 }
 
 class HistoryViewController: UIViewController, HistoryDisplayLogic {
@@ -115,13 +115,13 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func presenter(LoadHistory response: HistoryModel.FetchHistory.Response) {
+    func presenter(LoadHistory response: HistoryModels.FetchHistory.Response) {
         historyDataList.removeAll()
         historyDataList.append(contentsOf: response.success.result!)
     }
     
     func fetchHistoryList(logs: String) {
-        let requestFetch = HistoryModel.FetchHistory.Request(log: logs)
+        let requestFetch = HistoryModels.FetchHistory.Request(log: logs)
         interactor?.loadHistory(request: requestFetch)
     }
     

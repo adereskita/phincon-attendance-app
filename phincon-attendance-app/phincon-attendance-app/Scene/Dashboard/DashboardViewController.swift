@@ -18,7 +18,7 @@ protocol DashboardDisplayLogic: AnyObject {
     func presenter(didLoadCheckInLoc response: DashboardModels.GetLocation.Response)
     func presenter(didCheckIn response: DashboardModels.CheckLocation.Response)
     func presenter(didCheckOut response: DashboardModels.CheckLocation.Response)
-
+    func presenter(ButtonStatus response: DashboardModels.ViewModel)
     func presenter(didFailedCheck status: Int, message: String)
     func presenter(expiredLoginSession status: Int, message: String)
 }
@@ -83,6 +83,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDashboard()
+        let request = HistoryModels.FetchHistory.Request(log: "day")
+        interactor?.checkButtonStatus(request: request)
 //        let request = DashboardModels.IsLogin.Request()
 //        interactor?.checkLoginSession(request: request)
     }
@@ -101,7 +103,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     let keyChainWrapper = KeychainWrapper.standard
     
     var locationID  = ""
-    var isCheckOut: Bool = false {
+    var isCheckOut: Bool! {
         didSet {
             if isCheckOut {
                 checkInBtn.setTitle("CHECK OUT", for: .normal)
@@ -178,8 +180,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     @objc func currentTime() {
-//        df.dateFormat = "HH:mm"
-//        let hour = df.string(from: date)
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm"
         timeLabel.text = "Hour: \(formatter.string(from: Date()))"
@@ -216,6 +216,18 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     // MARK: Update from Presenter
+    func presenter(ButtonStatus response: DashboardModels.ViewModel) {
+        let activity = response.activity
+        
+        if activity == "out" || activity == nil {
+            userDefault.set(false, forKey: "isCheckOut")
+            isCheckOut = false
+        } else {
+            userDefault.set(true, forKey: "isCheckOut")
+            isCheckOut = true
+        }
+    }
+    
     func presenter(didCheckOut response: DashboardModels.CheckLocation.Response) {
         let msg = "Check-Out was successful"
         spinnerSetup(isSucces: true, message: msg)

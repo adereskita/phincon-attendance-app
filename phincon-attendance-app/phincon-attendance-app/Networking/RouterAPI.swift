@@ -18,6 +18,7 @@ enum RouterAPI {
     case checkOut(location: String, token: String)
     case getLocation(token: String)
     case getHistory(logs: String, token: String)
+    case putEditProfile(token: String, address: String, fullname: String, idcardnumber: String)
 }
 
 extension RouterAPI: TargetType {
@@ -48,6 +49,8 @@ extension RouterAPI: TargetType {
             return "/user-location"
         case .getHistory(let logs,_):
             return "/history?log=\(logs)"
+        case .putEditProfile:
+            return "/user-change-profile"
         }
     }
     
@@ -71,6 +74,8 @@ extension RouterAPI: TargetType {
             return .get
         case .getHistory:
             return .get
+        case .putEditProfile:
+            return .put
         }
     }
     
@@ -84,9 +89,9 @@ extension RouterAPI: TargetType {
             return .requestParameters(parameters: [ConstantAPI.Parameters.username: username, ConstantAPI.Parameters.password: password], encoding: JSONEncoding.default)
         case .postRegister(let username, let password, let fullname, let idnumber):
             return .requestParameters(parameters: [ConstantAPI.Parameters.username: username,
-                                                    ConstantAPI.Parameters.password: password,
-                                                    ConstantAPI.Parameters.fullname: fullname,
-                                                    ConstantAPI.Parameters.idcardnumber: idnumber],
+                                                   ConstantAPI.Parameters.password: password,
+                                                   ConstantAPI.Parameters.fullname: fullname,
+                                                   ConstantAPI.Parameters.idcardnumber: idnumber],
                                       encoding: JSONEncoding.default)
         case .getUser:
             return .requestPlain
@@ -98,7 +103,9 @@ extension RouterAPI: TargetType {
             return .requestPlain
         case .getHistory:
             return .requestPlain
-//            return .requestParameters(parameters: [ConstantAPI.Parameters.log: log], encoding: JSONEncoding.default)
+        case .putEditProfile(_, address: let address, fullname: let fullname, idcardnumber: let idcardnumber):
+            return .requestParameters(parameters: [ConstantAPI.Parameters.address: address, ConstantAPI.Parameters.fullname: fullname, ConstantAPI.Parameters.idcardnumber: idcardnumber], encoding: JSONEncoding.default)
+            //            return .requestParameters(parameters: [ConstantAPI.Parameters.log: log], encoding: JSONEncoding.default)
         }
     }
     
@@ -120,6 +127,8 @@ extension RouterAPI: TargetType {
         case .getLocation(let token):
             return headerWithToken(token: token)
         case .getHistory(_, let token):
+            return headerWithToken(token: token)
+        case .putEditProfile(let token, _, _, _):
             return headerWithToken(token: token)
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,

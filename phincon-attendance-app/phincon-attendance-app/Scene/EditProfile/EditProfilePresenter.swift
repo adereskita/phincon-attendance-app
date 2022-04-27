@@ -14,18 +14,24 @@ import UIKit
 
 protocol EditProfilePresentationLogic
 {
-  func presentSomething(response: EditProfileModel.LoadEditProfile.Response)
+    func interactor(didChange response: EditProfileModel.Put.Response)
+    func interactor(didFailedChange error: String)
 }
 
 class EditProfilePresenter: EditProfilePresentationLogic
 {
+    
   weak var viewController: EditProfileDisplayLogic?
   
   // MARK: Do something
+    func interactor(didChange response: EditProfileModel.Put.Response) {
+        let viewModel = EditProfileModel.Put.ViewModel(message: response.success.message)
+        viewController?.presenter(didChange: viewModel)
+    }
+    
+    func interactor(didFailedChange error: String) {
+        viewController?.presenter(didFailedChange: error)
+    }
+    
   
-  func presentSomething(response: EditProfileModel.LoadEditProfile.Response)
-  {
-      let response = EditProfileModel.LoadEditProfile.Response(Editdata: response.Editdata)
-    viewController?.displaySomething(viewModel: response)
-  }
 }

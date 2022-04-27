@@ -123,7 +123,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
             
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController)
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController, animated: false)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

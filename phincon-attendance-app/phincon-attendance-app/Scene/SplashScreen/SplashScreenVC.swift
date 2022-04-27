@@ -12,6 +12,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftKeychainWrapper
 
 protocol SplashScreenDisplayLogic: AnyObject {
   func presenter(displaySplashScreen response: SplashScreenModels.Fetch.Response)
@@ -62,19 +63,27 @@ class SplashScreenVC: UIViewController, SplashScreenDisplayLogic {
       
       // MARK: View lifecycle
       
+    override func viewWillAppear(_ animated: Bool) {
+        let request = SplashScreenModels.Fetch.Request()
+        interactor?.loadSplashScreen(request: request)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.splashTimeOut(sender:)), userInfo: nil, repeats: false)
         setupUI()
+//        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.splashTimeOut(sender:)), userInfo: nil, repeats: false)
     }
       
     // MARK: Do something
+    
+    let keyChainWrapper = KeychainWrapper.standard
       
     @IBOutlet weak var logoImgView: UIImageView!
       
     func setupUI() {
-        let request = SplashScreenModels.Fetch.Request()
-        interactor?.loadSplashScreen(request: request)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+            self.splashTimeOut()
+        })
     }
     
     func presenter(displaySplashScreen response: SplashScreenModels.Fetch.Response) {
@@ -82,10 +91,20 @@ class SplashScreenVC: UIViewController, SplashScreenDisplayLogic {
         logoImgView.kf.setImage(with: imgUrl)
     }
     
-    @objc func splashTimeOut(sender : Timer){
+    func splashTimeOut() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-        let navDashboard = UINavigationController(rootViewController: dashBoardVC)
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navDashboard)
+        // if user is logged in before
+        if keyChainWrapper.string(forKey: "user_token") != nil {
+            let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            let navDashboard = UINavigationController(rootViewController: dashBoardVC)
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navDashboard, animated: true)
+            
+        } else {
+            // if user isn't logged in
+            let onboardingVC = storyboard.instantiateViewController(identifier: "NavigationController")
+//            let navOnboard = UINavigationController(rootViewController: onboardingVC)
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingVC, animated: false)
+        }
     }
+        
 }

@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        if let windowScene = scene as? UIWindowScene{
 //
 //            let window = UIWindow(windowScene: windowScene)
-//            let rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateViewController(withIdentifier: "SplashScreenVC") as! SplashScreenVC
+//            let rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SplashScreenVC") as! SplashScreenVC
 //
 //            window.rootViewController = rootViewController
 //            self.window = window
@@ -37,18 +37,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // if user is logged in before
-//        if let loggedUsername = UserDefaults.standard.string(forKey: "username")
         if keyChainWrapper.string(forKey: "user_token") != nil {
-//        if UserDefaults.standard.string(forKey: "user_token") != nil {
             
-            let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-            let navDashboard = UINavigationController(rootViewController: dashBoardVC)
-            window?.rootViewController = navDashboard
+//            let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+//            let navDashboard = UINavigationController(rootViewController: dashBoardVC)
+//            window?.rootViewController = navDashboard
         } else {
             // if user isn't logged in
-//            let onboardingVC = storyboard.instantiateViewController(identifier: "OnBoardingViewController")
+//            let onboardingVC = storyboard.instantiateViewController(identifier: "NavigationController")
 //            let navOnboard = UINavigationController(rootViewController: onboardingVC)
-            
 //            window?.rootViewController = navOnboard
         }
     }
@@ -93,13 +90,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       }
     }
     
-    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+    func changeRootViewController(_ vc: UIViewController, animated: Bool) {
         guard let window = self.window else {
             return
         }
-        
         // change the root view controller to your specific view controller
         window.rootViewController = vc
+        
+        if animated {
+            window.rootViewController = vc
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: [.transitionCrossDissolve],
+                              animations: nil,
+                              completion: nil)
+        }
     }
+    
+    
 }
 

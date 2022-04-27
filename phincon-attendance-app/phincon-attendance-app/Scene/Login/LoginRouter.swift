@@ -63,7 +63,7 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
 //            userDefault.set(token, forKey: "user_token")
         }
         let navCon = UINavigationController(rootViewController: destination)
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon, animated: false)
         
     }
     func navigateToForgotPass(source: LoginViewController, destination: ForgotPasswordViewController) {

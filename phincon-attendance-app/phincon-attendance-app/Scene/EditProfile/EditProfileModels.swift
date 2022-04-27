@@ -17,8 +17,8 @@ enum EditProfileModel {
     enum Put {
         struct Request {
             var fullname: String?
-            var address: String?
             var idcardnumber: String?
+            var address: String?
         }
         struct Response : Codable{
             var success: LoggedIn.Success<Users>

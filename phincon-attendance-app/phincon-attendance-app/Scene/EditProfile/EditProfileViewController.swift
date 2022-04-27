@@ -94,14 +94,15 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        let request = EditProfileModel.Put.Request(fullname: fullnameTextField.text ?? "", address: addressTextField.text ?? "", idcardnumber: idCardTextField.text ?? "")
+        let request = EditProfileModel.Put.Request(fullname: fullnameTextField.text!, idcardnumber: idCardTextField.text!, address: addressTextField.text!)
         interactor?.editProfile(request)
+        router?.routeToProfile(segue: nil)
+       
     }
     
     func presenter(didChange viewModel: EditProfileModel.Put.ViewModel) {
-        if viewModel != nil {
+        
        print("Oke")
-    }
     }
     
     func presenter(didFailedChange message: String) {

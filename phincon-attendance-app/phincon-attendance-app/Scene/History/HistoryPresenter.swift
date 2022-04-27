@@ -13,14 +13,14 @@
 import UIKit
 
 protocol HistoryPresentationLogic {
-    func interactor(LoadHistory response: HistoryModel.FetchHistory.Response)
+    func interactor(LoadHistory response: HistoryModels.FetchHistory.Response)
 }
 
 class HistoryPresenter: HistoryPresentationLogic {
     weak var viewController: HistoryDisplayLogic?
     
     // MARK: Do something
-    func interactor(LoadHistory response: HistoryModel.FetchHistory.Response) {
+    func interactor(LoadHistory response: HistoryModels.FetchHistory.Response) {
         viewController?.presenter(LoadHistory: response)
     }
 }

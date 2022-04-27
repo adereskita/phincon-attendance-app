@@ -17,6 +17,7 @@ protocol DashboardPresentationLogic {
     func interactor(CheckOut response: DashboardModels.CheckLocation.Response)
     func interactor(CheckInList response: DashboardModels.GetLocation.Response)
     func interactor(CheckOutList response: DashboardModels.GetLocation.Response)
+    func interactor(ButtonStatus response: HistoryModels.FetchHistory.Response)
     func interactor(didFailedCheck status: Int, message: String)
     func interactor(didExpiredSession status: Int, message: String)
 }
@@ -26,6 +27,11 @@ class DashboardPresenter: DashboardPresentationLogic {
   weak var viewController: DashboardDisplayLogic?
   
   // MARK: Do something
+    func interactor(ButtonStatus response: HistoryModels.FetchHistory.Response) {
+        let viewModel = DashboardModels.ViewModel(activity: response.success.result?.first?.activity)
+        viewController?.presenter(ButtonStatus: viewModel)
+    }
+    
     func interactor(CheckOut response: DashboardModels.CheckLocation.Response) {
         viewController?.presenter(didCheckOut: response)
     }

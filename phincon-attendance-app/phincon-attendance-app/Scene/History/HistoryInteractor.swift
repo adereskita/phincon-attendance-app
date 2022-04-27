@@ -14,7 +14,7 @@ import UIKit
 import SwiftKeychainWrapper
 
 protocol HistoryBusinessLogic {
-    func loadHistory(request: HistoryModel.FetchHistory.Request)
+    func loadHistory(request: HistoryModels.FetchHistory.Request)
     func getSafariLink(_ selectedHistory: String)
 }
 
@@ -40,7 +40,7 @@ class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
         desc = selectedHistory
     }
     
-    func loadHistory(request: HistoryModel.FetchHistory.Request) {
+    func loadHistory(request: HistoryModels.FetchHistory.Request) {
         token = keyChainWrapper.string(forKey: "user_token")!
         worker.getHistory(log: request.log!, token: token, completionHandler: { result in
             switch result {

@@ -14,6 +14,7 @@ import UIKit
 import SwiftKeychainWrapper
 
 protocol DashboardBusinessLogic {
+    func checkButtonStatus(request: HistoryModels.FetchHistory.Request)
     func loadCheckInList(request: DashboardModels.GetLocation.Request)
     func loadCheckOutList(request: DashboardModels.GetLocation.Request)
     func checkLoginSession(request: DashboardModels.IsLogin.Request)
@@ -35,6 +36,19 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore {
     var token: String = ""
 
   // MARK: Do something
+    func checkButtonStatus(request: HistoryModels.FetchHistory.Request) {
+        let historyWorker = HistoryWorker()
+        token = keyChainWrapper.string(forKey: "user_token")!
+        historyWorker.getHistory(log: request.log!, token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                self.presenter?.interactor(ButtonStatus: value)
+            case .failure(let error):
+                print(error.status, error.message!)
+            }
+        })
+    }
+    
     func checkOut(request: DashboardModels.CheckLocation.Request) {
         token = keyChainWrapper.string(forKey: "user_token")!
         worker.checkOut(location: request.location!, token: token, completionHandler: { result in

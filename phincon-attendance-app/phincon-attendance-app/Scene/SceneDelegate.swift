@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let keyChainWrapper = KeychainWrapper.standard
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -18,13 +19,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+//        if let windowScene = scene as? UIWindowScene{
+//
+//            let window = UIWindow(windowScene: windowScene)
+//            let rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateViewController(withIdentifier: "SplashScreenVC") as! SplashScreenVC
+//
+//            window.rootViewController = rootViewController
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
+        
+        // MARK: Clear Keychain if the App is Fresh Installed
+        self.clearKeychainIfFreshInstall()
+        
         // MARK: Code below to give session alike.
         // if user has logged in previously, present the DashboardVC
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // if user is logged in before
 //        if let loggedUsername = UserDefaults.standard.string(forKey: "username")
-        if UserDefaults.standard.string(forKey: "user_token") != nil {
+        if keyChainWrapper.string(forKey: "user_token") != nil {
+//        if UserDefaults.standard.string(forKey: "user_token") != nil {
             
             let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
             let navDashboard = UINavigationController(rootViewController: dashBoardVC)
@@ -67,6 +82,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    
+    func clearKeychainIfFreshInstall() {
+        let freshInstall = !UserDefaults.standard.bool(forKey: "alreadyInstalled")
+        if freshInstall {
+            keyChainWrapper.removeObject(forKey: "user_token")
+            UserDefaults.standard.set(true, forKey: "alreadyInstalled")
+      }
     }
     
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {

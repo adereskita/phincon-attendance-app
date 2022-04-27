@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 @objc protocol LoginRoutingLogic {
     func routeToDashboardPage(segue: UIStoryboardSegue?)
@@ -27,6 +28,7 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     weak var viewController: LoginViewController?
     var dataStore: LoginDataStore?
     let userDefault = UserDefaults.standard
+    let keyChainWrapper = KeychainWrapper.standard
     
     // MARK: Routing
     
@@ -57,7 +59,8 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     func navigateToDashboard(source: LoginViewController, destination: UITabBarController) {
         if let token = dataStore?.token {
-            userDefault.set(token, forKey: "user_token")      
+            keyChainWrapper.set(token, forKey: "user_token")
+//            userDefault.set(token, forKey: "user_token")
         }
         let navCon = UINavigationController(rootViewController: destination)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon)

@@ -11,6 +11,8 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+
 protocol ProfilDisplayLogic: AnyObject {
     func presenter(getProfile response: ProfilModels.LoadProfil.Response)
     func presenter(getProfileBio response: ProfilModels.LoadProfil.Response)
@@ -71,8 +73,9 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     }
     
     // MARK: Do something
-    let userDefault = UserDefaults.standard
-    
+//    let userDefault = UserDefaults.standard
+    let keyChainWrapper = KeychainWrapper.standard
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton : UIButton!
     
@@ -116,7 +119,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
             self.router?.routeToEditProfilePage(segue: nil)
         }
         let logoutUser = UIAlertAction(title: "Logout", style: .destructive) { (action: UIAlertAction) in
-            self.userDefault.set(nil, forKey: "user_token")
+            self.keyChainWrapper.removeObject(forKey: "user_token")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
             

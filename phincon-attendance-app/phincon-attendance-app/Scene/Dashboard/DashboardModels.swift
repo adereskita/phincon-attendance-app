@@ -36,6 +36,10 @@ enum DashboardModels {
             let success: LoggedIn.Success<[Location]> // user [ ] since the data api is array
         }
     }
+    
+    struct ViewModel {
+        var activity: String?
+    }
 //    enum LoadCheckInOut {
 //        struct Request {}
 //        struct Response {

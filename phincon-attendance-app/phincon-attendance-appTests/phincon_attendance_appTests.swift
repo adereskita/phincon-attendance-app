@@ -6,28 +6,51 @@
 //
 
 import XCTest
+import SwiftKeychainWrapper
 @testable import phincon_attendance_app
 
 class phincon_attendance_appTests: XCTestCase {
+    
+    var loginWorker: LoginWorker = LoginWorker()
+    var dashboardWorker: DashboardWorker = DashboardWorker()
+    
+    let keyChainWrapper = KeychainWrapper.standard
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testLoginApiResponse() throws {
+        let e = expectation(description: "Login Function")
+        let username = "2000000011-XXX"
+        let password = "password"
+        
+        loginWorker.postLogin(username: username, password: password, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                XCTAssertNotNil(value)
+                XCTAssertEqual(200, value.success.status!)
+            case .failure(let error):
+                print(error)
+                XCTAssertNil(error)
+            }
+            e.fulfill()
+        })
+        wait(for: [e], timeout: 5.0)
     }
+    
+    func testUserSession() throws {
+        let e = expectation(description: "User Session")
+        let token = keyChainWrapper.string(forKey: "user_token")!
+        print(token)
+        XCTAssertNotNil(token)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        dashboardWorker.loginSession(token: token, completionHandler: { result in
+            switch result {
+            case .success(let value):
+                XCTAssertNotNil(value)
+            case .failure(let error):
+                print(error)
+                XCTAssertNil(error)
+            }
+            e.fulfill()
+        })
+        wait(for: [e], timeout: 5.0)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

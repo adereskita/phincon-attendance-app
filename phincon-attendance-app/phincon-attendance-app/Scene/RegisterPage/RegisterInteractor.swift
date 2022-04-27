@@ -36,10 +36,9 @@ class RegisterInteractor: RegisterBusinessLogic, RegisterDataStore {
                 var response: RegisterModels.Post.Response?
 
                 //business logic here if any
-                if value != nil {
-                    print(value.success)
-                    response = RegisterModels.Post.Response(success: value.success)
-                }
+                print(value.success)
+                response = RegisterModels.Post.Response(success: value.success)
+                
                 if let respons = response {
                     self.presenter?.interactor(didSuccessRegister: respons)
                 }

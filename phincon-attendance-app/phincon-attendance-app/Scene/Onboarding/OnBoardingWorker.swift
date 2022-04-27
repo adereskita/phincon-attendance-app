@@ -12,18 +12,28 @@
 
 import UIKit
 
-class OnBoardingWorker {
+protocol OnBoardingWorkerProtocol: AnyObject {
+    func getOnboarding(completionHandler: @escaping (Result<OnBoardingModels.FetchOnBoarding.Response, APIError>) -> Void)
+}
+
+class OnBoardingWorker: OnBoardingWorkerProtocol {
     
-    var onboardSlide = [Onboarding]()
+    // MARK: - Private Properties
+    private var service: ClientAPIOnboardingProtocol
     
-    func fetchOnBoard() -> [Onboarding]{
-        
-        onboardSlide = [
-            Onboarding(title: "DIGITAL ABSENSI",
-                            description: "Kehadiran sistem absensi digital merupakan penemuan yang mampu menggantikan pencatatan data kehadiran secara manual", image: #imageLiteral(resourceName: "onboard-page1")),
-            Onboarding(title: "ATTENDANCE SYSTEM", description: "Pengelolaan karyawan di era digital yang baik, menghasilkan karyawan terbaik pula, salah satunya absensi karyawan", image: #imageLiteral(resourceName: "onboard-page2")),
-            Onboarding(title: "SELALU PAKAI MASKER", description: "Guna mencegah penyebaran virus Covid-19, Pemerintah telah mengeluarkan kebijakan Physical Distancing serta kebijakan bekerja, belajar, dan beribadah dari rumah.", image: #imageLiteral(resourceName: "onboard-page3"))
-        ]
-        return onboardSlide
-  }
+    // MARK: - Init
+    init(_ service: ClientAPIOnboardingProtocol = ClientAPI()) {
+        self.service = service
+    }
+    
+    func getOnboarding(completionHandler: @escaping (Result<OnBoardingModels.FetchOnBoarding.Response, APIError>) -> Void) {
+        service.getOnboarding(completionHandler: { result in
+            switch result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(APIError(status: error.status, message: error.message)))
+            }
+        })
+    }
 }

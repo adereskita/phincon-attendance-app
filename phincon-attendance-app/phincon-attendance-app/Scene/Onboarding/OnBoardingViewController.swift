@@ -11,13 +11,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol OnBoardingDisplayLogic: AnyObject {
-//    func displayOnboarding(viewModel: OnBoardingModels.Something.ViewModel)
-    func displayOnboarding(OnboardingData: OnBoardingModels.LoadOnboarding.Response)
+    func presenter(displayOnboard response: OnBoardingModels.FetchOnBoarding.Response)
 }
 
 class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
+    
     var interactor: OnBoardingBusinessLogic?
     var router: (NSObjectProtocol & OnBoardingRoutingLogic & OnBoardingDataPassing)?
 
@@ -75,14 +76,22 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
   
   // MARK: Do something
     
-    var onboardSlide: [Onboarding] = []
-    var currentPage = 0 {
+    var onboardSlide: [Onboarding] = [Onboarding]() {
+        didSet{
+            self.collView.reloadData()
+        }
+    }
+    
+    var currentPage: Int! {
         didSet {
-            if currentPage == 0 {
-                imgViewOnboard.setImage(#imageLiteral(resourceName: "onboard-page1"), animated: true)
-            } else {
-                imgViewOnboard.setImage(onboardSlide[currentPage].image, animated: true)
+            let modifier = AnyModifier { request in
+                var r = request
+                r.setValue(ConstantAPI.Server.apiKey, forHTTPHeaderField: ConstantAPI.HttpHeaderField.apikey.rawValue)
+                return r
             }
+            let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/\(onboardSlide[currentPage].image!)")
+            self.imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
+            imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
         }
     }
   
@@ -94,12 +103,13 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     @IBOutlet var btnSignup: UIButton!
     @IBOutlet var btnSkip: UIButton!
     
+//    var imgID: String?
     let userDefault = UserDefaults.standard
     
     func setOnboarding() {
+        let request = OnBoardingModels.FetchOnBoarding.Request()
+        interactor?.loadOnboard(request: request)
         SetupUI()
-        let request = OnBoardingModels.LoadOnboarding.Request()
-        interactor?.getOnboardingData(request: request)
     }
     
     func SetupUI() {
@@ -118,11 +128,17 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
         self.collView.register(OnboardingCollectionViewCell.nib(), forCellWithReuseIdentifier: OnboardingCollectionViewCell.identifier)
         collView.delegate = self
         collView.dataSource = self
-        currentPage = 0
+    }
+    
+    func presenter(displayOnboard response: OnBoardingModels.FetchOnBoarding.Response) {
+        if let onboard = response.success.result {
+            onboardSlide.append(contentsOf: onboard)
+            currentPage = 0
+        }
     }
     
     @IBAction func onClickbBtnSkip(_ sender: Any?) {
-        currentPage = 2
+        currentPage = onboardSlide.count - 1
         pageControl.currentPage = currentPage
         var frame: CGRect = self.collView.frame
         frame.origin.x = frame.size.width * CGFloat(currentPage ?? 0)
@@ -147,10 +163,6 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     @IBAction func signUpAction(_ sender: Any?) {
         userDefault.setValue(false, forKey: "isLogin")
         router?.routeToSignUp(segue: nil)
-    }
-  
-    func displayOnboarding(OnboardingData: OnBoardingModels.LoadOnboarding.Response) {
-        onboardSlide = OnboardingData.OnboardingData
     }
 }
 

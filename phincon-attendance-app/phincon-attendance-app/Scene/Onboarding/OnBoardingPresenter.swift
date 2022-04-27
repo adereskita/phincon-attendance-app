@@ -13,19 +13,16 @@
 import UIKit
 
 protocol OnBoardingPresentationLogic {
-    func presentOnboardingData(response: OnBoardingModels.LoadOnboarding.Response)
+    func interactor(displayOnboard response: OnBoardingModels.FetchOnBoarding.Response)
 }
 
 class OnBoardingPresenter: OnBoardingPresentationLogic {
+    
     weak var viewController: OnBoardingDisplayLogic?
   
   // MARK: Do something
-  
-    func presentOnboardingData(response: OnBoardingModels.LoadOnboarding.Response) {
-//        let viewModel = OnBoardingModels.Something.ViewModel()
-        let response = OnBoardingModels.LoadOnboarding.Response(OnboardingData: response.OnboardingData)
-        viewController?.displayOnboarding(OnboardingData: response)
-        
-//        viewController?.displayOnboarding(viewModel: viewModel)
+    
+    func interactor(displayOnboard response: OnBoardingModels.FetchOnBoarding.Response) {
+        viewController?.presenter(displayOnboard: response)
     }
 }

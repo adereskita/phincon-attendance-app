@@ -21,6 +21,13 @@ struct Success: Codable {
     var status: Int?
     var message, token: String?
 }
+enum GenericSuccess {
+    struct Success<T: Codable>: Codable {
+        var status: Int?
+        var message: String?
+        var result: T?
+    }
+}
 enum LoggedIn {
     struct Success<T: Codable>: Codable {
         var status: Int?

@@ -37,13 +37,12 @@ extension LoginInteractor: LoginBusinessLogic {
             switch result {
             case .success(let value):
                 var respons: LoginModels.Post.Response?
-
+                
                 //business logic here if any
-                if value != nil {
-                    print(value.success)
-                    respons = LoginModels.Post.Response(success: value.success)
-                    self.token = value.success.token!
-                }
+                print(value.success)
+                respons = LoginModels.Post.Response(success: value.success)
+                self.token = value.success.token!
+                
                 if let respon = respons {
                     self.presenter?.interactor(didSuccessLogin: respon)
                 }

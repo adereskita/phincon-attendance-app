@@ -27,24 +27,19 @@ class EditProfileInteractor: EditProfileBusinessLogic, EditProfileDataStore
     
     var presenter: EditProfilePresentationLogic?
     var worker: EditProfileWorker?
-   
+    let userDefault = UserDefaults.standard
+    var token : String = ""
+    
     
     // MARK: Do something
     func editProfile(_ request: EditProfileModel.Put.Request) {
         worker = EditProfileWorker()
-        worker?.putEditProfile(address: request.address!, fullname: request.fullname!, idcardnumber: request.idcardnumber!, completionHandler: { (result) in
+        token = userDefault.string(forKey: "user_token")!
+        worker?.putEditProfile(token: token, address: request.address!, fullname: request.fullname!, idcardnumber: request.idcardnumber!, completionHandler: { result in
             switch result {
             case .success(let value):
-                var response: EditProfileModel.Put.Response?
-                
-                if value != nil {
-                    print(value.success)
-                    response = EditProfileModel.Put.Response(success: value.success)
-                }
-                if let respons = response {
-                    self.presenter?.interactor(didChange: respons)
-                    print("Success Edit Profile")
-                }
+                self.presenter?.interactor(didChange: value)
+                print("Success Edit Profile")
             case .failure(let error):
                 print("Failed Edit Profile")
                 print(error.status, error.message)

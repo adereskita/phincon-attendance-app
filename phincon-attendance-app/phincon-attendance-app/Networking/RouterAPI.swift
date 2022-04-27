@@ -16,7 +16,7 @@ enum RouterAPI {
     case checkOut(location: String, token: String)
     case getLocation(token: String)
     case getHistory(logs: String, token: String)
-    case putEditProfile(address: String, fullname: String, idcardnumber: String)
+    case putEditProfile(token: String, address: String, fullname: String, idcardnumber: String)
 }
 
 extension RouterAPI: TargetType {
@@ -89,7 +89,7 @@ extension RouterAPI: TargetType {
             return .requestPlain
         case .getHistory:
             return .requestPlain
-        case .putEditProfile(address: let address, fullname: let fullname, idcardnumber: let idcardnumber):
+        case .putEditProfile(_, address: let address, fullname: let fullname, idcardnumber: let idcardnumber):
             return .requestParameters(parameters: [ConstantAPI.Parameters.address: address, ConstantAPI.Parameters.fullname: fullname, ConstantAPI.Parameters.idcardnumber: idcardnumber], encoding: JSONEncoding.default)
             //            return .requestParameters(parameters: [ConstantAPI.Parameters.log: log], encoding: JSONEncoding.default)
         }
@@ -113,6 +113,8 @@ extension RouterAPI: TargetType {
         case .getLocation(let token):
             return headerWithToken(token: token)
         case .getHistory(_, let token):
+            return headerWithToken(token: token)
+        case .putEditProfile(_, _, _, let token):
             return headerWithToken(token: token)
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,

@@ -10,7 +10,7 @@ import Foundation
 protocol ClientAPIProtocol {
     func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, APIError>) -> Void)
     func postRegister(username: String, fullname: String, password: String, idnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void)
-    func putEditProfile(address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void)
+    func putEditProfile(token: String, address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void)
     //    func postLogin(username: String, password: String, completionHandler: @escaping (Result<[LoginModels.Post.Success], NSError>) -> Void)
 }
 
@@ -29,8 +29,8 @@ protocol ClientAPIProfileProtocol {
     func getProfile(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void)
 }
 class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
-    func putEditProfile(address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void) {
-        self.fetchData(target: .putEditProfile(address: address, fullname: fullname, idcardnumber: idcardnumber), responseClass: EditProfileModel.Put.Response.self, completionHandler: { result in
+    func putEditProfile(token: String, address: String, fullname: String, idcardnumber: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void) {
+        self.fetchData(target: .putEditProfile(token: token, address: address, fullname: fullname, idcardnumber: idcardnumber), responseClass: EditProfileModel.Put.Response.self, completionHandler: { result in
             completionHandler(result)
         })
     }

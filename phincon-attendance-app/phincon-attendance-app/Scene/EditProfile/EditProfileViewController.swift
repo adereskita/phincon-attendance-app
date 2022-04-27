@@ -98,9 +98,10 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
         interactor?.editProfile(request)
     }
     
-    func presenter(didChange response: EditProfileModel.Put.ViewModel) {
+    func presenter(didChange viewModel: EditProfileModel.Put.ViewModel) {
+        if viewModel != nil {
        print("Oke")
-        
+    }
     }
     
     func presenter(didFailedChange message: String) {

@@ -67,6 +67,11 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     
     // MARK: View lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -93,19 +98,31 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
 
     }
     
+    func setupAlert(isSuccess: Bool, error message: String?) {
+        if isSuccess {
+            let alert = UIAlertController(title: "Profile Updated", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Failed Edit Profile", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func saveButton(_ sender: Any) {
         let request = EditProfileModel.Put.Request(fullname: fullnameTextField.text!, idcardnumber: idCardTextField.text!, address: addressTextField.text!)
         interactor?.editProfile(request)
-        router?.routeToProfile(segue: nil)
        
     }
     
     func presenter(didChange viewModel: EditProfileModel.Put.ViewModel) {
-        
+        setupAlert(isSuccess: true, error: "")
        print("Oke")
     }
     
     func presenter(didFailedChange message: String) {
+        setupAlert(isSuccess: false, error: message)
         print("Failed to update profile")
     }
     

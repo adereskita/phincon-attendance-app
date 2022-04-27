@@ -23,6 +23,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     var interactor: ProfilBusinessLogic?
     var router: (NSObjectProtocol & ProfilRoutingLogic & ProfilDataPassing)?
     
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -65,11 +66,16 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     }
     
     // MARK: View lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController!.setNavigationBarHidden(true, animated: false)
+        getProfile.removeAll()
+        getProfileBio.removeAll()
+        fetchProfileData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchProfileData()
-        
     }
     
     // MARK: Do something
@@ -90,6 +96,7 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
             self.tableView.reloadData()
         }
     }
+    
     func setupProfil(){
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
         tableView.register(ProfilePictureTableViewCell.nib(), forCellReuseIdentifier: ProfilePictureTableViewCell.identifier)

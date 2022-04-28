@@ -62,15 +62,13 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
           return .lightContent
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.filterCollView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
-        fetchHistoryList(logs: historyFilter.first!)
-    }
-    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.filterCollView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
+        logsFilter = historyFilter.first!
+        fetchHistoryList(logs: logsFilter)
     }
   
     // MARK: Do something
@@ -88,6 +86,7 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         }
     }
     var historyFilter: [String] = []
+    var logsFilter: String!
   
     @IBOutlet var cardView: UIView!
     @IBOutlet var filterCollView: UICollectionView!
@@ -130,8 +129,8 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     }
     
     @objc func didPullToRefresh() {
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.historyTableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.fetchHistoryList(logs: self.logsFilter.lowercased())
             self.historyTableView.refreshControl?.endRefreshing()
         }
     }
@@ -185,12 +184,16 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let logsDay = historyFilter[indexPath.row]
         if indexPath.row == 0 {
+            logsFilter = logsDay
             fetchHistoryList(logs: logsDay.lowercased())
         } else if indexPath.row == 1 {
+            logsFilter = logsDay
             fetchHistoryList(logs: logsDay.lowercased())
         } else if indexPath.row == 2 {
+            logsFilter = logsDay
             fetchHistoryList(logs: logsDay.lowercased())
         } else {
+            logsFilter = logsDay
             fetchHistoryList(logs: logsDay)
         }
     }

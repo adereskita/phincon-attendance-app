@@ -34,7 +34,6 @@ class ProfilePictureTableViewCell: UITableViewCell {
     }
     
     func setupprofileImage(with model : Users) {
-        profilePicture.image = UIImage(named: model.image!)
         nameLabel.text = model.fullname
         roleLabel.text = model.username
         
@@ -43,7 +42,19 @@ class ProfilePictureTableViewCell: UITableViewCell {
         cardView.layer.shadowRadius = 12
         cardView.layer.shadowOpacity = 0.5
         cardView.layer.shadowOffset = CGSize.zero
+        
+        nameLabel.isSkeletonable = true
+        profilePicture.isSkeletonable = true
+        roleLabel.isSkeletonable = true
+
+        nameLabel.showAnimatedSkeleton()
+        profilePicture.showAnimatedSkeleton()
+        roleLabel.showAnimatedSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.profilePicture.image = UIImage(named: model.image!)
+            self.nameLabel.hideSkeleton()
+            self.roleLabel.hideSkeleton()
+            self.profilePicture.hideSkeleton()
+        })
     }
-    
-    
 }

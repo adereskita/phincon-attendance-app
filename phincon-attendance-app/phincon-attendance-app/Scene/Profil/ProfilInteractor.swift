@@ -40,7 +40,6 @@ class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
             switch result {
             case .success(let value):
                 self.presenter?.interactor(loadProfile: value) //<<< harus lakukan ini biar update data ke VC
-                print("success profile")
             case .failure(let error):
                 print(error.status, error.message!)
             }
@@ -53,7 +52,6 @@ class ProfilInteractor: ProfilBusinessLogic, ProfilDataStore {
             switch result {
             case .success(let value):
                 self.presenter?.interactor(loadProfileBio: value) //<<< harus lakukan ini biar update data ke VC
-                print("success profile bio")
             case .failure(let error):
                 print(error.status, error.message!)
             }

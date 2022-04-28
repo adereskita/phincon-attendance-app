@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ProfilTableViewCell: UITableViewCell {
     
@@ -19,7 +20,6 @@ class ProfilTableViewCell: UITableViewCell {
     
     static let identifier = "ProfilTableViewCell"
     
-    
     static func nib() -> UINib {
         return UINib(nibName: "ProfilTableViewCell", bundle: nil)
     }
@@ -27,8 +27,8 @@ class ProfilTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-
+        label = ["No. Karyawan", "Alamat", "Change Password"]
+        picture = ["id_card", "book", "password"]
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,8 +37,6 @@ class ProfilTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setupProfilView(with model: Users){
-        label = ["Id Number", "Address", "Change Password"]
-        picture = ["id_card", "book", "password"]
         titleLabel.text = label[0]
         descLabel.text = String(describing: model.idcardnumber!)
         icon.image = UIImage(named: picture[0])!.withRenderingMode(.alwaysTemplate)
@@ -50,10 +48,14 @@ class ProfilTableViewCell: UITableViewCell {
         view1.layer.shadowOffset = CGSize.zero
         view1.layer.shadowOpacity = 0.2
         
+        descLabel.isSkeletonable = true
+        
+        descLabel.showAnimatedSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.descLabel.hideSkeleton()
+        })
     }
     func setupAddress(with model: Users) {
-        label = ["Id Number", "Address", "Change Password"]
-        picture = ["id_card", "book", "password"]
         titleLabel.text = label[1]
         descLabel.text = model.address
         icon.image = UIImage(named: picture[1])!.withRenderingMode(.alwaysTemplate)
@@ -65,10 +67,14 @@ class ProfilTableViewCell: UITableViewCell {
         view1.layer.shadowOffset = CGSize.zero
         view1.layer.shadowOpacity = 0.2
         
+        descLabel.isSkeletonable = true
+        
+        descLabel.showAnimatedSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.descLabel.hideSkeleton()
+        })
     }
     func setupPassword(with model: Users) {
-        label = ["Id Number", "Address", "Change Password"]
-        picture = ["id_card", "book", "password"]
         titleLabel.text = label[2]
         descLabel.text = "**********"
         icon.image = UIImage(named: picture[2])!.withRenderingMode(.alwaysTemplate)
@@ -80,5 +86,11 @@ class ProfilTableViewCell: UITableViewCell {
         view1.layer.shadowOffset = CGSize.zero
         view1.layer.shadowOpacity = 0.2
         
+        descLabel.isSkeletonable = true
+        
+        descLabel.showAnimatedSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.descLabel.hideSkeleton()
+        })
     }
 }

@@ -69,13 +69,12 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.setNavigationBarHidden(true, animated: false)
-        getProfile.removeAll()
-        getProfileBio.removeAll()
-        fetchProfileData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupProfil()
+        fetchProfileData()
     }
     
     // MARK: Do something
@@ -104,21 +103,34 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 72
         tableView.layer.cornerRadius = 18
+        
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
     
     func fetchProfileData() {
         let request = ProfilModels.LoadProfil.Request()
         interactor?.loadProfile(request: request)
         interactor?.loadProfileBio(request: request)
-        setupProfil()
     }
     
     func presenter(getProfile response: ProfilModels.LoadProfil.Response) {
+        self.getProfile.removeAll()
         getProfile.append(_ : response.success.result!)
     }
+    
     func presenter(getProfileBio response: ProfilModels.LoadProfil.Response) {
+        self.getProfileBio.removeAll()
         getProfileBio.append(_ : response.success.result!)
     }
+    
+    @objc func didPullToRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.fetchProfileData()
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
     @IBAction func profileMenu(_ sender:Any) {
         let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         

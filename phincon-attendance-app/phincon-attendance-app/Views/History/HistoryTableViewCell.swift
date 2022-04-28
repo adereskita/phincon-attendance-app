@@ -40,7 +40,6 @@ class HistoryTableViewCell: UITableViewCell {
     
     func setHistoryView(with model: History) {
         descLbl.text = model.locationAddress
-        imgView.image = UIImage(named: model.locationImage!)
         
         cardView.layer.cornerRadius = 10
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
@@ -56,7 +55,6 @@ class HistoryTableViewCell: UITableViewCell {
         df.pmSymbol = "PM"
         let date = df.string(from: dates)
         
-        titleLbl.text = "Check " + model.activity!.capitalized + " - " + model.locationName! + " - " + date
         
         titleLbl.isSkeletonable = true
         descLbl.isSkeletonable = true
@@ -68,6 +66,9 @@ class HistoryTableViewCell: UITableViewCell {
         descLbl.showAnimatedSkeleton()
         imgView.showAnimatedSkeleton()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.titleLbl.text = "Check " + model.activity!.capitalized + " - " + model.locationName! + " - " + date
+            self.imgView.image = UIImage(named: model.locationImage!)
+            
             self.titleLbl.hideSkeleton()
             self.descLbl.hideSkeleton()
             self.imgView.hideSkeleton()

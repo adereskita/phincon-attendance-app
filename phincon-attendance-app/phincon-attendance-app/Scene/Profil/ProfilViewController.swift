@@ -77,35 +77,46 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         fetchProfileData()
     }
     
+    override func loadView() {
+        super.loadView()
+        setupViewNib()
+    }
+    
     // MARK: Do something
 //    let userDefault = UserDefaults.standard
     let keyChainWrapper = KeychainWrapper.standard
+    weak var profileView: ProfileView!
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var editButton : UIButton!
-    
     var getProfile: [Users] = [Users]() {
         didSet {
-            self.tableView.reloadData()
+            self.profileView.tableView.reloadData()
         }
     }
     
     var getProfileBio: [Users] = [Users]() {
         didSet {
-            self.tableView.reloadData()
+            self.profileView.tableView.reloadData()
         }
     }
     
-    func setupProfil(){
-        tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
-        tableView.register(ProfilePictureTableViewCell.nib(), forCellReuseIdentifier: ProfilePictureTableViewCell.identifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = 72
-        tableView.layer.cornerRadius = 18
+    func setupViewNib() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
         
-        tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        let profileViews = ProfileView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = profileViews
+//        self.view.addview(dashboardViews)
+        profileViews.delegate = self
+        self.profileView = profileViews
+    }
+    
+    func setupProfil(){
+        profileView.tableView.delegate = self
+        profileView.tableView.dataSource = self
+        
+        profileView.tableView.refreshControl = UIRefreshControl()
+        profileView.tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
     
     func fetchProfileData() {
@@ -127,32 +138,9 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
     @objc func didPullToRefresh() {
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             self.fetchProfileData()
-            self.tableView.refreshControl?.endRefreshing()
+            self.profileView.tableView.refreshControl?.endRefreshing()
         }
     }
-    
-    @IBAction func profileMenu(_ sender:Any) {
-        let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        
-        let editProfile = UIAlertAction(title: "Edit Profile", style: .default) { (action: UIAlertAction) in
-            self.router?.routeToEditProfilePage(segue: nil)
-        }
-        let logoutUser = UIAlertAction(title: "Logout", style: .destructive) { (action: UIAlertAction) in
-            self.keyChainWrapper.removeObject(forKey: "user_token")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
-            
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController, animated: false)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        menuAlert.addAction(editProfile)
-        menuAlert.addAction(logoutUser)
-        menuAlert.addAction(cancelAction)
-        self.present(menuAlert, animated: true, completion: nil)
-    }
-    
 }
 extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -198,4 +186,26 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+
+extension ProfilViewController: ProfileButtonDelegate {
+    func didTapMenu() {
+        let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let editProfile = UIAlertAction(title: "Edit Profile", style: .default) { (action: UIAlertAction) in
+            self.router?.routeToEditProfilePage(segue: nil)
+        }
+        let logoutUser = UIAlertAction(title: "Logout", style: .destructive) { (action: UIAlertAction) in
+            self.keyChainWrapper.removeObject(forKey: "user_token")
+            self.router?.routeToLogoutUser(segue: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        menuAlert.addAction(editProfile)
+        menuAlert.addAction(logoutUser)
+        menuAlert.addAction(cancelAction)
+        self.present(menuAlert, animated: true, completion: nil)
+    }
 }

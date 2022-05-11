@@ -16,7 +16,7 @@ protocol ButtonTapDelegate: AnyObject {
 
 class LoginView: UIView {
     
-    weak var delegate: ButtonTapDelegate?
+    weak var delegate: ButtonTapDelegate!
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -44,18 +44,18 @@ class LoginView: UIView {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        delegate?.didTapLoginButton(loginView: self)
+        delegate.didTapLoginButton(loginView: self)
     }
     
     @IBAction func forgotPassButton(_ sender: Any) {
-        delegate?.didTapForgotPassButton()
+        delegate.didTapForgotPassButton()
     }
     @IBAction func registerButton(_ sender: Any){
-        delegate?.didTapRegisterButton()
+        delegate.didTapRegisterButton()
     }
     
     @IBAction func backButton(_ sender: Any) {
-        delegate?.didTapBackButton()
+        delegate.didTapBackButton()
     }
     
     func setupUI() {

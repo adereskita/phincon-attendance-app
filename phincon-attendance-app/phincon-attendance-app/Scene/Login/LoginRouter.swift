@@ -34,10 +34,10 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     func routeToDashboardPage(segue: UIStoryboardSegue?) {
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-//        dashBoardVC.modalPresentationStyle = .fullScreen
-        navigateToDashboard(source: viewController!, destination: dashBoardVC)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        let tabbarVC = TabBarViewController()
+        navigateToDashboard(source: viewController!, destination: tabbarVC)
         //    passDataToDashboard(source: dataStore!, destination: &destinationDS)
     }
     func routeToForgotPassword(segue: UIStoryboardSegue?) {

@@ -139,7 +139,7 @@
         <!--Home-->
         <scene sceneID="smI-JX-MCe">
             <objects>
-                <viewController storyboardIdentifier="DashboardVC" id="OR4-wY-7qz" customClass="DashboardViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardVC" id="OR4-wY-7qz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eam-5I-TDZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +329,7 @@
         <!--History-->
         <scene sceneID="XJJ-a6-S6v">
             <objects>
-                <viewController id="aVg-U7-QKs" customClass="HistoryViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aVg-U7-QKs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hng-HX-E5D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -440,6 +440,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hUG-Px-e98">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UuU-XQ-GjV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="OKp-aL-HQz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xE9-gQ-BNn">
@@ -454,25 +455,8 @@
                         <segue destination="PZ5-PI-xTu" kind="relationship" relationship="viewControllers" id="MUn-2z-8UT"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UuU-XQ-GjV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3963.7681159420295" y="593.30357142857144"/>
-        </scene>
-        <!--Login View Controller-->
-        <scene sceneID="kbr-M9-g9O">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ny-t7-kHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="LoginViewController" id="MHL-90-eCy" customClass="LoginViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W9G-Ro-heH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="7PP-Go-r2N"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="scw-Yi-nto"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="2318.840579710145" y="1589.7321428571429"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="mqP-t9-5IP">
@@ -903,7 +887,7 @@
         <!--Profile-->
         <scene sceneID="3pG-2a-Eci">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="PZ5-PI-xTu" customClass="ProfilViewController" customModule="phincon_attendance_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="PZ5-PI-xTu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SEg-4p-hB2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

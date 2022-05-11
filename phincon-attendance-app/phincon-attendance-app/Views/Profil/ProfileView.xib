@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="phincon_attendance_app" customModuleProvider="target">
+            <connections>
+                <outlet property="editButton" destination="77s-nd-UBa" id="32h-CA-9cJ"/>
+                <outlet property="tableView" destination="a5X-5B-Zck" id="LMq-zc-5Ua"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Obg-e8-nKJ">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EH-lN-HBK">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="298"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5h-pD-GOa">
+                            <rect key="frame" x="32" y="76" width="60.5" height="44"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77s-nd-UBa">
+                            <rect key="frame" x="338" y="76" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="77s-nd-UBa" secondAttribute="height" multiplier="1:1" id="bPy-h6-g2B"/>
+                                <constraint firstAttribute="height" constant="44" id="x6r-Wo-X64"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="image" image="line.horizontal.3" catalog="system" symbolScale="large"/>
+                            </state>
+                            <connections>
+                                <action selector="profileMenu:" destination="-1" eventType="touchUpInside" id="BeD-Fl-9Ca"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.15316852929999999" green="0.36964827779999998" blue="0.80788463349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="77s-nd-UBa" secondAttribute="trailing" constant="32" id="Ydp-Pd-bY7"/>
+                        <constraint firstItem="g5h-pD-GOa" firstAttribute="centerY" secondItem="77s-nd-UBa" secondAttribute="centerY" id="c7f-Il-SZA"/>
+                        <constraint firstAttribute="width" secondItem="6EH-lN-HBK" secondAttribute="height" multiplier="207:149" id="ggM-iz-1IG"/>
+                        <constraint firstItem="g5h-pD-GOa" firstAttribute="leading" secondItem="6EH-lN-HBK" secondAttribute="leading" constant="32" id="tne-6s-wZU"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a5X-5B-Zck">
+                    <rect key="frame" x="24" y="144" width="366" height="688"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="jgN-Kn-Okf"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="6EH-lN-HBK" firstAttribute="leading" secondItem="jgN-Kn-Okf" secondAttribute="leading" id="1Q1-dU-i0v"/>
+                <constraint firstItem="a5X-5B-Zck" firstAttribute="top" secondItem="g5h-pD-GOa" secondAttribute="bottom" constant="24" id="49e-W2-68f"/>
+                <constraint firstItem="a5X-5B-Zck" firstAttribute="leading" secondItem="jgN-Kn-Okf" secondAttribute="leading" constant="24" id="4x5-fE-NuW"/>
+                <constraint firstItem="g5h-pD-GOa" firstAttribute="top" secondItem="jgN-Kn-Okf" secondAttribute="top" constant="32" id="AgN-TD-Q5X"/>
+                <constraint firstItem="6EH-lN-HBK" firstAttribute="trailing" secondItem="jgN-Kn-Okf" secondAttribute="trailing" id="OY8-MR-YuR"/>
+                <constraint firstItem="jgN-Kn-Okf" firstAttribute="bottom" secondItem="a5X-5B-Zck" secondAttribute="bottom" constant="30" id="QUP-mu-N9U"/>
+                <constraint firstItem="77s-nd-UBa" firstAttribute="top" secondItem="jgN-Kn-Okf" secondAttribute="top" constant="32" id="gaV-jW-VkU"/>
+                <constraint firstItem="6EH-lN-HBK" firstAttribute="top" secondItem="Obg-e8-nKJ" secondAttribute="top" id="gld-hj-0Xq"/>
+                <constraint firstItem="a5X-5B-Zck" firstAttribute="centerX" secondItem="6EH-lN-HBK" secondAttribute="centerX" id="oBY-ca-Uaw"/>
+            </constraints>
+            <point key="canvasLocation" x="-9" y="722"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

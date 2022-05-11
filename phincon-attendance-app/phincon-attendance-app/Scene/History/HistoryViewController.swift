@@ -66,52 +66,55 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        self.filterCollView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
+        self.historyView.filterCollView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
         logsFilter = historyFilter.first!
         fetchHistoryList(logs: logsFilter)
     }
+    
+    override func loadView() {
+        super.loadView()
+        setupViewNib()
+    }
   
     // MARK: Do something
+    weak var historyView: HistoryView!
+    
+    var historyFilter: [String] = []
+    var logsFilter: String!
+
     var historyDataList: [History] = [History]() {
         didSet {
-            self.historyTableView.reloadData()
+            self.historyView.historyTableView.reloadData()
             if historyDataList.count > 0 {
-                emptyLbl.isHidden = true
-                historyTableView.refreshControl = UIRefreshControl()
-                historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+                historyView.emptyLbl.isHidden = true
+                historyView.historyTableView.refreshControl = UIRefreshControl()
+                historyView.historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
             } else {
-                historyTableView.refreshControl = nil
-                emptyLbl.isHidden = false
+                historyView.historyTableView.refreshControl = nil
+                historyView.emptyLbl.isHidden = false
             }
         }
     }
-    var historyFilter: [String] = []
-    var logsFilter: String!
-  
-    @IBOutlet var cardView: UIView!
-    @IBOutlet var filterCollView: UICollectionView!
-    @IBOutlet var historyTableView: UITableView!
-    @IBOutlet var emptyLbl: UILabel!
+    
+    func setupViewNib() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        
+        let historyViews = HistoryView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = historyViews
+//        self.view.addview(dashboardViews)
+        historyViews.delegate = self
+        self.historyView = historyViews
+    }
     
     func setupUI() {
         historyFilter = ["Day","Week","Month","Year"]
-        historyTableView.register(HistoryTableViewCell.nib(), forCellReuseIdentifier: HistoryTableViewCell.identifier)
-        historyTableView.delegate = self
-        historyTableView.dataSource = self
-        historyTableView.estimatedRowHeight = 72
+        historyView.historyTableView.delegate = self
+        historyView.historyTableView.dataSource = self
         
-        filterCollView.register(DayFilterCollViewCell.nib(), forCellWithReuseIdentifier: DayFilterCollViewCell.identifier)
-        filterCollView.delegate = self
-        filterCollView.dataSource = self
-        
-        emptyLbl.isHidden = true
-        
-        cardView.layer.cornerRadius = 20
-        cardView.layer.shadowColor = UIColor.lightGray.cgColor
-        cardView.layer.shadowOffset = CGSize.zero
-        cardView.layer.shadowOpacity = 0.2
-        cardView.layer.shadowRadius = 3.0
-        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        historyView.filterCollView.delegate = self
+        historyView.filterCollView.dataSource = self
     }
     
     func presenter(LoadHistory response: HistoryModels.FetchHistory.Response) {
@@ -124,14 +127,10 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         interactor?.loadHistory(request: requestFetch)
     }
     
-    @IBAction func btnNotificationClicked(_ sender: Any) {
-        router?.routeToNotification(segue: nil)
-    }
-    
     @objc func didPullToRefresh() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.fetchHistoryList(logs: self.logsFilter.lowercased())
-            self.historyTableView.refreshControl?.endRefreshing()
+            self.historyView.historyTableView.refreshControl?.endRefreshing()
         }
     }
 }
@@ -166,6 +165,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: TableView
 extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -210,4 +210,11 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
         return 0
     }
     
+}
+
+// MARK: Delegate from View
+extension HistoryViewController: HistoryButtonDelegate {
+    func didTapNotification() {
+        router?.routeToNotification(segue: nil)
+    }
 }

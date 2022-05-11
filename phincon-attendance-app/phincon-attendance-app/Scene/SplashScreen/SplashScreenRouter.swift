@@ -14,6 +14,8 @@ import UIKit
 
 @objc protocol SplashScreenRoutingLogic
 {
+    func routeToDashboard(segue: UIStoryboardSegue?)
+    func routeToOnboarding(segue: UIStoryboardSegue?)
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
@@ -22,34 +24,35 @@ protocol SplashScreenDataPassing
   var dataStore: SplashScreenDataStore? { get }
 }
 
-class SplashScreenRouter: NSObject, SplashScreenRoutingLogic, SplashScreenDataPassing
-{
+class SplashScreenRouter: NSObject, SplashScreenRoutingLogic, SplashScreenDataPassing {
   weak var viewController: SplashScreenVC?
   var dataStore: SplashScreenDataStore?
   
   // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+    
+    func routeToDashboard(segue: UIStoryboardSegue?) {
+        let tabbarVC = TabBarViewController()
+        navigateToDashboard(source: viewController!, destination: tabbarVC)
+    }
+    
+    func routeToOnboarding(segue: UIStoryboardSegue?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let onboardingVC = storyboard.instantiateViewController(identifier: "NavigationController")
+//        let onboardingVC = OnBoardingViewController()
+        navigateToOnboarding(source: viewController!, destination: onboardingVC)
+    }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: SplashScreenViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+    func navigateToOnboarding(source: SplashScreenVC, destination: UIViewController) {
+//        let navCon = UINavigationController(rootViewController: destination)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: true)
+    }
+    
+    func navigateToDashboard(source: SplashScreenVC, destination: UITabBarController) {
+        let navCon = UINavigationController(rootViewController: destination)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon, animated: true)
+    }
   
   // MARK: Passing data
   

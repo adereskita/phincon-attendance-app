@@ -27,11 +27,11 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
   
   // MARK: Routing
     func routeToLogin(segue: UIStoryboardSegue?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let loginVC = LoginViewController()
 //        let loginVC = UIViewController(nibName: "LoginViewController", bundle: nil)
+        
 //        self.definesPresentationContext = true
-        loginVC.modalPresentationStyle = .fullScreen
+//        loginVC.modalPresentationStyle = .fullScreen
         navigateToLogin(source: viewController!, destination: loginVC)
     }
     
@@ -44,7 +44,7 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
   // MARK: Navigation
     
     func navigateToLogin(source: OnBoardingViewController, destination: UIViewController) {
-        source.show(destination, sender: nil)
+        source.navigationController?.pushViewController(destination, animated: true)
 //        source.present(destination, animated:true, completion:nil)
     }
     

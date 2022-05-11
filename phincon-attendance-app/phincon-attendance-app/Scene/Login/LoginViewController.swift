@@ -118,9 +118,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 
 extension LoginViewController: ButtonTapDelegate {
     func didTapLoginButton(loginView: LoginView) {
-        let request = LoginModels.Post.Request(username: loginView.usernameTextField.text ?? "", password: loginView.passwordTextField.text ?? "")
-        interactor?.login(request)
-//        loginCustomView.setupSpinner(isLogin: true, message: nil, router: self.router as! LoginRouter)
+//        let request = LoginModels.Post.Request(username: loginView.usernameTextField.text ?? "", password: loginView.passwordTextField.text ?? "")
+//        interactor?.login(request)
+        loginCustomView.setupSpinner(isLogin: true, message: nil, router: self.router as! LoginRouter)
     }
     
     func didTapBackButton() {

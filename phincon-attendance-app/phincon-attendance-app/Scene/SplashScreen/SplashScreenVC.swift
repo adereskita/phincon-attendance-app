@@ -92,18 +92,12 @@ class SplashScreenVC: UIViewController, SplashScreenDisplayLogic {
     }
     
     func splashTimeOut() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // if user is logged in before
         if keyChainWrapper.string(forKey: "user_token") != nil {
-            let dashBoardVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-            let navDashboard = UINavigationController(rootViewController: dashBoardVC)
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navDashboard, animated: true)
-            
+            router?.routeToDashboard(segue: nil)
         } else {
             // if user isn't logged in
-            let onboardingVC = storyboard.instantiateViewController(identifier: "NavigationController")
-//            let navOnboard = UINavigationController(rootViewController: onboardingVC)
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingVC, animated: false)
+            router?.routeToOnboarding(segue: nil)
         }
     }
         

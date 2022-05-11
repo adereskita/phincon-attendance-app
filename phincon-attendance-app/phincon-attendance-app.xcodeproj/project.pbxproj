@@ -30,6 +30,13 @@
 		364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B5E61281156D90019B3C5 /* Connectivity.swift */; };
 		366B7682282A4EA900AE5AAC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7680282A4EA900AE5AAC /* LoginView.xib */; };
 		366B7688282A7BFB00AE5AAC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B7687282A7BFB00AE5AAC /* LoginView.swift */; };
+		366B768B282B9B9900AE5AAC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B768A282B9B9900AE5AAC /* TabBarViewController.swift */; };
+		366B768E282BA3FD00AE5AAC /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B768C282BA3FD00AE5AAC /* DashboardView.swift */; };
+		366B768F282BA3FD00AE5AAC /* DashboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B768D282BA3FD00AE5AAC /* DashboardView.xib */; };
+		366B7691282BBC1100AE5AAC /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B7690282BBC1100AE5AAC /* HistoryView.swift */; };
+		366B7693282BBC1B00AE5AAC /* HistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7692282BBC1B00AE5AAC /* HistoryView.xib */; };
+		366B7696282BF07D00AE5AAC /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7695282BF07D00AE5AAC /* ProfileView.xib */; };
+		366B7698282BF0AD00AE5AAC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B7697282BF0AD00AE5AAC /* ProfileView.swift */; };
 		3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED827F3088F00662D8F /* NotificationPresenter.swift */; };
 		3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED927F3088F00662D8F /* NotificationWorker.swift */; };
 		3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDA27F3088F00662D8F /* NotificationRouter.swift */; };
@@ -156,6 +163,13 @@
 		364B5E61281156D90019B3C5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		366B7680282A4EA900AE5AAC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		366B7687282A7BFB00AE5AAC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		366B768A282B9B9900AE5AAC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		366B768C282BA3FD00AE5AAC /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		366B768D282BA3FD00AE5AAC /* DashboardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardView.xib; sourceTree = "<group>"; };
+		366B7690282BBC1100AE5AAC /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		366B7692282BBC1B00AE5AAC /* HistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryView.xib; sourceTree = "<group>"; };
+		366B7695282BF07D00AE5AAC /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		366B7697282BF0AD00AE5AAC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3674EED827F3088F00662D8F /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		3674EED927F3088F00662D8F /* NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
 		3674EEDA27F3088F00662D8F /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
@@ -349,6 +363,25 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		366B7689282B9B7900AE5AAC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				366B768A282B9B9900AE5AAC /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		366B7694282BF06F00AE5AAC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */,
+				E2D75EE227F3F79C002F88A2 /* ProfilePictureTableViewCell.swift */,
+				E2D75EE327F3F79C002F88A2 /* ProfilePictureTableViewCell.xib */,
+				E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3674EED727F3088300662D8F /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				36F0CE8A27DF8131001469CC /* Cell */,
-				36F0CE8627DF8126001469CC /* DashboardTableCell.swift */,
+				366B768C282BA3FD00AE5AAC /* DashboardView.swift */,
+				366B768D282BA3FD00AE5AAC /* DashboardView.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -427,6 +461,7 @@
 		36F0CE8A27DF8131001469CC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				36F0CE8627DF8126001469CC /* DashboardTableCell.swift */,
 				36F0CE8727DF8126001469CC /* DashboardTableCell.xib */,
 			);
 			path = Cell;
@@ -449,8 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				36F0CE9827DFAADA001469CC /* Cells */,
-				36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */,
-				36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */,
+				366B7690282BBC1100AE5AAC /* HistoryView.swift */,
+				366B7692282BBC1B00AE5AAC /* HistoryView.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -458,6 +493,8 @@
 		36F0CE9827DFAADA001469CC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				36F0CE9427DFAAD5001469CC /* DayFilterCollViewCell.swift */,
+				36EE8BB327E02744006EB567 /* HistoryTableViewCell.swift */,
 				36EE8BB427E02744006EB567 /* HistoryTableViewCell.xib */,
 				36F0CE9527DFAAD5001469CC /* DayFilterCollViewCell.xib */,
 			);
@@ -546,6 +583,7 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				366B7689282B9B7900AE5AAC /* TabBar */,
 				36174EB32816788300F538B3 /* SplashScreen */,
 				E2673FF027F6E6A1006E3887 /* RegisterPage */,
 				E2673FE327F6E682006E3887 /* ForgotPassword */,
@@ -658,10 +696,9 @@
 		E2FAE34627EB742800D97493 /* Profil */ = {
 			isa = PBXGroup;
 			children = (
-				E2FAE34727EB744C00D97493 /* ProfilTableViewCell.swift */,
-				E2D75EE227F3F79C002F88A2 /* ProfilePictureTableViewCell.swift */,
-				E2D75EE327F3F79C002F88A2 /* ProfilePictureTableViewCell.xib */,
-				E2FAE34827EB744C00D97493 /* ProfilTableViewCell.xib */,
+				366B7694282BF06F00AE5AAC /* Cell */,
+				366B7695282BF07D00AE5AAC /* ProfileView.xib */,
+				366B7697282BF0AD00AE5AAC /* ProfileView.swift */,
 			);
 			path = Profil;
 			sourceTree = "<group>";
@@ -781,8 +818,11 @@
 				366B7682282A4EA900AE5AAC /* LoginView.xib in Resources */,
 				9595050C27D9BE25005741CA /* Main.storyboard in Resources */,
 				E2D75EEC27F40E62002F88A2 /* EditProfileTableViewCell.xib in Resources */,
+				366B7693282BBC1B00AE5AAC /* HistoryView.xib in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
+				366B768F282BA3FD00AE5AAC /* DashboardView.xib in Resources */,
+				366B7696282BF07D00AE5AAC /* ProfileView.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
 				E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */,
 				3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */,
@@ -942,6 +982,7 @@
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
 				E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */,
+				366B768B282B9B9900AE5AAC /* TabBarViewController.swift in Sources */,
 				E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */,
 				366B7688282A7BFB00AE5AAC /* LoginView.swift in Sources */,
 				3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */,
@@ -952,6 +993,7 @@
 				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
+				366B7698282BF0AD00AE5AAC /* ProfileView.swift in Sources */,
 				E2673FF727F6E6E1006E3887 /* RegisterPresenter.swift in Sources */,
 				36174EBE281678A400F538B3 /* SplashScreenVC.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
@@ -968,6 +1010,7 @@
 				E2673FEE27F6E69E006E3887 /* ForgotPasswordViewController.swift in Sources */,
 				36F0CE8827DF8126001469CC /* DashboardTableCell.swift in Sources */,
 				E2D75EDE27F3E65B002F88A2 /* EditProfileRouter.swift in Sources */,
+				366B7691282BBC1100AE5AAC /* HistoryView.swift in Sources */,
 				36174EBB281678A400F538B3 /* SplashScreenWorker.swift in Sources */,
 				E2FAE34427EB730F00D97493 /* ProfilInteractor.swift in Sources */,
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
@@ -979,6 +1022,7 @@
 				36EA25C727EC0F050094876E /* OnBoardingModels.swift in Sources */,
 				E2D75EE027F3E65B002F88A2 /* EditProfileViewController.swift in Sources */,
 				E2D75EE127F3E65B002F88A2 /* EditProfileInteractor.swift in Sources */,
+				366B768E282BA3FD00AE5AAC /* DashboardView.swift in Sources */,
 				3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */,
 				36EA25D527EC45580094876E /* DashboardViewController.swift in Sources */,
 				362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */,

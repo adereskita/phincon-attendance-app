@@ -12,9 +12,9 @@
 
 import UIKit
 
-@objc protocol ProfilRoutingLogic
-{
+@objc protocol ProfilRoutingLogic {
     func routeToEditProfilePage(segue: UIStoryboardSegue?)
+    func routeToLogoutUser(segue: UIStoryboardSegue?)
 }
 
 protocol ProfilDataPassing
@@ -22,10 +22,13 @@ protocol ProfilDataPassing
     var dataStore: ProfilDataStore? { get }
 }
 
-class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing
-{
+class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing {
+    
     weak var viewController: ProfilViewController?
     var dataStore: ProfilDataStore?
+    
+
+    // MARK: Routing
     
     func routeToEditProfilePage(segue: UIStoryboardSegue?) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,28 +37,22 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing
         dashBoardVC.modalPresentationStyle = .fullScreen
         navigateToSomewhere(source: viewController!, destination: dashBoardVC as! EditProfileViewController)
     }
-    // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToLogoutUser(segue: UIStoryboardSegue?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+        
+        navigateToOnboard(source: viewController!, destination: onboardingNavController as! UINavigationController)
+    }
     
     // MARK: Navigation
     
-    func navigateToSomewhere(source: ProfilViewController, destination: EditProfileViewController)
-    {
+    func navigateToSomewhere(source: ProfilViewController, destination: EditProfileViewController) {
         source.show(destination, sender: nil)
+    }
+    
+    func navigateToOnboard(source: ProfilViewController, destination: UINavigationController) {
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: false)
     }
     
     // MARK: Passing data

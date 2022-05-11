@@ -62,83 +62,36 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     // MARK: View lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
-        errorLbl.isHidden = true
+        loginCustomView.errorLbl.isHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+//        setupViewNib()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+        //Add this tap gesture recognizer to the parent view
+        self.view.addGestureRecognizer(tap)
     }
     
     // MARK: Do something
+    weak var loginCustomView: LoginView!
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet var loginBtn: UIButton!
-    @IBOutlet var cardView: UIView!
-    @IBOutlet var spinner: UIActivityIndicatorView!
-    @IBOutlet var errorLbl: UILabel!
-    
-//     @IBAction func dismissButton(_ sender: Any) {
-//         dismiss(animated: true)
-//         self.navigationController?.popViewController(animated: true)
-//     }
-  
-    @IBAction func loginButton(_ sender: Any) {
-        let request = LoginModels.Post.Request(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
-        interactor?.login(request)
-//        spinnerSetup(isLogin: true, message: nil)
-    }
-    @IBAction func forgotPassButton(_sender: Any) {
-        router?.routeToForgotPassword(segue: nil)
-    }
-    @IBAction func registerButton(_sender: Any){
-        router?.routeToRegister(segue: nil)
+    override func loadView() {
+        super.loadView()
+        setupViewNib()
     }
     
-    @IBAction func backButton(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    func setupUI() {
-        spinner.isHidden = true
-        loginBtn.layer.cornerRadius = 10
+    func setupViewNib() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
-         //Add this tap gesture recognizer to the parent view
-         view.addGestureRecognizer(tap)
-        
-        cardView.layer.shadowColor = UIColor.lightGray.cgColor
-        cardView.layer.shadowOffset = CGSize.zero
-        cardView.layer.shadowOpacity = 0.2
-        cardView.layer.shadowRadius = 3.0
-        cardView.layer.cornerRadius = 25
-        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-    }
-    
-    func spinnerSetup(isLogin: Bool, message: String?) {
-        spinner.isHidden = false
-        spinner.style = .medium
-        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
-        spinner.layer.cornerRadius = 10.0
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-
-        // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.spinner.isHidden = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                if let route = self.router {
-                    if isLogin == true {
-                        route.routeToDashboardPage(segue: nil)
-                    } else {
-                        self.errorLbl.isHidden = false
-                        self.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
-//                        self.alertSetup(error: message)
-                    }
-                }
-            }
-        }
+        let loginView = LoginView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = loginView
+//        self.view.addview(loginView)
+        loginView.delegate = self
+        self.loginCustomView = loginView
     }
     
     @objc func dismissMyKeyboard() {
@@ -154,11 +107,31 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     func presenter(displayLoginSuccess viewModel: LoginModels.Post.ViewModel) {
         //nameTextField.text = viewModel.name
         if viewModel.token != nil {
-            spinnerSetup(isLogin: true, message: nil)
+            loginCustomView.setupSpinner(isLogin: true, message: nil, router: self.router as! LoginRouter)
         }
     }
     
     func presenter(didFailLogin message: String) {
-        spinnerSetup(isLogin: false, message: message)
+        loginCustomView.setupSpinner(isLogin: false, message: message, router: self.router as! LoginRouter)
+    }
+}
+
+extension LoginViewController: ButtonTapDelegate {
+    func didTapLoginButton(loginView: LoginView) {
+        let request = LoginModels.Post.Request(username: loginView.usernameTextField.text ?? "", password: loginView.passwordTextField.text ?? "")
+        interactor?.login(request)
+//        loginCustomView.setupSpinner(isLogin: true, message: nil, router: self.router as! LoginRouter)
+    }
+    
+    func didTapBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func didTapRegisterButton() {
+        router?.routeToRegister(segue: nil)
+    }
+    
+    func didTapForgotPassButton() {
+        router?.routeToForgotPassword(segue: nil)
     }
 }

@@ -27,11 +27,12 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
   
   // MARK: Routing
     func routeToLogin(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+//        let loginVC = UIViewController(nibName: "LoginViewController", bundle: nil)
 //        self.definesPresentationContext = true
-        dashboardVC.modalPresentationStyle = .fullScreen
-        navigateToLogin(source: viewController!, destination: dashboardVC as! LoginViewController)
+        loginVC.modalPresentationStyle = .fullScreen
+        navigateToLogin(source: viewController!, destination: loginVC)
     }
     
     func routeToSignUp(segue: UIStoryboardSegue?) {
@@ -42,7 +43,7 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
 
   // MARK: Navigation
     
-    func navigateToLogin(source: OnBoardingViewController, destination: LoginViewController) {
+    func navigateToLogin(source: OnBoardingViewController, destination: UIViewController) {
         source.show(destination, sender: nil)
 //        source.present(destination, animated:true, completion:nil)
     }

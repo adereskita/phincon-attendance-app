@@ -28,6 +28,8 @@
 		362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594827E9B7FF0022C094 /* HistoryViewController.swift */; };
 		362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594927E9B7FF0022C094 /* HistoryInteractor.swift */; };
 		364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B5E61281156D90019B3C5 /* Connectivity.swift */; };
+		366B7682282A4EA900AE5AAC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7680282A4EA900AE5AAC /* LoginView.xib */; };
+		366B7688282A7BFB00AE5AAC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B7687282A7BFB00AE5AAC /* LoginView.swift */; };
 		3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED827F3088F00662D8F /* NotificationPresenter.swift */; };
 		3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED927F3088F00662D8F /* NotificationWorker.swift */; };
 		3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDA27F3088F00662D8F /* NotificationRouter.swift */; };
@@ -152,6 +154,8 @@
 		362D594827E9B7FF0022C094 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		362D594927E9B7FF0022C094 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
 		364B5E61281156D90019B3C5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		366B7680282A4EA900AE5AAC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		366B7687282A7BFB00AE5AAC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3674EED827F3088F00662D8F /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		3674EED927F3088F00662D8F /* NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
 		3674EEDA27F3088F00662D8F /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
@@ -336,6 +340,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		366B767C282A4B2F00AE5AAC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				366B7680282A4EA900AE5AAC /* LoginView.xib */,
+				366B7687282A7BFB00AE5AAC /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		3674EED727F3088300662D8F /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +374,7 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				366B767C282A4B2F00AE5AAC /* Login */,
 				E2D75EE627F40E3D002F88A2 /* EditProfilr */,
 				3674EEE427F30B1200662D8F /* Notification */,
 				E2FAE34627EB742800D97493 /* Profil */,
@@ -764,6 +778,7 @@
 				9595051427D9BE29005741CA /* LaunchScreen.storyboard in Resources */,
 				E2D75EE527F3F79C002F88A2 /* ProfilePictureTableViewCell.xib in Resources */,
 				9595051127D9BE29005741CA /* Assets.xcassets in Resources */,
+				366B7682282A4EA900AE5AAC /* LoginView.xib in Resources */,
 				9595050C27D9BE25005741CA /* Main.storyboard in Resources */,
 				E2D75EEC27F40E62002F88A2 /* EditProfileTableViewCell.xib in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
@@ -928,6 +943,7 @@
 				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
 				E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */,
 				E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */,
+				366B7688282A7BFB00AE5AAC /* LoginView.swift in Sources */,
 				3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */,
 				36AF818427FD4CE2009D84A2 /* ImageUtils.swift in Sources */,
 				362497D727F84DE000CD04FF /* RouterAPI.swift in Sources */,

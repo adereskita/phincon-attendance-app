@@ -64,11 +64,12 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
         }
         let navCon = UINavigationController(rootViewController: destination)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon, animated: false)
-        
     }
+    
     func navigateToForgotPass(source: LoginViewController, destination: ForgotPasswordViewController) {
         source.show(destination, sender: nil)
     }
+    
     func navigateToRegister(source: LoginViewController, destination: RegisterViewController) {
         if userDefault.bool(forKey: "isLogin") == true {
             source.show(destination, sender: nil)

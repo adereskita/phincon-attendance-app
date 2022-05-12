@@ -48,11 +48,14 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
         navigateToForgotPass(source: viewController!, destination: dashBoardVC)
     }
     func routeToRegister(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
-        dashBoardVC.modalPresentationStyle = .fullScreen
-        navigateToRegister(source: viewController!, destination: dashBoardVC)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
+//        dashBoardVC.modalPresentationStyle = .fullScreen
+//        navigateToRegister(source: viewController!, destination: dashBoardVC)
+//        
+        let registerVC = RegisterViewController()
+        navigateToRegister(source: viewController!, destination: registerVC)
     }
     
     // MARK: Navigation

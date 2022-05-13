@@ -36,9 +36,11 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
     }
     
     func routeToSignUp(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let destinationVC = storyBoard.instantiateViewController(identifier: "RegisterVC") as! RegisterViewController
-            navigateToSignUp(source: viewController!, destination: destinationVC)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let destinationVC = storyBoard.instantiateViewController(identifier: "RegisterVC") as! RegisterViewController
+//            navigateToSignUp(source: viewController!, destination: destinationVC)
+        let registerVC = RegisterViewController()
+        navigateToSignUp(source: viewController!, destination: registerVC)
     }
 
   // MARK: Navigation
@@ -49,7 +51,7 @@ class OnBoardingRouter: NSObject, OnBoardingRoutingLogic, OnBoardingDataPassing 
     }
     
     func navigateToSignUp(source: OnBoardingViewController, destination: RegisterViewController) {
-        source.show(destination, sender: nil)
+        source.navigationController?.pushViewController(destination, animated: true)
     }
     
     // MARK: Passing data

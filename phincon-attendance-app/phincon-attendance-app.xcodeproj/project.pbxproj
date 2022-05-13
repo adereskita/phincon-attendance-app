@@ -80,6 +80,10 @@
 		9595051F27D9BE2A005741CA /* phincon_attendance_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595051E27D9BE2A005741CA /* phincon_attendance_appTests.swift */; };
 		9595052A27D9BE2A005741CA /* phincon_attendance_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595052927D9BE2A005741CA /* phincon_attendance_appUITests.swift */; };
 		E2094B4A27ECB19F00A379D9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2094B4927ECB19F00A379D9 /* Profile.swift */; };
+		E224A66D282C9BD500401F74 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E224A66C282C9BD500401F74 /* RegisterView.xib */; };
+		E224A66F282C9BE700401F74 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E224A66E282C9BE700401F74 /* RegisterView.swift */; };
+		E224A672282D74F500401F74 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E224A671282D74F500401F74 /* ForgotPasswordView.swift */; };
+		E224A674282D750700401F74 /* ForgotPasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E224A673282D750700401F74 /* ForgotPasswordView.xib */; };
 		E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DF2E227F3369100336B89 /* ColorUtils.swift */; };
 		E2673FEA27F6E69E006E3887 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */; };
 		E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */; };
@@ -224,6 +228,10 @@
 		AA73072A46BE95F4DB57DFFF /* Pods-phincon-attendance-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phincon-attendance-appTests.debug.xcconfig"; path = "Target Support Files/Pods-phincon-attendance-appTests/Pods-phincon-attendance-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC20E7466C5C25EB98FD2F48 /* Pods_phincon_attendance_app_phincon_attendance_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_phincon_attendance_app_phincon_attendance_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2094B4927ECB19F00A379D9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E224A66C282C9BD500401F74 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
+		E224A66E282C9BE700401F74 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		E224A671282D74F500401F74 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		E224A673282D750700401F74 /* ForgotPasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordView.xib; sourceTree = "<group>"; };
 		E22DF2E227F3369100336B89 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
 		E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
@@ -407,6 +415,8 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E224A670282D74D300401F74 /* ForgotPassword */,
+				E224A669282C9B6700401F74 /* Register */,
 				366B767C282A4B2F00AE5AAC /* Login */,
 				E2D75EE627F40E3D002F88A2 /* EditProfilr */,
 				3674EEE427F30B1200662D8F /* Notification */,
@@ -607,6 +617,24 @@
 				9595051227D9BE29005741CA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E224A669282C9B6700401F74 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E224A66C282C9BD500401F74 /* RegisterView.xib */,
+				E224A66E282C9BE700401F74 /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		E224A670282D74D300401F74 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				E224A671282D74F500401F74 /* ForgotPasswordView.swift */,
+				E224A673282D750700401F74 /* ForgotPasswordView.xib */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		E22DF2E127F3368200336B89 /* Helper */ = {
@@ -812,6 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36F0CE8927DF8126001469CC /* DashboardTableCell.xib in Resources */,
+				E224A66D282C9BD500401F74 /* RegisterView.xib in Resources */,
 				9595051427D9BE29005741CA /* LaunchScreen.storyboard in Resources */,
 				E2D75EE527F3F79C002F88A2 /* ProfilePictureTableViewCell.xib in Resources */,
 				9595051127D9BE29005741CA /* Assets.xcassets in Resources */,
@@ -821,6 +850,7 @@
 				366B7693282BBC1B00AE5AAC /* HistoryView.xib in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
+				E224A674282D750700401F74 /* ForgotPasswordView.xib in Resources */,
 				366B768F282BA3FD00AE5AAC /* DashboardView.xib in Resources */,
 				366B7696282BF07D00AE5AAC /* ProfileView.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
@@ -965,6 +995,7 @@
 				3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */,
 				E2FAE33F27EB730F00D97493 /* ProfilPresenter.swift in Sources */,
 				E2FAE34927EB744C00D97493 /* ProfilTableViewCell.swift in Sources */,
+				E224A672282D74F500401F74 /* ForgotPasswordView.swift in Sources */,
 				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
 				364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */,
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
@@ -986,6 +1017,7 @@
 				E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */,
 				366B7688282A7BFB00AE5AAC /* LoginView.swift in Sources */,
 				3674EEE127F3088F00662D8F /* NotificationModels.swift in Sources */,
+				E224A66F282C9BE700401F74 /* RegisterView.swift in Sources */,
 				36AF818427FD4CE2009D84A2 /* ImageUtils.swift in Sources */,
 				362497D727F84DE000CD04FF /* RouterAPI.swift in Sources */,
 				E2673FFC27F6E6E1006E3887 /* RegisterInteractor.swift in Sources */,

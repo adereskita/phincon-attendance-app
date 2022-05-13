@@ -63,12 +63,14 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
   // MARK: View lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
-        errorLbl.isHidden = true
+       // customRegisterView.errorLbl.isHidden = true
     }
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+         //Add this tap gesture recognizer to the parent view
+         view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,78 +78,106 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic {
     }
   
   // MARK: Do something
+    weak var customRegisterView: RegisterView!
+    
+    override func loadView() {
+        super.loadView()
+        setupUINibView()
+    }
   
+    func setupUINibView() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        
+        let registerView = RegisterView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = registerView
+        registerView.delegate = self
+        self.customRegisterView = registerView
+    }
   //@IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var cardView: UIView!
-    @IBOutlet var registerBtn: UIButton!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var idTextField: UITextField!
-    @IBOutlet weak var fullnameTextField: UITextField!
-    @IBOutlet weak var pass1TextField: UITextField!
-    @IBOutlet weak var pass2TextField: UITextField!
-    @IBOutlet var spinner: UIActivityIndicatorView!
-    @IBOutlet var errorLbl: UILabel!
-    
-    @IBAction func registerButton(_sender: Any){
-        if pass1TextField.text == pass2TextField.text {
-            let request = RegisterModels.Post.Request(username: usernameTextField.text!, password: pass2TextField.text!, fullname: fullnameTextField.text!, idcardnumber: idTextField.text!)
-            interactor?.register(request)
-        }
-    }
-    @IBAction func loginButton(_sender: Any){
-        router?.routeToLogin(segue: nil)
-    }
-    
-    func setupUI() {
-        spinner.isHidden = true
-        registerBtn.layer.cornerRadius = 10
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
-         //Add this tap gesture recognizer to the parent view
-         view.addGestureRecognizer(tap)
-        
-        cardView.layer.shadowColor = UIColor.lightGray.cgColor
-        cardView.layer.shadowOffset = CGSize.zero
-        cardView.layer.shadowOpacity = 0.2
-        cardView.layer.shadowRadius = 3.0
-        cardView.layer.cornerRadius = 25
-        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-    }
-    
-    func spinnerSetup(isLogin: Bool, message: String?) {
-        spinner.isHidden = false
-        spinner.style = .medium
-        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
-        spinner.layer.cornerRadius = 10.0
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-
-        // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.spinner.isHidden = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                if let route = self.router {
-                    if isLogin == true {
-                        route.routeToLogin(segue: nil)
-                    } else {
-                        self.errorLbl.isHidden = false
-                        self.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
-                    }
-                }
-            }
-        }
-    }
+//    @IBOutlet weak var scrollView: UIScrollView!
+//    @IBOutlet var cardView: UIView!
+//    @IBOutlet var registerBtn: UIButton!
+//    @IBOutlet weak var usernameTextField: UITextField!
+//    @IBOutlet weak var idTextField: UITextField!
+//    @IBOutlet weak var fullnameTextField: UITextField!
+//    @IBOutlet weak var pass1TextField: UITextField!
+//    @IBOutlet weak var pass2TextField: UITextField!
+//    @IBOutlet var spinner: UIActivityIndicatorView!
+//    @IBOutlet var errorLbl: UILabel!
+//
+//    @IBAction func registerButton(_sender: Any){
+//        if pass1TextField.text == pass2TextField.text {
+//            let request = RegisterModels.Post.Request(username: usernameTextField.text!, password: pass2TextField.text!, fullname: fullnameTextField.text!, idcardnumber: idTextField.text!)
+//            interactor?.register(request)
+//        }
+//    }
+//    @IBAction func loginButton(_sender: Any){
+//        router?.routeToLogin(segue: nil)
+//    }
+//
+//    func setupUI() {
+//        spinner.isHidden = true
+//        registerBtn.layer.cornerRadius = 10
+//
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+//         //Add this tap gesture recognizer to the parent view
+//         view.addGestureRecognizer(tap)
+//
+//        cardView.layer.shadowColor = UIColor.lightGray.cgColor
+//        cardView.layer.shadowOffset = CGSize.zero
+//        cardView.layer.shadowOpacity = 0.2
+//        cardView.layer.shadowRadius = 3.0
+//        cardView.layer.cornerRadius = 25
+//        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+//    }
+//
+//    func spinnerSetup(isLogin: Bool, message: String?) {
+//        spinner.isHidden = false
+//        spinner.style = .medium
+//        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+//        spinner.layer.cornerRadius = 10.0
+//        spinner.translatesAutoresizingMaskIntoConstraints = false
+//        spinner.startAnimating()
+//
+//        // wait two seconds to simulate some work happening
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            self.spinner.isHidden = true
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                if let route = self.router {
+//                    if isLogin == true {
+//                        route.routeToLogin(segue: nil)
+//                    } else {
+//                        self.errorLbl.isHidden = false
+//                        self.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     @objc func dismissMyKeyboard() {
         view.endEditing(true)
     }
     
     func presenter(displayRegisterSuccess viewModel: RegisterModels.Post.ViewModel) {
-        spinnerSetup(isLogin: true, message: nil)
+        customRegisterView.setupSpinner(isLogin: true, message: nil, router: self.router as! RegisterRouter)
     }
     
     func presenter(didFailRegister message: String) {
-        spinnerSetup(isLogin: false, message: message)
+        customRegisterView.setupSpinner(isLogin: false, message: message, router: self.router as! RegisterRouter)
+    }
+}
+
+extension RegisterViewController: ButtonTappedDelegate {
+    
+    func didTappedLoginButton() {
+        router?.routeToLogin(segue: nil)
+    }
+    
+    func didTappedRegisterButton(registerView: RegisterView) {
+        customRegisterView.setupSpinner(isLogin: true, message: nil, router: self.router as! RegisterRouter)
+        router?.routeDidRegister(segue: nil)
     }
 }

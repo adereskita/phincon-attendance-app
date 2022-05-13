@@ -28,9 +28,8 @@ class ForgotPasswordRouter: NSObject, ForgotPasswordRoutingLogic, ForgotPassword
   var dataStore: ForgotPasswordDataStore?
     
     func routeToLogin(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage") as! LoginViewController
-        navigateToSomewhere(source: viewController!, destination: loginVC)
+       let loginVC = LoginViewController()
+        navigateToLogin(source: viewController!, destination: loginVC)
     }
   
   // MARK: Routing
@@ -52,9 +51,9 @@ class ForgotPasswordRouter: NSObject, ForgotPasswordRoutingLogic, ForgotPassword
 
   // MARK: Navigation
   
-  func navigateToSomewhere(source: ForgotPasswordViewController, destination: LoginViewController)
+  func navigateToLogin(source: ForgotPasswordViewController, destination: LoginViewController)
   {
-    source.navigationController?.popViewController(animated: true)
+      source.navigationController?.pushViewController(destination, animated: true)
 //    source.show(destination, sender: nil)
   }
   

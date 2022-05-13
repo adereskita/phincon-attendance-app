@@ -41,11 +41,13 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
         //    passDataToDashboard(source: dataStore!, destination: &destinationDS)
     }
     func routeToForgotPassword(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "ForgotPassword") as! ForgotPasswordViewController
-        dashBoardVC.modalPresentationStyle = .fullScreen
-        navigateToForgotPass(source: viewController!, destination: dashBoardVC)
+        let forgotPassVC = ForgotPasswordViewController()
+        navigateToForgotPass(source: viewController!, destination: forgotPassVC)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "ForgotPassword") as! ForgotPasswordViewController
+//        dashBoardVC.modalPresentationStyle = .fullScreen
+//        navigateToForgotPass(source: viewController!, destination: dashBoardVC)
     }
     func routeToRegister(segue: UIStoryboardSegue?) {
 //        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

@@ -21,7 +21,6 @@ class ForgotPasswordView: UIView {
     @IBOutlet weak var pass2TextField: UITextField!
     @IBOutlet var resetPassButton: UIButton!
     @IBOutlet var cardView: UIView!
-    @IBOutlet var errorLabel: UILabel!
     @IBOutlet var spinner: UIActivityIndicatorView!
 
     override init(frame: CGRect) {
@@ -42,7 +41,6 @@ class ForgotPasswordView: UIView {
     }
     
     func setupUI() {
-        errorLabel.isHidden = true
         spinner.isHidden = true
         resetPassButton.layer.cornerRadius = 10
         
@@ -53,6 +51,12 @@ class ForgotPasswordView: UIView {
         cardView.layer.cornerRadius = 25
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
+    @IBAction func resetPassButton(_ sender: Any) {
+        delegate.didTappedResetPassButton(forgotPasswordView: self)
+    }
+    @IBAction func loginButton(_ sender: Any) {
+        delegate.didTappedLoginButton()
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -60,5 +64,25 @@ class ForgotPasswordView: UIView {
         // Drawing code
     }
     */
+    func spinnerSetup(isLogin: Bool, message: String?, router: ForgotPasswordRouter) {
+        spinner.isHidden = false
+        spinner.style = .medium
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        spinner.layer.cornerRadius = 10.0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if isLogin == true {
+                    router.routeToLogin(segue: nil)
+                } else {
+                    print("Error : \(message)")
+                }
+            }
+        }
+    }
 
 }

@@ -28,6 +28,10 @@
 		362D594E27E9B7FF0022C094 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594827E9B7FF0022C094 /* HistoryViewController.swift */; };
 		362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D594927E9B7FF0022C094 /* HistoryInteractor.swift */; };
 		364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B5E61281156D90019B3C5 /* Connectivity.swift */; };
+		365BD7CF282CF74A0094FF7C /* DashboardHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD7CD282CF74A0094FF7C /* DashboardHeaderCell.swift */; };
+		365BD7D0282CF74A0094FF7C /* DashboardHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BD7CE282CF74A0094FF7C /* DashboardHeaderCell.xib */; };
+		365BD7D4282DF4090094FF7C /* CustomSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD7D2282DF4090094FF7C /* CustomSectionView.swift */; };
+		365BD7D5282DF4090094FF7C /* CustomSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BD7D3282DF4090094FF7C /* CustomSectionView.xib */; };
 		366B7682282A4EA900AE5AAC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7680282A4EA900AE5AAC /* LoginView.xib */; };
 		366B7688282A7BFB00AE5AAC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B7687282A7BFB00AE5AAC /* LoginView.swift */; };
 		366B768B282B9B9900AE5AAC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B768A282B9B9900AE5AAC /* TabBarViewController.swift */; };
@@ -37,6 +41,8 @@
 		366B7693282BBC1B00AE5AAC /* HistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7692282BBC1B00AE5AAC /* HistoryView.xib */; };
 		366B7696282BF07D00AE5AAC /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B7695282BF07D00AE5AAC /* ProfileView.xib */; };
 		366B7698282BF0AD00AE5AAC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B7697282BF0AD00AE5AAC /* ProfileView.swift */; };
+		366B769C282CBDCA00AE5AAC /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366B769A282CBDC900AE5AAC /* NavigationBarView.swift */; };
+		366B769D282CBDCA00AE5AAC /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366B769B282CBDC900AE5AAC /* NavigationBarView.xib */; };
 		3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED827F3088F00662D8F /* NotificationPresenter.swift */; };
 		3674EEDF27F3088F00662D8F /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EED927F3088F00662D8F /* NotificationWorker.swift */; };
 		3674EEE027F3088F00662D8F /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEDA27F3088F00662D8F /* NotificationRouter.swift */; };
@@ -165,6 +171,10 @@
 		362D594827E9B7FF0022C094 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		362D594927E9B7FF0022C094 /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
 		364B5E61281156D90019B3C5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		365BD7CD282CF74A0094FF7C /* DashboardHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderCell.swift; sourceTree = "<group>"; };
+		365BD7CE282CF74A0094FF7C /* DashboardHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHeaderCell.xib; sourceTree = "<group>"; };
+		365BD7D2282DF4090094FF7C /* CustomSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionView.swift; sourceTree = "<group>"; };
+		365BD7D3282DF4090094FF7C /* CustomSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSectionView.xib; sourceTree = "<group>"; };
 		366B7680282A4EA900AE5AAC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		366B7687282A7BFB00AE5AAC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		366B768A282B9B9900AE5AAC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +184,8 @@
 		366B7692282BBC1B00AE5AAC /* HistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryView.xib; sourceTree = "<group>"; };
 		366B7695282BF07D00AE5AAC /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		366B7697282BF0AD00AE5AAC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		366B769A282CBDC900AE5AAC /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		366B769B282CBDC900AE5AAC /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		3674EED827F3088F00662D8F /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		3674EED927F3088F00662D8F /* NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
 		3674EEDA27F3088F00662D8F /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
@@ -362,6 +374,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		365BD7D1282DF3DE0094FF7C /* CustomTableSection */ = {
+			isa = PBXGroup;
+			children = (
+				365BD7D2282DF4090094FF7C /* CustomSectionView.swift */,
+				365BD7D3282DF4090094FF7C /* CustomSectionView.xib */,
+			);
+			path = CustomTableSection;
+			sourceTree = "<group>";
+		};
 		366B767C282A4B2F00AE5AAC /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +411,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		366B7699282CBDAB00AE5AAC /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				366B769A282CBDC900AE5AAC /* NavigationBarView.swift */,
+				366B769B282CBDC900AE5AAC /* NavigationBarView.xib */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		3674EED727F3088300662D8F /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +445,8 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				365BD7D1282DF3DE0094FF7C /* CustomTableSection */,
+				366B7699282CBDAB00AE5AAC /* NavigationBar */,
 				E224A670282D74D300401F74 /* ForgotPassword */,
 				E224A669282C9B6700401F74 /* Register */,
 				366B767C282A4B2F00AE5AAC /* Login */,
@@ -473,6 +505,8 @@
 			children = (
 				36F0CE8627DF8126001469CC /* DashboardTableCell.swift */,
 				36F0CE8727DF8126001469CC /* DashboardTableCell.xib */,
+				365BD7CD282CF74A0094FF7C /* DashboardHeaderCell.swift */,
+				365BD7CE282CF74A0094FF7C /* DashboardHeaderCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -846,6 +880,9 @@
 				9595051127D9BE29005741CA /* Assets.xcassets in Resources */,
 				366B7682282A4EA900AE5AAC /* LoginView.xib in Resources */,
 				9595050C27D9BE25005741CA /* Main.storyboard in Resources */,
+				366B769D282CBDCA00AE5AAC /* NavigationBarView.xib in Resources */,
+				365BD7D5282DF4090094FF7C /* CustomSectionView.xib in Resources */,
+				365BD7D0282CF74A0094FF7C /* DashboardHeaderCell.xib in Resources */,
 				E2D75EEC27F40E62002F88A2 /* EditProfileTableViewCell.xib in Resources */,
 				366B7693282BBC1B00AE5AAC /* HistoryView.xib in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
@@ -998,6 +1035,7 @@
 				E224A672282D74F500401F74 /* ForgotPasswordView.swift in Sources */,
 				E2FAE34027EB730F00D97493 /* ProfilWorker.swift in Sources */,
 				364B5E62281156D90019B3C5 /* Connectivity.swift in Sources */,
+				365BD7CF282CF74A0094FF7C /* DashboardHeaderCell.swift in Sources */,
 				E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */,
 				E2673FF827F6E6E1006E3887 /* RegisterWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
@@ -1032,6 +1070,7 @@
 				E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */,
 				E2673FED27F6E69E006E3887 /* ForgotPasswordModels.swift in Sources */,
 				E2D75EDF27F3E65B002F88A2 /* EditProfileModels.swift in Sources */,
+				366B769C282CBDCA00AE5AAC /* NavigationBarView.swift in Sources */,
 				36EA25C427EC0F050094876E /* OnBoardingPresenter.swift in Sources */,
 				E2D75EEE27F41379002F88A2 /* EditProfile.swift in Sources */,
 				362497D127F830B800CD04FF /* BaseAPI.swift in Sources */,
@@ -1076,6 +1115,7 @@
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
 				E2D75EDD27F3E65B002F88A2 /* EditProfileWorker.swift in Sources */,
 				36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */,
+				365BD7D4282DF4090094FF7C /* CustomSectionView.swift in Sources */,
 				360B0F8627FBCE9000CB9CEC /* ResponseServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -76,17 +76,18 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // TODO: comment kode di viewDidLoad karena API tidak ada untuk menghindari error
-//        let request = DashboardModels.IsLogin.Request()
-//        interactor?.checkLoginSession(request: request)
+        let request = DashboardModels.IsLogin.Request()
+        interactor?.checkLoginSession(request: request)
     }
   
   // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         // TODO: comment kode di viewDidLoad karena API tidak ada untuk menghindari error
-//        setDashboard()
-//        let request = HistoryModels.FetchHistory.Request(log: "day")
-//        interactor?.checkButtonStatus(request: request)
+        setDataList()
+        let request = HistoryModels.FetchHistory.Request(log: "day")
+        interactor?.checkButtonStatus(request: request)
 //        let request = DashboardModels.IsLogin.Request()
 //        interactor?.checkLoginSession(request: request)
     }
@@ -101,24 +102,21 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
 
     var timer = Timer()
+    var timeString: String!
+    
     let userDefault = UserDefaults.standard
     let keyChainWrapper = KeychainWrapper.standard
+    
     weak var dashboardView: DashboardView!
+//    weak var navBarView: NavigationBarView!
     
     var locationID  = ""
     var isCheckOut: Bool! {
         didSet {
-            if isCheckOut {
-                dashboardView.checkInBtn.setTitle("CHECK OUT", for: .normal)
-                dashboardView.circleBg.tintColor = UIColor(red: 0.969, green: 0.71, blue: 0, alpha: 1)
-                dashboardView.dashboardTableView.reloadData()
-            } else {
-                dashboardView.checkInBtn.setTitle("CHECK IN", for: .normal)
-                dashboardView.circleBg.tintColor = UIColor(red: 0.066, green: 0.752, blue: 0.302, alpha: 1)
-                dashboardView.dashboardTableView.reloadData()
-            }
+            self.dashboardView.dashboardTableView.reloadData()
         }
     }
+    
     var checkInLists: [Location] = [Location]() {
         // to get data on start
         didSet {
@@ -135,14 +133,13 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         }
     }
     
-    func setDashboard() {
-        setupUI()
+    private func setDataList() {
         let request = DashboardModels.GetLocation.Request()
         interactor?.loadCheckInList(request: request)
         interactor?.loadCheckOutList(request: request)
     }
     
-    func setupViewNib() {
+    private func setupViewNib() {
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         let screenHeight = screenRect.size.height
@@ -150,23 +147,21 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         let dashboardViews = DashboardView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         self.view = dashboardViews
 //        self.view.addview(dashboardViews)
-        dashboardViews.delegate = self
+        
         self.dashboardView = dashboardViews
+        self.dashboardView.navBar.delegate = self
     }
     
-    func setupUI() {
+    private func setupUI() {
         dashboardView.dashboardTableView.delegate = self
         dashboardView.dashboardTableView.dataSource = self
         
         dashboardView.dashboardTableView.refreshControl = UIRefreshControl()
         dashboardView.dashboardTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        dashboardView.dashboardTableView.refreshControl?.backgroundColor = colorUtils.darkBlueHead
+        dashboardView.dashboardTableView.refreshControl?.tintColor = .white
         
-        let date = Date()
-        let df = DateFormatter()
-        df.dateFormat = "dd MMM yyyy"
-        let dates = df.string(from: date)
-        dashboardView.dateLabel.text = dates
-
+        self.view.backgroundColor = colorUtils.darkBlueHead
         getCurrentTime()
     }
     
@@ -177,7 +172,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     @objc func currentTime() {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm"
-        dashboardView.timeLabel.text = "Hour: \(formatter.string(from: Date()))"
+        timeString = "Hour: \(formatter.string(from: Date()))"
+//        dashboardView.timeLabel.text = "Hour: \(formatter.string(from: Date()))"
     }
     
     func spinnerSetup(isSucces: Bool, message: String?) {
@@ -266,13 +262,10 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
     
     func presenter(expiredLoginSession status: Int, message: String) {
-        if status == 403 {
+        if status == 403 || status == 401 {
             keyChainWrapper.removeObject(forKey: "user_token")
 //            userDefault.set(nil, forKey: "user_token")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
-
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingNavController, animated: false)
+            router?.routeToLogoutUser(segue: nil)
         } else {
             if !Connectivity.isConnectedToInternet {
                 let alert = UIAlertController(title: "Network Problem", message: "No Connection", preferredStyle: UIAlertController.Style.alert)
@@ -301,6 +294,9 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
 // MARK: TableView
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         if isCheckOut {
             return checkOutLists.count
         } else {
@@ -308,9 +304,31 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardTableCell", for: indexPath) as! DashboardTableCell
         
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DashboardHeaderCell.identifier, for: indexPath) as! DashboardHeaderCell
+            
+            cell.delegate = self
+                        
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "dd MMM yyyy"
+            let dates = df.string(from: date)
+            
+            cell.dateLabel.text = dates
+            cell.timeLabel.text = timeString
+            
+            cell.isCheckOut = self.isCheckOut
+            
+            return cell
+        }
+            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardTableCell", for: indexPath) as! DashboardTableCell
         if isCheckOut {
             let listObj = checkOutLists[indexPath.row]
             cell.setDashboardCellView(listObj)
@@ -318,32 +336,57 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectedColorLbl = .black
             
             return cell
+            
         } else {
             let listObj = checkInLists[indexPath.row]
-            cell.selectedColor = colorUtils.blueCheckout
             cell.setDashboardCellView(listObj)
+            cell.selectedColor = colorUtils.blueCheckout
             cell.selectedColorLbl = .white
             
             return cell
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerSection = CustomSectionView()
+        return headerSection
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 44
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Location"
+        }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let listObj = checkInLists[indexPath.row]
-        self.locationID = listObj.id!
+        if indexPath.section > 0 {
+            let listObj = checkInLists[indexPath.row]
+            self.locationID = listObj.id!
+        }
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section > 0 {
+            return tableView.estimatedRowHeight
+        }
+        return 300
 //        let heightRatio = UIScreen.main.bounds.height / 736
 //        let tableViewHeight = tableView.frame.size.height
-        return tableView.estimatedRowHeight
 //        return tableView.estimatedRowHeight * heightRatio
     }
 }
 
 // MARK: Button Action
-extension DashboardViewController: DashboardButtonDelegate {
-    func didTapNotification() {
+extension DashboardViewController: DashboardHeaderButtonDelegate, NavBarButtonDelegate {
+    func didTapNotif() {
         router?.routeToNotification(segue: nil)
     }
     

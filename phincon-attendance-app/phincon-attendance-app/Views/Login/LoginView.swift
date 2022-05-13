@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ButtonTapDelegate: AnyObject {
-    func didTapLoginButton(loginView: LoginView)
+    func didTapLoginButton()
     func didTapBackButton()
     func didTapRegisterButton()
     func didTapForgotPassButton()
@@ -44,7 +44,7 @@ class LoginView: UIView {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        delegate.didTapLoginButton(loginView: self)
+        delegate.didTapLoginButton()
     }
     
     @IBAction func forgotPassButton(_ sender: Any) {
@@ -69,27 +69,5 @@ class LoginView: UIView {
         cardView.layer.shadowRadius = 3.0
         cardView.layer.cornerRadius = 25
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-    }
-    
-    func setupSpinner(isLogin: Bool, message: String?, router: LoginRouter) {
-        spinner.isHidden = false
-        spinner.style = .medium
-        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
-        spinner.layer.cornerRadius = 10.0
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-        
-        // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.spinner.isHidden = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                if isLogin == true {
-                    router.routeToDashboardPage(segue: nil)
-                } else {
-                    self.errorLbl.isHidden = false
-                    self.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
-                }
-            }
-        }
     }
 }

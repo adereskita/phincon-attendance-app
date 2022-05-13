@@ -12,13 +12,12 @@
 
 import UIKit
 
-@objc protocol DashboardRoutingLogic
-{
-  func routeToNotification(segue: UIStoryboardSegue?)
+@objc protocol DashboardRoutingLogic {
+    func routeToNotification(segue: UIStoryboardSegue?)
+    func routeToLogoutUser(segue: UIStoryboardSegue?)
 }
 
-protocol DashboardDataPassing
-{
+protocol DashboardDataPassing {
   var dataStore: DashboardDataStore? { get }
 }
 
@@ -34,6 +33,13 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
         let notificationVC = storyBoard.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationViewController
 //        dashBoardVC.modalPresentationStyle = .fullScreen
         navigateToNotificationVC(source: viewController!, destination: notificationVC)
+    }
+    
+    func routeToLogoutUser(segue: UIStoryboardSegue?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+        
+        navigateToOnboard(source: viewController!, destination: onboardingNavController as! UINavigationController)
     }
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
@@ -53,6 +59,10 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
   // MARK: Navigation
     func navigateToNotificationVC(source: DashboardViewController, destination: NotificationViewController) {
         source.show(destination, sender: nil)
+    }
+    
+    func navigateToOnboard(source: DashboardViewController, destination: UINavigationController) {
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: false)
     }
   
   // MARK: Passing data

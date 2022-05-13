@@ -7,15 +7,8 @@
 
 import UIKit
 
-protocol DashboardButtonDelegate: AnyObject {
-    func didTapNotification()
-    func didTapCheck()
-}
-
 class DashboardView: UIView {
-    
-    weak var delegate: DashboardButtonDelegate!
-    
+        
     @IBOutlet var dashboardTableView: UITableView!
     @IBOutlet var checkInBtn: UIButton!
     @IBOutlet var circleBg: UIImageView!
@@ -23,11 +16,25 @@ class DashboardView: UIView {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var spinner: UIActivityIndicatorView!
-    @IBOutlet var notificationBtn: UIButton!
+    @IBOutlet var navbarView: UIView!
+    @IBOutlet var bgTopView: UIView!
+    
+    weak var navBar: NavigationBarView!
+    
+    //can register tableview programmatically like this
+    private let tableviews: UITableView = {
+        let table = UITableView()
+        
+        table.register(DashboardTableCell.nib(), forCellReuseIdentifier: DashboardTableCell.identifier)
+        table.register(DashboardHeaderCell.nib(), forCellReuseIdentifier: DashboardHeaderCell.identifier)
+        
+        return table
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         Init()
+        navBar = navbarView as? NavigationBarView
     }
     
     required init?(coder: NSCoder) {
@@ -43,33 +50,13 @@ class DashboardView: UIView {
     }
     
     func setupUI() {
+        bgTopView.backgroundColor = colorUtils.darkBlueHead
         spinner.isHidden = true
         dashboardTableView.register(DashboardTableCell.nib(), forCellReuseIdentifier: DashboardTableCell.identifier)
+        dashboardTableView.register(DashboardHeaderCell.nib(), forCellReuseIdentifier: DashboardHeaderCell.identifier)
+        
         dashboardTableView.separatorStyle = .none
         dashboardTableView.estimatedRowHeight = 76
-        
-        checkInBtn.titleLabel?.textAlignment = .center
-        checkInBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        checkInBtn.titleLabel?.minimumScaleFactor = 0.5
-        
-        circleBg.layer.shadowColor = UIColor.lightGray.cgColor
-        circleBg.layer.shadowOffset = CGSize.zero
-        circleBg.layer.shadowOpacity = 0.4
-        circleBg.layer.shadowRadius = 10.0
-
-        topCardView.layer.cornerRadius = 20
-        topCardView.layer.shadowColor = UIColor.lightGray.cgColor
-        topCardView.layer.shadowOffset = CGSize.zero
-        topCardView.layer.shadowOpacity = 0.2
-        topCardView.layer.shadowRadius = 3.0
-    }
-
-    @IBAction func btnNotificationClicked(_ sender: Any) {
-        delegate.didTapNotification()
-    }
-    
-    @IBAction func btnCheckPressed(_ sender: Any) {
-        delegate.didTapCheck()
     }
     
 }

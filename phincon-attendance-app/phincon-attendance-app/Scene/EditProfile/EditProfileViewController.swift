@@ -90,7 +90,7 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     var updateProfile : [Users] = []
     
     func setupView() {
-        saveButton.backgroundColor = colorUtils.darkBlue
+        saveButton.backgroundColor = colorUtils.darkBlueHead
         saveButton.tintColor = UIColor.white
         saveButton.setTitle("Save", for: .normal)
         saveButton.titleLabel?.textAlignment = .center

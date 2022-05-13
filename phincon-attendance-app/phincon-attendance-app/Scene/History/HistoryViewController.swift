@@ -157,6 +157,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         interactor?.getSafariLink(historyObj.locationAddress!)
         router?.routeToSafariLink(segue: nil)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

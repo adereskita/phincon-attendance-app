@@ -20,17 +20,7 @@ class DashboardView: UIView {
     @IBOutlet var bgTopView: UIView!
     
     weak var navBar: NavigationBarView!
-    
-    //can register tableview programmatically like this
-    private let tableviews: UITableView = {
-        let table = UITableView()
         
-        table.register(DashboardTableCell.nib(), forCellReuseIdentifier: DashboardTableCell.identifier)
-        table.register(DashboardHeaderCell.nib(), forCellReuseIdentifier: DashboardHeaderCell.identifier)
-        
-        return table
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         Init()

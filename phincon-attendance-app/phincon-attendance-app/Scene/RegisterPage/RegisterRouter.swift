@@ -29,19 +29,18 @@ class RegisterRouter: NSObject, RegisterRoutingLogic, RegisterDataPassing {
     let userDefault = UserDefaults.standard
   
     func routeToLogin(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
-//        loginVC.modalPresentationStyle = .fullScreen
-        navigateToLogin(source: viewController!, destination: loginVC as! LoginViewController)
+        let loginVC = LoginViewController()
+        navigateToLogin(source: viewController!, destination: loginVC)
     }
     
     func routeDidRegister(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
-//        loginVC.modalPresentationStyle = .fullScreen
-        navigateToLogin(source: viewController!, destination: loginVC as! LoginViewController)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
+////        loginVC.modalPresentationStyle = .fullScreen
+//        navigateToLogin(source: viewController!, destination: loginVC as! LoginViewController)
+        let loginVC = LoginViewController()
+        navigateToLogin(source: viewController!, destination: loginVC)
     }
   // MARK: Routing
   //func routeToSomewhere(segue: UIStoryboardSegue?)

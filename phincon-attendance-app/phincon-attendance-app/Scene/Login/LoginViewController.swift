@@ -67,7 +67,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupViewNib()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
         //Add this tap gesture recognizer to the parent view
@@ -94,6 +93,31 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         self.loginCustomView = loginView
     }
     
+    func setupSpinner(isLogin: Bool, message: String?) {
+        loginCustomView.spinner.isHidden = false
+        loginCustomView.spinner.style = .medium
+        loginCustomView.spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        loginCustomView.spinner.layer.cornerRadius = 10.0
+        loginCustomView.spinner.translatesAutoresizingMaskIntoConstraints = false
+        loginCustomView.spinner.startAnimating()
+        
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.loginCustomView.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if let route = self.router {
+                    if isLogin == true && route.dataStore?.token.isEmpty != true {
+                        route.routeToDashboardPage(segue: nil)
+                    } else {
+                        self.loginCustomView.errorLbl.isHidden = false
+                        self.loginCustomView.errorLbl.text = message?.replacingOccurrences(of: "\"", with: "")
+//                        self.alertSetup(error: message)
+                    }
+                }
+            }
+        }
+    }
+    
     @objc func dismissMyKeyboard() {
         view.endEditing(true)
     }
@@ -107,20 +131,19 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     func presenter(displayLoginSuccess viewModel: LoginModels.Post.ViewModel) {
         //nameTextField.text = viewModel.name
         if viewModel.token != nil {
-            loginCustomView.setupSpinner(isLogin: true, message: nil, router: self.router as! LoginRouter)
+            setupSpinner(isLogin: true, message: nil)
         }
     }
     
     func presenter(didFailLogin message: String) {
-        loginCustomView.setupSpinner(isLogin: false, message: message, router: self.router as! LoginRouter)
+        setupSpinner(isLogin: false, message: message)
     }
 }
 
 extension LoginViewController: ButtonTapDelegate {
-    func didTapLoginButton(loginView: LoginView) {
-//        let request = LoginModels.Post.Request(username: loginView.usernameTextField.text ?? "", password: loginView.passwordTextField.text ?? "")
-//        interactor?.login(request)
-        loginCustomView.setupSpinner(isLogin: true, message: nil, router: self.router as! LoginRouter)
+    func didTapLoginButton() {
+        let request = LoginModels.Post.Request(username: loginCustomView.usernameTextField.text ?? "", password: loginCustomView.passwordTextField.text ?? "")
+        interactor?.login(request)
     }
     
     func didTapBackButton() {

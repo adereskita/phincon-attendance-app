@@ -11,11 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardView" customModule="phincon_attendance_app" customModuleProvider="target">
             <connections>
+                <outlet property="bgTopView" destination="Vt6-yi-qJ0" id="6uq-D5-8Ts"/>
                 <outlet property="checkInBtn" destination="cAJ-ux-Ngo" id="xSU-Rx-sYf"/>
                 <outlet property="circleBg" destination="buZ-FK-knC" id="4Sf-qe-wyp"/>
                 <outlet property="dashboardTableView" destination="ceT-tI-D0K" id="xtp-wp-wKD"/>
                 <outlet property="dateLabel" destination="kCP-jd-DwJ" id="KnA-o3-Eaf"/>
-                <outlet property="notificationBtn" destination="8xA-uP-k3r" id="UIH-yQ-UkB"/>
+                <outlet property="navbarView" destination="xoe-Kg-EHi" id="Vi8-sc-ax3"/>
                 <outlet property="spinner" destination="VOz-VV-Qbg" id="Z7E-Vu-ULp"/>
                 <outlet property="timeLabel" destination="WLW-vD-ErL" id="nmp-8A-NuG"/>
                 <outlet property="topCardView" destination="CCT-Qe-V5c" id="5h4-9q-aYA"/>
@@ -27,30 +28,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vt6-yi-qJ0">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="248.5"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Attendance" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vbL-ic-YVl">
-                            <rect key="frame" x="16" y="76" width="165" height="29"/>
-                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xA-uP-k3r">
-                            <rect key="frame" x="361" y="79.5" width="21" height="22"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" image="notification-on"/>
-                            <connections>
-                                <action selector="btnNotificationClicked:" destination="-1" eventType="touchUpInside" id="d5C-P9-6SL"/>
-                            </connections>
-                        </button>
-                    </subviews>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                     <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Vt6-yi-qJ0" secondAttribute="height" multiplier="10:6" id="1ht-bh-Hmw"/>
-                        <constraint firstAttribute="trailing" secondItem="8xA-uP-k3r" secondAttribute="trailing" constant="32" id="8Kv-Rc-Lew"/>
-                        <constraint firstItem="8xA-uP-k3r" firstAttribute="centerY" secondItem="vbL-ic-YVl" secondAttribute="centerY" id="Lny-99-z8C"/>
-                        <constraint firstItem="vbL-ic-YVl" firstAttribute="leading" secondItem="Vt6-yi-qJ0" secondAttribute="leading" constant="16" id="vy1-PM-m7O"/>
+                        <constraint firstAttribute="height" constant="54" id="lw8-Bv-kUi"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CCT-Qe-V5c">
@@ -84,9 +65,6 @@
                             <state key="normal" title="CHECK IN">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <connections>
-                                <action selector="btnCheckPressed:" destination="-1" eventType="touchUpInside" id="U0w-US-72M"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -106,7 +84,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ceT-tI-D0K">
-                    <rect key="frame" x="0.0" y="453.5" width="414" height="408.5"/>
+                    <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
@@ -123,33 +101,43 @@
                         <constraint firstAttribute="width" secondItem="VOz-VV-Qbg" secondAttribute="height" multiplier="1:1" id="arF-TW-B4w"/>
                     </constraints>
                 </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoe-Kg-EHi" customClass="NavigationBarView" customModule="phincon_attendance_app" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="54"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="doV-pV-QuD"/>
-            <color key="backgroundColor" red="0.97254901959999995" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Vt6-yi-qJ0" firstAttribute="height" secondItem="xoe-Kg-EHi" secondAttribute="height" id="2im-wM-N2R"/>
                 <constraint firstItem="CCT-Qe-V5c" firstAttribute="leading" secondItem="doV-pV-QuD" secondAttribute="leading" constant="16" id="7d8-da-khX"/>
-                <constraint firstItem="CCT-Qe-V5c" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Vt6-yi-qJ0" secondAttribute="bottom" constant="50" id="DKj-1x-YZv"/>
+                <constraint firstItem="ceT-tI-D0K" firstAttribute="top" secondItem="xoe-Kg-EHi" secondAttribute="bottom" id="9gP-Q5-NiJ"/>
+                <constraint firstItem="doV-pV-QuD" firstAttribute="trailing" secondItem="xoe-Kg-EHi" secondAttribute="trailing" id="AVd-gs-RtO"/>
                 <constraint firstItem="ceT-tI-D0K" firstAttribute="leading" secondItem="doV-pV-QuD" secondAttribute="leading" id="Fbi-qA-cOG"/>
                 <constraint firstItem="doV-pV-QuD" firstAttribute="bottom" secondItem="ceT-tI-D0K" secondAttribute="bottom" id="GjB-7u-wM9"/>
                 <constraint firstItem="Vt6-yi-qJ0" firstAttribute="leading" secondItem="doV-pV-QuD" secondAttribute="leading" id="HWV-DS-fej"/>
-                <constraint firstItem="ceT-tI-D0K" firstAttribute="top" secondItem="vOP-Hb-3zY" secondAttribute="bottom" constant="8" id="NM4-O0-gNg"/>
+                <constraint firstItem="ceT-tI-D0K" firstAttribute="top" secondItem="vOP-Hb-3zY" secondAttribute="bottom" constant="12" id="NM4-O0-gNg"/>
                 <constraint firstItem="vOP-Hb-3zY" firstAttribute="leading" secondItem="doV-pV-QuD" secondAttribute="leading" constant="16" id="WYi-qb-Gfy"/>
                 <constraint firstItem="VOz-VV-Qbg" firstAttribute="centerY" secondItem="doV-pV-QuD" secondAttribute="centerY" id="Ygb-f0-hMg"/>
                 <constraint firstItem="doV-pV-QuD" firstAttribute="trailing" secondItem="Vt6-yi-qJ0" secondAttribute="trailing" id="caX-z4-Zfz"/>
-                <constraint firstItem="vbL-ic-YVl" firstAttribute="top" secondItem="doV-pV-QuD" secondAttribute="top" constant="32" id="cck-uc-05X"/>
+                <constraint firstItem="xoe-Kg-EHi" firstAttribute="leading" secondItem="doV-pV-QuD" secondAttribute="leading" id="ewa-Jw-CNo"/>
                 <constraint firstItem="doV-pV-QuD" firstAttribute="trailing" secondItem="CCT-Qe-V5c" secondAttribute="trailing" constant="16" id="kwF-WU-BLx"/>
                 <constraint firstItem="doV-pV-QuD" firstAttribute="trailing" secondItem="ceT-tI-D0K" secondAttribute="trailing" id="lVL-q1-may"/>
-                <constraint firstItem="CCT-Qe-V5c" firstAttribute="top" secondItem="vbL-ic-YVl" secondAttribute="bottom" constant="28" id="ong-Ci-BOk"/>
+                <constraint firstItem="xoe-Kg-EHi" firstAttribute="top" secondItem="doV-pV-QuD" secondAttribute="top" id="mJj-9y-e5C"/>
                 <constraint firstItem="VOz-VV-Qbg" firstAttribute="centerX" secondItem="doV-pV-QuD" secondAttribute="centerX" id="t66-b7-EJu"/>
                 <constraint firstItem="Vt6-yi-qJ0" firstAttribute="top" secondItem="M6x-07-PtA" secondAttribute="top" id="tLx-q6-2WA"/>
                 <constraint firstItem="vOP-Hb-3zY" firstAttribute="top" secondItem="CCT-Qe-V5c" secondAttribute="bottom" constant="16" id="wQP-KS-Zb9"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="CCT-Qe-V5c"/>
+                    <exclude reference="vOP-Hb-3zY"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="70" y="747"/>
         </view>
     </objects>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
-        <image name="notification-on" width="21" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

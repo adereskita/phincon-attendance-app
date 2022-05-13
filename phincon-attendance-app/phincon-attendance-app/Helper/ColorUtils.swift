@@ -16,10 +16,11 @@ class ColorUtils : NSObject {
     @objc class func sharedInstance() -> ColorUtils {
             return colorUtils
         }
-    let darkBlue = UIColor(hex: "#0047CC")
+    let darkBlueHead = UIColor(hex: "#0047CC")
     let green = UIColor(hex: "#11C04D")
     let yellow = UIColor(hex: "#F7B500")
     let lightGrey = UIColor(hex: "#DFE7F5")
+    let viewBg = UIColor(hex: "#F8F9F9")
     let yellowCheckout = UIColor(red: 0.969, green: 0.71, blue: 0, alpha: 1)
     let blueCheckout = UIColor(red: 0, green: 0.388, blue: 0.776, alpha: 1)
 }

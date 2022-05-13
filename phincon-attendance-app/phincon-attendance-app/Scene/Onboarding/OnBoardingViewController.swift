@@ -89,7 +89,7 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
                 r.setValue(ConstantAPI.Server.apiKey, forHTTPHeaderField: ConstantAPI.HttpHeaderField.apikey.rawValue)
                 return r
             }
-            let imgUrl = URL(string: "http://167.172.74.133:5000/images/onboarding/\(onboardSlide[currentPage].image!)")
+            let imgUrl = URL(string: ConstantAPI.Server.baseURL+"/images/onboarding/\(onboardSlide[currentPage].image!)")
             self.imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
             imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
         }

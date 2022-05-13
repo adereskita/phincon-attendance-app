@@ -65,6 +65,10 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

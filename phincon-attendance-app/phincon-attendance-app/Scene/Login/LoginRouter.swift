@@ -33,11 +33,15 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     // MARK: Routing
     
     func routeToDashboardPage(segue: UIStoryboardSegue?) {
-        
 //        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 //        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        let tabbarVC = TabBarViewController()
-        navigateToDashboard(source: viewController!, destination: tabbarVC)
+        
+        if let token = dataStore?.token {
+            keyChainWrapper.set(token, forKey: "user_token")
+            
+            let tabbarVC = TabBarViewController()
+            navigateToDashboard(source: viewController!, destination: tabbarVC)
+        }
         //    passDataToDashboard(source: dataStore!, destination: &destinationDS)
     }
     func routeToForgotPassword(segue: UIStoryboardSegue?) {
@@ -58,10 +62,6 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     // MARK: Navigation
     
     func navigateToDashboard(source: LoginViewController, destination: UITabBarController) {
-        if let token = dataStore?.token {
-            keyChainWrapper.set(token, forKey: "user_token")
-//            userDefault.set(token, forKey: "user_token")
-        }
         let navCon = UINavigationController(rootViewController: destination)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon, animated: false)
     }

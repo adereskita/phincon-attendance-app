@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import SkeletonView
 
 protocol HistoryDisplayLogic: AnyObject {
     func presenter(LoadHistory response: HistoryModels.FetchHistory.Response)
@@ -90,7 +89,9 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
                 historyView.historyTableView.refreshControl = UIRefreshControl()
                 historyView.historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
             } else {
-                historyView.historyTableView.refreshControl = nil
+                historyView.historyTableView.refreshControl = UIRefreshControl()
+                historyView.historyTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+//                historyView.historyTableView.refreshControl = nil
                 historyView.emptyLbl.isHidden = false
             }
         }

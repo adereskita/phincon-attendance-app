@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeVC.title = "Dashboard"
+        homeVC.title = "Home"
         historyVC.title = "History"
         profileVC.title = "Profile"
         
@@ -59,6 +59,8 @@ class TabBarViewController: UITabBarController {
         let appearance = UITabBarAppearance()
         appearance.stackedLayoutAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 0)
         tabBar.standardAppearance = appearance
+        
+        self.tabBar.isTranslucent = false
     }
     
 }

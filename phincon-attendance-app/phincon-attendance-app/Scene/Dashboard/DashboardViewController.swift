@@ -108,7 +108,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     let keyChainWrapper = KeychainWrapper.standard
     
     weak var dashboardView: DashboardView!
-//    weak var navBarView: NavigationBarView!
     
     var locationID  = ""
     var isCheckOut: Bool! {
@@ -381,6 +380,30 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 //        let heightRatio = UIScreen.main.bounds.height / 736
 //        let tableViewHeight = tableView.frame.size.height
 //        return tableView.estimatedRowHeight * heightRatio
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        
+        let swipingDown = y <= 0
+        let shouldSnap = y > 30
+        let refreshTable = y < 0
+        let labelHeight = dashboardView.navBar.titleLabel.frame.height + 16
+                
+        UIView.animate(withDuration: 0.3) { [self] in
+            self.dashboardView.navbarView.layoutIfNeeded()
+//            dashboardView.navBar.titleLabel.alpha = swipingDown ? 1.0 : 0.0
+        }
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, animations: {
+            let labels = self.dashboardView.navBar.titleLabel.font!
+//            self.dashboardView.navBarViewTopConstraint.constant = shouldSnap ? -labelHeight : 16
+            self.dashboardView.navBar.titleLabel.font = shouldSnap ? labels.withSize(16) : labels.withSize(21)
+            self.dashboardView.navbarView.backgroundColor = colorUtils.darkBlueHead
+//            self.dashboardView.navBar.rightButton.frame.size = shouldSnap ? CGSize(width: 16, height: 16) : CGSize(width: 21, height: 21)
+//            self.dashboardView.navBar.rightButton.translatesAutoresizingMaskIntoConstraints = true
+//            self.dashboardView.navBar.view.layoutIfNeeded()
+        })
     }
 }
 

@@ -111,8 +111,9 @@ class ProfilViewController: UIViewController, ProfilDisplayLogic {
         let profileViews = ProfileView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         self.view = profileViews
 //        self.view.addview(dashboardViews)
-        profileViews.delegate = self
         self.profileView = profileViews
+        
+        self.profileView.navBar.delegate = self
     }
     
     func setupProfil(){
@@ -192,9 +193,8 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
-extension ProfilViewController: ProfileButtonDelegate {
-    func didTapMenu() {
+extension ProfilViewController: NavBarButtonDelegate {
+    func didTapNotif() {
         let menuAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
         let editProfile = UIAlertAction(title: "Edit Profile", style: .default) { (action: UIAlertAction) in

@@ -16,6 +16,7 @@
                 <outlet property="circleBg" destination="buZ-FK-knC" id="4Sf-qe-wyp"/>
                 <outlet property="dashboardTableView" destination="ceT-tI-D0K" id="xtp-wp-wKD"/>
                 <outlet property="dateLabel" destination="kCP-jd-DwJ" id="KnA-o3-Eaf"/>
+                <outlet property="navBarViewTopConstraint" destination="mJj-9y-e5C" id="lMC-6b-RQ0"/>
                 <outlet property="navbarView" destination="xoe-Kg-EHi" id="Vi8-sc-ax3"/>
                 <outlet property="spinner" destination="VOz-VV-Qbg" id="Z7E-Vu-ULp"/>
                 <outlet property="timeLabel" destination="WLW-vD-ErL" id="nmp-8A-NuG"/>

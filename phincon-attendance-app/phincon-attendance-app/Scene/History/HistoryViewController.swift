@@ -107,6 +107,8 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
 //        self.view.addview(dashboardViews)
         historyViews.delegate = self
         self.historyView = historyViews
+        
+        self.historyView.navBar.delegate = self
     }
     
     func setupUI() {
@@ -215,7 +217,11 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 // MARK: Delegate from View
-extension HistoryViewController: HistoryButtonDelegate {
+extension HistoryViewController: HistoryButtonDelegate, NavBarButtonDelegate {
+    func didTapNotif() {
+        router?.routeToNotification(segue: nil)
+    }
+    
     func didTapNotification() {
         router?.routeToNotification(segue: nil)
     }

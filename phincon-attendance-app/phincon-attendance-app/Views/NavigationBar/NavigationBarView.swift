@@ -22,8 +22,10 @@ class NavigationBarView: UIView {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
     
+    var navBarViewTopConstraint: NSLayoutConstraint?
+    
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -43,9 +45,12 @@ class NavigationBarView: UIView {
     }
     
     private func setupLayout() {
+        navBarViewTopConstraint = view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        
         NSLayoutConstraint.activate(
             [
-                view.topAnchor.constraint(equalTo: topAnchor),
+//                view.topAnchor.constraint(equalTo: topAnchor),
+                navBarViewTopConstraint!,
                 view.leadingAnchor.constraint(equalTo: leadingAnchor),
                 view.bottomAnchor.constraint(equalTo: bottomAnchor),
                 view.trailingAnchor.constraint(equalTo: trailingAnchor),

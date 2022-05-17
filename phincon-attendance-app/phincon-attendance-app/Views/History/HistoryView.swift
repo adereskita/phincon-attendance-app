@@ -14,15 +14,20 @@ protocol HistoryButtonDelegate: AnyObject {
 class HistoryView: UIView {
     
     weak var delegate: HistoryButtonDelegate!
+    weak var navBar: NavigationBarView!
     
+    @IBOutlet var navbarView: UIView!
     @IBOutlet var cardView: UIView!
     @IBOutlet var filterCollView: UICollectionView!
     @IBOutlet var historyTableView: UITableView!
+    @IBOutlet var bgTopView: UIView!
     @IBOutlet var emptyLbl: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         Init()
+        navBar = navbarView as? NavigationBarView
+        navBar.titleLabel.text = "Attendance History"
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +43,7 @@ class HistoryView: UIView {
     }
     
     func setupUI() {
+        bgTopView.backgroundColor = colorUtils.darkBlueHead
         historyTableView.register(HistoryTableViewCell.nib(), forCellReuseIdentifier: HistoryTableViewCell.identifier)
         historyTableView.estimatedRowHeight = 72
         

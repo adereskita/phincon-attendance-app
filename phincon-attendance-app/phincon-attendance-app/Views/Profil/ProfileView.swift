@@ -7,20 +7,24 @@
 
 import UIKit
 
-protocol ProfileButtonDelegate: AnyObject {
-    func didTapMenu()
-}
-
 class ProfileView: UIView {
     
-    weak var delegate: ProfileButtonDelegate!
+    weak var navBar: NavigationBarView!
     
+    @IBOutlet var navbarView: UIView!
+    @IBOutlet var bgTopView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var editButton : UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         Init()
+        navBar = navbarView as? NavigationBarView
+        navBar.titleLabel.text = "Profile"
+        
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .bold, scale: .medium)
+        let largboldBtn = UIImage(systemName: "line.3.horizontal", withConfiguration: largeConfig)
+        navBar.rightButton.setImage(largboldBtn, for: .normal)
+
     }
     
     required init?(coder: NSCoder) {
@@ -36,14 +40,10 @@ class ProfileView: UIView {
     }
     
     func setupUI(){
+        bgTopView.backgroundColor = colorUtils.darkBlueHead
         tableView.register(ProfilTableViewCell.nib(), forCellReuseIdentifier: ProfilTableViewCell.identifier)
         tableView.register(ProfilePictureTableViewCell.nib(), forCellReuseIdentifier: ProfilePictureTableViewCell.identifier)
         tableView.estimatedRowHeight = 72
         tableView.layer.cornerRadius = 18
-    }
-    
-    
-    @IBAction func profileMenu(_ sender:Any) {
-        delegate.didTapMenu()
     }
 }

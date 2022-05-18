@@ -25,10 +25,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ZP-aa-xCy">
-                        <rect key="frame" x="16" y="8" width="382" height="287"/>
+                        <rect key="frame" x="16" y="16" width="382" height="279"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="751" text="Hour: 17:00" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CkA-Ul-o0Y">
-                                <rect key="frame" x="16" y="23" width="79" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="751" text="Hour:" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CkA-Ul-o0Y">
+                                <rect key="frame" x="16" y="23" width="37.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="u8L-bX-yjr"/>
                                 </constraints>
@@ -85,7 +85,7 @@
                     <constraint firstAttribute="trailing" secondItem="aEx-0R-gwJ" secondAttribute="trailing" id="II9-zj-06g"/>
                     <constraint firstAttribute="bottom" secondItem="9ZP-aa-xCy" secondAttribute="bottom" constant="16" id="ImT-bn-Mwf"/>
                     <constraint firstAttribute="trailing" secondItem="9ZP-aa-xCy" secondAttribute="trailing" constant="16" id="Zi0-QY-Hpn"/>
-                    <constraint firstItem="9ZP-aa-xCy" firstAttribute="top" secondItem="DJX-e3-Ekd" secondAttribute="top" constant="8" id="be7-8d-0SP"/>
+                    <constraint firstItem="9ZP-aa-xCy" firstAttribute="top" secondItem="DJX-e3-Ekd" secondAttribute="top" constant="16" id="be7-8d-0SP"/>
                     <constraint firstItem="aEx-0R-gwJ" firstAttribute="top" secondItem="DJX-e3-Ekd" secondAttribute="top" id="cSu-rC-acw"/>
                     <constraint firstItem="aEx-0R-gwJ" firstAttribute="leading" secondItem="DJX-e3-Ekd" secondAttribute="leading" id="mFH-Kt-X2m"/>
                 </constraints>

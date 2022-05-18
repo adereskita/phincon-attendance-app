@@ -7,13 +7,8 @@
 
 import UIKit
 
-protocol HistoryButtonDelegate: AnyObject {
-    func didTapNotification()
-}
-
 class HistoryView: UIView {
     
-    weak var delegate: HistoryButtonDelegate!
     weak var navBar: NavigationBarView!
     
     @IBOutlet var navbarView: UIView!
@@ -57,9 +52,5 @@ class HistoryView: UIView {
         cardView.layer.shadowOpacity = 0.2
         cardView.layer.shadowRadius = 3.0
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-    }
-    
-    @IBAction func btnNotificationClicked(_ sender: Any) {
-        delegate.didTapNotification()
     }
 }

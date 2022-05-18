@@ -75,7 +75,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // TODO: comment kode di viewDidLoad karena API tidak ada untuk menghindari error
         let request = DashboardModels.IsLogin.Request()
         interactor?.checkLoginSession(request: request)
     }
@@ -84,10 +83,9 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // TODO: comment kode di viewDidLoad karena API tidak ada untuk menghindari error
         setDataList()
         let request = HistoryModels.FetchHistory.Request(log: "day")
-        interactor?.checkButtonStatus(request: request)
+        interactor?.checkButtonStatus(request: request) // for status button
 //        let request = DashboardModels.IsLogin.Request()
 //        interactor?.checkLoginSession(request: request)
     }
@@ -102,7 +100,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
 
     var timer = Timer()
-    var timeString: String!
     
     let userDefault = UserDefaults.standard
     let keyChainWrapper = KeychainWrapper.standard
@@ -161,18 +158,6 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         dashboardView.dashboardTableView.refreshControl?.tintColor = .white
         
         self.view.backgroundColor = colorUtils.darkBlueHead
-        getCurrentTime()
-    }
-    
-    private func getCurrentTime() {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.currentTime) , userInfo: nil, repeats: true)
-    }
-    
-    @objc func currentTime() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm"
-        timeString = "Hour: \(formatter.string(from: Date()))"
-//        dashboardView.timeLabel.text = "Hour: \(formatter.string(from: Date()))"
     }
     
     func spinnerSetup(isSucces: Bool, message: String?) {
@@ -320,8 +305,6 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             let dates = df.string(from: date)
             
             cell.dateLabel.text = dates
-            cell.timeLabel.text = timeString
-            
             cell.isCheckOut = self.isCheckOut
             
             return cell
@@ -387,11 +370,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         let swipingDown = y <= 0
         let shouldSnap = y > 30
-        let refreshTable = y < 0
         let labelHeight = dashboardView.navBar.titleLabel.frame.height + 16
                 
         UIView.animate(withDuration: 0.3) { [self] in
-            self.dashboardView.navbarView.layoutIfNeeded()
 //            dashboardView.navBar.titleLabel.alpha = swipingDown ? 1.0 : 0.0
         }
         
@@ -402,7 +383,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             self.dashboardView.navbarView.backgroundColor = colorUtils.darkBlueHead
 //            self.dashboardView.navBar.rightButton.frame.size = shouldSnap ? CGSize(width: 16, height: 16) : CGSize(width: 21, height: 21)
 //            self.dashboardView.navBar.rightButton.translatesAutoresizingMaskIntoConstraints = true
-//            self.dashboardView.navBar.view.layoutIfNeeded()
+            self.dashboardView.navBar.view.layoutIfNeeded()
         })
     }
 }

@@ -105,7 +105,6 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         let historyViews = HistoryView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         self.view = historyViews
 //        self.view.addview(dashboardViews)
-        historyViews.delegate = self
         self.historyView = historyViews
         
         self.historyView.navBar.delegate = self
@@ -169,7 +168,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: TableView
+// MARK: Collection view
 extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -217,12 +216,8 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 // MARK: Delegate from View
-extension HistoryViewController: HistoryButtonDelegate, NavBarButtonDelegate {
+extension HistoryViewController: NavBarButtonDelegate {
     func didTapNotif() {
-        router?.routeToNotification(segue: nil)
-    }
-    
-    func didTapNotification() {
         router?.routeToNotification(segue: nil)
     }
 }

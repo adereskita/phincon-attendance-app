@@ -22,6 +22,8 @@ class DashboardHeaderCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var bgView: UIView!
     
+    var timer = Timer()
+    
     var isCheckOut: Bool! {
         didSet {
             if isCheckOut {
@@ -44,6 +46,7 @@ class DashboardHeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
+        getCurrentTime()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -68,9 +71,22 @@ class DashboardHeaderCell: UITableViewCell {
         topCardView.layer.shadowOffset = CGSize.zero
         topCardView.layer.shadowOpacity = 0.2
         topCardView.layer.shadowRadius = 3.0
+        
     }
     
     @IBAction func btnCheckPressed(_ sender: Any) {
         delegate.didTapCheck()
+    }
+    
+    
+    func getCurrentTime() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.currentTime), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.currentTime) , userInfo: nil, repeats: true)
+    }
+    
+    @objc func currentTime() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm"
+        timeLabel.text = "Hour: \(formatter.string(from: Date()))"
     }
 }

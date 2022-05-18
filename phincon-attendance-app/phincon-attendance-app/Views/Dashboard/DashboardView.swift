@@ -10,11 +10,6 @@ import UIKit
 class DashboardView: UIView {
         
     @IBOutlet var dashboardTableView: UITableView!
-    @IBOutlet var checkInBtn: UIButton!
-    @IBOutlet var circleBg: UIImageView!
-    @IBOutlet var topCardView: UIView!
-    @IBOutlet var timeLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet var navbarView: UIView!
     @IBOutlet var bgTopView: UIView!
@@ -43,7 +38,7 @@ class DashboardView: UIView {
     }
     
     func setupUI() {
-        self.translatesAutoresizingMaskIntoConstraints = true
+//        self.translatesAutoresizingMaskIntoConstraints = true
         bgTopView.backgroundColor = colorUtils.darkBlueHead
         spinner.isHidden = true
         dashboardTableView.register(DashboardTableCell.nib(), forCellReuseIdentifier: DashboardTableCell.identifier)

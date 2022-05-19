@@ -70,15 +70,24 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
     }
     
     override func viewDidLoad() {
+        self.navigationController!.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         setOnboarding()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        setupViewNib()
     }
   
   // MARK: Do something
     
+    let userDefault = UserDefaults.standard
+    weak var onboardingView: OnBoardingView!
+    
     var onboardSlide: [Onboarding] = [Onboarding]() {
         didSet{
-            self.collView.reloadData()
+            self.onboardingView.collView.reloadData()
         }
     }
     
@@ -90,21 +99,10 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
                 return r
             }
             let imgUrl = URL(string: ConstantAPI.Server.baseURL+"/images/onboarding/\(onboardSlide[currentPage].image!)")
-            self.imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
-            imgViewOnboard.setImage(imgViewOnboard.image, animated: true)
+            self.onboardingView.imgViewOnboard.kf.setImage(with: imgUrl, placeholder: nil, options: [.requestModifier(modifier)], completionHandler: nil)
+            onboardingView.imgViewOnboard.setImage(onboardingView.imgViewOnboard.image, animated: true)
         }
     }
-  
-    @IBOutlet var bottomCardView: UIView!
-    @IBOutlet var collView: UICollectionView!
-    @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var imgViewOnboard: UIImageView!
-    @IBOutlet var btnLogin: UIButton!
-    @IBOutlet var btnSignup: UIButton!
-    @IBOutlet var btnSkip: UIButton!
-    
-//    var imgID: String?
-    let userDefault = UserDefaults.standard
     
     func setOnboarding() {
         let request = OnBoardingModels.FetchOnBoarding.Request()
@@ -112,22 +110,22 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
         SetupUI()
     }
     
+    private func setupViewNib() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        
+        let onboardingViews = OnBoardingView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = onboardingViews
+//        self.view.addview(dashboardViews)
+        
+        self.onboardingView = onboardingViews
+        self.onboardingView.delegate = self
+    }
+    
     func SetupUI() {
-        bottomCardView.layer.shadowColor = UIColor.lightGray.cgColor
-        bottomCardView.layer.shadowOffset = CGSize.zero
-        bottomCardView.layer.shadowOpacity = 0.2
-        bottomCardView.layer.shadowRadius = 3.0
-        bottomCardView.layer.cornerRadius = 35
-        bottomCardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        
-        btnLogin.layer.cornerRadius = 10
-        btnSignup.layer.cornerRadius = 10
-        btnSignup.layer.borderColor = UIColor.lightGray.cgColor
-        btnSignup.layer.borderWidth = 2
-        
-        self.collView.register(OnboardingCollectionViewCell.nib(), forCellWithReuseIdentifier: OnboardingCollectionViewCell.identifier)
-        collView.delegate = self
-        collView.dataSource = self
+        onboardingView.collView.delegate = self
+        onboardingView.collView.dataSource = self
     }
     
     func presenter(displayOnboard response: OnBoardingModels.FetchOnBoarding.Response) {
@@ -136,33 +134,36 @@ class OnBoardingViewController: UIViewController, OnBoardingDisplayLogic {
             currentPage = 0
         }
     }
-    
-    @IBAction func onClickbBtnSkip(_ sender: Any?) {
-        currentPage = onboardSlide.count - 1
-        pageControl.currentPage = currentPage
-        var frame: CGRect = self.collView.frame
-        frame.origin.x = frame.size.width * CGFloat(currentPage ?? 0)
-        frame.origin.y = 0
-        self.collView.scrollRectToVisible(frame, animated: true)
-    }
-    
-    @IBAction func pageControlSelectionAction(_ sender: UIPageControl) {
-        let page: Int? = sender.currentPage
-        var frame: CGRect = self.collView.frame
-        frame.origin.x = frame.size.width * CGFloat(page ?? 0)
-        frame.origin.y = 0
-        currentPage = page!
-        self.collView.scrollRectToVisible(frame, animated: true)
-    }
-    
-    @IBAction func loginAction(_ sender: Any?) {
+}
+
+// MARK: Button and Page Controll Action
+extension OnBoardingViewController: OnboardingButtonDelegate {
+    func didTapLoginButton() {
         userDefault.setValue(true, forKey: "isLogin")
         router?.routeToLogin(segue: nil)
     }
-     
-    @IBAction func signUpAction(_ sender: Any?) {
+    
+    func didTapSkipButton() {
+        currentPage = onboardSlide.count - 1
+        onboardingView.pageControl.currentPage = currentPage
+        var frame: CGRect = self.onboardingView.collView.frame
+        frame.origin.x = frame.size.width * CGFloat(currentPage ?? 0)
+        frame.origin.y = 0
+        self.onboardingView.collView.scrollRectToVisible(frame, animated: true)
+    }
+    
+    func didTapRegisterButton() {
         userDefault.setValue(false, forKey: "isLogin")
         router?.routeToSignUp(segue: nil)
+    }
+    
+    func didTapPageControl(sender: UIPageControl) {
+        let page: Int? = sender.currentPage
+        var frame: CGRect = self.onboardingView.collView.frame
+        frame.origin.x = frame.size.width * CGFloat(page ?? 0)
+        frame.origin.y = 0
+        currentPage = page!
+        self.onboardingView.collView.scrollRectToVisible(frame, animated: true)
     }
 }
 
@@ -180,6 +181,7 @@ extension OnBoardingViewController: UIGestureRecognizerDelegate {
 }
 
 
+//MARK: - Collection View
 extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return onboardSlide.count
@@ -193,7 +195,7 @@ extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
-    //MARK:- FlowLayout
+    //MARK: - FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = collectionView.frame.size.width
         let screenHeight = collectionView.frame.size.height
@@ -204,7 +206,7 @@ extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDa
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x/width)
         
-        pageControl.currentPage = currentPage
+        onboardingView.pageControl.currentPage = currentPage
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

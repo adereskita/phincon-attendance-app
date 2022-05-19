@@ -36,10 +36,11 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
     }
     
     func routeToLogoutUser(segue: UIStoryboardSegue?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
-        
-        navigateToOnboard(source: viewController!, destination: onboardingNavController as! UINavigationController)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+        let onboardingVC = OnBoardingViewController()
+        let navCon = UINavigationController(rootViewController: onboardingVC)
+        navigateToOnboard(source: viewController!, destination: navCon)
     }
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
@@ -62,7 +63,7 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
     }
     
     func navigateToOnboard(source: DashboardViewController, destination: UINavigationController) {
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: false)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: true)
     }
   
   // MARK: Passing data

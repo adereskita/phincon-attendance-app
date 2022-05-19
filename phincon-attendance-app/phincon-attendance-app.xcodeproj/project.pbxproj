@@ -52,6 +52,8 @@
 		3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */; };
 		3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */; };
 		3674EEEA27F3714B00662D8F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674EEE927F3714B00662D8F /* Notification.swift */; };
+		369DC71C283605800097136F /* OnBoardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369DC71B283605800097136F /* OnBoardingView.xib */; };
+		369DC71E283605E80097136F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369DC71D283605E80097136F /* OnBoardingView.swift */; };
 		36AF818427FD4CE2009D84A2 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF818327FD4CE1009D84A2 /* ImageUtils.swift */; };
 		36C584C127FEF20200442181 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C584C027FEF20200442181 /* Users.swift */; };
 		36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */; };
@@ -195,6 +197,8 @@
 		3674EEE527F30B2700662D8F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		3674EEE627F30B2700662D8F /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		3674EEE927F3714B00662D8F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		369DC71B283605800097136F /* OnBoardingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingView.xib; sourceTree = "<group>"; };
+		369DC71D283605E80097136F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		36AF818327FD4CE1009D84A2 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		36C584C027FEF20200442181 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		36DC385A27DA553600EC4164 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -442,9 +446,19 @@
 			path = Notification;
 			sourceTree = "<group>";
 		};
+		369DC71A283605400097136F /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				369DC71B283605800097136F /* OnBoardingView.xib */,
+				369DC71D283605E80097136F /* OnBoardingView.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				369DC71A283605400097136F /* OnboardingView */,
 				365BD7D1282DF3DE0094FF7C /* CustomTableSection */,
 				366B7699282CBDAB00AE5AAC /* NavigationBar */,
 				E224A670282D74D300401F74 /* ForgotPassword */,
@@ -890,6 +904,7 @@
 				E224A674282D750700401F74 /* ForgotPasswordView.xib in Resources */,
 				366B768F282BA3FD00AE5AAC /* DashboardView.xib in Resources */,
 				366B7696282BF07D00AE5AAC /* ProfileView.xib in Resources */,
+				369DC71C283605800097136F /* OnBoardingView.xib in Resources */,
 				36DC385D27DA553600EC4164 /* OnboardingCollectionViewCell.xib in Resources */,
 				E2FAE34A27EB744C00D97493 /* ProfilTableViewCell.xib in Resources */,
 				3674EEE827F30B2700662D8F /* NotificationTableViewCell.xib in Resources */,
@@ -1114,6 +1129,7 @@
 				E2673FFA27F6E6E1006E3887 /* RegisterModels.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
 				E2D75EDD27F3E65B002F88A2 /* EditProfileWorker.swift in Sources */,
+				369DC71E283605E80097136F /* OnBoardingView.swift in Sources */,
 				36EA25D327EC45580094876E /* DashboardRouter.swift in Sources */,
 				365BD7D4282DF4090094FF7C /* CustomSectionView.swift in Sources */,
 				360B0F8627FBCE9000CB9CEC /* ResponseServer.swift in Sources */,

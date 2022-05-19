@@ -36,7 +36,7 @@ class EditProfileInteractor: EditProfileBusinessLogic, EditProfileDataStore
     func editProfile(_ request: EditProfileModel.Put.Request) {
         worker = EditProfileWorker()
         token = keyChanWrapper.string(forKey: "user_token")!
-        worker?.putEditProfile(token: token, fullname: request.fullname!, idcardnumber: request.idcardnumber!, address: request.address!, completionHandler: { (result) in
+        worker?.putEditProfile(token: token, fullname: request.fullname!, address: request.address!, completionHandler: { (result) in
             switch result {
             case .success(let value):
                 var response: EditProfileModel.Put.Response?

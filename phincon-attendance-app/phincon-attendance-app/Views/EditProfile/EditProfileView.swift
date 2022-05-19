@@ -13,6 +13,7 @@ protocol ButtonTapedDelegate: AnyObject {
 }
 
 class EditProfileView: UIView {
+    
     weak var delegate: ButtonTapedDelegate!
     
     @IBOutlet var cardView : UIView!
@@ -25,11 +26,11 @@ class EditProfileView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        Initial()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Initial()
     }
     
     func Initial() {
@@ -55,5 +56,11 @@ class EditProfileView: UIView {
         cardView.layer.shadowRadius = 3.0
         cardView.layer.cornerRadius = 25
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        saveButton.backgroundColor = colorUtils.darkBlueHead
+        saveButton.tintColor = UIColor.white
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.titleLabel?.textAlignment = .center
+        saveButton.layer.cornerRadius = 8
     }
 }

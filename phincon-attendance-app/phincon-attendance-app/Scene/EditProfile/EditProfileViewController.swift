@@ -75,7 +75,7 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        setupView()
+        
     }
     
     // MARK: Do something
@@ -109,12 +109,6 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func saveButton(_ sender: Any) {
-        let request = EditProfileModel.Put.Request(fullname: customEditView.nameTextField.text!, address: customEditView.addressTextField.text!)
-        interactor?.editProfile(request)
-       
     }
     
     func presenter(didChange viewModel: EditProfileModel.Put.ViewModel) {

@@ -450,7 +450,7 @@
 				E224A670282D74D300401F74 /* ForgotPassword */,
 				E224A669282C9B6700401F74 /* Register */,
 				366B767C282A4B2F00AE5AAC /* Login */,
-				E2D75EE627F40E3D002F88A2 /* EditProfilr */,
+				E2D75EE627F40E3D002F88A2 /* EditProfile */,
 				3674EEE427F30B1200662D8F /* Notification */,
 				E2FAE34627EB742800D97493 /* Profil */,
 				36F0CE9327DFAA6A001469CC /* History */,
@@ -733,13 +733,13 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
-		E2D75EE627F40E3D002F88A2 /* EditProfilr */ = {
+		E2D75EE627F40E3D002F88A2 /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
 				E21A281E2835D6D500899FCB /* EditProfileView.xib */,
 				E21A28202835D70700899FCB /* EditProfileView.swift */,
 			);
-			path = EditProfilr;
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		E2FAE34527EB732000D97493 /* Profil */ = {

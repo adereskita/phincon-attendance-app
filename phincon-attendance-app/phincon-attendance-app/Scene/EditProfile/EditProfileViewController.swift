@@ -80,22 +80,23 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var saveButton : UIButton!
-    @IBOutlet weak var fullnameTextField : UITextField!
-    @IBOutlet weak var idCardTextField : UITextField!
-    @IBOutlet weak var addressTextField : UITextField!
-    @IBOutlet weak var cardView : UIView!
+    weak var customEditView: EditProfileView!
     
-    var updateProfile : [Users] = []
+    //@IBOutlet weak var nameTextField: UITextField!
+    override func loadView() {
+        super.loadView()
+        setupView()
+    }
     
     func setupView() {
-        saveButton.backgroundColor = colorUtils.darkBlueHead
-        saveButton.tintColor = UIColor.white
-        saveButton.setTitle("Save", for: .normal)
-        saveButton.titleLabel?.textAlignment = .center
-        saveButton.layer.cornerRadius = 8
-
+        let screenRect = UIScreen.main.bounds
+        let screenHeight = screenRect.size.height
+        let screenWidth = screenRect.size.width
+        
+        let editProfileView = EditProfileView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = editProfileView
+        editProfileView.delegate = self
+        self.customEditView = editProfileView
     }
     
     func setupAlert(isSuccess: Bool, error message: String?) {
@@ -111,7 +112,7 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        let request = EditProfileModel.Put.Request(fullname: fullnameTextField.text!, idcardnumber: idCardTextField.text!, address: addressTextField.text!)
+        let request = EditProfileModel.Put.Request(fullname: customEditView.nameTextField.text!, address: customEditView.addressTextField.text!)
         interactor?.editProfile(request)
        
     }
@@ -125,8 +126,14 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
         setupAlert(isSuccess: false, error: message)
         print("Failed to update profile")
     }
-    
-    @IBAction func backButton(_sender: Any){
+}
+  
+extension EditProfileViewController : ButtonTapedDelegate {
+    func didTappedSaveButton() {
+        let request = EditProfileModel.Put.Request(fullname: customEditView.nameTextField.text!, address: customEditView.addressTextField.text!)
+        interactor?.editProfile(request)
+    }
+    func didTappedBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
 }

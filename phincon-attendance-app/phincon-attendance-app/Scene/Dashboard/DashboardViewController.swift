@@ -65,7 +65,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
             }
         }
     }
-    
+  
+  // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.setNavigationBarHidden(true, animated: false)
@@ -78,8 +79,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         let request = DashboardModels.IsLogin.Request()
         interactor?.checkLoginSession(request: request)
     }
-  
-  // MARK: View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

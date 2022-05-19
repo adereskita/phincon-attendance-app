@@ -11,6 +11,7 @@ protocol ClientAPIProtocol {
     func postLogin(username: String, password: String, completionHandler: @escaping (Result<LoginModels.Post.Response, APIError>) -> Void)
     func postRegister(username: String, fullname: String, password: String, idnumber: String, completionHandler: @escaping (Result<RegisterModels.Post.Response, APIError>) -> Void)
     func putEditProfile(token: String, fullname: String, address: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void)
+    func changePassword(token: String, password: String, newpassword: String, confirmpassword: String, completionHandler: @escaping (Result<ChangePasswordModel.Put.Response, APIError>) -> Void)
     //    func postLogin(username: String, password: String, completionHandler: @escaping (Result<[LoginModels.Post.Success], NSError>) -> Void)
 }
 
@@ -37,6 +38,12 @@ protocol ClientAPIProfileProtocol {
     func getProfile(token: String, completionHandler: @escaping (Result<ProfilModels.LoadProfil.Response, APIError>) -> Void)
 }
 class ClientAPI: BaseAPI<RouterAPI>, ClientAPIProtocol {
+    func changePassword(token: String, password: String, newpassword: String, confirmpassword: String, completionHandler: @escaping (Result<ChangePasswordModel.Put.Response, APIError>) -> Void) {
+        self.fetchData(target: .changePassword(token: token, password: password, newpassword: newpassword, confirmpassword: confirmpassword), responseClass: ChangePasswordModel.Put.Response.self, completionHandler: { result in
+            completionHandler(result)
+        })
+    }
+    
     func putEditProfile(token: String, fullname: String, address: String, completionHandler: @escaping (Result<EditProfileModel.Put.Response, APIError>) -> Void) {
         self.fetchData(target: .putEditProfile(token: token,  fullname: fullname, address: address), responseClass: EditProfileModel.Put.Response.self, completionHandler: { result in
             completionHandler(result)

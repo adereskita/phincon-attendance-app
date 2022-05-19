@@ -105,6 +105,12 @@
 		E2673FFA27F6E6E1006E3887 /* RegisterModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF427F6E6E1006E3887 /* RegisterModels.swift */; };
 		E2673FFB27F6E6E1006E3887 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF527F6E6E1006E3887 /* RegisterViewController.swift */; };
 		E2673FFC27F6E6E1006E3887 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FF627F6E6E1006E3887 /* RegisterInteractor.swift */; };
+		E282F51B2836385A005F53F7 /* ChangePasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282F51528363859005F53F7 /* ChangePasswordInteractor.swift */; };
+		E282F51C2836385A005F53F7 /* ChangePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282F51628363859005F53F7 /* ChangePasswordRouter.swift */; };
+		E282F51D2836385A005F53F7 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282F51728363859005F53F7 /* ChangePasswordViewController.swift */; };
+		E282F51E2836385A005F53F7 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282F5182836385A005F53F7 /* ChangePasswordPresenter.swift */; };
+		E282F51F2836385A005F53F7 /* ChangePasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282F5192836385A005F53F7 /* ChangePasswordWorker.swift */; };
+		E282F5202836385A005F53F7 /* ChangePasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282F51A2836385A005F53F7 /* ChangePasswordModels.swift */; };
 		E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */; };
 		E2A60F2A27EB036B001BEE6D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2427EB036B001BEE6D /* LoginWorker.swift */; };
 		E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A60F2527EB036B001BEE6D /* LoginRouter.swift */; };
@@ -259,6 +265,12 @@
 		E2673FF427F6E6E1006E3887 /* RegisterModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModels.swift; sourceTree = "<group>"; };
 		E2673FF527F6E6E1006E3887 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E2673FF627F6E6E1006E3887 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
+		E282F51528363859005F53F7 /* ChangePasswordInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordInteractor.swift; sourceTree = "<group>"; };
+		E282F51628363859005F53F7 /* ChangePasswordRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordRouter.swift; sourceTree = "<group>"; };
+		E282F51728363859005F53F7 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		E282F5182836385A005F53F7 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
+		E282F5192836385A005F53F7 /* ChangePasswordWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordWorker.swift; sourceTree = "<group>"; };
+		E282F51A2836385A005F53F7 /* ChangePasswordModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordModels.swift; sourceTree = "<group>"; };
 		E2A60F2327EB036B001BEE6D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		E2A60F2427EB036B001BEE6D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		E2A60F2527EB036B001BEE6D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -627,6 +639,7 @@
 		9595054427D9C448005741CA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E282F51428363825005F53F7 /* ChangePassword */,
 				366B7689282B9B7900AE5AAC /* TabBar */,
 				36174EB32816788300F538B3 /* SplashScreen */,
 				E2673FF027F6E6A1006E3887 /* RegisterPage */,
@@ -705,6 +718,19 @@
 				E2673FF627F6E6E1006E3887 /* RegisterInteractor.swift */,
 			);
 			path = RegisterPage;
+			sourceTree = "<group>";
+		};
+		E282F51428363825005F53F7 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				E282F51528363859005F53F7 /* ChangePasswordInteractor.swift */,
+				E282F51A2836385A005F53F7 /* ChangePasswordModels.swift */,
+				E282F5182836385A005F53F7 /* ChangePasswordPresenter.swift */,
+				E282F51628363859005F53F7 /* ChangePasswordRouter.swift */,
+				E282F51728363859005F53F7 /* ChangePasswordViewController.swift */,
+				E282F5192836385A005F53F7 /* ChangePasswordWorker.swift */,
+			);
+			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 		E2A60F2227EB0341001BEE6D /* Login */ = {
@@ -1027,6 +1053,7 @@
 				36174EBA281678A400F538B3 /* SplashScreenPresenter.swift in Sources */,
 				9595050F27D9BE25005741CA /* phincon_attendance_app.xcdatamodeld in Sources */,
 				3674EEDE27F3088F00662D8F /* NotificationPresenter.swift in Sources */,
+				E282F5202836385A005F53F7 /* ChangePasswordModels.swift in Sources */,
 				36EA25D627EC45580094876E /* DashboardInteractor.swift in Sources */,
 				36174EBF281678A400F538B3 /* SplashScreenInteractor.swift in Sources */,
 				362D594C27E9B7FF0022C094 /* HistoryRouter.swift in Sources */,
@@ -1050,6 +1077,7 @@
 				E2673FF927F6E6E1006E3887 /* RegisterRouter.swift in Sources */,
 				9595050527D9BE25005741CA /* AppDelegate.swift in Sources */,
 				E2FAE34227EB730F00D97493 /* ProfilModels.swift in Sources */,
+				E282F51C2836385A005F53F7 /* ChangePasswordRouter.swift in Sources */,
 				E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */,
 				366B768B282B9B9900AE5AAC /* TabBarViewController.swift in Sources */,
 				E2673FEF27F6E69E006E3887 /* ForgotPasswordInteractor.swift in Sources */,
@@ -1061,6 +1089,7 @@
 				E2673FFC27F6E6E1006E3887 /* RegisterInteractor.swift in Sources */,
 				362D594F27E9B7FF0022C094 /* HistoryInteractor.swift in Sources */,
 				E2A60F2B27EB036B001BEE6D /* LoginRouter.swift in Sources */,
+				E282F51E2836385A005F53F7 /* ChangePasswordPresenter.swift in Sources */,
 				E2A60F2C27EB036B001BEE6D /* LoginModels.swift in Sources */,
 				E2FAE34127EB730F00D97493 /* ProfilRouter.swift in Sources */,
 				366B7698282BF0AD00AE5AAC /* ProfileView.swift in Sources */,
@@ -1068,6 +1097,7 @@
 				36174EBE281678A400F538B3 /* SplashScreenVC.swift in Sources */,
 				36EA25D227EC45580094876E /* DashboardWorker.swift in Sources */,
 				E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */,
+				E282F51F2836385A005F53F7 /* ChangePasswordWorker.swift in Sources */,
 				E2673FED27F6E69E006E3887 /* ForgotPasswordModels.swift in Sources */,
 				E2D75EDF27F3E65B002F88A2 /* EditProfileModels.swift in Sources */,
 				366B769C282CBDCA00AE5AAC /* NavigationBarView.swift in Sources */,
@@ -1087,6 +1117,7 @@
 				36F0CE9A27DFAC56001469CC /* History.swift in Sources */,
 				362497CF27F8293000CD04FF /* ConstantAPI.swift in Sources */,
 				362497D927F8507800CD04FF /* ClientAPI.swift in Sources */,
+				E282F51B2836385A005F53F7 /* ChangePasswordInteractor.swift in Sources */,
 				36EA25D127EC45580094876E /* DashboardPresenter.swift in Sources */,
 				362D594A27E9B7FF0022C094 /* HistoryPresenter.swift in Sources */,
 				E2D75EDC27F3E65B002F88A2 /* EditProfilePresenter.swift in Sources */,
@@ -1111,6 +1142,7 @@
 				36EA25D427EC45580094876E /* DashboardModels.swift in Sources */,
 				36EA25C527EC0F050094876E /* OnBoardingWorker.swift in Sources */,
 				E2673FEC27F6E69E006E3887 /* ForgotPasswordRouter.swift in Sources */,
+				E282F51D2836385A005F53F7 /* ChangePasswordViewController.swift in Sources */,
 				E2673FFA27F6E6E1006E3887 /* RegisterModels.swift in Sources */,
 				36DC385C27DA553600EC4164 /* OnboardingCollectionViewCell.swift in Sources */,
 				E2D75EDD27F3E65B002F88A2 /* EditProfileWorker.swift in Sources */,

@@ -31,11 +31,8 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing {
     // MARK: Routing
     
     func routeToEditProfilePage(segue: UIStoryboardSegue?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let dashBoardVC = storyBoard.instantiateViewController(withIdentifier: "EditProfile")
-        dashBoardVC.modalPresentationStyle = .fullScreen
-        navigateToSomewhere(source: viewController!, destination: dashBoardVC as! EditProfileViewController)
+        let editProfileVC = EditProfileViewController()
+        navigateToEditProfile(source: viewController!, destination: editProfileVC)
     }
     
     func routeToLogoutUser(segue: UIStoryboardSegue?) {
@@ -48,7 +45,7 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing {
     
     // MARK: Navigation
     
-    func navigateToSomewhere(source: ProfilViewController, destination: EditProfileViewController) {
+    func navigateToEditProfile(source: ProfilViewController, destination: EditProfileViewController) {
         source.show(destination, sender: nil)
     }
     

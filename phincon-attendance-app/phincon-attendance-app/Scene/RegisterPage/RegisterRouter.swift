@@ -34,11 +34,6 @@ class RegisterRouter: NSObject, RegisterRoutingLogic, RegisterDataPassing {
     }
     
     func routeDidRegister(segue: UIStoryboardSegue?) {
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
-////        loginVC.modalPresentationStyle = .fullScreen
-//        navigateToLogin(source: viewController!, destination: loginVC as! LoginViewController)
         let loginVC = LoginViewController()
         navigateToLogin(source: viewController!, destination: loginVC)
     }

@@ -93,12 +93,24 @@ class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
         changePasswordView.delegate = self
         self.customView = changePasswordView
     }
+    
+    func setupAlert(isSuccess: Bool, error message: String?) {
+        if isSuccess {
+            let alert = UIAlertController(title: "Password Changed Successfully", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Failed Edit Profile", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
   
     func presenter(didChange viewModel: ChangePasswordModel.Put.ViewModel) {
-        print("oke changepass")
+       setupAlert(isSuccess: true, error: "")
     }
     func presenter(didFailedChange message: String) {
-        print(message)
+        setupAlert(isSuccess: false, error: message)
     }
 }
 

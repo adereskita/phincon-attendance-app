@@ -50,15 +50,19 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdH-1u-Wgh">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdH-1u-Wgh">
                                 <rect key="frame" x="269" y="13" width="34" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="4gg-Do-jZh"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title=" "/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rdH-1u-Wgh" firstAttribute="centerY" secondItem="LZe-Ey-0Ch" secondAttribute="centerY" id="27J-gW-4Yp"/>
+                            <constraint firstItem="rdH-1u-Wgh" firstAttribute="top" secondItem="D3g-iU-kJo" secondAttribute="top" constant="13" id="7Lk-qw-tJi"/>
                             <constraint firstItem="LZe-Ey-0Ch" firstAttribute="leading" secondItem="QhF-wg-wOZ" secondAttribute="trailing" constant="16" id="fpF-c6-uIo"/>
                             <constraint firstItem="QhF-wg-wOZ" firstAttribute="top" secondItem="D3g-iU-kJo" secondAttribute="top" constant="8" id="kEz-CV-dWj"/>
                             <constraint firstItem="LZe-Ey-0Ch" firstAttribute="top" secondItem="QhF-wg-wOZ" secondAttribute="top" id="kQw-hS-CGH"/>
@@ -71,6 +75,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="D3g-iU-kJo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ef4-yC-LIy"/>
+                    <constraint firstAttribute="trailing" secondItem="rdH-1u-Wgh" secondAttribute="trailing" constant="16" id="NXh-Lw-2o7"/>
                     <constraint firstAttribute="bottom" secondItem="D3g-iU-kJo" secondAttribute="bottom" constant="8" id="RBy-bN-UCF"/>
                     <constraint firstItem="D3g-iU-kJo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="XXQ-ri-mjd"/>
                     <constraint firstAttribute="trailing" secondItem="D3g-iU-kJo" secondAttribute="trailing" constant="8" id="fjr-uo-YvA"/>

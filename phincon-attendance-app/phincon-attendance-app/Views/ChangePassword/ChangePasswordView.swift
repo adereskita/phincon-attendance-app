@@ -21,6 +21,7 @@ class ChangePasswordView: UIView {
     @IBOutlet weak var newPassTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
     @IBOutlet var saveButton: UIButton!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,6 +48,7 @@ class ChangePasswordView: UIView {
     }
     
     func setupUI() {
+        spinner.isHidden = true
         saveButton.layer.cornerRadius = 10
         saveButton.backgroundColor = colorUtils.darkBlueHead
         saveButton.tintColor = UIColor.white
@@ -60,6 +62,20 @@ class ChangePasswordView: UIView {
         cardView.layer.shadowRadius = 3.0
         cardView.layer.cornerRadius = 25
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
+    
+    func setupSpinner(isSuccess: Bool, message: String?) {
+        spinner.isHidden = false
+        spinner.style = .medium
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        spinner.layer.cornerRadius = 10.0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.spinner.isHidden = true
+        }
     }
 }
 

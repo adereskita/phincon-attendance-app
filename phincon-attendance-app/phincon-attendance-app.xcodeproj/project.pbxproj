@@ -94,6 +94,8 @@
 		E224A66F282C9BE700401F74 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E224A66E282C9BE700401F74 /* RegisterView.swift */; };
 		E224A672282D74F500401F74 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E224A671282D74F500401F74 /* ForgotPasswordView.swift */; };
 		E224A674282D750700401F74 /* ForgotPasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E224A673282D750700401F74 /* ForgotPasswordView.xib */; };
+		E22895B0283727D2004F3ADA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22895AF283727D2004F3ADA /* ChangePasswordView.swift */; };
+		E22895B2283727DF004F3ADA /* ChangePasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22895B1283727DF004F3ADA /* ChangePasswordView.xib */; };
 		E22DF2E327F3369100336B89 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DF2E227F3369100336B89 /* ColorUtils.swift */; };
 		E2673FEA27F6E69E006E3887 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */; };
 		E2673FEB27F6E69E006E3887 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */; };
@@ -256,6 +258,8 @@
 		E224A66E282C9BE700401F74 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E224A671282D74F500401F74 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		E224A673282D750700401F74 /* ForgotPasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordView.xib; sourceTree = "<group>"; };
+		E22895AF283727D2004F3ADA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		E22895B1283727DF004F3ADA /* ChangePasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordView.xib; sourceTree = "<group>"; };
 		E22DF2E227F3369100336B89 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		E2673FE427F6E69E006E3887 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
 		E2673FE527F6E69E006E3887 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 		36DC385327DA547D00EC4164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E22895AE283727C0004F3ADA /* ChangePassword */,
 				369DC71A283605400097136F /* OnboardingView */,
 				365BD7D1282DF3DE0094FF7C /* CustomTableSection */,
 				366B7699282CBDAB00AE5AAC /* NavigationBar */,
@@ -698,6 +703,15 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		E22895AE283727C0004F3ADA /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				E22895AF283727D2004F3ADA /* ChangePasswordView.swift */,
+				E22895B1283727DF004F3ADA /* ChangePasswordView.xib */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
 		E22DF2E127F3368200336B89 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -924,6 +938,7 @@
 				365BD7D5282DF4090094FF7C /* CustomSectionView.xib in Resources */,
 				E21A281F2835D6D500899FCB /* EditProfileView.xib in Resources */,
 				365BD7D0282CF74A0094FF7C /* DashboardHeaderCell.xib in Resources */,
+				E22895B2283727DF004F3ADA /* ChangePasswordView.xib in Resources */,
 				366B7693282BBC1B00AE5AAC /* HistoryView.xib in Resources */,
 				36F0CE9727DFAAD5001469CC /* DayFilterCollViewCell.xib in Resources */,
 				36EE8BB627E02744006EB567 /* HistoryTableViewCell.xib in Resources */,
@@ -1083,6 +1098,7 @@
 				E2673FF827F6E6E1006E3887 /* RegisterWorker.swift in Sources */,
 				E2A60F2E27EB036B001BEE6D /* LoginInteractor.swift in Sources */,
 				E2FAE34327EB730F00D97493 /* ProfilViewController.swift in Sources */,
+				E22895B0283727D2004F3ADA /* ChangePasswordView.swift in Sources */,
 				E2A60F2927EB036B001BEE6D /* LoginPresenter.swift in Sources */,
 				36EE8BB527E02744006EB567 /* HistoryTableViewCell.swift in Sources */,
 				3674EEE727F30B2700662D8F /* NotificationTableViewCell.swift in Sources */,

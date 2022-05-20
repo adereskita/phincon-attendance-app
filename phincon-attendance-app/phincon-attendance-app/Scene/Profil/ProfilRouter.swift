@@ -15,6 +15,7 @@ import UIKit
 @objc protocol ProfilRoutingLogic {
     func routeToEditProfilePage(segue: UIStoryboardSegue?)
     func routeToLogoutUser(segue: UIStoryboardSegue?)
+    func routeToChangePassword(segue: UIStoryboardSegue?)
 }
 
 protocol ProfilDataPassing
@@ -43,6 +44,11 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing {
         navigateToOnboard(source: viewController!, destination: navCon)
     }
     
+    func routeToChangePassword(segue: UIStoryboardSegue?) {
+        let changePassVC = ChangePasswordViewController()
+        navigateToChangePassword(source: viewController!, destination: changePassVC)
+    }
+    
     // MARK: Navigation
     
     func navigateToEditProfile(source: ProfilViewController, destination: EditProfileViewController) {
@@ -51,6 +57,9 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing {
     
     func navigateToOnboard(source: ProfilViewController, destination: UINavigationController) {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: false)
+    }
+    func navigateToChangePassword(source: ProfilViewController, destination: ChangePasswordViewController) {
+        source.show(destination, sender: nil)
     }
     
     // MARK: Passing data

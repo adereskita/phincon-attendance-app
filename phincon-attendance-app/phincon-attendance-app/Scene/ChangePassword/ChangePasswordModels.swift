@@ -17,7 +17,7 @@ enum ChangePasswordModel {
   
   enum Put {
     struct Request {
-        var password: String?
+        var password, new_password, confirm_password: String?
     }
       struct Response : Codable{
           var success: LoggedIn.Success<Users>

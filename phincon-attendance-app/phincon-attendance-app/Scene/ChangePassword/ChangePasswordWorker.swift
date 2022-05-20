@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ChangePasswordWorkerProtocol : AnyObject {
-    func changePassword(token: String, password: String, completionHandler: @escaping (Result<ChangePasswordModel.Put.Response, APIError>) -> Void)
+    func changePassword(token: String, password: String, newpassword: String, confirmpassword: String, completionHandler: @escaping (Result<ChangePasswordModel.Put.Response, APIError>) -> Void)
 }
 class ChangePasswordWorker : ChangePasswordWorkerProtocol {
     private var service: ClientAPIProtocol
@@ -22,8 +22,8 @@ class ChangePasswordWorker : ChangePasswordWorkerProtocol {
         self.service = service
     }
     
-    func changePassword(token: String, password: String, completionHandler: @escaping (Result<ChangePasswordModel.Put.Response, APIError>) -> Void) {
-        service.changePassword(token: token, password: password) {
+    func changePassword(token: String, password: String, newpassword: String, confirmpassword: String, completionHandler: @escaping (Result<ChangePasswordModel.Put.Response, APIError>) -> Void) {
+        service.changePassword(token: token, password: password, newpassword: newpassword, confirmpassword: confirmpassword) {
             (result) in
             switch result {
             case .success(let value):

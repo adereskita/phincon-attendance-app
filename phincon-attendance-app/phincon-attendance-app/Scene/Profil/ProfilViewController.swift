@@ -188,7 +188,11 @@ extension ProfilViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 3 {
+            self.router?.routeToChangePassword(segue: nil)
+        }else {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
 }

@@ -38,7 +38,7 @@ class ChangePasswordInteractor: ChangePasswordBusinessLogic, ChangePasswordDataS
 func changePssword(_ request: ChangePasswordModel.Put.Request) {
     worker = ChangePasswordWorker()
       token = keyChainWrapper.string(forKey: "user_token")!
-      worker?.changePassword(token: token, password: request.password!, completionHandler: { (result) in
+    worker?.changePassword(token: token, password: request.password!, newpassword: request.new_password!, confirmpassword: request.confirm_password!, completionHandler: { (result) in
           switch result {
           case .success(let value):
               var response: ChangePasswordModel.Put.Response?

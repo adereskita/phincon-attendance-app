@@ -76,18 +76,39 @@ class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var currentPassTextField : UITextField!
-    @IBOutlet weak var newPassTextField : UITextField!
-    @IBOutlet weak var repeatPassTextField : UITextField!
-    @IBOutlet weak var saveButton : UIButton!
-    @IBOutlet weak var cardView : UIView!
+    weak var customView: ChangePasswordView!
     
-    var updatePassword : [Users] = []
+    override func loadView() {
+        super.loadView()
+        setupView()
+    }
+    
+    func setupView() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        
+        let changePasswordView = ChangePasswordView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.view = changePasswordView
+        changePasswordView.delegate = self
+        self.customView = changePasswordView
+    }
   
     func presenter(didChange viewModel: ChangePasswordModel.Put.ViewModel) {
         print("oke changepass")
     }
     func presenter(didFailedChange message: String) {
         print(message)
+    }
+}
+
+extension ChangePasswordViewController: ButtonChangeDelegate {
+    func didTapSaveButton() {
+        let request = ChangePasswordModel.Put.Request(password: customView.passwordTextField.text!, new_password: customView.newPassTextField.text!, confirm_password: customView.confirmPassTextField.text!)
+        interactor?.changePssword(request)
+    }
+    
+    func didTapBackButton() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

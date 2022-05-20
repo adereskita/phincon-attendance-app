@@ -174,13 +174,13 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
             self.dashboardView.spinner.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.view.isUserInteractionEnabled = true
-                self.alertSetup(isSucces: isSucces, error: message)
+                self.alertSetup(isSuccess: isSucces, error: message)
             }
         }
     }
     
-    func alertSetup(isSucces: Bool, error message: String?) {
-        if isSucces {
+    func alertSetup(isSuccess: Bool, error message: String?) {
+        if isSuccess {
             let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)

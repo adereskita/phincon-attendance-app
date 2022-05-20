@@ -17,6 +17,7 @@
                 <outlet property="imageView" destination="kyU-Uv-RuN" id="mZZ-to-cVN"/>
                 <outlet property="nameTextField" destination="3jh-WH-8Qy" id="dgq-Lg-YCg"/>
                 <outlet property="saveButton" destination="wLV-7h-iiv" id="hvO-wi-JzC"/>
+                <outlet property="spinner" destination="aA5-yp-KMV" id="mTl-91-pE5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -108,6 +109,9 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                         </button>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="aA5-yp-KMV">
+                            <rect key="frame" x="192" y="350" width="20" height="20"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -120,6 +124,7 @@
                         <constraint firstItem="MUU-jI-4na" firstAttribute="top" secondItem="nbO-g4-CgZ" secondAttribute="top" constant="186" id="7p1-ea-L5p"/>
                         <constraint firstItem="vFg-dk-2hh" firstAttribute="top" secondItem="3jh-WH-8Qy" secondAttribute="bottom" constant="20" id="9WP-vu-vc5"/>
                         <constraint firstItem="3jh-WH-8Qy" firstAttribute="top" secondItem="MUU-jI-4na" secondAttribute="bottom" constant="15" id="AAf-Jg-WY4"/>
+                        <constraint firstItem="aA5-yp-KMV" firstAttribute="centerY" secondItem="nbO-g4-CgZ" secondAttribute="centerY" id="BqC-Ma-hY1"/>
                         <constraint firstAttribute="trailing" secondItem="MUU-jI-4na" secondAttribute="trailing" constant="30" id="FFL-De-yzX"/>
                         <constraint firstItem="wLV-7h-iiv" firstAttribute="centerX" secondItem="nbO-g4-CgZ" secondAttribute="centerX" id="J48-kR-p7w"/>
                         <constraint firstItem="Y4n-QL-s4r" firstAttribute="top" secondItem="kyU-Uv-RuN" secondAttribute="bottom" constant="24" id="JOP-Qa-HgG"/>
@@ -130,10 +135,12 @@
                         <constraint firstItem="kyU-Uv-RuN" firstAttribute="top" secondItem="nbO-g4-CgZ" secondAttribute="top" constant="25" id="aEO-ap-lLm"/>
                         <constraint firstItem="fPM-7z-bz0" firstAttribute="top" secondItem="vFg-dk-2hh" secondAttribute="bottom" constant="15" id="bxv-vR-faS"/>
                         <constraint firstAttribute="trailing" secondItem="vFg-dk-2hh" secondAttribute="trailing" constant="30" id="cl0-8B-m7z"/>
+                        <constraint firstItem="aA5-yp-KMV" firstAttribute="centerX" secondItem="nbO-g4-CgZ" secondAttribute="centerX" id="g3c-XQ-ZIH"/>
                         <constraint firstItem="MUU-jI-4na" firstAttribute="top" secondItem="Y4n-QL-s4r" secondAttribute="bottom" constant="30" id="q4v-0k-SaE"/>
                         <constraint firstItem="fPM-7z-bz0" firstAttribute="leading" secondItem="nbO-g4-CgZ" secondAttribute="leading" constant="30" id="sv2-GU-YNb"/>
                         <constraint firstItem="vFg-dk-2hh" firstAttribute="leading" secondItem="nbO-g4-CgZ" secondAttribute="leading" constant="30" id="uag-iC-5nC"/>
                         <constraint firstItem="fPM-7z-bz0" firstAttribute="height" secondItem="3jh-WH-8Qy" secondAttribute="height" id="zFH-t3-eGR"/>
+                        <constraint firstItem="aA5-yp-KMV" firstAttribute="centerX" secondItem="nbO-g4-CgZ" secondAttribute="centerX" id="zGD-mm-1lf"/>
                     </constraints>
                 </view>
             </subviews>

@@ -20,62 +20,62 @@ protocol ChangePasswordDisplayLogic: AnyObject
 
 class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
 {
-  var interactor: ChangePasswordBusinessLogic?
-  var router: (NSObjectProtocol & ChangePasswordRoutingLogic & ChangePasswordDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = ChangePasswordInteractor()
-    let presenter = ChangePasswordPresenter()
-    let router = ChangePasswordRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    var interactor: ChangePasswordBusinessLogic?
+    var router: (NSObjectProtocol & ChangePasswordRoutingLogic & ChangePasswordDataPassing)?
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-   
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = ChangePasswordInteractor()
+        let presenter = ChangePasswordPresenter()
+        let router = ChangePasswordRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
     weak var customView: ChangePasswordView!
     
     override func loadView() {
@@ -105,12 +105,18 @@ class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
             self.present(alert, animated: true, completion: nil)
         }
     }
-  
+    
     func presenter(didChange viewModel: ChangePasswordModel.Put.ViewModel) {
-       setupAlert(isSuccess: true, error: "")
+        customView.setupSpinner(isSuccess: true, message: "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.setupAlert(isSuccess: true, error: "")
+        }
     }
     func presenter(didFailedChange message: String) {
-        setupAlert(isSuccess: false, error: message)
+        customView.setupSpinner(isSuccess: false, message: message)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.setupAlert(isSuccess: false, error: message)
+        }
     }
 }
 

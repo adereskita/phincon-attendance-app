@@ -22,6 +22,7 @@ class EditProfileView: UIView {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var editButton: UIButton!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     
     override init(frame: CGRect) {
@@ -48,7 +49,7 @@ class EditProfileView: UIView {
     }
     
     func setupUI() {
-        saveButton.layer.cornerRadius = 10
+        spinner.isHidden = true
         
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
         cardView.layer.shadowOffset = CGSize.zero
@@ -61,6 +62,20 @@ class EditProfileView: UIView {
         saveButton.tintColor = UIColor.white
         saveButton.setTitle("Save", for: .normal)
         saveButton.titleLabel?.textAlignment = .center
-        saveButton.layer.cornerRadius = 8
+        saveButton.layer.cornerRadius = 10
+        
+    }
+    func setupSpinner(isSuccess: Bool, message: String?) {
+        spinner.isHidden = false
+        spinner.style = .medium
+        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        spinner.layer.cornerRadius = 10.0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.spinner.isHidden = true
+        }
     }
 }

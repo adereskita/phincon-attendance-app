@@ -112,16 +112,20 @@ class EditProfileViewController: UIViewController, EditProfileDisplayLogic {
     }
     
     func presenter(didChange viewModel: EditProfileModel.Put.ViewModel) {
-        setupAlert(isSuccess: true, error: "")
-       print("Oke")
+        customEditView.setupSpinner(isSuccess: true, message: "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.setupAlert(isSuccess: true, error: "")
+        }
     }
     
     func presenter(didFailedChange message: String) {
-        setupAlert(isSuccess: false, error: message)
-        print("Failed to update profile")
+        customEditView.setupSpinner(isSuccess: false, message: message)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.setupAlert(isSuccess: false, error: message)
+        }
     }
 }
-  
+
 extension EditProfileViewController : ButtonTapedDelegate {
     func didTappedSaveButton() {
         let request = EditProfileModel.Put.Request(fullname: customEditView.nameTextField.text!, address: customEditView.addressTextField.text!)

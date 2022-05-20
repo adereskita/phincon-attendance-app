@@ -36,10 +36,11 @@ class ProfilRouter: NSObject, ProfilRoutingLogic, ProfilDataPassing {
     }
     
     func routeToLogoutUser(segue: UIStoryboardSegue?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
-        
-        navigateToOnboard(source: viewController!, destination: onboardingNavController as! UINavigationController)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let onboardingNavController = storyboard.instantiateViewController(identifier: "NavigationController")// root VC of Onboard
+        let onboardingVC = OnBoardingViewController()
+        let navCon = UINavigationController(rootViewController: onboardingVC)
+        navigateToOnboard(source: viewController!, destination: navCon)
     }
     
     // MARK: Navigation

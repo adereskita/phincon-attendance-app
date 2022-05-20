@@ -36,9 +36,9 @@ class SplashScreenRouter: NSObject, SplashScreenRoutingLogic, SplashScreenDataPa
     }
     
     func routeToOnboarding(segue: UIStoryboardSegue?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingVC = storyboard.instantiateViewController(identifier: "NavigationController")
-//        let onboardingVC = OnBoardingViewController()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let onboardingVC = storyboard.instantiateViewController(identifier: "NavigationController")
+        let onboardingVC = OnBoardingViewController()
         navigateToOnboarding(source: viewController!, destination: onboardingVC)
     }
 
@@ -46,7 +46,8 @@ class SplashScreenRouter: NSObject, SplashScreenRoutingLogic, SplashScreenDataPa
   
     func navigateToOnboarding(source: SplashScreenVC, destination: UIViewController) {
 //        let navCon = UINavigationController(rootViewController: destination)
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(destination, animated: true)
+        let navCon = UINavigationController(rootViewController: destination)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navCon, animated: true)
     }
     
     func navigateToDashboard(source: SplashScreenVC, destination: UITabBarController) {

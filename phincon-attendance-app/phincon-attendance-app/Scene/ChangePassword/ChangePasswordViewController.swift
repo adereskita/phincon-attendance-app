@@ -75,7 +75,6 @@ class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
     weak var customView: ChangePasswordView!
     
     override func loadView() {
@@ -98,7 +97,11 @@ class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
         if isSuccess {
             let alert = UIAlertController(title: "Password Changed Successfully", message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+            })
         } else {
             let alert = UIAlertController(title: "Failed Edit Profile", message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -106,16 +109,37 @@ class ChangePasswordViewController: UIViewController, ChangePasswordDisplayLogic
         }
     }
     
+    func setupSpinner(isSuccess: Bool, message: String?) {
+        customView.spinner.isHidden = false
+        customView.spinner.style = .medium
+        customView.spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
+        customView.spinner.layer.cornerRadius = 10.0
+        customView.spinner.translatesAutoresizingMaskIntoConstraints = false
+        customView.spinner.startAnimating()
+    }
+    
     func presenter(didChange viewModel: ChangePasswordModel.Put.ViewModel) {
-        customView.setupSpinner(isSuccess: true, message: "")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            self.setupAlert(isSuccess: true, error: "")
+        self.setupSpinner(isSuccess: true, message: "")
+        self.view.isUserInteractionEnabled = false
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.customView.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.isUserInteractionEnabled = true
+                self.setupAlert(isSuccess: true, error: nil)
+            }
         }
     }
     func presenter(didFailedChange message: String) {
-        customView.setupSpinner(isSuccess: false, message: message)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            self.setupAlert(isSuccess: false, error: message)
+        self.setupSpinner(isSuccess: false, message: message)
+        self.view.isUserInteractionEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.customView.spinner.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.isUserInteractionEnabled = true
+                self.setupAlert(isSuccess: false, error: message)
+            }
         }
     }
 }

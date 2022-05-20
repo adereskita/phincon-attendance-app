@@ -63,19 +63,5 @@ class ChangePasswordView: UIView {
         cardView.layer.cornerRadius = 25
         cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
-    
-    func setupSpinner(isSuccess: Bool, message: String?) {
-        spinner.isHidden = false
-        spinner.style = .medium
-        spinner.backgroundColor = UIColor(white: 0.9, alpha: 0.6)
-        spinner.layer.cornerRadius = 10.0
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-
-        // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.spinner.isHidden = true
-        }
-    }
 }
 

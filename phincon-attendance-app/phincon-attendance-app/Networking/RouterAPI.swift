@@ -19,6 +19,7 @@ enum RouterAPI {
     case getLocation(token: String)
     case getHistory(logs: String, token: String)
     case putEditProfile(token: String, fullname: String, address: String)
+    case changePassword(token: String, password: String, newpassword: String, confirmpassword: String)
 }
 
 extension RouterAPI: TargetType {
@@ -51,6 +52,8 @@ extension RouterAPI: TargetType {
             return "/history?log=\(logs)"
         case .putEditProfile:
             return "/user-change-profile"
+        case .changePassword:
+            return "/user-change-password"
         }
     }
     
@@ -75,6 +78,8 @@ extension RouterAPI: TargetType {
         case .getHistory:
             return .get
         case .putEditProfile:
+            return .put
+        case .changePassword:
             return .put
         }
     }
@@ -105,6 +110,8 @@ extension RouterAPI: TargetType {
             return .requestPlain
         case .putEditProfile(_, fullname: let fullname, address: let address):
             return .requestParameters(parameters: [ ConstantAPI.Parameters.fullname: fullname, ConstantAPI.Parameters.address: address], encoding: JSONEncoding.default)
+        case .changePassword(_, password: let password, newpassword: let newpassword, confirmpassword: let confirmpassword):
+            return .requestParameters(parameters: [ConstantAPI.Parameters.password: password, ConstantAPI.Parameters.newpassword: newpassword, ConstantAPI.Parameters.confirmpassword: confirmpassword], encoding: JSONEncoding.default)
             //            return .requestParameters(parameters: [ConstantAPI.Parameters.log: log], encoding: JSONEncoding.default)
         }
     }
@@ -129,6 +136,8 @@ extension RouterAPI: TargetType {
         case .getHistory(_, let token):
             return headerWithToken(token: token)
         case .putEditProfile(let token, _, _):
+            return headerWithToken(token: token)
+        case .changePassword(let token, _, _, _):
             return headerWithToken(token: token)
         default:
             return [ConstantAPI.HttpHeaderField.contentType.rawValue: ConstantAPI.ContentType.json.rawValue,

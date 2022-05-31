@@ -277,14 +277,18 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
 
 // MARK: TableView
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
-        if isCheckOut {
-            return checkOutLists.count
-        } else {
-            return checkInLists.count
+    
+    enum SectionType: Int {
+        case checkBox
+        case location
+        
+        init(section: Int) {
+            switch section {
+            case 0:
+                self = .checkBox
+            default:
+                self = .location
+            }
         }
     }
     
@@ -292,9 +296,26 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let section = SectionType.init(section: section)
         
-        if indexPath.section == 0 {
+        switch section {
+        case .checkBox:
+            return 1
+        case .location:
+            if isCheckOut {
+                return checkOutLists.count
+            } else {
+                return checkInLists.count
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = SectionType.init(section: indexPath.section)
+        
+        switch section {
+        case .checkBox:
             let cell = tableView.dequeueReusableCell(withIdentifier: DashboardHeaderCell.identifier, for: indexPath) as! DashboardHeaderCell
             
             cell.delegate = self
@@ -308,24 +329,25 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.isCheckOut = self.isCheckOut
             
             return cell
-        }
             
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardTableCell", for: indexPath) as! DashboardTableCell
-        if isCheckOut {
-            let listObj = checkOutLists[indexPath.row]
-            cell.setDashboardCellView(listObj)
-            cell.selectedColor = colorUtils.yellowCheckout
-            cell.selectedColorLbl = .black
-            
-            return cell
-            
-        } else {
-            let listObj = checkInLists[indexPath.row]
-            cell.setDashboardCellView(listObj)
-            cell.selectedColor = colorUtils.blueCheckout
-            cell.selectedColorLbl = .white
-            
-            return cell
+        case .location:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardTableCell", for: indexPath) as! DashboardTableCell
+            if isCheckOut {
+                let listObj = checkOutLists[indexPath.row]
+                cell.setDashboardCellView(listObj)
+                cell.selectedColor = colorUtils.yellowCheckout
+                cell.selectedColorLbl = .black
+                
+                return cell
+                
+            } else {
+                let listObj = checkInLists[indexPath.row]
+                cell.setDashboardCellView(listObj)
+                cell.selectedColor = colorUtils.blueCheckout
+                cell.selectedColorLbl = .white
+                
+                return cell
+            }
         }
     }
     
@@ -335,17 +357,25 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 {
+        let section = SectionType.init(section: section)
+
+        switch section {
+        case .checkBox:
+            return 0
+        case .location:
             return 44
         }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
+        let section = SectionType.init(section: section)
+
+        switch section {
+        case .checkBox:
+            return nil
+        case .location:
             return "Location"
         }
-        return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
